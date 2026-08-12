@@ -1,0 +1,7 @@
+node_modules/
+.superpowers/
+.impeccable/
+ref/
+.DS_Store
+Thumbs.db
+*.log
