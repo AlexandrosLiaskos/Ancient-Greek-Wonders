@@ -14,6 +14,7 @@ test('Pages artifact includes runtime files and excludes development files', asy
   await Promise.all([
     mkdir(join(fixture, 'src'), { recursive: true }),
     mkdir(join(fixture, 'assets', 'images'), { recursive: true }),
+    mkdir(join(fixture, 'media', 'review'), { recursive: true }),
     mkdir(join(fixture, 'node_modules', 'example'), { recursive: true })
   ]);
   await Promise.all([
@@ -21,8 +22,10 @@ test('Pages artifact includes runtime files and excludes development files', asy
     writeFile(join(fixture, '404.html'), '404'),
     writeFile(join(fixture, 'styles.css'), 'body{}'),
     writeFile(join(fixture, 'LICENSE'), 'MIT'),
+    writeFile(join(fixture, 'ATTRIBUTIONS.md'), '# Image Attributions'),
     writeFile(join(fixture, 'src', 'app.js'), 'export {};'),
     writeFile(join(fixture, 'assets', 'images', 'hero.jpg'), 'image'),
+    writeFile(join(fixture, 'media', 'review', 'candidate.jpg'), 'preview'),
     writeFile(join(fixture, 'package.json'), '{}'),
     writeFile(join(fixture, 'node_modules', 'example', 'index.js'), 'large')
   ]);
@@ -32,6 +35,8 @@ test('Pages artifact includes runtime files and excludes development files', asy
   assert.equal(await readFile(join(output, 'index.html'), 'utf8'), '<h1>Atlas</h1>');
   await access(join(output, 'src', 'app.js'));
   await access(join(output, 'assets', 'images', 'hero.jpg'));
+  assert.equal(await readFile(join(output, 'ATTRIBUTIONS.md'), 'utf8'), '# Image Attributions');
+  await assert.rejects(access(join(output, 'media')));
   await assert.rejects(access(join(output, 'package.json')));
   await assert.rejects(access(join(output, 'node_modules')));
 });

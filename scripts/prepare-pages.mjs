@@ -3,7 +3,7 @@ import { basename, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const REQUIRED = ['index.html', '404.html', 'styles.css', 'src'];
-const OPTIONAL = ['assets', 'LICENSE'];
+const OPTIONAL = ['assets', 'ATTRIBUTIONS.md', 'LICENSE'];
 
 async function exists(path) {
   try {
