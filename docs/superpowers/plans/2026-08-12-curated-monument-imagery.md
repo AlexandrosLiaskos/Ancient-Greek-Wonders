@@ -6,7 +6,7 @@
 
 **Architecture:** A checked-in `media/manifest.json` is the provenance source of truth. A Node script validates each Commons/institutional source, downloads approved originals, produces local responsive WebP derivatives under `assets/images/`, and generates `src/data/media.js` plus `ATTRIBUTIONS.md`; runtime catalog records merge media by stable record ID. The detail renderer uses intrinsic dimensions, responsive sources, bilingual alt text, a media-type badge for non-documentary imagery, an inline credit, and a resilient fallback.
 
-**Tech Stack:** Static ES modules, Node 22, built-in Node test runner, MediaWiki/Wikimedia Commons APIs, Sharp 0.34.x as a development-only image processor, HTML/CSS, GitHub Pages.
+**Tech Stack:** Static ES modules, Node 22, built-in Node test runner, MediaWiki/Wikimedia Commons APIs, Sharp 0.35.x as a development-only image processor, HTML/CSS, GitHub Pages.
 
 ## Global Constraints
 
@@ -75,7 +75,7 @@ Run `node --test tests/media-build.test.js`; expect the build script import to f
 
 - [ ] **Step 3: Add Sharp and implement deterministic processing**
 
-Install exact dev dependency `sharp@0.34.3`. Implement downloads with a descriptive User-Agent, 30-second timeout, maximum 25 MB response size, HTTP status validation, and retry once for 429/5xx. Process with autorotation, no enlargement, WebP quality 82, and strip nonessential metadata.
+Install exact dev dependency `sharp@0.35.3` (the first release line that resolves GHSA-f88m-g3jw-g9cj). Implement downloads with a descriptive User-Agent, 30-second timeout, maximum 25 MB response size, HTTP status validation, and retry once for 429/5xx. Process with autorotation, no enlargement, WebP quality 82, and strip nonessential metadata.
 
 - [ ] **Step 4: Implement provenance generation**
 
