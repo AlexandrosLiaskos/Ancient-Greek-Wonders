@@ -1,7 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { access } from 'node:fs/promises';
+import { resolve } from 'node:path';
 
 import { attachMedia, validateMediaRecord } from '../src/core/media.js';
+import { MEDIA_BY_ID } from '../src/data/media.js';
+import { WONDERS } from '../src/data/wonders.js';
 
 const hero = {
   src: './assets/images/example/hero-960.webp',
@@ -35,4 +39,18 @@ test('attachMedia preserves order, maps stable ids and rejects unknown ids', () 
   assert.equal(attached[0].media.hero.creator, 'Example Photographer');
   assert.equal(attached[1].media, null);
   assert.throws(() => attachMedia(records, { unknown: { hero, gallery: [] } }), /unknown record id/);
+});
+
+test('all 37 catalog records have complete, local, licensed heroes', async () => {
+  assert.equal(WONDERS.length, 37);
+  assert.deepEqual(Object.keys(MEDIA_BY_ID).sort(), WONDERS.map(({ id }) => id).sort());
+  for (const record of WONDERS) {
+    const hero = record.media?.hero;
+    assert.ok(hero, `${record.id} is missing a hero`);
+    validateMediaRecord(record.media);
+    assert.ok(hero.width > 0 && hero.height > 0, `${record.id} has invalid dimensions`);
+    assert.ok(hero.alt.en && hero.alt.el, `${record.id} lacks bilingual alt text`);
+    assert.ok(hero.creator && hero.license, `${record.id} lacks attribution`);
+    await access(resolve(hero.src.replace(/^\.\//, '')));
+  }
 });
