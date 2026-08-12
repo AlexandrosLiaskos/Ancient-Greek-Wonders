@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import { formatClusterCount, formatResultCount, t, localizeRecord } from '../src/i18n.js';
-import { createResultMarkup } from '../src/ui/render.js';
+import { createDetailMarkup, createResultMarkup } from '../src/ui/render.js';
 import { WONDERS } from '../src/data/wonders.js';
 
 test('translation returns complete labels in both languages', () => {
@@ -34,4 +34,27 @@ test('result markup remains semantic and exposes the stable record id', () => {
   assert.match(markup, /<button/);
   assert.match(markup, /data-wonder-id="statue-zeus-olympia"/);
   assert.match(markup, /Statue of Zeus at Olympia/);
+});
+
+test('detail markup presents responsive local media with visible provenance', () => {
+  const markup = createDetailMarkup(WONDERS[1], 'en');
+  const hero = WONDERS[1].media.hero;
+  assert.match(markup, /<figure class="detail-figure">/);
+  assert.match(markup, /<picture>/);
+  assert.match(markup, /srcset="[^"]+ 960w, [^"]+ 1920w"/);
+  assert.match(markup, /sizes="\(max-width: 760px\) 100vw, 50vw"/);
+  assert.match(markup, new RegExp(`width="${hero.width}" height="${hero.height}"`));
+  assert.match(markup, /decoding="async" fetchpriority="high"/);
+  assert.match(markup, new RegExp(hero.alt.en));
+  assert.match(markup, /class="media-credit"/);
+  assert.match(markup, /target="_blank" rel="noopener noreferrer"/);
+  assert.match(markup, new RegExp(hero.license));
+});
+
+test('interpretive media is labeled bilingually and missing media keeps the designed fallback', () => {
+  const artwork = createDetailMarkup(WONDERS[0], 'el');
+  assert.match(artwork, /class="media-type-badge">Ιστορική απεικόνιση</);
+  const fallback = createDetailMarkup({ ...WONDERS[0], media: null, heroImage: '' }, 'en');
+  assert.match(fallback, /class="image-placeholder"/);
+  assert.doesNotMatch(fallback, /<img/);
 });
