@@ -1,26 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A bilingual interactive atlas of 37 wonders of the ancient Greek world.">
+  <meta id="meta-description" name="description" content="A bilingual interactive atlas of 37 wonders of the ancient Greek world.">
   <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:,">
   <title>Wonders of the Ancient Greek World</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://a.basemaps.cartocdn.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#map">Skip to map</a>
+  <a class="skip-link" href="#map" data-i18n="skipToMap">Skip to map</a>
   <div id="app">
     <header class="masthead">
       <div class="masthead-rule" aria-hidden="true"></div>
       <div class="masthead-copy">
-        <p class="masthead-kicker">Ἑλληνικὰ θαύματα · Mediterranean atlas</p>
+        <p class="masthead-kicker" data-i18n="mastheadKicker">Ἑλληνικὰ θαύματα · Mediterranean atlas</p>
         <h1 id="masthead-title"><span>Wonders</span> <i>of the Ancient Greek World</i></h1>
       </div>
       <div class="masthead-actions">
@@ -33,20 +37,20 @@
 
     <main class="app-shell">
       <aside id="sidebar" class="sidebar" aria-label="Catalog controls">
-        <nav class="tool-rail" aria-label="Sections">
-          <button class="rail-button is-active" type="button" data-tab="explore" aria-label="Explore" aria-selected="true">
+        <nav class="tool-rail" aria-label="Sections" role="tablist">
+          <button id="tab-explore" class="rail-button is-active" type="button" role="tab" data-tab="explore" aria-controls="panel-explore" aria-label="Explore" aria-selected="true" tabindex="0">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z M9 4v14M15 6v14"/></svg>
           </button>
-          <button class="rail-button" type="button" data-tab="search" aria-label="Search" aria-selected="false">
+          <button id="tab-search" class="rail-button" type="button" role="tab" data-tab="search" aria-controls="panel-search" aria-label="Search" aria-selected="false" tabindex="-1">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4 4"/></svg>
           </button>
-          <button class="rail-button" type="button" data-tab="about" aria-label="About" aria-selected="false">
+          <button id="tab-about" class="rail-button" type="button" role="tab" data-tab="about" aria-controls="panel-about" aria-label="About" aria-selected="false" tabindex="-1">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 10v7M12 7h.01"/></svg>
           </button>
         </nav>
 
         <div class="sidebar-panel">
-          <section class="tab-panel is-active" data-panel="explore">
+          <section id="panel-explore" class="tab-panel is-active" role="tabpanel" aria-labelledby="tab-explore" data-panel="explore">
             <div class="panel-heading">
               <h2 data-i18n="explore">Explore</h2>
               <button class="text-button" id="reset-filters" type="button" data-i18n="reset">Reset</button>
@@ -62,18 +66,18 @@
               <select id="status-filter"><option value="">All</option></select>
               <label class="check-row"><input id="seven-filter" type="checkbox"><span data-i18n="sevenOnly">Seven Wonders only</span></label>
             </fieldset>
-            <div class="legend" aria-label="Map legend">
+            <div class="legend" role="group" aria-label="Map legend">
               <span><i class="legend-dot legend-dot--extant"></i><b data-legend="extant">Standing / restored</b></span>
               <span><i class="legend-dot legend-dot--ruins"></i><b data-legend="ruins">Ruins / excavated</b></span>
               <span><i class="legend-dot legend-dot--lost"></i><b data-legend="lost">Lost</b></span>
             </div>
           </section>
 
-          <section class="tab-panel" data-panel="search" hidden>
+          <section id="panel-search" class="tab-panel" role="tabpanel" aria-labelledby="tab-search" data-panel="search" hidden>
             <div class="panel-heading"><h2 data-i18n="searchTab">Search</h2></div>
             <label class="search-label" for="search-input" data-i18n="search">Search monuments</label>
-            <input id="search-input" class="search-input" type="search" autocomplete="off" data-i18n-placeholder="searchHint" placeholder="Name, place, period, or description">
-            <div class="catalog-header"><span id="result-count">37 monuments shown</span></div>
+            <input id="search-input" class="search-input" name="query" type="search" autocomplete="off" spellcheck="false" data-i18n-placeholder="searchHint" placeholder="Name, place, period, or description…">
+            <div class="catalog-header"><span id="result-count" aria-live="polite">37 monuments shown</span></div>
             <div id="result-list" class="result-list"></div>
             <div id="empty-state" class="empty-state" hidden>
               <p data-i18n="noResults">No monuments match these filters.</p>
@@ -81,23 +85,23 @@
             </div>
           </section>
 
-          <section class="tab-panel about-panel" data-panel="about" hidden>
+          <section id="panel-about" class="tab-panel about-panel" role="tabpanel" aria-labelledby="tab-about" data-panel="about" hidden>
             <div class="panel-heading"><h2 data-i18n="about">About</h2></div>
             <p data-i18n="dataNote">A bilingual geographic catalog of 37 monuments across the ancient Greek world.</p>
             <h3 data-i18n="methodology">Methodology</h3>
             <p data-i18n="methodologyText">Coordinates identify the archaeological site or the commonly accepted historical location. They do not claim an exact footprint for lost monuments. Dates marked “c.” are approximate.</p>
             <p class="image-policy" data-i18n="imagePolicy">Image fields are intentionally empty so the repository owner can curate and add local files.</p>
-            <a class="source-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a>
           </section>
         </div>
       </aside>
 
       <section class="map-stage" aria-label="Map of ancient Greek wonders">
         <div id="map" tabindex="0"></div>
-        <div id="map-fallback" class="map-fallback" role="status" hidden data-i18n="mapUnavailable">The interactive map is unavailable. The complete catalog remains accessible below.</div>
-        <button id="catalog-toggle" class="catalog-toggle" type="button" data-i18n="list">Catalog</button>
+        <div id="map-fallback" class="map-fallback" role="status" hidden data-i18n="mapUnavailable">The interactive map is unavailable. Open the catalog to browse all monuments.</div>
+        <button id="catalog-toggle" class="catalog-toggle" type="button" aria-controls="sidebar" aria-expanded="false" data-i18n="list">Catalog</button>
         <div class="map-status"><span id="map-count">37</span><span>37.20° N · 23.60° E</span></div>
       </section>
+      <button id="sidebar-scrim" class="sidebar-scrim" type="button" aria-label="Close catalog" hidden></button>
     </main>
   </div>
 

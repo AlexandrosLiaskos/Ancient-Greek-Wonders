@@ -1,33 +1,39 @@
 const UI = {
   en: {
     explore: 'Explore', searchTab: 'Search', about: 'About', search: 'Search monuments',
-    searchHint: 'Name, place, period, or description', filters: 'Filters', category: 'Type',
+    searchHint: 'Name, place, period, or description…', filters: 'Filters', category: 'Type',
     country: 'Modern country', status: 'Survival', all: 'All', sevenOnly: 'Seven Wonders only',
     reset: 'Reset', results: 'monuments shown', noResults: 'No monuments match these filters.',
-    resetFilters: 'Show all monuments', mapUnavailable: 'The interactive map is unavailable. The complete catalog remains accessible below.',
+    resetFilters: 'Show all monuments', mapUnavailable: 'The interactive map is unavailable. Open the catalog to browse all monuments.',
     sources: 'Sources', representative: 'Representative location', missingImage: 'Image reserved',
     missingImageHelp: 'Add a local image path to heroImage in src/data/wonders.js.',
     close: 'Close', openDetails: 'Open details', viewOnMap: 'View on map', canonical: 'One of the Seven Wonders',
     methodology: 'Methodology', methodologyText: 'Coordinates identify the archaeological site or the commonly accepted historical location. They do not claim an exact footprint for lost monuments. Dates marked “c.” are approximate.',
     imagePolicy: 'Image fields are intentionally empty so the repository owner can curate and add local files.',
     dataNote: 'A bilingual geographic catalog of 37 monuments across the ancient Greek world.',
-    language: 'ΕΛ', basemap: 'Basemap', list: 'Catalog', openCatalog: 'Open catalog', closeCatalog: 'Close catalog',
-    sections: 'Sections', catalogControls: 'Catalog controls', mapLabel: 'Map of ancient Greek wonders'
+    language: 'ΕΛ', languageLabel: 'ΕΛ — Switch to Greek', basemap: 'Basemap', list: 'Catalog', openCatalog: 'Open catalog', closeCatalog: 'Close catalog',
+    sections: 'Sections', catalogControls: 'Catalog controls', mapLabel: 'Map of ancient Greek wonders',
+    skipToMap: 'Skip to map', legendLabel: 'Map legend', mastheadKicker: 'Ἑλληνικὰ θαύματα · Mediterranean atlas',
+    metaDescription: 'A bilingual interactive atlas of 37 wonders of the ancient Greek world.',
+    zoomIn: 'Zoom in', zoomOut: 'Zoom out', mapLayers: 'Map layers'
   },
   el: {
     explore: 'Εξερεύνηση', searchTab: 'Αναζήτηση', about: 'Σχετικά', search: 'Αναζήτηση μνημείων',
-    searchHint: 'Όνομα, τόπος, περίοδος ή περιγραφή', filters: 'Φίλτρα', category: 'Τύπος',
+    searchHint: 'Όνομα, τόπος, περίοδος ή περιγραφή…', filters: 'Φίλτρα', category: 'Τύπος',
     country: 'Σύγχρονη χώρα', status: 'Κατάσταση διατήρησης', all: 'Όλα', sevenOnly: 'Μόνο τα Επτά Θαύματα',
     reset: 'Επαναφορά', results: 'μνημεία εμφανίζονται', noResults: 'Κανένα μνημείο δεν αντιστοιχεί στα φίλτρα.',
-    resetFilters: 'Εμφάνιση όλων', mapUnavailable: 'Ο διαδραστικός χάρτης δεν είναι διαθέσιμος. Ο πλήρης κατάλογος παραμένει προσβάσιμος παρακάτω.',
+    resetFilters: 'Εμφάνιση όλων', mapUnavailable: 'Ο διαδραστικός χάρτης δεν είναι διαθέσιμος. Άνοιξε τον κατάλογο για να δεις όλα τα μνημεία.',
     sources: 'Πηγές', representative: 'Ενδεικτική θέση', missingImage: 'Δεσμευμένη θέση εικόνας',
     missingImageHelp: 'Πρόσθεσε τοπική διαδρομή στο heroImage μέσα στο src/data/wonders.js.',
     close: 'Κλείσιμο', openDetails: 'Άνοιγμα πληροφοριών', viewOnMap: 'Προβολή στον χάρτη', canonical: 'Ένα από τα Επτά Θαύματα',
     methodology: 'Μεθοδολογία', methodologyText: 'Οι συντεταγμένες προσδιορίζουν τον αρχαιολογικό χώρο ή την κοινώς αποδεκτή ιστορική θέση. Δεν δηλώνουν ακριβές αποτύπωμα για χαμένα μνημεία. Οι χρονολογίες με «περ.» είναι κατά προσέγγιση.',
     imagePolicy: 'Τα πεδία εικόνων είναι σκόπιμα κενά, ώστε ο ιδιοκτήτης του αποθετηρίου να επιλέξει και να προσθέσει τοπικά αρχεία.',
     dataNote: 'Δίγλωσσος γεωγραφικός κατάλογος 37 μνημείων του αρχαίου ελληνικού κόσμου.',
-    language: 'EN', basemap: 'Υπόβαθρο', list: 'Κατάλογος', openCatalog: 'Άνοιγμα καταλόγου', closeCatalog: 'Κλείσιμο καταλόγου',
-    sections: 'Ενότητες', catalogControls: 'Χειριστήρια καταλόγου', mapLabel: 'Χάρτης των θαυμάτων του αρχαίου ελληνικού κόσμου'
+    language: 'EN', languageLabel: 'EN — Μετάβαση στα Αγγλικά', basemap: 'Υπόβαθρο', list: 'Κατάλογος', openCatalog: 'Άνοιγμα καταλόγου', closeCatalog: 'Κλείσιμο καταλόγου',
+    sections: 'Ενότητες', catalogControls: 'Χειριστήρια καταλόγου', mapLabel: 'Χάρτης των θαυμάτων του αρχαίου ελληνικού κόσμου',
+    skipToMap: 'Μετάβαση στον χάρτη', legendLabel: 'Υπόμνημα χάρτη', mastheadKicker: 'Ἑλληνικὰ θαύματα · Μεσογειακός άτλας',
+    metaDescription: 'Δίγλωσσος διαδραστικός άτλας 37 θαυμάτων του αρχαίου ελληνικού κόσμου.',
+    zoomIn: 'Μεγέθυνση', zoomOut: 'Σμίκρυνση', mapLayers: 'Επίπεδα χάρτη'
   }
 };
 
@@ -54,6 +60,15 @@ export const COUNTRY_LABELS = {
 
 export function t(language, key) {
   return UI[language]?.[key] ?? UI.en[key] ?? key;
+}
+
+export function formatResultCount(language, count) {
+  if (language === 'el') return count === 1 ? 'Εμφανίζεται 1 μνημείο' : `Εμφανίζονται ${count} μνημεία`;
+  return `${count} ${count === 1 ? 'monument' : 'monuments'} shown`;
+}
+
+export function formatClusterCount(language, count) {
+  return `${count} ${language === 'el' ? 'μνημεία' : count === 1 ? 'monument' : 'monuments'}`;
 }
 
 export function localizeRecord(record, language) {

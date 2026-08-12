@@ -1,4 +1,9 @@
-import { localizeRecord } from '../i18n.js';
+import { formatClusterCount, localizeRecord, t } from '../i18n.js';
+import { escapeHtml } from '../ui/render.js';
+
+export function mapControlLabels(language) {
+  return { zoomIn: t(language, 'zoomIn'), zoomOut: t(language, 'zoomOut'), layers: t(language, 'mapLayers') };
+}
 
 export function markerDescriptor(record, language) {
   const item = localizeRecord(record, language);
@@ -21,7 +26,7 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
   if (!L) throw new Error('Leaflet is unavailable');
 
   const map = L.map(element, { zoomControl: false, minZoom: 3, worldCopyJump: true }).setView([37.2, 23.6], 5);
-  L.control.zoom({ position: 'topright' }).addTo(map);
+  const zoomControl = L.control.zoom({ position: 'topright' }).addTo(map);
 
   const layers = {
     'Carto Light': L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -35,9 +40,22 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     })
   };
   layers['Carto Light'].addTo(map);
-  L.control.layers(layers, null, { position: 'topright' }).addTo(map);
+  const layerControl = L.control.layers(layers, null, { position: 'topright' }).addTo(map);
 
-  const cluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 44, spiderfyOnMaxZoom: true });
+  const cluster = L.markerClusterGroup({
+    showCoverageOnHover: false,
+    maxClusterRadius: 44,
+    spiderfyOnMaxZoom: true,
+    iconCreateFunction: (group) => {
+      const count = group.getChildCount();
+      const size = count < 10 ? 'small' : count < 100 ? 'medium' : 'large';
+      return L.divIcon({
+        className: `marker-cluster marker-cluster-${size}`,
+        html: `<div role="img" aria-label="${escapeHtml(formatClusterCount(language, count))}"><span>${count}</span></div>`,
+        iconSize: [40, 40]
+      });
+    }
+  });
   const markers = new Map();
   map.addLayer(cluster);
 
@@ -49,7 +67,7 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
       iconSize: [34, 34], iconAnchor: [17, 17]
     });
     const marker = L.marker(item.coordinates, { icon, title: item.name, keyboard: true });
-    marker.bindTooltip(`<div class="map-tooltip"><small>${item.category}</small><strong>${item.name}</strong><span>${item.location}</span><em>${item.period}</em></div>`, { direction: 'top', offset: [0, -18], opacity: 1 });
+    marker.bindTooltip(`<div class="map-tooltip"><small>${escapeHtml(item.category)}</small><strong>${escapeHtml(item.name)}</strong><span>${escapeHtml(item.location)}</span><em>${escapeHtml(item.period)}</em></div>`, { direction: 'top', offset: [0, -18], opacity: 1 });
     marker.on('click', () => onSelect(record.id));
     return marker;
   };
@@ -63,12 +81,29 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
       markers.set(record.id, marker);
       cluster.addLayer(marker);
     });
+    const labels = mapControlLabels(language);
+    const zoomLinks = zoomControl.getContainer().querySelectorAll('a');
+    [[zoomLinks[0], labels.zoomIn], [zoomLinks[1], labels.zoomOut]].forEach(([link, label]) => {
+      link?.setAttribute('title', label);
+      link?.setAttribute('aria-label', label);
+    });
+    const layerToggle = layerControl.getContainer().querySelector('.leaflet-control-layers-toggle');
+    layerToggle?.setAttribute('title', labels.layers);
+    layerToggle?.setAttribute('aria-label', labels.layers);
   };
 
   const focus = (record) => {
     const marker = markers.get(record.id);
-    map.flyTo([record.coordinates.lat, record.coordinates.lng], Math.max(map.getZoom(), 10), { duration: 0.65 });
-    if (marker) setTimeout(() => marker.openTooltip(), 680);
+    const destination = [record.coordinates.lat, record.coordinates.lng];
+    const zoom = Math.max(map.getZoom(), 10);
+    const reducedMotion = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
+      map.setView(destination, zoom, { animate: false });
+      marker?.openTooltip();
+    } else {
+      map.flyTo(destination, zoom, { duration: 0.65 });
+      if (marker) setTimeout(() => marker.openTooltip(), 680);
+    }
   };
 
   update(records, language);

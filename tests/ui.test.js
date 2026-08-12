@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { t, localizeRecord } from '../src/i18n.js';
+import { formatClusterCount, formatResultCount, t, localizeRecord } from '../src/i18n.js';
 import { createResultMarkup } from '../src/ui/render.js';
 import { WONDERS } from '../src/data/wonders.js';
 
@@ -10,6 +10,17 @@ test('translation returns complete labels in both languages', () => {
   assert.equal(t('el', 'search'), 'Αναζήτηση μνημείων');
   assert.equal(t('el', 'openCatalog'), 'Άνοιγμα καταλόγου');
   assert.equal(t('el', 'mapLabel'), 'Χάρτης των θαυμάτων του αρχαίου ελληνικού κόσμου');
+  assert.equal(t('el', 'skipToMap'), 'Μετάβαση στον χάρτη');
+  assert.equal(t('el', 'legendLabel'), 'Υπόμνημα χάρτη');
+});
+
+test('result and cluster counts use correct singular and plural grammar', () => {
+  assert.equal(formatResultCount('en', 1), '1 monument shown');
+  assert.equal(formatResultCount('en', 2), '2 monuments shown');
+  assert.equal(formatResultCount('el', 1), 'Εμφανίζεται 1 μνημείο');
+  assert.equal(formatResultCount('el', 2), 'Εμφανίζονται 2 μνημεία');
+  assert.equal(formatClusterCount('en', 3), '3 monuments');
+  assert.equal(formatClusterCount('el', 3), '3 μνημεία');
 });
 
 test('localizeRecord selects the requested bilingual fields', () => {

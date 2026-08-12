@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { markerDescriptor } from '../src/map/map.js';
+import { mapControlLabels, markerDescriptor } from '../src/map/map.js';
 import { WONDERS } from '../src/data/wonders.js';
 
 test('marker descriptor carries stable styling and non-color status text', () => {
@@ -17,4 +17,9 @@ test('marker descriptor localizes labels without changing coordinates', () => {
   const el = markerDescriptor(WONDERS[9], 'el');
   assert.equal(el.name, 'Παρθενώνας');
   assert.deepEqual(el.coordinates, en.coordinates);
+});
+
+test('map controls expose localized accessible names', () => {
+  assert.deepEqual(mapControlLabels('en'), { zoomIn: 'Zoom in', zoomOut: 'Zoom out', layers: 'Map layers' });
+  assert.deepEqual(mapControlLabels('el'), { zoomIn: 'Μεγέθυνση', zoomOut: 'Σμίκρυνση', layers: 'Επίπεδα χάρτη' });
 });
