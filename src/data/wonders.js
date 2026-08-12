@@ -1,8 +1,11 @@
+import { attachMedia } from '../core/media.js';
+import { MEDIA_BY_ID } from './media.js';
+
 const UNESCO = (id, title = 'UNESCO World Heritage Centre') => ({ title, url: `https://whc.unesco.org/en/list/${id}/` });
 const BRITANNICA = (slug, title = 'Encyclopaedia Britannica') => ({ title, url: `https://www.britannica.com/topic/${slug}` });
 const CULTURE_GR = { title: 'Hellenic Ministry of Culture', url: 'https://www.culture.gov.gr/' };
 
-export const WONDERS = [
+const RAW_WONDERS = [
   {
     id: 'statue-zeus-olympia', order: 1,
     name: { en: 'Statue of Zeus at Olympia', el: 'Άγαλμα του Διός στην Ολυμπία' },
@@ -337,3 +340,5 @@ export const WONDERS = [
     heroImage: '', gallery: [], sources: [CULTURE_GR]
   }
 ];
+
+export const WONDERS = attachMedia(RAW_WONDERS, MEDIA_BY_ID);
