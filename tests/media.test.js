@@ -41,7 +41,7 @@ test('attachMedia preserves order, maps stable ids and rejects unknown ids', () 
   assert.throws(() => attachMedia(records, { unknown: { hero, gallery: [] } }), /unknown record id/);
 });
 
-test('all 37 catalog records have complete, local, licensed heroes', async () => {
+test('all 37 catalog records have complete local heroes and at least two gallery images', async () => {
   assert.equal(WONDERS.length, 37);
   assert.deepEqual(Object.keys(MEDIA_BY_ID).sort(), WONDERS.map(({ id }) => id).sort());
   for (const record of WONDERS) {
@@ -52,5 +52,7 @@ test('all 37 catalog records have complete, local, licensed heroes', async () =>
     assert.ok(hero.alt.en && hero.alt.el, `${record.id} lacks bilingual alt text`);
     assert.ok(hero.creator && hero.license, `${record.id} lacks attribution`);
     await access(resolve(hero.src.replace(/^\.\//, '')));
+    assert.ok(record.media.gallery.length >= 2, `${record.id} needs at least two gallery images`);
+    for (const asset of record.media.gallery) await access(resolve(asset.src.replace(/^\.\//, '')));
   }
 });

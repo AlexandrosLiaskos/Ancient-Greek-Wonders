@@ -3,6 +3,7 @@ import { filterWonders, uniqueValues } from './core/catalog.js';
 import { parseUrlState, serializeUrlState } from './core/url-state.js';
 import { CATEGORY_LABELS, COUNTRY_LABELS, STATUS_LABELS, formatResultCount, t } from './i18n.js';
 import { createDetailMarkup, createResultMarkup } from './ui/render.js';
+import { initializeGallery } from './ui/gallery.js';
 import { createWondersMap } from './map/map.js';
 
 const state = parseUrlState(location.search, WONDERS);
@@ -20,6 +21,7 @@ const elements = {
 let mapController = null;
 let currentRecords = WONDERS;
 let sidebarOpener = null;
+let detailGallery = null;
 const mobileQuery = globalThis.matchMedia('(max-width: 760px)');
 
 function setOptions(select, values, labels) {
@@ -117,6 +119,7 @@ function openDetails(id, focusMap = false) {
   if (!record) return;
   state.selectedId = record.id;
   elements.detail.innerHTML = createDetailMarkup(record, state.language);
+  detailGallery = initializeGallery(elements.detail);
   elements.detailClose.setAttribute('aria-label', t(state.language, 'close'));
   if (!elements.dialog.open) elements.dialog.showModal();
   if (focusMap) mapController?.focus(record);
@@ -216,6 +219,8 @@ document.querySelectorAll('[data-mobile-tab]').forEach((button) => button.addEve
 elements.scrim.addEventListener('click', () => toggleSidebar(false));
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && elements.sidebar.classList.contains('is-open') && !elements.dialog.open) toggleSidebar(false);
+  if (elements.dialog.open && event.key === 'ArrowLeft') detailGallery?.move(-1);
+  if (elements.dialog.open && event.key === 'ArrowRight') detailGallery?.move(1);
 });
 mobileQuery.addEventListener('change', ({ matches }) => {
   if (matches) {

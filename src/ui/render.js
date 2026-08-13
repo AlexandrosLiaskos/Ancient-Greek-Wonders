@@ -33,18 +33,26 @@ export function createMapPreviewMarkup(record, language) {
   </article>`;
 }
 
+function createMediaFigure(asset, language, index, eager) {
+  const badge = asset.type === 'photo' ? '' : `<span class="media-type-badge">${escapeHtml(t(language, `mediaType_${asset.type}`))}</span>`;
+  const alt = asset.alt[language] ?? asset.alt.en;
+  return `<figure class="detail-figure" data-gallery-slide="${index}">
+    <picture><source type="image/webp" srcset="${escapeHtml(asset.srcset)}" sizes="(max-width: 760px) 100vw, 50vw"><img class="detail-image" src="${escapeHtml(asset.src)}" srcset="${escapeHtml(asset.srcset)}" sizes="(max-width: 760px) 100vw, 50vw" width="${asset.width}" height="${asset.height}" alt="${escapeHtml(alt)}" ${eager ? 'decoding="async" fetchpriority="high"' : 'loading="lazy" decoding="async"'} style="object-position:${escapeHtml(asset.focalPoint)}"></picture>
+    ${badge}
+    <figcaption class="media-credit"><a href="${escapeHtml(asset.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(asset.creator)}</a><span aria-hidden="true">·</span><a href="${escapeHtml(asset.licenseUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(asset.license)}</a></figcaption>
+  </figure>`;
+}
+
 function createMediaMarkup(record, language) {
   const hero = record.media?.hero;
   if (!hero) {
     return `<div class="image-placeholder"><span>${String(record.order).padStart(2, '0')}</span><strong>${escapeHtml(t(language, 'missingImage'))}</strong><small>${escapeHtml(t(language, 'missingImageHelp'))}</small></div>`;
   }
-  const badge = hero.type === 'photo' ? '' : `<span class="media-type-badge">${escapeHtml(t(language, `mediaType_${hero.type}`))}</span>`;
-  const alt = hero.alt[language] ?? hero.alt.en;
-  return `<figure class="detail-figure">
-    <picture><source type="image/webp" srcset="${escapeHtml(hero.srcset)}" sizes="(max-width: 760px) 100vw, 50vw"><img class="detail-image" src="${escapeHtml(hero.src)}" srcset="${escapeHtml(hero.srcset)}" sizes="(max-width: 760px) 100vw, 50vw" width="${hero.width}" height="${hero.height}" alt="${escapeHtml(alt)}" decoding="async" fetchpriority="high" style="object-position:${escapeHtml(hero.focalPoint)}"></picture>
-    ${badge}
-    <figcaption class="media-credit"><a href="${escapeHtml(hero.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hero.creator)}</a><span aria-hidden="true">·</span><a href="${escapeHtml(hero.licenseUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hero.license)}</a></figcaption>
-  </figure>`;
+  const assets = [hero, ...(record.media.gallery ?? [])];
+  return `<div class="detail-gallery" aria-label="${escapeHtml(t(language, 'imageGallery'))}">
+    <div class="detail-gallery-track" data-gallery-track>${assets.map((asset, index) => createMediaFigure(asset, language, index, index === 0)).join('')}</div>
+    ${assets.length > 1 ? `<div class="gallery-controls"><button type="button" data-gallery-prev aria-label="${escapeHtml(t(language, 'previousImage'))}">←</button><output data-gallery-count>1 / ${assets.length}</output><button type="button" data-gallery-next aria-label="${escapeHtml(t(language, 'nextImage'))}">→</button></div>` : ''}
+  </div>`;
 }
 
 export function createDetailMarkup(record, language) {

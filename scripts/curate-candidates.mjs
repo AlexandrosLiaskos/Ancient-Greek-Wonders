@@ -6,11 +6,12 @@ import { WONDERS } from '../src/data/wonders.js';
 const USER_AGENT = 'AncientGreekWonders/1.0 (educational image curation)';
 const REVIEW = join(process.cwd(), 'media', 'review');
 const SEARCH_OVERRIDES = {
-  'statue-zeus-olympia': 'Jupiter Olympien Quatremere de Quincy reconstruction',
+  'statue-zeus-olympia': 'Statue Zeus Olympia reconstruction engraving',
   'mausoleum-halicarnassus': 'Mausoleum Halicarnassus reconstruction',
   'colossus-rhodes': 'Colossus of Rhodes engraving Helios',
   'lighthouse-alexandria': 'Pharos of Alexandria',
   knossos: 'Palace of Knossos Crete Greece',
+  parthenon: 'Parthenon Athens Acropolis Greece',
   'temple-apollo-delphi': 'Temple Apollo Delphi Greece',
   akrotiri: 'Akrotiri Santorini archaeological excavation streets',
   'olympieion-athens': 'Olympieion Athens Temple Zeus',
@@ -24,14 +25,14 @@ const SEARCH_OVERRIDES = {
   'temple-e-selinunte': 'Selinunte Temple E Hera Sicily',
   'athena-polias-priene': 'Temple Athena Priene ruins',
   'temple-zeus-cyrene': 'Temple Zeus Cyrene Libya',
-  'asklepieion-epidaurus': 'Sanctuary Asclepius Epidaurus Abaton 52042444054',
-  'olympia-sanctuary-stadium': 'Ancient stadium Olympia Greece starting line',
+  'asklepieion-epidaurus': 'Asclepieion Epidaurus Greece ruins',
+  'olympia-sanctuary-stadium': 'Ancient Olympia stadium Greece',
   'delphi-sanctuary': 'Delphi archaeological site Greece',
-  'athenian-agora': 'Attica 06-13 Athens 22 View Acropolis Museum Ancient Agora',
+  'athenian-agora': 'Ancient Agora Athens Greece Stoa Attalos',
   'odeon-herodes-atticus': 'Odeon Herodes Atticus Athens',
   'propylaea-athens': 'Propylaea Athens',
   'tunnel-eupalinos': 'Tunnel Eupalinos Samos',
-  diolkos: 'ancient Diolkos stone trackway Corinth'
+  diolkos: 'Diolkos Corinth Greece ancient trackway'
 };
 
 const acceptedLicense = /^(?:CC0|Public domain|CC BY(?:-SA)?(?: [234]\.[05])?)$/i;

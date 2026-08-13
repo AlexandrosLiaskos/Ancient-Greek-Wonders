@@ -26,6 +26,27 @@ test('media builder creates WebP derivatives without upscaling', async (t) => {
   assert.equal((await readFile(join(root, 'assets', 'images', 'temple-example', 'hero-960.webp'))).subarray(8, 12).toString(), 'WEBP');
 });
 
+test('media builder creates independently attributed gallery derivatives', async (t) => {
+  const root = await mkdtemp(join(tmpdir(), 'wonders-gallery-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const source = `data:image/svg+xml;base64,${svg.toString('base64')}`;
+  const result = await buildMediaEntry({
+    id: 'temple-example', sourceUrl: source, sourcePage: 'https://commons.wikimedia.org/wiki/File:Hero.svg',
+    type: 'photo', alt: { en: 'Hero temple', el: 'Κεντρική εικόνα ναού' }, creator: 'Hero Creator',
+    license: 'CC0', licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
+    gallery: [{
+      sourceUrl: source, sourcePage: 'https://commons.wikimedia.org/wiki/File:Detail.svg', type: 'photo',
+      alt: { en: 'Temple architectural detail', el: 'Αρχιτεκτονική λεπτομέρεια ναού' }, creator: 'Detail Creator',
+      license: 'CC0', licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/'
+    }]
+  }, { root, fetchImpl: fetch });
+
+  assert.equal(result.gallery.length, 1);
+  assert.match(result.gallery[0].src, /gallery-1-960\.webp$/);
+  assert.equal(result.gallery[0].creator, 'Detail Creator');
+  await access(join(root, 'assets', 'images', 'temple-example', 'gallery-1-960.webp'));
+});
+
 test('media builder rejects unsafe ids before writing', async () => {
   await assert.rejects(
     buildMediaEntry({ id: '../escape', sourceUrl: 'data:image/svg+xml;base64,', sourcePage: 'https://example.com', type: 'photo' }, { root: tmpdir(), fetchImpl: fetch }),

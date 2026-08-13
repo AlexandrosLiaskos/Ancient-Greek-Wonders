@@ -52,7 +52,7 @@ test('map preview connects the local hero to concise bilingual monument context'
 test('detail markup presents responsive local media with visible provenance', () => {
   const markup = createDetailMarkup(WONDERS[1], 'en');
   const hero = WONDERS[1].media.hero;
-  assert.match(markup, /<figure class="detail-figure">/);
+  assert.match(markup, /<figure class="detail-figure"/);
   assert.match(markup, /<picture>/);
   assert.match(markup, /srcset="[^"]+ 960w, [^"]+ 1920w"/);
   assert.match(markup, /sizes="\(max-width: 760px\) 100vw, 50vw"/);
@@ -65,6 +65,20 @@ test('detail markup presents responsive local media with visible provenance', ()
   assert.match(markup, /class="detail-context"/);
   assert.match(markup, /37\.9497° N/);
   assert.match(markup, /27\.3639° E/);
+});
+
+test('detail markup exposes a scrollable, labeled gallery with navigation and count', () => {
+  const galleryAsset = { ...WONDERS[1].media.hero, src: './assets/images/example/gallery-1-960.webp', alt: { en: 'Carved column detail', el: 'Λεπτομέρεια λαξευμένου κίονα' } };
+  const record = { ...WONDERS[1], media: { ...WONDERS[1].media, gallery: [galleryAsset, { ...galleryAsset, src: './assets/images/example/gallery-2-960.webp' }] } };
+  const markup = createDetailMarkup(record, 'en');
+  assert.match(markup, /class="detail-gallery"/);
+  assert.match(markup, /data-gallery-track/);
+  assert.match(markup, /data-gallery-slide="0"/);
+  assert.match(markup, /data-gallery-slide="2"/);
+  assert.match(markup, /data-gallery-prev/);
+  assert.match(markup, /data-gallery-next/);
+  assert.match(markup, /data-gallery-count>1 \/ 3</);
+  assert.match(markup, /loading="lazy"/);
 });
 
 test('interpretive media is labeled bilingually and missing media keeps the designed fallback', () => {

@@ -9,6 +9,13 @@ const WIDTHS = [960, 1920];
 const REUSABLE_LICENSE = /^(?:CC0|Public domain|CC BY(?:-SA)?(?: [234]\.[05])?)$/i;
 const wait = (milliseconds) => new Promise((resolvePromise) => setTimeout(resolvePromise, milliseconds));
 
+function licenseUrl(license) {
+  if (/^CC BY-SA /i.test(license)) return `https://creativecommons.org/licenses/by-sa/${license.split(' ').at(-1)}/`;
+  if (/^CC BY /i.test(license)) return `https://creativecommons.org/licenses/by/${license.split(' ').at(-1)}/`;
+  if (/^CC0$/i.test(license)) return 'https://creativecommons.org/publicdomain/zero/1.0/';
+  return 'https://creativecommons.org/publicdomain/mark/1.0/';
+}
+
 function stripMarkup(value = '') {
   return String(value).replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').trim();
 }
@@ -80,68 +87,76 @@ export async function getCommonsAsset(title, fetchImpl = fetch) {
   };
 }
 
-export async function buildMediaEntry(entry, { root = process.cwd(), fetchImpl = fetch, remoteOverride } = {}) {
+export async function buildMediaEntry(entry, { root = process.cwd(), fetchImpl = fetch, remoteOverride, remoteAssets = {} } = {}) {
   if (!/^[a-z0-9-]+$/.test(entry.id ?? '')) throw new TypeError('Media entry requires a safe record id');
-  const remote = remoteOverride ?? (entry.commonsTitle ? await getCommonsAsset(entry.commonsTitle, fetchImpl) : {
-    downloadUrl: entry.downloadUrl ?? entry.sourceUrl,
-    sourceUrl: entry.sourcePage ?? entry.sourceUrl,
-    creator: entry.creator,
-    date: entry.date ?? '',
-    license: entry.license,
-    licenseUrl: entry.licenseUrl
-  });
   const outputDir = resolve(root, 'assets', 'images', entry.id);
   await mkdir(outputDir, { recursive: true });
-  const generated = [];
-  let sourceDimensions;
-  for (const width of WIDTHS) {
-    const filename = `hero-${width}.webp`;
-    try {
-      await access(join(outputDir, filename));
-      generated.push({ width, filename });
-    } catch {}
-  }
-  if (!generated.length) {
-    const source = await fetchBuffer(remote.downloadUrl, fetchImpl);
-    const image = sharp(source, { failOn: 'warning' }).rotate();
-    const metadata = await image.metadata();
-    if (!metadata.width || !metadata.height) throw new Error(`Unable to read image dimensions for ${entry.id}`);
-    sourceDimensions = metadata;
+  const inlineRemote = (asset) => ({
+    downloadUrl: asset.downloadUrl ?? asset.sourceUrl,
+    sourceUrl: asset.sourcePage ?? asset.sourceUrl,
+    creator: asset.creator,
+    date: asset.date ?? '',
+    license: asset.license,
+    licenseUrl: asset.licenseUrl
+  });
+  const buildAsset = async (asset, prefix, override) => {
+    const remote = override ?? remoteAssets[asset.commonsTitle] ?? (asset.commonsTitle ? await getCommonsAsset(asset.commonsTitle, fetchImpl) : inlineRemote(asset));
+    const generated = [];
+    let sourceDimensions;
     for (const width of WIDTHS) {
-      if (metadata.width < width) continue;
-      const filename = `hero-${width}.webp`;
-      await image.clone().resize({ width, withoutEnlargement: true }).webp({ quality: 82 }).toFile(join(outputDir, filename));
-      generated.push({ width, filename });
+      const filename = `${prefix}-${width}.webp`;
+      try {
+        await access(join(outputDir, filename));
+        generated.push({ width, filename });
+      } catch {}
     }
     if (!generated.length) {
-      const width = metadata.width;
-      const filename = `hero-${width}.webp`;
-      await image.clone().webp({ quality: 82 }).toFile(join(outputDir, filename));
-      generated.push({ width, filename });
+      const source = await fetchBuffer(remote.downloadUrl, fetchImpl);
+      const image = sharp(source, { failOn: 'warning' }).rotate();
+      const metadata = await image.metadata();
+      if (!metadata.width || !metadata.height) throw new Error(`Unable to read image dimensions for ${entry.id}/${prefix}`);
+      sourceDimensions = metadata;
+      for (const width of WIDTHS) {
+        if (metadata.width < width) continue;
+        const filename = `${prefix}-${width}.webp`;
+        await image.clone().resize({ width, withoutEnlargement: true }).webp({ quality: 82 }).toFile(join(outputDir, filename));
+        generated.push({ width, filename });
+      }
+      if (!generated.length) {
+        const width = metadata.width;
+        const filename = `${prefix}-${width}.webp`;
+        await image.clone().webp({ quality: 82 }).toFile(join(outputDir, filename));
+        generated.push({ width, filename });
+      }
     }
-  }
-  const highest = generated.at(-1);
-  const originalWidth = sourceDimensions?.width ?? remote.sourceWidth ?? highest.width;
-  const originalHeight = sourceDimensions?.height ?? remote.sourceHeight ?? highest.width;
-  const outputWidth = highest.width;
-  const outputHeight = Math.round(originalHeight * outputWidth / originalWidth);
-  const base = `./assets/images/${entry.id}`;
-  return {
-    hero: {
+    const highest = generated.at(-1);
+    const originalWidth = sourceDimensions?.width ?? remote.sourceWidth ?? highest.width;
+    const originalHeight = sourceDimensions?.height ?? remote.sourceHeight ?? highest.width;
+    const outputWidth = highest.width;
+    const base = `./assets/images/${entry.id}`;
+    return {
       src: `${base}/${highest.filename}`,
       srcset: generated.map(({ width, filename }) => `${base}/${filename} ${width}w`).join(', '),
       width: outputWidth,
-      height: outputHeight,
-      alt: entry.alt,
-      type: entry.type,
+      height: Math.round(originalHeight * outputWidth / originalWidth),
+      alt: asset.alt,
+      type: asset.type,
       creator: remote.creator,
       date: remote.date,
       sourceUrl: remote.sourceUrl,
       license: remote.license,
       licenseUrl: String(remote.licenseUrl).replace(/^http:\/\//, 'https://'),
-      focalPoint: entry.focalPoint ?? '50% 50%'
-    },
-    gallery: []
+      focalPoint: asset.focalPoint ?? '50% 50%'
+    };
+  };
+  const hero = await buildAsset(entry, 'hero', remoteOverride);
+  const gallery = [];
+  for (let index = 0; index < (entry.gallery ?? []).length; index += 1) {
+    gallery.push(await buildAsset(entry.gallery[index], `gallery-${index + 1}`));
+  }
+  return {
+    hero,
+    gallery
   };
 }
 
@@ -150,16 +165,29 @@ function mediaModule(mediaById) {
 }
 
 function attributions(entries, mediaById) {
-  const rows = entries.map(({ id }) => {
-    const hero = mediaById[id].hero;
-    return `| ${id} | ${hero.creator.replaceAll('|', '\\|')} | [Source](${hero.sourceUrl}) | [${hero.license}](${hero.licenseUrl}) |`;
-  });
-  return `# Image Attributions\n\nAll published images are stored locally. The canonical source pages and reuse terms are listed below.\n\n| Monument ID | Creator | Source | License |\n|---|---|---|---|\n${rows.join('\n')}\n`;
+  const rows = entries.flatMap(({ id }) => [mediaById[id].hero, ...mediaById[id].gallery].map((asset, index) =>
+    `| ${id} | ${index ? `Gallery ${index}` : 'Hero'} | ${asset.creator.replaceAll('|', '\\|')} | [Source](${asset.sourceUrl}) | [${asset.license}](${asset.licenseUrl}) |`
+  ));
+  return `# Image Attributions\n\nAll published images are stored locally. The canonical source pages and reuse terms are listed below.\n\n| Monument ID | Image | Creator | Source | License |\n|---|---|---|---|---|\n${rows.join('\n')}\n`;
 }
 
 export async function buildManifest(root = process.cwd(), fetchImpl = fetch) {
   const manifestPath = join(root, 'media', 'manifest.json');
   const entries = JSON.parse(await readFile(manifestPath, 'utf8'));
+  let candidates = {};
+  try {
+    candidates = JSON.parse(await readFile(join(root, 'media', 'review', 'candidates.json'), 'utf8'));
+  } catch {}
+  const remoteAssets = Object.fromEntries(Object.values(candidates).flat().map((candidate) => [candidate.title, {
+    downloadUrl: candidate.thumbUrl,
+    sourceUrl: candidate.sourceUrl,
+    sourceWidth: candidate.width,
+    sourceHeight: candidate.height,
+    creator: candidate.creator || 'Unknown creator',
+    date: '',
+    license: candidate.license,
+    licenseUrl: licenseUrl(candidate.license)
+  }]));
   let existingMedia = {};
   try {
     const existingModule = await import(`${pathToFileURL(join(root, 'src', 'data', 'media.js')).href}?cache=${Date.now()}`);
@@ -180,7 +208,7 @@ export async function buildManifest(root = process.cwd(), fetchImpl = fetch) {
       sourceWidth: previous.width, sourceHeight: previous.height,
       license: previous.license, licenseUrl: previous.licenseUrl
     } : undefined;
-    mediaById[entry.id] = await buildMediaEntry(entry, { root, fetchImpl, remoteOverride });
+    mediaById[entry.id] = await buildMediaEntry(entry, { root, fetchImpl, remoteOverride, remoteAssets });
     await wait(cached ? 250 : 5000);
   }
   await mkdir(dirname(join(root, 'src', 'data', 'media.js')), { recursive: true });

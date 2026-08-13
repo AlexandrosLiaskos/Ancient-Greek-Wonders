@@ -16,7 +16,8 @@ const UI = {
     sections: 'Sections', catalogControls: 'Catalog controls', mapLabel: 'Map of ancient Greek wonders',
     skipToMap: 'Skip to map', legendLabel: 'Map legend', mastheadKicker: 'Ἑλληνικὰ θαύματα · Mediterranean atlas',
     metaDescription: 'A bilingual interactive atlas of 37 wonders of the ancient Greek world.',
-    zoomIn: 'Zoom in', zoomOut: 'Zoom out', mapLayers: 'Map layers'
+    zoomIn: 'Zoom in', zoomOut: 'Zoom out', mapLayers: 'Map layers', imageGallery: 'Monument image gallery',
+    previousImage: 'Previous image', nextImage: 'Next image'
   },
   el: {
     explore: 'Εξερεύνηση', searchTab: 'Αναζήτηση', about: 'Σχετικά', search: 'Αναζήτηση μνημείων',
@@ -35,7 +36,8 @@ const UI = {
     sections: 'Ενότητες', catalogControls: 'Χειριστήρια καταλόγου', mapLabel: 'Χάρτης των θαυμάτων του αρχαίου ελληνικού κόσμου',
     skipToMap: 'Μετάβαση στον χάρτη', legendLabel: 'Υπόμνημα χάρτη', mastheadKicker: 'Ἑλληνικὰ θαύματα · Μεσογειακός άτλας',
     metaDescription: 'Δίγλωσσος διαδραστικός άτλας 37 θαυμάτων του αρχαίου ελληνικού κόσμου.',
-    zoomIn: 'Μεγέθυνση', zoomOut: 'Σμίκρυνση', mapLayers: 'Επίπεδα χάρτη'
+    zoomIn: 'Μεγέθυνση', zoomOut: 'Σμίκρυνση', mapLayers: 'Επίπεδα χάρτη', imageGallery: 'Συλλογή εικόνων μνημείου',
+    previousImage: 'Προηγούμενη εικόνα', nextImage: 'Επόμενη εικόνα'
   }
 };
 

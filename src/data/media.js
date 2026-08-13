@@ -18,7 +18,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
       "focalPoint": "50% 42%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/statue-zeus-olympia/gallery-1-1920.webp",
+        "srcset": "./assets/images/statue-zeus-olympia/gallery-1-960.webp 960w, ./assets/images/statue-zeus-olympia/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1647,
+        "alt": {
+          "en": "Historical interpretation of Statue of Zeus at Olympia",
+          "el": "Ιστορική απεικόνιση: Άγαλμα του Διός στην Ολυμπία"
+        },
+        "type": "artwork",
+        "creator": "Phidias (Greek sculptor, ca. 490-430 BCE) (artist)",
+        "date": "Unknown",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phidias._Zeus_Reconstructietekening,_GD017828.jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/statue-zeus-olympia/gallery-2-960.webp",
+        "srcset": "./assets/images/statue-zeus-olympia/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 1461,
+        "alt": {
+          "en": "Historical interpretation of Statue of Zeus at Olympia",
+          "el": "Ιστορική απεικόνιση: Άγαλμα του Διός στην Ολυμπία"
+        },
+        "type": "artwork",
+        "creator": "John Jackson",
+        "date": "1835",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Jupiter_of_Phidias.jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "temple-artemis-ephesus": {
     "hero": {
@@ -38,7 +73,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/temple-artemis-ephesus/gallery-1-1920.webp",
+        "srcset": "./assets/images/temple-artemis-ephesus/gallery-1-960.webp 960w, ./assets/images/temple-artemis-ephesus/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1285,
+        "alt": {
+          "en": "Additional curated view of Temple of Artemis at Ephesus",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Αρτέμιδος στην Έφεσο"
+        },
+        "type": "photo",
+        "creator": "simonjenkins' photos",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ephesus_Temple_of_Artemis_2.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/temple-artemis-ephesus/gallery-2-1920.webp",
+        "srcset": "./assets/images/temple-artemis-ephesus/gallery-2-960.webp 960w, ./assets/images/temple-artemis-ephesus/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 2452,
+        "alt": {
+          "en": "Additional curated view of Temple of Artemis at Ephesus",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Αρτέμιδος στην Έφεσο"
+        },
+        "type": "photo",
+        "creator": "Yair Haklai",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Column_drum_from_the_temple_of_Artemis_at_Ephesus_(British_Museum).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "mausoleum-halicarnassus": {
     "hero": {
@@ -58,7 +128,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/mausoleum-halicarnassus/gallery-1-1920.webp",
+        "srcset": "./assets/images/mausoleum-halicarnassus/gallery-1-960.webp 960w, ./assets/images/mausoleum-halicarnassus/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 2577,
+        "alt": {
+          "en": "Historical interpretation of Mausoleum at Halicarnassus",
+          "el": "Ιστορική απεικόνιση: Μαυσωλείο της Αλικαρνασσού"
+        },
+        "type": "artwork",
+        "creator": "Unknown creator",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:J.F.Bertuch-Weltwunder2.JPG",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/mausoleum-halicarnassus/gallery-2-1920.webp",
+        "srcset": "./assets/images/mausoleum-halicarnassus/gallery-2-960.webp 960w, ./assets/images/mausoleum-halicarnassus/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Additional curated view of Mausoleum at Halicarnassus",
+          "el": "Επιλεγμένη επιπλέον άποψη: Μαυσωλείο της Αλικαρνασσού"
+        },
+        "type": "photo",
+        "creator": "Nevit Dilmen",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_maussolleion-bodrum-nevit.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "colossus-rhodes": {
     "hero": {
@@ -78,7 +183,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/colossus-rhodes/gallery-1-556.webp",
+        "srcset": "./assets/images/colossus-rhodes/gallery-1-556.webp 556w",
+        "width": 556,
+        "height": 413,
+        "alt": {
+          "en": "Historical interpretation of Colossus of Rhodes",
+          "el": "Ιστορική απεικόνιση: Κολοσσός της Ρόδου"
+        },
+        "type": "artwork",
+        "creator": "Maarten van Heemskerck / Philip Galle",
+        "date": "2010-08-01 07:38:13",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colossus_of_Rhodes.jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/colossus-rhodes/gallery-2-960.webp",
+        "srcset": "./assets/images/colossus-rhodes/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 1313,
+        "alt": {
+          "en": "Historical interpretation of Colossus of Rhodes",
+          "el": "Ιστορική απεικόνιση: Κολοσσός της Ρόδου"
+        },
+        "type": "artwork",
+        "creator": "gravure sur bois de Sidney Barclay numérisée Google",
+        "date": "1880",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colosse_de_Rhodes_(Barclay).jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "lighthouse-alexandria": {
     "hero": {
@@ -98,7 +238,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/lighthouse-alexandria/gallery-1-1920.webp",
+        "srcset": "./assets/images/lighthouse-alexandria/gallery-1-960.webp 960w, ./assets/images/lighthouse-alexandria/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1594,
+        "alt": {
+          "en": "Historical interpretation of Lighthouse of Alexandria (Pharos)",
+          "el": "Ιστορική απεικόνιση: Φάρος της Αλεξάνδρειας"
+        },
+        "type": "artwork",
+        "creator": "Philip Galle",
+        "date": "1572",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Philip_Galle_-_Lighthouse_of_Alexandria_(Pharos_of_Alexandria)_-_1572.jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/lighthouse-alexandria/gallery-2-1920.webp",
+        "srcset": "./assets/images/lighthouse-alexandria/gallery-2-960.webp 960w, ./assets/images/lighthouse-alexandria/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1360,
+        "alt": {
+          "en": "Historical interpretation of Lighthouse of Alexandria (Pharos)",
+          "el": "Ιστορική απεικόνιση: Φάρος της Αλεξάνδρειας"
+        },
+        "type": "artwork",
+        "creator": "Unknown creator",
+        "date": "2014-10-14 07:31:25",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_pharos_of_Alexandria._Coloured_engraving,_ca._1804-1811._Wellcome_L0047776.jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "theatre-epidaurus": {
     "hero": {
@@ -118,7 +293,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/theatre-epidaurus/gallery-1-1920.webp",
+        "srcset": "./assets/images/theatre-epidaurus/gallery-1-960.webp 960w, ./assets/images/theatre-epidaurus/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Additional curated view of Ancient Theatre of Epidaurus",
+          "el": "Επιλεγμένη επιπλέον άποψη: Αρχαίο Θέατρο Επιδαύρου"
+        },
+        "type": "photo",
+        "creator": "Orlovic",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Epidaurus_seats.JPG",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/theatre-epidaurus/gallery-2-1920.webp",
+        "srcset": "./assets/images/theatre-epidaurus/gallery-2-960.webp 960w, ./assets/images/theatre-epidaurus/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Additional curated view of Ancient Theatre of Epidaurus",
+          "el": "Επιλεγμένη επιπλέον άποψη: Αρχαίο Θέατρο Επιδαύρου"
+        },
+        "type": "photo",
+        "creator": "plusgood",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nafplio,_Greece_-_Ancient_Epidaurus_Theatre_Site.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "temple-apollo-delphi": {
     "hero": {
@@ -138,7 +348,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/temple-apollo-delphi/gallery-1-1920.webp",
+        "srcset": "./assets/images/temple-apollo-delphi/gallery-1-960.webp 960w, ./assets/images/temple-apollo-delphi/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Additional curated view of Temple of Apollo at Delphi",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Απόλλωνα στους Δελφούς"
+        },
+        "type": "photo",
+        "creator": "Patar knight",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columns_of_the_Temple_of_Apollo_at_Delphi,_Greece.jpeg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/temple-apollo-delphi/gallery-2-960.webp",
+        "srcset": "./assets/images/temple-apollo-delphi/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 451,
+        "alt": {
+          "en": "Additional curated view of Temple of Apollo at Delphi",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Απόλλωνα στους Δελφούς"
+        },
+        "type": "photo",
+        "creator": "Ronny Siegel",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delphi_-_Temple_of_Apollo_2.jpg",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "akrotiri": {
     "hero": {
@@ -158,7 +403,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/akrotiri/gallery-1-1920.webp",
+        "srcset": "./assets/images/akrotiri/gallery-1-960.webp 960w, ./assets/images/akrotiri/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1272,
+        "alt": {
+          "en": "Additional curated view of Settlement of Akrotiri",
+          "el": "Επιλεγμένη επιπλέον άποψη: Προϊστορικός Οικισμός Ακρωτηρίου"
+        },
+        "type": "photo",
+        "creator": "Norbert Nagel",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Archaeological_site_of_Akrotiri_-_Santorini_-_July_12th_2012_-_11.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/akrotiri/gallery-2-1920.webp",
+        "srcset": "./assets/images/akrotiri/gallery-2-960.webp 960w, ./assets/images/akrotiri/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1272,
+        "alt": {
+          "en": "Additional curated view of Settlement of Akrotiri",
+          "el": "Επιλεγμένη επιπλέον άποψη: Προϊστορικός Οικισμός Ακρωτηρίου"
+        },
+        "type": "photo",
+        "creator": "Norbert Nagel",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Archaeological_site_of_Akrotiri_-_Santorini_-_July_12th_2012_-_05.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "knossos": {
     "hero": {
@@ -178,7 +458,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/knossos/gallery-1-1920.webp",
+        "srcset": "./assets/images/knossos/gallery-1-960.webp 960w, ./assets/images/knossos/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1521,
+        "alt": {
+          "en": "Additional curated view of Palace of Knossos",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ανάκτορο της Κνωσού"
+        },
+        "type": "photo",
+        "creator": "Marc Ryckaert (MJJR)",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Knossos_R01.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/knossos/gallery-2-1920.webp",
+        "srcset": "./assets/images/knossos/gallery-2-960.webp 960w, ./assets/images/knossos/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1320,
+        "alt": {
+          "en": "Additional curated view of Palace of Knossos",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ανάκτορο της Κνωσού"
+        },
+        "type": "photo",
+        "creator": "Marc Ryckaert (MJJR)",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Knossos_R03.jpg",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "parthenon": {
     "hero": {
@@ -198,7 +513,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/parthenon/gallery-1-1920.webp",
+        "srcset": "./assets/images/parthenon/gallery-1-960.webp 960w, ./assets/images/parthenon/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 2881,
+        "alt": {
+          "en": "Additional curated view of Parthenon",
+          "el": "Επιλεγμένη επιπλέον άποψη: Παρθενώνας"
+        },
+        "type": "photo",
+        "creator": "Thermos",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parthenon_from_south.jpg",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/parthenon/gallery-2-1920.webp",
+        "srcset": "./assets/images/parthenon/gallery-2-960.webp 960w, ./assets/images/parthenon/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1516,
+        "alt": {
+          "en": "Additional curated view of Parthenon",
+          "el": "Επιλεγμένη επιπλέον άποψη: Παρθενώνας"
+        },
+        "type": "photo",
+        "creator": "Eusebius",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parthenon_-_facade_ouest.jpg",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "olympieion-athens": {
     "hero": {
@@ -218,7 +568,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/olympieion-athens/gallery-1-1920.webp",
+        "srcset": "./assets/images/olympieion-athens/gallery-1-960.webp 960w, ./assets/images/olympieion-athens/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "Additional curated view of Temple of Olympian Zeus (Olympieion)",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Ολυμπίου Διός (Ολυμπιείο)"
+        },
+        "type": "photo",
+        "creator": "No machine-readable author provided. Chrisfl assumed (based on copyright claims).",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Olympian_Zeus_-_Olympieion.jpg",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/olympieion-athens/gallery-2-1920.webp",
+        "srcset": "./assets/images/olympieion-athens/gallery-2-960.webp 960w, ./assets/images/olympieion-athens/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Additional curated view of Temple of Olympian Zeus (Olympieion)",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Ολυμπίου Διός (Ολυμπιείο)"
+        },
+        "type": "photo",
+        "creator": "elveoflight",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Olympian_Zeus_and_the_Acropolis.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "hephaestion": {
     "hero": {
@@ -238,7 +623,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/hephaestion/gallery-1-1920.webp",
+        "srcset": "./assets/images/hephaestion/gallery-1-960.webp 960w, ./assets/images/hephaestion/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1432,
+        "alt": {
+          "en": "Additional curated view of Temple of Hephaestus (Hephaisteion)",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Ηφαίστου (Ηφαιστείο)"
+        },
+        "type": "photo",
+        "creator": "Eusebius",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:H%C3%A9pha%C3%AFst%C3%A9ion_and_Agii_Apostoli.jpg",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/hephaestion/gallery-2-1920.webp",
+        "srcset": "./assets/images/hephaestion/gallery-2-960.webp 960w, ./assets/images/hephaestion/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1275,
+        "alt": {
+          "en": "Additional curated view of Temple of Hephaestus (Hephaisteion)",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Ηφαίστου (Ηφαιστείο)"
+        },
+        "type": "photo",
+        "creator": "Jorge Láscar from Australia",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lascar_Agora_and_Temple_of_Hephaestus_(4517149683).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "erechtheion": {
     "hero": {
@@ -258,7 +678,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/erechtheion/gallery-1-1920.webp",
+        "srcset": "./assets/images/erechtheion/gallery-1-960.webp 960w, ./assets/images/erechtheion/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1273,
+        "alt": {
+          "en": "Additional curated view of Erechtheion",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ερέχθειο"
+        },
+        "type": "photo",
+        "creator": "Carole Raddato from FRANKFURT, Germany",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Erechtheion,_Acropolis_of_Athens_(14073017681).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/erechtheion/gallery-2-1920.webp",
+        "srcset": "./assets/images/erechtheion/gallery-2-960.webp 960w, ./assets/images/erechtheion/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 2556,
+        "alt": {
+          "en": "Additional curated view of Erechtheion",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ερέχθειο"
+        },
+        "type": "photo",
+        "creator": "Jebulon",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erechtheion_eastern_facade_Acropolis_Athens_Greece.jpg",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "athena-nike": {
     "hero": {
@@ -278,7 +733,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/athena-nike/gallery-1-1920.webp",
+        "srcset": "./assets/images/athena-nike/gallery-1-960.webp 960w, ./assets/images/athena-nike/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1079,
+        "alt": {
+          "en": "Additional curated view of Temple of Athena Nike",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός Αθηνάς Νίκης"
+        },
+        "type": "photo",
+        "creator": "Tilemahos Efthimiadis from Athens, Greece",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Athena_Nike_(5041690983).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/athena-nike/gallery-2-1920.webp",
+        "srcset": "./assets/images/athena-nike/gallery-2-960.webp 960w, ./assets/images/athena-nike/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Additional curated view of Temple of Athena Nike",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός Αθηνάς Νίκης"
+        },
+        "type": "photo",
+        "creator": "Tilemahos Efthimiadis from Athens, Greece",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Athena_Nike_(5041769791).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "poseidon-sounion": {
     "hero": {
@@ -298,7 +788,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/poseidon-sounion/gallery-1-1920.webp",
+        "srcset": "./assets/images/poseidon-sounion/gallery-1-960.webp 960w, ./assets/images/poseidon-sounion/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 488,
+        "alt": {
+          "en": "Additional curated view of Temple of Poseidon at Sounion",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Ποσειδώνα στο Σούνιο"
+        },
+        "type": "photo",
+        "creator": "Tilemahos Efthimiadis",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Poseidon,_Cape_Sounion,_Greece.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/poseidon-sounion/gallery-2-1920.webp",
+        "srcset": "./assets/images/poseidon-sounion/gallery-2-960.webp 960w, ./assets/images/poseidon-sounion/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1378,
+        "alt": {
+          "en": "Additional curated view of Temple of Poseidon at Sounion",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Ποσειδώνα στο Σούνιο"
+        },
+        "type": "photo",
+        "creator": "Nikthestoned",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Poseidon_from_the_East,_June_2012.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "temple-zeus-olympia": {
     "hero": {
@@ -318,7 +843,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/temple-zeus-olympia/gallery-1-960.webp",
+        "srcset": "./assets/images/temple-zeus-olympia/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 720,
+        "alt": {
+          "en": "Additional curated view of Temple of Zeus at Olympia",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Διός στην Ολυμπία"
+        },
+        "type": "photo",
+        "creator": "Napoleon Vier at Dutch Wikipedia",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olympia_-_ru%C3%AFne_Zeustempel.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/temple-zeus-olympia/gallery-2-1920.webp",
+        "srcset": "./assets/images/temple-zeus-olympia/gallery-2-960.webp 960w, ./assets/images/temple-zeus-olympia/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "Additional curated view of Temple of Zeus at Olympia",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Διός στην Ολυμπία"
+        },
+        "type": "photo",
+        "creator": "Wknight94 talk",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Column_in_Temple_of_Zeus_in_Olympia_2.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "temple-hera-olympia": {
     "hero": {
@@ -338,7 +898,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/temple-hera-olympia/gallery-1-960.webp",
+        "srcset": "./assets/images/temple-hera-olympia/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 640,
+        "alt": {
+          "en": "Additional curated view of Temple of Hera at Olympia",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Ήρας στην Ολυμπία"
+        },
+        "type": "photo",
+        "creator": "Matěj Baťha",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olympia_-_Temple_of_Hera_1.jpg",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/temple-hera-olympia/gallery-2-960.webp",
+        "srcset": "./assets/images/temple-hera-olympia/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 1440,
+        "alt": {
+          "en": "Additional curated view of Temple of Hera at Olympia",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Ήρας στην Ολυμπία"
+        },
+        "type": "photo",
+        "creator": "Matěj Baťha",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olympia_-_Temple_of_Hera_2.jpg",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "apollo-epicurius-bassae": {
     "hero": {
@@ -358,7 +953,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/apollo-epicurius-bassae/gallery-1-1920.webp",
+        "srcset": "./assets/images/apollo-epicurius-bassae/gallery-1-960.webp 960w, ./assets/images/apollo-epicurius-bassae/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 2880,
+        "alt": {
+          "en": "Additional curated view of Temple of Apollo Epicurius at Bassae",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός Επικουρίου Απόλλωνα στις Βάσσες"
+        },
+        "type": "photo",
+        "creator": "Oren Rozen",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bassae_Temple_of_Apollo_040911.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/apollo-epicurius-bassae/gallery-2-1920.webp",
+        "srcset": "./assets/images/apollo-epicurius-bassae/gallery-2-960.webp 960w, ./assets/images/apollo-epicurius-bassae/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1272,
+        "alt": {
+          "en": "Additional curated view of Temple of Apollo Epicurius at Bassae",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός Επικουρίου Απόλλωνα στις Βάσσες"
+        },
+        "type": "photo",
+        "creator": "Carole Raddato from FRANKFURT, Germany",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Temple_of_Apollo_Epikourios_at_Bassae,_Proanos,_Arcadia,_Greece_(14096118517).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "temple-aphaia": {
     "hero": {
@@ -378,7 +1008,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/temple-aphaia/gallery-1-960.webp",
+        "srcset": "./assets/images/temple-aphaia/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 720,
+        "alt": {
+          "en": "Additional curated view of Temple of Aphaia",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Αφαίας"
+        },
+        "type": "photo",
+        "creator": "Alun Salt",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aegina,_The_Temple_of_Aphaia.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/temple-aphaia/gallery-2-500.webp",
+        "srcset": "./assets/images/temple-aphaia/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Temple of Aphaia",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Αφαίας"
+        },
+        "type": "photo",
+        "creator": "Alun Salt",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aegina,_The_Temple_of_Aphaia_1.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "sanctuary-apollo-delos": {
     "hero": {
@@ -398,7 +1063,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/sanctuary-apollo-delos/gallery-1-500.webp",
+        "srcset": "./assets/images/sanctuary-apollo-delos/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Sanctuary of Apollo on Delos",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ιερό του Απόλλωνα στη Δήλο"
+        },
+        "type": "photo",
+        "creator": "Romain Delanoë",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ruines_de_D%C3%A9los.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/sanctuary-apollo-delos/gallery-2-500.webp",
+        "srcset": "./assets/images/sanctuary-apollo-delos/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 333,
+        "alt": {
+          "en": "Additional curated view of Sanctuary of Apollo on Delos",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ιερό του Απόλλωνα στη Δήλο"
+        },
+        "type": "photo",
+        "creator": "Zde",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altar_ancient_Delos_102250.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "valley-temples-concordia": {
     "hero": {
@@ -418,7 +1118,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/valley-temples-concordia/gallery-1-500.webp",
+        "srcset": "./assets/images/valley-temples-concordia/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 331,
+        "alt": {
+          "en": "Additional curated view of Valley of the Temples / Temple of Concordia",
+          "el": "Επιλεγμένη επιπλέον άποψη: Κοιλάδα των Ναών / Ναός της Ομόνοιας"
+        },
+        "type": "photo",
+        "creator": "Berthold Werner",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Agrigent_BW_2012-10-07_12-51-18.JPG",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/valley-temples-concordia/gallery-2-500.webp",
+        "srcset": "./assets/images/valley-temples-concordia/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 333,
+        "alt": {
+          "en": "Additional curated view of Valley of the Temples / Temple of Concordia",
+          "el": "Επιλεγμένη επιπλέον άποψη: Κοιλάδα των Ναών / Ναός της Ομόνοιας"
+        },
+        "type": "photo",
+        "creator": "Berthold Werner",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Agrigent_BW_2012-10-07_12-51-45.JPG",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "hera-paestum": {
     "hero": {
@@ -438,7 +1173,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/hera-paestum/gallery-1-500.webp",
+        "srcset": "./assets/images/hera-paestum/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 340,
+        "alt": {
+          "en": "Additional curated view of Temple of Hera at Paestum",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Ήρας στην Ποσειδωνία"
+        },
+        "type": "photo",
+        "creator": "Franco Antonio",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paestum-Capaccio_140.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/hera-paestum/gallery-2-500.webp",
+        "srcset": "./assets/images/hera-paestum/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 836,
+        "alt": {
+          "en": "Additional curated view of Temple of Hera at Paestum",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Ήρας στην Ποσειδωνία"
+        },
+        "type": "photo",
+        "creator": "Dave &amp; Margie Hill / Kleerup from Centennial, CO, USA",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paestum_ruins_(6120386305).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "poseidon-paestum": {
     "hero": {
@@ -458,7 +1228,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/poseidon-paestum/gallery-1-500.webp",
+        "srcset": "./assets/images/poseidon-paestum/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 666,
+        "alt": {
+          "en": "Additional curated view of “Temple of Poseidon” at Paestum",
+          "el": "Επιλεγμένη επιπλέον άποψη: «Ναός του Ποσειδώνα» στην Ποσειδωνία"
+        },
+        "type": "photo",
+        "creator": "Velvet",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paestum_temple_neptune_detail.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/poseidon-paestum/gallery-2-500.webp",
+        "srcset": "./assets/images/poseidon-paestum/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 154,
+        "alt": {
+          "en": "Additional curated view of “Temple of Poseidon” at Paestum",
+          "el": "Επιλεγμένη επιπλέον άποψη: «Ναός του Ποσειδώνα» στην Ποσειδωνία"
+        },
+        "type": "photo",
+        "creator": "Velvet",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paestum_temple_neptune.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "temple-e-selinunte": {
     "hero": {
@@ -478,7 +1283,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/temple-e-selinunte/gallery-1-500.webp",
+        "srcset": "./assets/images/temple-e-selinunte/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Temple E (Hera) at Selinunte",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός Ε (Ήρας) στον Σελινούντα"
+        },
+        "type": "photo",
+        "creator": "Unknown creator",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Selinunte,_Tempio_E_(1).jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/temple-e-selinunte/gallery-2-500.webp",
+        "srcset": "./assets/images/temple-e-selinunte/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Temple E (Hera) at Selinunte",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός Ε (Ήρας) στον Σελινούντα"
+        },
+        "type": "photo",
+        "creator": "Unknown creator",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Selinunte,_Tempio_E_(2).jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "temple-segesta": {
     "hero": {
@@ -498,7 +1338,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/temple-segesta/gallery-1-500.webp",
+        "srcset": "./assets/images/temple-segesta/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 345,
+        "alt": {
+          "en": "Additional curated view of Doric Temple of Segesta",
+          "el": "Επιλεγμένη επιπλέον άποψη: Δωρικός Ναός της Σεγέστας"
+        },
+        "type": "photo",
+        "creator": "Unknown creator",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Segesta,_Tempio_greco.jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/temple-segesta/gallery-2-500.webp",
+        "srcset": "./assets/images/temple-segesta/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Doric Temple of Segesta",
+          "el": "Επιλεγμένη επιπλέον άποψη: Δωρικός Ναός της Σεγέστας"
+        },
+        "type": "photo",
+        "creator": "Evan Erickson",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Segesta-Temple01.JPG",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "apollo-didyma": {
     "hero": {
@@ -518,7 +1393,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/apollo-didyma/gallery-1-500.webp",
+        "srcset": "./assets/images/apollo-didyma/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 750,
+        "alt": {
+          "en": "Additional curated view of Temple of Apollo at Didyma",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Απόλλωνα στα Δίδυμα"
+        },
+        "type": "photo",
+        "creator": "José Luiz",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Apollo_in_Didyma_(2).JPG",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/apollo-didyma/gallery-2-500.webp",
+        "srcset": "./assets/images/apollo-didyma/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 352,
+        "alt": {
+          "en": "Additional curated view of Temple of Apollo at Didyma",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Απόλλωνα στα Δίδυμα"
+        },
+        "type": "photo",
+        "creator": "Bernard Gagnon",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Apollo,_Didyma_01.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "athena-polias-priene": {
     "hero": {
@@ -538,7 +1448,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/athena-polias-priene/gallery-1-500.webp",
+        "srcset": "./assets/images/athena-polias-priene/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Temple of Athena Polias at Priene",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Αθηνάς Πολιάδος στην Πριήνη"
+        },
+        "type": "photo",
+        "creator": "Tomisti",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Athena_Temple_Priene_1.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/athena-polias-priene/gallery-2-500.webp",
+        "srcset": "./assets/images/athena-polias-priene/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Temple of Athena Polias at Priene",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Αθηνάς Πολιάδος στην Πριήνη"
+        },
+        "type": "photo",
+        "creator": "Tomisti",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Athena_Temple_Priene_3.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "temple-zeus-cyrene": {
     "hero": {
@@ -558,7 +1503,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/temple-zeus-cyrene/gallery-1-1920.webp",
+        "srcset": "./assets/images/temple-zeus-cyrene/gallery-1-960.webp 960w, ./assets/images/temple-zeus-cyrene/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1080,
+        "alt": {
+          "en": "Additional curated view of Temple of Zeus at Cyrene",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Διός στην Κυρήνη"
+        },
+        "type": "photo",
+        "creator": "Sami Belsous",
+        "date": "2024-10-14 16:34:15",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Zeus_in_Cyrene.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/temple-zeus-cyrene/gallery-2-960.webp",
+        "srcset": "./assets/images/temple-zeus-cyrene/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 720,
+        "alt": {
+          "en": "Additional curated view of Temple of Zeus at Cyrene",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Διός στην Κυρήνη"
+        },
+        "type": "photo",
+        "creator": "David Stanley",
+        "date": "2012-04-25",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Zeus_-_Cyrene.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "asklepieion-epidaurus": {
     "hero": {
@@ -578,7 +1558,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/asklepieion-epidaurus/gallery-1-1920.webp",
+        "srcset": "./assets/images/asklepieion-epidaurus/gallery-1-960.webp 960w, ./assets/images/asklepieion-epidaurus/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1350,
+        "alt": {
+          "en": "Additional curated view of Sanctuary of Asclepius at Epidaurus",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ιερό του Ασκληπιού στην Επίδαυρο"
+        },
+        "type": "photo",
+        "creator": "TimeTravelRome",
+        "date": "2022-04-13 13:44:26",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanctuary_of_Asclepius_at_Epidaurus_-_Abaton_-_52042245703.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/asklepieion-epidaurus/gallery-2-1920.webp",
+        "srcset": "./assets/images/asklepieion-epidaurus/gallery-2-960.webp 960w, ./assets/images/asklepieion-epidaurus/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "Additional curated view of Sanctuary of Asclepius at Epidaurus",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ιερό του Ασκληπιού στην Επίδαυρο"
+        },
+        "type": "photo",
+        "creator": "TimeTravelRome",
+        "date": "2022-04-13 14:13:47",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanctuary_of_Asclepius_at_Epidaurus_-_Temple_of_Asclepius_-_52041149887.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "mycenae": {
     "hero": {
@@ -598,7 +1613,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/mycenae/gallery-1-500.webp",
+        "srcset": "./assets/images/mycenae/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Mycenae",
+          "el": "Επιλεγμένη επιπλέον άποψη: Μυκήνες"
+        },
+        "type": "photo",
+        "creator": "David Monniaux",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mycenae_ruins_dsc06390.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/mycenae/gallery-2-500.webp",
+        "srcset": "./assets/images/mycenae/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 405,
+        "alt": {
+          "en": "Additional curated view of Mycenae",
+          "el": "Επιλεγμένη επιπλέον άποψη: Μυκήνες"
+        },
+        "type": "photo",
+        "creator": "Andreas Trepte",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lions-Gate-Mycenae.jpg",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "olympia-sanctuary-stadium": {
     "hero": {
@@ -618,7 +1668,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/olympia-sanctuary-stadium/gallery-1-500.webp",
+        "srcset": "./assets/images/olympia-sanctuary-stadium/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 117,
+        "alt": {
+          "en": "Additional curated view of Sanctuary and Stadium of Olympia",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ιερό και Στάδιο της Ολυμπίας"
+        },
+        "type": "photo",
+        "creator": "Kevin Chan",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:StadiumOlympia.jpg",
+        "license": "CC BY 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/olympia-sanctuary-stadium/gallery-2-500.webp",
+        "srcset": "./assets/images/olympia-sanctuary-stadium/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Sanctuary and Stadium of Olympia",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ιερό και Στάδιο της Ολυμπίας"
+        },
+        "type": "photo",
+        "creator": "Dwaipayanc",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:OlympicRaceTrackOlympia.JPG",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "delphi-sanctuary": {
     "hero": {
@@ -638,7 +1723,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/delphi-sanctuary/gallery-1-500.webp",
+        "srcset": "./assets/images/delphi-sanctuary/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Archaeological Sanctuary of Delphi",
+          "el": "Επιλεγμένη επιπλέον άποψη: Αρχαιολογικό Ιερό των Δελφών"
+        },
+        "type": "photo",
+        "creator": "Millevache",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delphi_stairs2.JPG",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/delphi-sanctuary/gallery-2-500.webp",
+        "srcset": "./assets/images/delphi-sanctuary/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 281,
+        "alt": {
+          "en": "Additional curated view of Archaeological Sanctuary of Delphi",
+          "el": "Επιλεγμένη επιπλέον άποψη: Αρχαιολογικό Ιερό των Δελφών"
+        },
+        "type": "photo",
+        "creator": "F. Harbin",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delphi-Archaeological_Site.jpg",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "athenian-agora": {
     "hero": {
@@ -658,7 +1778,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/athenian-agora/gallery-1-500.webp",
+        "srcset": "./assets/images/athenian-agora/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 389,
+        "alt": {
+          "en": "Additional curated view of Athenian Agora",
+          "el": "Επιλεγμένη επιπλέον άποψη: Αρχαία Αγορά Αθηνών"
+        },
+        "type": "photo",
+        "creator": "DerHexer",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stoa_of_Attalos_at_the_Ancient_Agora_of_Athens.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/athenian-agora/gallery-2-500.webp",
+        "srcset": "./assets/images/athenian-agora/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 667,
+        "alt": {
+          "en": "Additional curated view of Athenian Agora",
+          "el": "Επιλεγμένη επιπλέον άποψη: Αρχαία Αγορά Αθηνών"
+        },
+        "type": "photo",
+        "creator": "DerHexer",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stoa_of_Attalos_at_the_Ancient_Agora_of_Athens_2.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "odeon-herodes-atticus": {
     "hero": {
@@ -678,7 +1833,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/odeon-herodes-atticus/gallery-1-500.webp",
+        "srcset": "./assets/images/odeon-herodes-atticus/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 232,
+        "alt": {
+          "en": "Additional curated view of Odeon of Herodes Atticus",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ωδείο Ηρώδου του Αττικού"
+        },
+        "type": "photo",
+        "creator": "Tomisti",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Odeon_of_Herodes_Atticus_night-time_panorama.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/odeon-herodes-atticus/gallery-2-500.webp",
+        "srcset": "./assets/images/odeon-herodes-atticus/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 333,
+        "alt": {
+          "en": "Additional curated view of Odeon of Herodes Atticus",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ωδείο Ηρώδου του Αττικού"
+        },
+        "type": "photo",
+        "creator": "Nikthestoned",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Odeon_of_Herodes_Atticus_2012.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "propylaea-athens": {
     "hero": {
@@ -698,7 +1888,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/propylaea-athens/gallery-1-500.webp",
+        "srcset": "./assets/images/propylaea-athens/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 333,
+        "alt": {
+          "en": "Additional curated view of Propylaea of the Acropolis",
+          "el": "Επιλεγμένη επιπλέον άποψη: Προπύλαια της Ακρόπολης"
+        },
+        "type": "photo",
+        "creator": "Mstyslav Chernov",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Propylaea,_Athenian_Acropolis_(internal_view),_Athens_cityscape._Athens,_Greece.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/propylaea-athens/gallery-2-500.webp",
+        "srcset": "./assets/images/propylaea-athens/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Propylaea of the Acropolis",
+          "el": "Επιλεγμένη επιπλέον άποψη: Προπύλαια της Ακρόπολης"
+        },
+        "type": "photo",
+        "creator": "Tilemahos Efthimiadis from Athens, Greece",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Propylaea,_Acropolis_of_Athens,_Greece._(5042486692).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "tunnel-eupalinos": {
     "hero": {
@@ -718,7 +1943,42 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/tunnel-eupalinos/gallery-1-500.webp",
+        "srcset": "./assets/images/tunnel-eupalinos/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 667,
+        "alt": {
+          "en": "Additional curated view of Tunnel of Eupalinos",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ευπαλίνειο Όρυγμα"
+        },
+        "type": "photo",
+        "creator": "Tomisti",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tunnel_of_Eupalinos_02.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/tunnel-eupalinos/gallery-2-500.webp",
+        "srcset": "./assets/images/tunnel-eupalinos/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 667,
+        "alt": {
+          "en": "Additional curated view of Tunnel of Eupalinos",
+          "el": "Επιλεγμένη επιπλέον άποψη: Ευπαλίνειο Όρυγμα"
+        },
+        "type": "photo",
+        "creator": "Tomisti",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tunnel_of_Eupalinos_01.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   },
   "diolkos": {
     "hero": {
@@ -738,6 +1998,41 @@ export const MEDIA_BY_ID = Object.freeze({
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "focalPoint": "50% 50%"
     },
-    "gallery": []
+    "gallery": [
+      {
+        "src": "./assets/images/diolkos/gallery-1-500.webp",
+        "srcset": "./assets/images/diolkos/gallery-1-500.webp 500w",
+        "width": 500,
+        "height": 375,
+        "alt": {
+          "en": "Additional curated view of Diolkos",
+          "el": "Επιλεγμένη επιπλέον άποψη: Δίολκος"
+        },
+        "type": "photo",
+        "creator": "Heinz Schmitz",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diolkos2.jpg",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/diolkos/gallery-2-500.webp",
+        "srcset": "./assets/images/diolkos/gallery-2-500.webp 500w",
+        "width": 500,
+        "height": 667,
+        "alt": {
+          "en": "Additional curated view of Diolkos",
+          "el": "Επιλεγμένη επιπλέον άποψη: Δίολκος"
+        },
+        "type": "photo",
+        "creator": "Dan Diffendale",
+        "date": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diolkos,_Western_End._Pic_01.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
   }
 });
