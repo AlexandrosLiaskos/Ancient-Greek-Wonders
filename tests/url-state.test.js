@@ -24,7 +24,7 @@ test('URL state rejects unknown enum values and stale monument ids', () => {
 
   assert.deepEqual(state, {
     language: 'en',
-    activeTab: 'explore',
+    activeTab: 'browse',
     query: '',
     category: '',
     country: '',
@@ -42,4 +42,10 @@ test('URL serialization omits defaults and preserves meaningful state', () => {
 
   assert.equal(params.toString(), 'lang=el&tab=about&q=Rhodes&country=Greece&wonder=colossus-rhodes');
   assert.equal(serializeUrlState({}).toString(), '');
+});
+
+test('URL state supports the new filters view and upgrades legacy explore links', () => {
+  assert.equal(parseUrlState('?tab=filters', WONDERS).activeTab, 'filters');
+  assert.equal(parseUrlState('?tab=explore', WONDERS).activeTab, 'browse');
+  assert.equal(serializeUrlState({ activeTab: 'browse' }).toString(), '');
 });

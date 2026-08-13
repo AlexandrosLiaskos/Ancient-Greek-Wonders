@@ -4,6 +4,7 @@ _site/
 media/review/
 .superpowers/
 .impeccable/
+.playwright-mcp/
 ref/
 .DS_Store
 Thumbs.db

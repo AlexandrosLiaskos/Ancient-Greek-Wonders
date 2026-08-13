@@ -28,8 +28,8 @@
         <h1 id="masthead-title"><span>Wonders</span> <i>of the Ancient Greek World</i></h1>
       </div>
       <div class="masthead-actions">
-        <button id="mobile-menu" class="icon-button mobile-only" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open catalog">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <button id="about-button" class="icon-button" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="About">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 10v7M12 7h.01"/></svg>
         </button>
         <button id="language-toggle" class="language-button" type="button" aria-label="Switch language">ΕΛ</button>
       </div>
@@ -37,64 +37,83 @@
 
     <main class="app-shell">
       <aside id="sidebar" class="sidebar workbench" aria-label="Catalog controls">
-        <button id="sheet-close" class="sheet-handle mobile-only" type="button" aria-label="Close catalog"><span></span></button>
-        <nav class="tool-rail" aria-label="Sections" role="tablist">
-          <button id="tab-explore" class="rail-button is-active" type="button" role="tab" data-tab="explore" aria-controls="panel-explore" aria-label="Explore" aria-selected="true" tabindex="0">
+        <button id="sheet-close" class="sheet-close mobile-only" type="button" aria-label="Close catalog"><span aria-hidden="true">×</span></button>
+        <nav class="tool-tabs" aria-label="Sections" role="tablist">
+          <button id="tab-browse" class="tool-tab is-active" type="button" role="tab" data-tab="browse" aria-controls="panel-browse" aria-selected="true" tabindex="0">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z M9 4v14M15 6v14"/></svg>
+            <span data-i18n="browse">Browse</span>
           </button>
-          <button id="tab-search" class="rail-button" type="button" role="tab" data-tab="search" aria-controls="panel-search" aria-label="Search" aria-selected="false" tabindex="-1">
+          <button id="tab-filters" class="tool-tab" type="button" role="tab" data-tab="filters" aria-controls="panel-filters" aria-selected="false" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+            <span data-i18n="filters">Filters</span><b id="filter-badge" class="tab-badge" hidden>0</b>
+          </button>
+          <button id="tab-search" class="tool-tab" type="button" role="tab" data-tab="search" aria-controls="panel-search" aria-selected="false" tabindex="-1">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4 4"/></svg>
-          </button>
-          <button id="tab-about" class="rail-button" type="button" role="tab" data-tab="about" aria-controls="panel-about" aria-label="About" aria-selected="false" tabindex="-1">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 10v7M12 7h.01"/></svg>
+            <span data-i18n="searchTab">Search</span>
           </button>
         </nav>
 
         <div class="sidebar-panel">
-          <section id="panel-explore" class="tab-panel is-active" role="tabpanel" aria-labelledby="tab-explore" data-panel="explore">
+          <section id="panel-browse" class="task-panel is-active" role="tabpanel" aria-labelledby="tab-browse" data-panel="browse">
+            <div class="panel-heading browse-heading">
+              <div><p data-i18n="atlasRegister">Atlas register</p><h2 data-i18n="browse">Browse</h2></div>
+              <span id="result-count" aria-live="polite">37 monuments shown</span>
+            </div>
+            <section id="catalog-register" class="catalog-register" aria-label="Monuments">
+              <div id="result-list" class="result-list"></div>
+              <div id="empty-state" class="empty-state" hidden>
+                <p data-i18n="noResults">No monuments match these filters.</p>
+                <button id="empty-reset" class="primary-button" type="button" data-i18n="resetFilters">Show all monuments</button>
+              </div>
+            </section>
+          </section>
+
+          <section id="panel-filters" class="task-panel filters-panel" role="tabpanel" aria-labelledby="tab-filters" data-panel="filters" hidden>
             <div class="panel-heading">
-              <h2 data-i18n="explore">Explore</h2>
+              <div><p data-i18n="filterBy">Filter by</p><h2 data-i18n="refineAtlas">Refine atlas</h2></div>
               <button class="text-button" id="reset-filters" type="button" data-i18n="reset">Reset</button>
             </div>
-            <div id="active-filters" class="active-filters" aria-live="polite"></div>
-            <fieldset class="filter-group">
-              <legend data-i18n="filters">Filters</legend>
-              <label for="category-filter" data-i18n="category">Type</label>
-              <select id="category-filter"><option value="">All</option></select>
-              <label for="country-filter" data-i18n="country">Modern country</label>
-              <select id="country-filter"><option value="">All</option></select>
-              <label for="status-filter" data-i18n="status">Survival</label>
-              <select id="status-filter"><option value="">All</option></select>
-              <label class="check-row"><input id="seven-filter" type="checkbox"><span data-i18n="sevenOnly">Seven Wonders only</span></label>
-            </fieldset>
-            <div class="legend" role="group" aria-label="Map legend">
-              <span><i class="legend-dot legend-dot--extant"></i><b data-legend="extant">Standing / restored</b></span>
-              <span><i class="legend-dot legend-dot--ruins"></i><b data-legend="ruins">Ruins / excavated</b></span>
-              <span><i class="legend-dot legend-dot--lost"></i><b data-legend="lost">Lost</b></span>
-            </div>
+            <nav class="facet-tabs" role="tablist" aria-label="Filter field">
+              <button id="facet-category" class="facet-tab is-active" type="button" role="tab" data-facet="category" aria-controls="facet-options" aria-selected="true" tabindex="0" data-i18n="category">Type</button>
+              <button id="facet-country" class="facet-tab" type="button" role="tab" data-facet="country" aria-controls="facet-options" aria-selected="false" tabindex="-1" data-i18n="countryShort">Country</button>
+              <button id="facet-status" class="facet-tab" type="button" role="tab" data-facet="status" aria-controls="facet-options" aria-selected="false" tabindex="-1" data-i18n="statusShort">Survival</button>
+              <button id="facet-sevenWonder" class="facet-tab" type="button" role="tab" data-facet="sevenWonder" aria-controls="facet-options" aria-selected="false" tabindex="-1" data-i18n="sevenShort">Seven</button>
+            </nav>
+            <label class="facet-search">
+              <span class="sr-only" data-i18n="searchFilterOptions">Search filter options</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4 4"/></svg>
+              <input id="facet-search-input" type="search" autocomplete="off" spellcheck="false" data-i18n-placeholder="searchFilterOptions" placeholder="Search filter options">
+            </label>
+            <div id="facet-options" class="facet-options" role="tabpanel" aria-labelledby="facet-category"></div>
+            <p id="facet-empty" class="facet-empty" data-i18n="noFilterOptions" hidden>No filter options match.</p>
+            <footer class="filter-dock">
+              <div class="filter-dock-heading"><span data-i18n="activeFilters">Active filters</span><b id="active-filter-count">0</b></div>
+              <div id="active-filters" class="active-filters" aria-live="polite"></div>
+            </footer>
           </section>
 
-          <section id="panel-search" class="tab-panel" role="tabpanel" aria-labelledby="tab-search" data-panel="search" hidden>
-            <div class="panel-heading"><h2 data-i18n="searchTab">Search</h2></div>
-            <label class="search-label" for="search-input" data-i18n="search">Search monuments</label>
-            <input id="search-input" class="search-input" name="query" type="search" autocomplete="off" spellcheck="false" data-i18n-placeholder="searchHint" placeholder="Name, place, period, or description…">
+          <section id="panel-search" class="task-panel search-panel" role="tabpanel" aria-labelledby="tab-search" data-panel="search" hidden>
+            <div class="panel-heading search-heading"><div><p data-i18n="findMonument">Find a monument</p><h2 data-i18n="searchTab">Search</h2></div><span id="search-result-count">37</span></div>
+            <label class="search-box">
+              <span class="sr-only" data-i18n="search">Search monuments</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4 4"/></svg>
+              <input id="search-input" name="query" type="search" autocomplete="off" spellcheck="false" data-i18n-placeholder="searchHint" placeholder="Name, place, period, or description…">
+            </label>
+            <section class="catalog-register search-register" aria-label="Search results">
+              <div id="search-result-list" class="result-list"></div>
+              <div id="search-empty-state" class="empty-state" hidden>
+                <p data-i18n="noResults">No monuments match these filters.</p>
+                <button id="search-empty-reset" class="primary-button" type="button" data-i18n="resetFilters">Show all monuments</button>
+              </div>
+            </section>
           </section>
 
-          <section id="panel-about" class="tab-panel about-panel" role="tabpanel" aria-labelledby="tab-about" data-panel="about" hidden>
-            <div class="panel-heading"><h2 data-i18n="about">About</h2></div>
+          <section id="panel-about" class="task-panel about-panel" aria-labelledby="about-title" data-panel="about" hidden>
+            <div class="panel-heading"><div><p data-i18n="atlasProject">Atlas project</p><h2 id="about-title" data-i18n="about">About</h2></div><button id="about-back" class="text-button" type="button" data-i18n="backToBrowse">Back</button></div>
             <p data-i18n="dataNote">A bilingual geographic catalog of 37 monuments across the ancient Greek world.</p>
             <h3 data-i18n="methodology">Methodology</h3>
             <p data-i18n="methodologyText">Coordinates identify the archaeological site or the commonly accepted historical location. They do not claim an exact footprint for lost monuments. Dates marked “c.” are approximate.</p>
             <p class="image-policy" data-i18n="imagePolicy">Image fields are intentionally empty so the repository owner can curate and add local files.</p>
-          </section>
-
-          <section id="catalog-register" class="catalog-register" aria-label="Monuments">
-            <div class="catalog-header"><span id="result-count" aria-live="polite">37 monuments shown</span><span class="catalog-rule" aria-hidden="true"></span></div>
-            <div id="result-list" class="result-list"></div>
-            <div id="empty-state" class="empty-state" hidden>
-              <p data-i18n="noResults">No monuments match these filters.</p>
-              <button id="empty-reset" class="primary-button" type="button" data-i18n="resetFilters">Show all monuments</button>
-            </div>
           </section>
         </div>
       </aside>
@@ -103,15 +122,22 @@
         <div id="map" tabindex="0"></div>
         <div id="map-preview-region" class="sr-only" aria-live="polite"></div>
         <div id="map-fallback" class="map-fallback" role="status" hidden data-i18n="mapUnavailable">The interactive map is unavailable. Open the catalog to browse all monuments.</div>
-        <button id="catalog-toggle" class="catalog-toggle" type="button" aria-controls="sidebar" aria-expanded="false" data-i18n="list">Catalog</button>
+        <details id="map-legend" class="map-legend" open>
+          <summary><span data-i18n="legendTitle">Survival</span><b id="legend-total">37</b></summary>
+          <div role="group" aria-label="Map legend">
+            <span><i class="legend-dot legend-dot--extant"></i><b data-i18n="legendExtant">Standing / restored</b><output data-legend-count="extant">0</output></span>
+            <span><i class="legend-dot legend-dot--ruins"></i><b data-i18n="legendRuins">Ruins / excavated</b><output data-legend-count="ruins">0</output></span>
+            <span><i class="legend-dot legend-dot--altered"></i><b data-i18n="legendAltered">Re-erected / unfinished</b><output data-legend-count="altered">0</output></span>
+            <span><i class="legend-dot legend-dot--lost"></i><b data-i18n="legendLost">Lost</b><output data-legend-count="lost">0</output></span>
+          </div>
+        </details>
         <div class="map-status"><span id="map-count">37</span><span>37.20° N · 23.60° E</span></div>
       </section>
       <nav class="mobile-action-bar" aria-label="Atlas sections">
-        <button type="button" data-mobile-tab="explore" class="is-active"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z M9 4v14M15 6v14"/></svg><span data-i18n="explore">Explore</span></button>
+        <button type="button" data-mobile-tab="browse" class="is-active"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z M9 4v14M15 6v14"/></svg><span data-i18n="browse">Browse</span></button>
+        <button type="button" data-mobile-tab="filters"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span data-i18n="filters">Filters</span><b id="mobile-filter-badge" hidden>0</b></button>
         <button type="button" data-mobile-tab="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4 4"/></svg><span data-i18n="searchTab">Search</span></button>
-        <button type="button" data-mobile-tab="about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 10v7M12 7h.01"/></svg><span data-i18n="about">About</span></button>
       </nav>
-      <button id="sidebar-scrim" class="sidebar-scrim" type="button" aria-label="Close catalog" hidden></button>
     </main>
   </div>
 

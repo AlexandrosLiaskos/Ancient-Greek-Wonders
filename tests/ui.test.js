@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 
 import { formatClusterCount, formatResultCount, t, localizeRecord } from '../src/i18n.js';
 import { createDetailMarkup, createMapPreviewMarkup, createResultMarkup } from '../src/ui/render.js';
+import { createFacetOptionsMarkup } from '../src/ui/filters.js';
 import { WONDERS } from '../src/data/wonders.js';
 
 test('translation returns complete labels in both languages', () => {
@@ -87,4 +88,19 @@ test('interpretive media is labeled bilingually and missing media keeps the desi
   const fallback = createDetailMarkup({ ...WONDERS[0], media: null, heroImage: '' }, 'en');
   assert.match(fallback, /class="image-placeholder"/);
   assert.doesNotMatch(fallback, /<img/);
+});
+
+test('facet option markup exposes selection, counts and proportional bars', () => {
+  const markup = createFacetOptionsMarkup({
+    facet: 'country',
+    language: 'en',
+    selectedValue: 'Greece',
+    options: [{ value: 'Greece', count: 25 }, { value: 'Italy', count: 4 }]
+  });
+
+  assert.match(markup, /data-filter-value="Greece"/);
+  assert.match(markup, /aria-pressed="true"/);
+  assert.match(markup, /class="facet-option-count">25</);
+  assert.match(markup, /--facet-share: 100%/);
+  assert.match(markup, /data-filter-value="Italy"/);
 });

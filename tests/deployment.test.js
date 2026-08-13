@@ -10,6 +10,12 @@ test('static entry uses repository-relative local assets', async () => {
   assert.match(html, /class="mobile-action-bar"/);
   assert.match(html, /class="[^"]*workbench[^"]*"/);
   assert.match(html, /id="map-preview-region"/);
+  assert.match(html, /class="tool-tabs"/);
+  assert.match(html, /data-tab="browse"/);
+  assert.match(html, /data-tab="filters"/);
+  assert.match(html, /data-mobile-tab="browse"/);
+  assert.match(html, /data-mobile-tab="filters"/);
+  assert.match(html, /<section class="map-stage"[\s\S]*id="map-legend"/);
 });
 
 test('GitHub Pages workflow and repository documentation exist', async () => {

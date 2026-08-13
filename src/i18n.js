@@ -1,8 +1,14 @@
 const UI = {
   en: {
-    explore: 'Explore', searchTab: 'Search', about: 'About', search: 'Search monuments',
+    explore: 'Explore', browse: 'Browse', searchTab: 'Search', about: 'About', search: 'Search monuments',
     searchHint: 'Name, place, period, or description…', filters: 'Filters', category: 'Type',
     country: 'Modern country', status: 'Survival', all: 'All', sevenOnly: 'Seven Wonders only',
+    atlasRegister: 'Atlas register', filterBy: 'Filter by', refineAtlas: 'Refine atlas', countryShort: 'Country',
+    statusShort: 'Survival', sevenShort: 'Seven Wonders', searchFilterOptions: 'Search filter options',
+    noFilterOptions: 'No filter options match.', activeFilters: 'Active filters', findMonument: 'Find a monument',
+    atlasProject: 'Atlas project', backToBrowse: 'Back', filterField: 'Filter field', legendTitle: 'Survival',
+    legendExtant: 'Standing / restored', legendRuins: 'Ruins / excavated', legendAltered: 'Re-erected / unfinished', legendLost: 'Lost',
+    monuments: 'Monuments', searchResults: 'Search results',
     reset: 'Reset', results: 'monuments shown', noResults: 'No monuments match these filters.',
     resetFilters: 'Show all monuments', mapUnavailable: 'The interactive map is unavailable. Open the catalog to browse all monuments.',
     sources: 'Sources', representative: 'Representative location', period: 'Period', missingImage: 'Image reserved',
@@ -20,9 +26,15 @@ const UI = {
     previousImage: 'Previous image', nextImage: 'Next image'
   },
   el: {
-    explore: 'Εξερεύνηση', searchTab: 'Αναζήτηση', about: 'Σχετικά', search: 'Αναζήτηση μνημείων',
+    explore: 'Εξερεύνηση', browse: 'Κατάλογος', searchTab: 'Αναζήτηση', about: 'Σχετικά', search: 'Αναζήτηση μνημείων',
     searchHint: 'Όνομα, τόπος, περίοδος ή περιγραφή…', filters: 'Φίλτρα', category: 'Τύπος',
     country: 'Σύγχρονη χώρα', status: 'Κατάσταση διατήρησης', all: 'Όλα', sevenOnly: 'Μόνο τα Επτά Θαύματα',
+    atlasRegister: 'Κατάλογος άτλαντα', filterBy: 'Φιλτράρισμα κατά', refineAtlas: 'Φίλτρα άτλαντα', countryShort: 'Χώρα',
+    statusShort: 'Διατήρηση', sevenShort: 'Επτά Θαύματα', searchFilterOptions: 'Αναζήτηση επιλογών φίλτρου',
+    noFilterOptions: 'Δεν βρέθηκαν επιλογές φίλτρου.', activeFilters: 'Ενεργά φίλτρα', findMonument: 'Εύρεση μνημείου',
+    atlasProject: 'Το έργο του άτλαντα', backToBrowse: 'Πίσω', filterField: 'Πεδίο φίλτρου', legendTitle: 'Διατήρηση',
+    legendExtant: 'Όρθιο / αναστηλωμένο', legendRuins: 'Ερείπια / ανασκαμμένο', legendAltered: 'Επαναστημένο / ημιτελές', legendLost: 'Χαμένο',
+    monuments: 'Μνημεία', searchResults: 'Αποτελέσματα αναζήτησης',
     reset: 'Επαναφορά', results: 'μνημεία εμφανίζονται', noResults: 'Κανένα μνημείο δεν αντιστοιχεί στα φίλτρα.',
     resetFilters: 'Εμφάνιση όλων', mapUnavailable: 'Ο διαδραστικός χάρτης δεν είναι διαθέσιμος. Άνοιξε τον κατάλογο για να δεις όλα τα μνημεία.',
     sources: 'Πηγές', representative: 'Ενδεικτική θέση', period: 'Περίοδος', missingImage: 'Δεσμευμένη θέση εικόνας',

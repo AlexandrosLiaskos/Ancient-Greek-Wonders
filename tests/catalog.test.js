@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import { WONDERS } from '../src/data/wonders.js';
-import { filterWonders, normalizeSearchText } from '../src/core/catalog.js';
+import { facetCounts, filterWonders, normalizeSearchText, summarizeSurvival } from '../src/core/catalog.js';
 
 test('catalog contains 37 complete, unique and geographically valid records', () => {
   assert.equal(WONDERS.length, 37);
@@ -46,4 +46,21 @@ test('filters compose by category, country, status and canonical wonder flag', (
 
 test('empty filter values leave the catalog unchanged', () => {
   assert.equal(filterWonders(WONDERS, { query: '', category: '', country: '', status: '' }).length, 37);
+});
+
+test('facet counts respect every other active filter and ignore their own selection', () => {
+  const counts = facetCounts(WONDERS, { category: 'temple', country: 'Greece' }, 'country');
+  const turkey = counts.find(({ value }) => value === 'Türkiye');
+  const expected = filterWonders(WONDERS, { category: 'temple', country: 'Türkiye' }).length;
+
+  assert.equal(turkey.count, expected);
+  assert.ok(counts.some(({ value, count }) => value === 'Greece' && count > 0));
+});
+
+test('survival summary assigns every filtered record to one map legend group', () => {
+  const filtered = filterWonders(WONDERS, { country: 'Greece' });
+  const summary = summarizeSurvival(filtered);
+
+  assert.equal(Object.values(summary).reduce((total, count) => total + count, 0), filtered.length);
+  assert.equal(summary.lost, filtered.filter(({ status }) => status === 'lost').length);
 });
