@@ -13,6 +13,10 @@ test('translation returns complete labels in both languages', () => {
   assert.equal(t('el', 'mapLabel'), 'Χάρτης των θαυμάτων του αρχαίου ελληνικού κόσμου');
   assert.equal(t('el', 'skipToMap'), 'Μετάβαση στον χάρτη');
   assert.equal(t('el', 'legendLabel'), 'Υπόμνημα χάρτη');
+  assert.equal(t('el', 'statusShort'), 'Κατάσταση');
+  assert.equal(t('el', 'legendTitle'), 'Σημερινή κατάσταση');
+  assert.equal(t('en', 'statusShort'), 'Condition');
+  assert.equal(t('en', 'legendTitle'), 'Present condition');
 });
 
 test('result and cluster counts use correct singular and plural grammar', () => {
