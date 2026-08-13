@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import { formatClusterCount, formatResultCount, t, localizeRecord } from '../src/i18n.js';
-import { createDetailMarkup, createResultMarkup } from '../src/ui/render.js';
+import { createDetailMarkup, createMapPreviewMarkup, createResultMarkup } from '../src/ui/render.js';
 import { WONDERS } from '../src/data/wonders.js';
 
 test('translation returns complete labels in both languages', () => {
@@ -31,9 +31,22 @@ test('localizeRecord selects the requested bilingual fields', () => {
 
 test('result markup remains semantic and exposes the stable record id', () => {
   const markup = createResultMarkup(WONDERS[0], 'en');
-  assert.match(markup, /<button/);
+  assert.match(markup, /<article class="result-item"/);
   assert.match(markup, /data-wonder-id="statue-zeus-olympia"/);
+  assert.match(markup, /class="result-image"/);
+  assert.match(markup, /data-result-action="focus"/);
+  assert.match(markup, /data-result-action="details"/);
   assert.match(markup, /Statue of Zeus at Olympia/);
+});
+
+test('map preview connects the local hero to concise bilingual monument context', () => {
+  const markup = createMapPreviewMarkup(WONDERS[9], 'el');
+  assert.match(markup, /class="map-preview"/);
+  assert.match(markup, /class="map-preview-image"/);
+  assert.match(markup, /Παρθενώνας/);
+  assert.match(markup, /Ακρόπολη Αθηνών, Ελλάδα/);
+  assert.match(markup, /447–432 π\.Χ\./);
+  assert.match(markup, /data-preview-details="parthenon"/);
 });
 
 test('detail markup presents responsive local media with visible provenance', () => {
@@ -49,6 +62,9 @@ test('detail markup presents responsive local media with visible provenance', ()
   assert.match(markup, /class="media-credit"/);
   assert.match(markup, /target="_blank" rel="noopener noreferrer"/);
   assert.match(markup, new RegExp(hero.license));
+  assert.match(markup, /class="detail-context"/);
+  assert.match(markup, /37\.9497° N/);
+  assert.match(markup, /27\.3639° E/);
 });
 
 test('interpretive media is labeled bilingually and missing media keeps the designed fallback', () => {

@@ -13,7 +13,8 @@ const elements = {
   search: $('#search-input'), category: $('#category-filter'), country: $('#country-filter'), status: $('#status-filter'), seven: $('#seven-filter'),
   resultList: $('#result-list'), resultCount: $('#result-count'), mapCount: $('#map-count'), empty: $('#empty-state'), activeFilters: $('#active-filters'),
   dialog: $('#detail-dialog'), detail: $('#detail-content'), detailClose: $('#detail-close'), fallback: $('#map-fallback'),
-  mapStage: $('.map-stage'), legend: $('.legend'), scrim: $('#sidebar-scrim'), metaDescription: $('#meta-description')
+  mapStage: $('.map-stage'), legend: $('.legend'), scrim: $('#sidebar-scrim'), metaDescription: $('#meta-description'),
+  sheetClose: $('#sheet-close'), catalogRegister: $('#catalog-register'), previewRegion: $('#map-preview-region')
 };
 
 let mapController = null;
@@ -69,11 +70,11 @@ function updateTranslations() {
 
 function renderActiveFilters() {
   const chips = [];
-  if (state.category) chips.push(CATEGORY_LABELS[state.category][state.language]);
-  if (state.country) chips.push(COUNTRY_LABELS[state.country][state.language]);
-  if (state.status) chips.push(STATUS_LABELS[state.status][state.language]);
-  if (state.sevenWonder) chips.push(t(state.language, 'sevenOnly'));
-  elements.activeFilters.innerHTML = chips.map((chip) => `<span>${chip}</span>`).join('');
+  if (state.category) chips.push(['category', CATEGORY_LABELS[state.category][state.language]]);
+  if (state.country) chips.push(['country', COUNTRY_LABELS[state.country][state.language]]);
+  if (state.status) chips.push(['status', STATUS_LABELS[state.status][state.language]]);
+  if (state.sevenWonder) chips.push(['sevenWonder', t(state.language, 'sevenOnly')]);
+  elements.activeFilters.innerHTML = chips.map(([key, label]) => `<button type="button" data-clear-filter="${key}" aria-label="${t(state.language, 'removeFilter')}: ${label}"><span>${label}</span><b aria-hidden="true">×</b></button>`).join('');
 }
 
 function render() {
@@ -105,6 +106,8 @@ function setTab(tab, { focusSearch = true, sync = true } = {}) {
     panel.classList.toggle('is-active', active);
     panel.hidden = !active;
   });
+  elements.catalogRegister.hidden = tab === 'about';
+  document.querySelectorAll('[data-mobile-tab]').forEach((button) => button.classList.toggle('is-active', button.dataset.mobileTab === tab));
   if (tab === 'search' && focusSearch) setTimeout(() => elements.search.focus(), 0);
   if (sync) syncUrl();
 }
@@ -153,11 +156,29 @@ elements.language.addEventListener('click', () => {
 elements.search.addEventListener('input', (event) => { state.query = event.target.value; renderAndSync(); });
 for (const key of ['category', 'country', 'status']) elements[key].addEventListener('change', (event) => { state[key] = event.target.value; renderAndSync(); });
 elements.seven.addEventListener('change', (event) => { state.sevenWonder = event.target.checked; renderAndSync(); });
+elements.activeFilters.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-clear-filter]');
+  if (!button) return;
+  const key = button.dataset.clearFilter;
+  state[key] = key === 'sevenWonder' ? false : '';
+  if (key === 'sevenWonder') elements.seven.checked = false;
+  else elements[key].value = '';
+  renderAndSync();
+});
 $('#reset-filters').addEventListener('click', resetFilters);
 $('#empty-reset').addEventListener('click', resetFilters);
 elements.resultList.addEventListener('click', (event) => {
-  const button = event.target.closest('[data-wonder-id]');
-  if (button) openDetails(button.dataset.wonderId, true);
+  const item = event.target.closest('[data-wonder-id]');
+  const action = event.target.closest('[data-result-action]');
+  if (!item || !action) return;
+  const record = WONDERS.find((candidate) => candidate.id === item.dataset.wonderId);
+  if (!record) return;
+  if (action.dataset.resultAction === 'details') openDetails(record.id, true);
+  else {
+    mapController?.focus(record, { openPreview: true });
+    elements.previewRegion.textContent = `${record.name[state.language]}, ${record.location[state.language]}`;
+    if (mobileQuery.matches) toggleSidebar(false);
+  }
 });
 elements.detailClose.addEventListener('click', () => elements.dialog.close());
 elements.dialog.addEventListener('click', (event) => { if (event.target === elements.dialog) elements.dialog.close(); });
@@ -187,6 +208,11 @@ function toggleSidebar(force) {
 }
 elements.mobileMenu.addEventListener('click', () => toggleSidebar());
 elements.catalogToggle.addEventListener('click', () => toggleSidebar(true));
+elements.sheetClose.addEventListener('click', () => toggleSidebar(false));
+document.querySelectorAll('[data-mobile-tab]').forEach((button) => button.addEventListener('click', () => {
+  setTab(button.dataset.mobileTab);
+  toggleSidebar(true);
+}));
 elements.scrim.addEventListener('click', () => toggleSidebar(false));
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && elements.sidebar.classList.contains('is-open') && !elements.dialog.open) toggleSidebar(false);

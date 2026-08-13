@@ -1,5 +1,5 @@
 import { formatClusterCount, localizeRecord, t } from '../i18n.js';
-import { escapeHtml } from '../ui/render.js';
+import { createMapPreviewMarkup, escapeHtml } from '../ui/render.js';
 
 export function mapControlLabels(language) {
   return { zoomIn: t(language, 'zoomIn'), zoomOut: t(language, 'zoomOut'), layers: t(language, 'mapLayers') };
@@ -17,8 +17,14 @@ export function markerDescriptor(record, language) {
     location: item.location,
     period: item.period,
     category: item.categoryLabel,
-    status: item.statusLabel
+    status: item.statusLabel,
+    previewId: record.id
   };
+}
+
+export function revealMarkerPreview(cluster, marker) {
+  if (!marker) return;
+  cluster.zoomToShowLayer(marker, () => marker.openPopup());
 }
 
 export function createWondersMap(element, records, { language = 'en', onSelect = () => {} } = {}) {
@@ -67,8 +73,9 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
       iconSize: [34, 34], iconAnchor: [17, 17]
     });
     const marker = L.marker(item.coordinates, { icon, title: item.name, keyboard: true });
-    marker.bindTooltip(`<div class="map-tooltip"><small>${escapeHtml(item.category)}</small><strong>${escapeHtml(item.name)}</strong><span>${escapeHtml(item.location)}</span><em>${escapeHtml(item.period)}</em></div>`, { direction: 'top', offset: [0, -18], opacity: 1 });
-    marker.on('click', () => onSelect(record.id));
+    marker.bindPopup(createMapPreviewMarkup(record, lang), { className: 'wonder-preview-popup', maxWidth: 360, minWidth: 310, offset: [0, -18], closeButton: true, autoPanPadding: [24, 24] });
+    marker.on('mouseover focus', () => marker.openPopup());
+    marker.on('click', () => marker.openPopup());
     return marker;
   };
 
@@ -92,20 +99,25 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     layerToggle?.setAttribute('aria-label', labels.layers);
   };
 
-  const focus = (record) => {
+  element.addEventListener('click', (event) => {
+    const action = event.target.closest('[data-preview-details]');
+    if (action) onSelect(action.dataset.previewDetails);
+  });
+
+  const focus = (record, { openPreview = true } = {}) => {
     const marker = markers.get(record.id);
     const destination = [record.coordinates.lat, record.coordinates.lng];
     const zoom = Math.max(map.getZoom(), 10);
     const reducedMotion = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     if (reducedMotion) {
       map.setView(destination, zoom, { animate: false });
-      marker?.openTooltip();
+      if (openPreview) revealMarkerPreview(cluster, marker);
     } else {
+      if (openPreview) map.once('moveend', () => revealMarkerPreview(cluster, marker));
       map.flyTo(destination, zoom, { duration: 0.65 });
-      if (marker) setTimeout(() => marker.openTooltip(), 680);
     }
   };
 
   update(records, language);
-  return { map, update, focus, invalidateSize: () => map.invalidateSize() };
+  return { map, update, focus, closePreview: () => map.closePopup(), invalidateSize: () => map.invalidateSize() };
 }

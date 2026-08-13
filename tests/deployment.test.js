@@ -7,6 +7,9 @@ test('static entry uses repository-relative local assets', async () => {
   assert.match(html, /href="\.\/styles\.css"/);
   assert.match(html, /src="\.\/src\/app\.js"/);
   assert.doesNotMatch(html, /(?:href|src)="\/(?!\/)/);
+  assert.match(html, /class="mobile-action-bar"/);
+  assert.match(html, /class="[^"]*workbench[^"]*"/);
+  assert.match(html, /id="map-preview-region"/);
 });
 
 test('GitHub Pages workflow and repository documentation exist', async () => {
