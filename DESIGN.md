@@ -17,6 +17,7 @@ The Lagoons reference is translated into a monochrome archaeological atlas: an e
 
 ## Typography
 
+- Masthead title: Italianno in English and the Greek Font Society's GFS Solomos in Greek.
 - Display and monument names: Cormorant Garamond, with Georgia fallback.
 - Interface and prose: IBM Plex Sans, with system-ui fallback.
 - Coordinates and dates: IBM Plex Mono, with Consolas fallback.
