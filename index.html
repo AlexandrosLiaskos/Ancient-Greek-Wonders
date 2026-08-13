@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://a.basemaps.cartocdn.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=GFS+Didot&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=GFS+Didot&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
@@ -24,7 +24,6 @@
     <header class="masthead">
       <div class="masthead-rule" aria-hidden="true"></div>
       <div class="masthead-copy">
-        <p class="masthead-kicker" data-i18n="mastheadKicker">Ἑλληνικὰ θαύματα · Mediterranean atlas</p>
         <h1 id="masthead-title"><span>Wonders</span> <i>of the Ancient Greek World</i></h1>
       </div>
       <div class="masthead-actions">
@@ -56,7 +55,7 @@
         <div class="sidebar-panel">
           <section id="panel-browse" class="task-panel is-active" role="tabpanel" aria-labelledby="tab-browse" data-panel="browse">
             <div class="panel-heading browse-heading">
-              <div><p data-i18n="atlasRegister">Atlas register</p><h2 data-i18n="browse">Browse</h2></div>
+              <h2 data-i18n="browse">Browse</h2>
               <span id="result-count" aria-live="polite">37 monuments shown</span>
             </div>
             <section id="catalog-register" class="catalog-register" aria-label="Monuments">
@@ -70,7 +69,7 @@
 
           <section id="panel-filters" class="task-panel filters-panel" role="tabpanel" aria-labelledby="tab-filters" data-panel="filters" hidden>
             <div class="panel-heading">
-              <div><p data-i18n="filterBy">Filter by</p><h2 data-i18n="refineAtlas">Refine atlas</h2></div>
+              <h2 data-i18n="refineAtlas">Refine atlas</h2>
               <button class="text-button" id="reset-filters" type="button" data-i18n="reset">Reset</button>
             </div>
             <nav class="facet-tabs" role="tablist" aria-label="Filter field">
@@ -93,7 +92,7 @@
           </section>
 
           <section id="panel-search" class="task-panel search-panel" role="tabpanel" aria-labelledby="tab-search" data-panel="search" hidden>
-            <div class="panel-heading search-heading"><div><p data-i18n="findMonument">Find a monument</p><h2 data-i18n="searchTab">Search</h2></div><span id="search-result-count">37</span></div>
+            <div class="panel-heading search-heading"><h2 data-i18n="searchTab">Search</h2><span id="search-result-count">37</span></div>
             <label class="search-box">
               <span class="sr-only" data-i18n="search">Search monuments</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4 4"/></svg>
@@ -109,7 +108,7 @@
           </section>
 
           <section id="panel-about" class="task-panel about-panel" aria-labelledby="about-title" data-panel="about" hidden>
-            <div class="panel-heading"><div><p data-i18n="atlasProject">Atlas project</p><h2 id="about-title" data-i18n="about">About</h2></div><button id="about-back" class="text-button" type="button" data-i18n="backToBrowse">Back</button></div>
+            <div class="panel-heading"><h2 id="about-title" data-i18n="about">About</h2><button id="about-back" class="text-button" type="button" data-i18n="backToBrowse">Back</button></div>
             <p data-i18n="dataNote">A bilingual geographic catalog of 37 monuments across the ancient Greek world.</p>
             <h3 data-i18n="methodology">Methodology</h3>
             <p data-i18n="methodologyText">Coordinates identify the archaeological site or the commonly accepted historical location. They do not claim an exact footprint for lost monuments. Dates marked “c.” are approximate.</p>

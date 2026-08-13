@@ -12,6 +12,10 @@ test('marker descriptor carries stable styling and non-color status text', () =>
   assert.equal(descriptor.coordinates.length, 2);
   assert.equal(descriptor.previewId, 'statue-zeus-olympia');
   assert.equal(descriptor.status, 'Lost');
+  assert.equal(typeof descriptor.iconMarkup, 'string');
+  assert.match(descriptor.iconMarkup, /wonder-marker-glyph/);
+  assert.doesNotMatch(descriptor.iconMarkup, />01</);
+  assert.equal('order' in descriptor, false);
 });
 
 test('marker descriptor localizes labels without changing coordinates', () => {

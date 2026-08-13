@@ -4,6 +4,7 @@ import { readFile, access } from 'node:fs/promises';
 
 test('static entry uses repository-relative local assets', async () => {
   const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
   assert.match(html, /href="\.\/styles\.css"/);
   assert.match(html, /src="\.\/src\/app\.js"/);
   assert.doesNotMatch(html, /(?:href|src)="\/(?!\/)/);
@@ -16,6 +17,12 @@ test('static entry uses repository-relative local assets', async () => {
   assert.match(html, /data-mobile-tab="browse"/);
   assert.match(html, /data-mobile-tab="filters"/);
   assert.match(html, /<section class="map-stage"[\s\S]*id="map-legend"/);
+  assert.match(html, /family=Italianno/);
+  assert.match(html, /family=GFS\+Didot/);
+  assert.match(css, /\.masthead h1[^}]*font-family:\s*'Italianno'/s);
+  assert.match(css, /html\[lang="el"\] \.masthead h1[^}]*font-family:\s*'GFS Didot'/s);
+  assert.doesNotMatch(html, /masthead-kicker/);
+  assert.doesNotMatch(html, /data-i18n="(?:atlasRegister|filterBy|findMonument)"/);
 });
 
 test('GitHub Pages workflow and repository documentation exist', async () => {

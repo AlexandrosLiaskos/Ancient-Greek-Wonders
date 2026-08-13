@@ -7,13 +7,15 @@ export function mapControlLabels(language) {
 
 export function markerDescriptor(record, language) {
   const item = localizeRecord(record, language);
+  const label = `${item.name} — ${item.statusLabel}`;
+  const className = `wonder-marker wonder-marker--${record.status}`;
   return {
     id: record.id,
     name: item.name,
-    label: `${item.name} — ${item.statusLabel}`,
-    className: `wonder-marker wonder-marker--${record.status}`,
+    label,
+    className,
+    iconMarkup: `<span class="${className}" role="img" aria-label="${escapeHtml(label)}"><i class="wonder-marker-glyph" aria-hidden="true"></i></span>`,
     coordinates: [record.coordinates.lat, record.coordinates.lng],
-    order: record.order,
     location: item.location,
     period: item.period,
     category: item.categoryLabel,
@@ -69,8 +71,8 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     const item = markerDescriptor(record, lang);
     const icon = L.divIcon({
       className: '',
-      html: `<span class="${item.className}" role="img" aria-label="${item.label.replace(/"/g, '&quot;')}">${String(item.order).padStart(2, '0')}</span>`,
-      iconSize: [34, 34], iconAnchor: [17, 17]
+      html: item.iconMarkup,
+      iconSize: [28, 28], iconAnchor: [14, 14]
     });
     const marker = L.marker(item.coordinates, { icon, title: item.name, keyboard: true });
     marker.bindPopup(createMapPreviewMarkup(record, lang), { className: 'wonder-preview-popup', maxWidth: 360, minWidth: 310, offset: [0, -18], closeButton: true, autoPanPadding: [24, 24] });
