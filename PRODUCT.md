@@ -14,7 +14,7 @@ Students, educators, travellers, and culturally curious visitors exploring major
 
 ## Product Purpose
 
-Present 37 ancient Greek wonders on an interactive map that works as a static GitHub Pages site. Success means a visitor can locate, search, filter, compare, and read about every entry in English or Greek on desktop or mobile.
+Present 77 ancient Greek wonders and sacred landscapes on an interactive map that works as a static GitHub Pages site. Success means a visitor can locate, search, filter, compare, and read about every entry in English or Greek on desktop or mobile.
 
 ## Positioning
 

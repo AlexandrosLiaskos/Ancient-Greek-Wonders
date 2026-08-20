@@ -1,11 +1,11 @@
 # Wonders of the Ancient Greek World
 
-A fast bilingual WebGIS for 37 monuments across Greece and the wider ancient Greek world. It is a static site: no database, account, API key, build step, or Supabase project is required.
+A fast bilingual WebGIS for 77 monuments and sacred landscapes across Greece and the wider ancient Greek world. It is a static site: no database, account, API key, build step, or Supabase project is required.
 
 ## Features
 
 - English and Greek interface and catalog content
-- 37 curated monument records with representative coordinates, responsive imagery, and source links
+- 77 curated records with representative coordinates and source links
 - Leaflet map with marker clustering and three cartographic backgrounds
 - Bilingual search plus type, country, condition, and Seven Wonders filters
 - Accessible monument details and mobile bottom-sheet navigation
@@ -29,7 +29,7 @@ npm test
 
 ## Curated image workflow
 
-All 37 heroes are checked-in local WebP files, so the published atlas never hotlinks an image or needs a runtime image service. `media/manifest.json` is the source of truth for each selection. A manifest entry contains the stable monument `id`, Wikimedia Commons file title, media type, bilingual alt text, and an optional focal point:
+Curated hero images are checked-in local WebP files, so the published atlas never hotlinks an image or needs a runtime image service. Records awaiting image curation retain the designed image placeholder. `media/manifest.json` is the source of truth for each selection. A manifest entry contains the stable monument `id`, Wikimedia Commons file title, media type, bilingual alt text, and an optional focal point:
 
 ```js
 {

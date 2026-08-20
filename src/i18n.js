@@ -17,11 +17,11 @@ const UI = {
     methodology: 'Methodology', methodologyText: 'Coordinates identify the archaeological site or the commonly accepted historical location. They do not claim an exact footprint for lost monuments. Dates marked “c.” are approximate.',
     imagePolicy: 'Every hero image is stored locally and linked to its creator, source page, and reusable license.',
     mediaType_artwork: 'Historic artwork', mediaType_engraving: 'Historic engraving', mediaType_model: 'Scale model', mediaType_reconstruction: 'Scholarly reconstruction',
-    dataNote: 'A bilingual geographic catalog of 37 monuments across the ancient Greek world.',
+    dataNote: 'A bilingual geographic catalog of 77 monuments and sacred landscapes across the ancient Greek world.',
     language: 'ΕΛ', languageLabel: 'ΕΛ — Switch to Greek', basemap: 'Basemap', list: 'Catalog', openCatalog: 'Open catalog', closeCatalog: 'Close catalog',
     sections: 'Sections', catalogControls: 'Catalog controls', mapLabel: 'Map of ancient Greek wonders',
     skipToMap: 'Skip to map', legendLabel: 'Map legend',
-    metaDescription: 'A bilingual interactive atlas of 37 wonders of the ancient Greek world.',
+    metaDescription: 'A bilingual interactive atlas of 77 wonders of the ancient Greek world.',
     zoomIn: 'Zoom in', zoomOut: 'Zoom out', mapLayers: 'Map layers', imageGallery: 'Monument image gallery',
     previousImage: 'Previous image', nextImage: 'Next image'
   },
@@ -43,11 +43,11 @@ const UI = {
     methodology: 'Μεθοδολογία', methodologyText: 'Οι συντεταγμένες προσδιορίζουν τον αρχαιολογικό χώρο ή την κοινώς αποδεκτή ιστορική θέση. Δεν δηλώνουν ακριβές αποτύπωμα για χαμένα μνημεία. Οι χρονολογίες με «περ.» είναι κατά προσέγγιση.',
     imagePolicy: 'Κάθε κεντρική εικόνα αποθηκεύεται τοπικά και συνδέεται με τον δημιουργό, την πηγή και την άδεια επανάχρησης.',
     mediaType_artwork: 'Ιστορική απεικόνιση', mediaType_engraving: 'Ιστορικό χαρακτικό', mediaType_model: 'Μακέτα', mediaType_reconstruction: 'Επιστημονική αναπαράσταση',
-    dataNote: 'Δίγλωσσος γεωγραφικός κατάλογος 37 μνημείων του αρχαίου ελληνικού κόσμου.',
+    dataNote: 'Δίγλωσσος γεωγραφικός κατάλογος 77 μνημείων και ιερών τοπίων του αρχαίου ελληνικού κόσμου.',
     language: 'EN', languageLabel: 'EN — Μετάβαση στα Αγγλικά', basemap: 'Υπόβαθρο', list: 'Κατάλογος', openCatalog: 'Άνοιγμα καταλόγου', closeCatalog: 'Κλείσιμο καταλόγου',
     sections: 'Ενότητες', catalogControls: 'Χειριστήρια καταλόγου', mapLabel: 'Χάρτης των θαυμάτων του αρχαίου ελληνικού κόσμου',
     skipToMap: 'Μετάβαση στον χάρτη', legendLabel: 'Υπόμνημα χάρτη',
-    metaDescription: 'Δίγλωσσος διαδραστικός άτλας 37 θαυμάτων του αρχαίου ελληνικού κόσμου.',
+    metaDescription: 'Δίγλωσσος διαδραστικός άτλας 77 θαυμάτων του αρχαίου ελληνικού κόσμου.',
     zoomIn: 'Μεγέθυνση', zoomOut: 'Σμίκρυνση', mapLayers: 'Επίπεδα χάρτη', imageGallery: 'Συλλογή εικόνων μνημείου',
     previousImage: 'Προηγούμενη εικόνα', nextImage: 'Επόμενη εικόνα'
   }
@@ -59,7 +59,9 @@ export const CATEGORY_LABELS = {
   theatre: { en: 'Theatre', el: 'Θέατρο' }, settlement: { en: 'Settlement', el: 'Οικισμός' },
   palace: { en: 'Palace', el: 'Ανάκτορο' }, sanctuary: { en: 'Sanctuary', el: 'Ιερό' },
   complex: { en: 'Archaeological complex', el: 'Αρχαιολογικό σύνολο' }, citadel: { en: 'Citadel', el: 'Ακρόπολη' },
-  civic: { en: 'Civic space', el: 'Δημόσιος χώρος' }, gateway: { en: 'Monumental gateway', el: 'Μνημειακή πύλη' }
+  civic: { en: 'Civic space', el: 'Δημόσιος χώρος' }, gateway: { en: 'Monumental gateway', el: 'Μνημειακή πύλη' },
+  crossroads: { en: 'Hellenic cultural crossroads', el: 'Πολιτισμική συνάντηση του ελληνικού κόσμου' },
+  mythic: { en: 'Mythic geography', el: 'Μυθολογική γεωγραφία' }
 };
 
 export const STATUS_LABELS = {
@@ -71,7 +73,10 @@ export const STATUS_LABELS = {
 
 export const COUNTRY_LABELS = {
   Greece: { en: 'Greece', el: 'Ελλάδα' }, Türkiye: { en: 'Türkiye', el: 'Τουρκία' }, Egypt: { en: 'Egypt', el: 'Αίγυπτος' },
-  Italy: { en: 'Italy', el: 'Ιταλία' }, Libya: { en: 'Libya', el: 'Λιβύη' }
+  Italy: { en: 'Italy', el: 'Ιταλία' }, Libya: { en: 'Libya', el: 'Λιβύη' }, Cyprus: { en: 'Cyprus', el: 'Κύπρος' },
+  Spain: { en: 'Spain', el: 'Ισπανία' }, Ukraine: { en: 'Ukraine', el: 'Ουκρανία' }, Albania: { en: 'Albania', el: 'Αλβανία' },
+  Afghanistan: { en: 'Afghanistan', el: 'Αφγανιστάν' },
+  'Gibraltar / Morocco': { en: 'Gibraltar / Morocco', el: 'Γιβραλτάρ / Μαρόκο' }
 };
 
 export function t(language, key) {

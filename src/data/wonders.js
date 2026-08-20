@@ -338,6 +338,366 @@ const RAW_WONDERS = [
     period: { en: 'Archaic, probably 6th c. BC', el: 'Αρχαϊκή περίοδος, πιθανότατα 6ος αι. π.Χ.' },
     description: { en: 'The paved trackway across the Corinthian Isthmus allowed wheeled carriers to move vessels or cargo between the Saronic and Corinthian gulfs. Surviving sections preserve wheel grooves and engineered surfaces.', el: 'Ο λιθόστρωτος δρόμος πάνω από τον Ισθμό της Κορίνθου επέτρεπε σε τροχοφόρα οχήματα να μεταφέρουν πλοία ή φορτία μεταξύ Σαρωνικού και Κορινθιακού κόλπου. Σωζόμενα τμήματα διατηρούν αυλακώσεις τροχών και διαμορφωμένες επιφάνειες.' },
     heroImage: '', gallery: [], sources: [CULTURE_GR]
+  },
+  {
+    id: 'theatre-dionysus-athens', order: 38,
+    name: { en: 'Theatre of Dionysus', el: 'Θέατρο του Διονύσου' },
+    location: { en: 'South Slope of the Acropolis, Athens, Greece', el: 'Νότια Κλιτύς Ακρόπολης, Αθήνα, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 37.9704, lng: 23.7277 }, category: 'theatre', status: 'ruins', sevenWonder: false,
+    period: { en: 'Classical–Hellenistic, 5th–4th c. BC', el: 'Κλασική–Ελληνιστική περίοδος, 5ος–4ος αι. π.Χ.' },
+    description: { en: 'The principal theatre of classical Athens grew from the cult of Dionysus and hosted the dramatic competitions of the City Dionysia. The works of Aeschylus, Sophocles, Euripides, and Aristophanes were performed in this theatrical tradition.', el: 'Το κύριο θέατρο της κλασικής Αθήνας αναπτύχθηκε μέσα από τη λατρεία του Διονύσου και φιλοξενούσε τους δραματικούς αγώνες των Μεγάλων Διονυσίων. Σε αυτή τη θεατρική παράδοση παρουσιάστηκαν έργα του Αισχύλου, του Σοφοκλή, του Ευριπίδη και του Αριστοφάνη.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Theatre of Dionysus', url: 'https://odysseus.culture.gr/h/2/eh251.jsp?obj_id=10341' }]
+  },
+  {
+    id: 'eleusis-telesterion', order: 39,
+    name: { en: 'Sanctuary of Demeter and Telesterion at Eleusis', el: 'Ιερό της Δήμητρας και Τελεστήριο της Ελευσίνας' },
+    location: { en: 'Eleusis, Attica, Greece', el: 'Ελευσίνα, Αττική, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 38.0410, lng: 23.5390 }, category: 'sanctuary', status: 'ruins', sevenWonder: false,
+    period: { en: 'Archaic–Roman; Classical Telesterion', el: 'Αρχαϊκή–Ρωμαϊκή περίοδος· κλασικό Τελεστήριο' },
+    description: { en: 'Eleusis was the Panhellenic centre of the Mysteries of Demeter and Kore. Its immense Telesterion was repeatedly enlarged to accommodate initiates while preserving the secrecy of rites celebrated for many centuries.', el: 'Η Ελευσίνα υπήρξε το πανελλήνιο κέντρο των Μυστηρίων της Δήμητρας και της Κόρης. Το τεράστιο Τελεστήριο διευρύνθηκε επανειλημμένα για να υποδέχεται τους μύστες, ενώ οι τελετές του παρέμεναν απόρρητες επί πολλούς αιώνες.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Eleusis', url: 'https://odysseus.culture.gr/h/3/gh351.jsp?obj_id=2373' }]
+  },
+  {
+    id: 'dodona-sanctuary-oracle', order: 40,
+    name: { en: 'Sanctuary and Oracle of Zeus at Dodona', el: 'Ιερό και Μαντείο του Διός στη Δωδώνη' },
+    location: { en: 'Dodona, Epirus, Greece', el: 'Δωδώνη, Ήπειρος, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 39.5463, lng: 20.7878 }, category: 'sanctuary', status: 'ruins', sevenWonder: false,
+    period: { en: 'Archaic–Roman, with earlier cult origins', el: 'Αρχαϊκή–Ρωμαϊκή περίοδος, με αρχαιότερες απαρχές λατρείας' },
+    description: { en: 'Tradition regarded Dodona as the oldest Greek oracle. Priests interpreted signs associated with Zeus’s sacred oak, while thousands of inscribed lead questions preserve unusually direct evidence of ancient concerns; the sanctuary also contains a vast theatre.', el: 'Η παράδοση θεωρούσε τη Δωδώνη το αρχαιότερο ελληνικό μαντείο. Οι ιερείς ερμήνευαν σημεία που συνδέονταν με την ιερή δρυ του Δία, ενώ χιλιάδες ενεπίγραφες μολύβδινες ερωτήσεις διασώζουν άμεσες μαρτυρίες των αρχαίων προβληματισμών· το ιερό περιλαμβάνει και ένα τεράστιο θέατρο.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Dodona', url: 'https://odysseus.culture.gr/h/3/eh351.jsp?obj_id=2365' }]
+  },
+  {
+    id: 'great-gods-samothrace', order: 41,
+    name: { en: 'Sanctuary of the Great Gods at Samothrace', el: 'Ιερό των Μεγάλων Θεών στη Σαμοθράκη' },
+    location: { en: 'Palaeopolis, Samothrace, Greece', el: 'Παλαιόπολη, Σαμοθράκη, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 40.4993, lng: 25.5280 }, category: 'sanctuary', status: 'ruins', sevenWonder: false,
+    period: { en: 'Archaic–Hellenistic, chiefly 4th–3rd c. BC', el: 'Αρχαϊκή–Ελληνιστική περίοδος, κυρίως 4ος–3ος αι. π.Χ.' },
+    description: { en: 'This dramatic ravine sanctuary hosted a mystery cult open to initiates from across the ancient world. Hellenistic rulers endowed it with innovative buildings, and the celebrated Winged Victory of Samothrace originally stood within the complex.', el: 'Το εντυπωσιακό ιερό μέσα σε χαράδρα φιλοξενούσε μυστηριακή λατρεία ανοικτή σε μύστες από ολόκληρο τον αρχαίο κόσμο. Ελληνιστικοί ηγεμόνες το προίκισαν με πρωτοποριακά κτίρια, ενώ η περίφημη Νίκη της Σαμοθράκης στεκόταν αρχικά μέσα στο συγκρότημα.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Sanctuary of the Great Gods', url: 'https://www.culture.gov.gr/el/Information/SitePages/view.aspx?nID=5403' }]
+  },
+  {
+    id: 'heraion-samos', order: 42,
+    name: { en: 'Heraion of Samos', el: 'Ηραίο της Σάμου' },
+    location: { en: 'Heraion, Samos, Greece', el: 'Ηραίο, Σάμος, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 37.6715, lng: 26.8859 }, category: 'sanctuary', status: 'ruins', sevenWonder: false,
+    period: { en: 'Archaic, chiefly 8th–6th c. BC', el: 'Αρχαϊκή περίοδος, κυρίως 8ος–6ος αι. π.Χ.' },
+    description: { en: 'Successive temples of Hera introduced major innovations in Ionic architecture. The colossal temple begun under Polycrates measured about 55 by 109 metres and was planned with 155 columns approximately 20 metres high.', el: 'Οι διαδοχικοί ναοί της Ήρας εισήγαγαν σημαντικές καινοτομίες στην ιωνική αρχιτεκτονική. Ο κολοσσιαίος ναός που άρχισε επί Πολυκράτη είχε διαστάσεις περίπου 55 επί 109 μέτρα και σχεδιάστηκε με 155 κίονες ύψους περίπου 20 μέτρων.' },
+    heroImage: '', gallery: [], sources: [UNESCO(595, 'UNESCO — Pythagoreion and Heraion of Samos')]
+  },
+  {
+    id: 'lindos-acropolis-athena', order: 43,
+    name: { en: 'Acropolis of Lindos and Temple of Athena Lindia', el: 'Ακρόπολη της Λίνδου και Ναός της Αθηνάς Λινδίας' },
+    location: { en: 'Lindos, Rhodes, Greece', el: 'Λίνδος, Ρόδος, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 36.0915, lng: 28.0881 }, category: 'citadel', status: 'partly-restored', sevenWonder: false,
+    period: { en: 'Archaic–Hellenistic', el: 'Αρχαϊκή–Ελληνιστική περίοδος' },
+    description: { en: 'Terraces, stairways, stoas, and the small temple of Athena Lindia form a carefully staged sacred ascent above the sea. The sanctuary expressed the identity and maritime reach of one of Rhodes’s oldest cities.', el: 'Αναβαθμίδες, κλίμακες, στοές και ο μικρός ναός της Αθηνάς Λινδίας διαμορφώνουν μια σκηνοθετημένη ιερή άνοδο πάνω από τη θάλασσα. Το ιερό εξέφραζε την ταυτότητα και τη ναυτική ακτινοβολία μιας από τις αρχαιότερες πόλεις της Ρόδου.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Acropolis of Lindos', url: 'https://odysseus.culture.gr/h/3/gh355.jsp?obj_id=2383' }]
+  },
+  {
+    id: 'nemea-zeus-stadium', order: 44,
+    name: { en: 'Sanctuary of Zeus and Stadium at Nemea', el: 'Ιερό του Διός και Στάδιο της Νεμέας' },
+    location: { en: 'Ancient Nemea, Corinthia, Greece', el: 'Αρχαία Νεμέα, Κορινθία, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 37.8077, lng: 22.7114 }, category: 'complex', status: 'partly-restored', sevenWonder: false,
+    period: { en: 'Late Classical–Hellenistic, chiefly 4th c. BC', el: 'Ύστερη κλασική–Ελληνιστική περίοδος, κυρίως 4ος αι. π.Χ.' },
+    description: { en: 'Nemea was one of the four great Panhellenic festival centres. Its Temple of Zeus, bathhouse, xenon, and stadium with a vaulted athletes’ entrance document the religious and athletic setting of the Nemean Games.', el: 'Η Νεμέα ήταν ένα από τα τέσσερα μεγάλα πανελλήνια κέντρα αγώνων. Ο Ναός του Διός, το λουτρό, ο ξενώνας και το στάδιο με τη θολωτή είσοδο των αθλητών τεκμηριώνουν το θρησκευτικό και αθλητικό περιβάλλον των Νεμέων.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Archaeological Museum of Nemea', url: 'https://archaeologicalmuseums.culture.gov.gr/en/museum/5df34af3deca5e2d79e8c1bc/archaeological-museum-of-nemea' }]
+  },
+  {
+    id: 'apollo-ancient-corinth', order: 45,
+    name: { en: 'Temple of Apollo at Ancient Corinth', el: 'Ναός του Απόλλωνα στην Αρχαία Κόρινθο' },
+    location: { en: 'Ancient Corinth, Corinthia, Greece', el: 'Αρχαία Κόρινθος, Κορινθία, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 37.9059, lng: 22.8784 }, category: 'temple', status: 'partly-standing', sevenWonder: false,
+    period: { en: 'Archaic, c. 540 BC', el: 'Αρχαϊκή περίοδος, περ. 540 π.Χ.' },
+    description: { en: 'Seven monolithic limestone columns preserve the commanding profile of one of mainland Greece’s earliest large Doric temples. It overlooked the agora of wealthy Corinth beneath Acrocorinth.', el: 'Επτά μονολιθικοί ασβεστολιθικοί κίονες διατηρούν την επιβλητική μορφή ενός από τους πρωιμότερους μεγάλους δωρικούς ναούς της ηπειρωτικής Ελλάδας. Δέσποζε πάνω από την αγορά της εύπορης Κορίνθου, κάτω από τον Ακροκόρινθο.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Ancient Corinth', url: 'https://odysseus.culture.gr/h/3/gh355.jsp?obj_id=2388' }]
+  },
+  {
+    id: 'aigai-palace-royal-tombs', order: 46,
+    name: { en: 'Palace and Royal Tombs of Aigai', el: 'Ανάκτορο και Βασιλικοί Τάφοι των Αιγών' },
+    location: { en: 'Vergina, Imathia, Greece', el: 'Βεργίνα, Ημαθία, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 40.4863, lng: 22.3177 }, category: 'complex', status: 'excavated', sevenWonder: false,
+    period: { en: 'Classical–Hellenistic, chiefly 4th c. BC', el: 'Κλασική–Ελληνιστική περίοδος, κυρίως 4ος αι. π.Χ.' },
+    description: { en: 'Aigai, the first capital of Macedon, preserves a vast palace, theatre, sanctuaries, and an exceptional royal necropolis. The unplundered tomb traditionally identified with Philip II revealed extraordinary metalwork and painting.', el: 'Οι Αιγές, η πρώτη πρωτεύουσα της Μακεδονίας, διατηρούν ένα τεράστιο ανάκτορο, θέατρο, ιερά και μια εξαιρετική βασιλική νεκρόπολη. Ο ασύλητος τάφος που ταυτίζεται παραδοσιακά με τον Φίλιππο Β΄ αποκάλυψε απαράμιλλη μεταλλοτεχνία και ζωγραφική.' },
+    heroImage: '', gallery: [], sources: [UNESCO(780, 'UNESCO — Archaeological Site of Aigai')]
+  },
+  {
+    id: 'tiryns-citadel', order: 47,
+    name: { en: 'Cyclopean Citadel of Tiryns', el: 'Κυκλώπεια Ακρόπολη της Τίρυνθας' },
+    location: { en: 'Tiryns, Argolis, Greece', el: 'Τίρυνθα, Αργολίδα, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 37.5997, lng: 22.7998 }, category: 'citadel', status: 'ruins', sevenWonder: false,
+    period: { en: 'Late Bronze Age, chiefly 14th–13th c. BC', el: 'Ύστερη Εποχή του Χαλκού, κυρίως 14ος–13ος αι. π.Χ.' },
+    description: { en: 'Tiryns is enclosed by Cyclopean masonry of extraordinary scale, with corbelled galleries, gates, ramps, and a Mycenaean palace arranged around a great megaron. Ancient tradition attributed the walls to the Cyclopes.', el: 'Η Τίρυνθα περιβάλλεται από κυκλώπεια τοιχοποιία εξαιρετικής κλίμακας, με εκφορικές στοές, πύλες, ράμπες και μυκηναϊκό ανάκτορο οργανωμένο γύρω από μεγάλο μέγαρο. Η αρχαία παράδοση απέδιδε τα τείχη στους Κύκλωπες.' },
+    heroImage: '', gallery: [], sources: [UNESCO(941, 'UNESCO — Mycenae and Tiryns')]
+  },
+  {
+    id: 'ancient-messene', order: 48,
+    name: { en: 'Ancient Messene', el: 'Αρχαία Μεσσήνη' },
+    location: { en: 'Messenia, Greece', el: 'Μεσσηνία, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 37.1788, lng: 21.9192 }, category: 'complex', status: 'partly-restored', sevenWonder: false,
+    period: { en: 'Late Classical–Hellenistic, founded 369 BC', el: 'Ύστερη κλασική–Ελληνιστική περίοδος, ίδρυση 369 π.Χ.' },
+    description: { en: 'Because no later city covered it, Messene preserves an unusually complete Greek urban landscape: fortifications, houses, sanctuaries, agora, theatre, stadium, gymnasium, and administrative buildings organized on a regular grid.', el: 'Επειδή δεν καλύφθηκε από μεταγενέστερη πόλη, η Μεσσήνη διατηρεί ένα ασυνήθιστα πλήρες ελληνικό αστικό τοπίο: οχυρώσεις, οικίες, ιερά, αγορά, θέατρο, στάδιο, γυμνάσιο και διοικητικά κτίρια οργανωμένα σε κανονικό κάνναβο.' },
+    heroImage: '', gallery: [], sources: [{ title: 'UNESCO Tentative List — Ancient Messene', url: 'https://whc.unesco.org/en/tentativelists/5859/' }]
+  },
+  {
+    id: 'greek-theatre-syracuse', order: 49,
+    name: { en: 'Greek Theatre and Neapolis of Syracuse', el: 'Ελληνικό Θέατρο και Νεάπολη των Συρακουσών' },
+    location: { en: 'Syracuse, Sicily, Italy', el: 'Συρακούσες, Σικελία, Ιταλία' }, country: 'Italy',
+    coordinates: { lat: 37.0753, lng: 15.2752 }, category: 'theatre', status: 'partly-standing', sevenWonder: false,
+    period: { en: 'Classical–Hellenistic, chiefly 5th–3rd c. BC', el: 'Κλασική–Ελληνιστική περίοδος, κυρίως 5ος–3ος αι. π.Χ.' },
+    description: { en: 'Cut into the Temenite hill, the immense theatre anchors the monumental Neapolis of Syracuse. The entry is included for this exceptional theatrical and sacred ensemble—not merely because Syracuse was a Greek colony.', el: 'Λαξευμένο στον Τεμενίτη λόφο, το τεράστιο θέατρο αποτελεί τον πυρήνα της μνημειακής Νεάπολης των Συρακουσών. Η εγγραφή περιλαμβάνεται για αυτό το εξαιρετικό θεατρικό και ιερό σύνολο—όχι απλώς επειδή οι Συρακούσες ήταν ελληνική αποικία.' },
+    heroImage: '', gallery: [], sources: [UNESCO(1200, 'UNESCO — Syracuse and the Rocky Necropolis of Pantalica')]
+  },
+  {
+    id: 'pergamon-acropolis', order: 50,
+    name: { en: 'Acropolis of Pergamon', el: 'Ακρόπολη της Περγάμου' },
+    location: { en: 'Bergama, İzmir, Türkiye', el: 'Πέργαμος (Μπέργκαμα), Σμύρνη, Τουρκία' }, country: 'Türkiye',
+    coordinates: { lat: 39.1324, lng: 27.1841 }, category: 'complex', status: 'ruins', sevenWonder: false,
+    period: { en: 'Hellenistic, chiefly 3rd–2nd c. BC', el: 'Ελληνιστική περίοδος, κυρίως 3ος–2ος αι. π.Χ.' },
+    description: { en: 'The Attalid capital transformed a steep hill into a spectacular terraced city of palaces, sanctuaries, library, theatre, and the Great Altar. Its architecture and urban staging became an emblem of Hellenistic royal power.', el: 'Η πρωτεύουσα των Ατταλιδών μετέτρεψε έναν απότομο λόφο σε θεαματική αναβαθμιδωτή πόλη με ανάκτορα, ιερά, βιβλιοθήκη, θέατρο και τον Μεγάλο Βωμό. Η αρχιτεκτονική και η πολεοδομική σκηνοθεσία της έγιναν σύμβολο της ελληνιστικής βασιλικής ισχύος.' },
+    heroImage: '', gallery: [], sources: [UNESCO(1457, 'UNESCO — Pergamon and its Multi-Layered Cultural Landscape')]
+  },
+  {
+    id: 'artemis-sardis', order: 51,
+    name: { en: 'Temple of Artemis at Sardis', el: 'Ναός της Αρτέμιδος στις Σάρδεις' },
+    location: { en: 'Sardis, Manisa, Türkiye', el: 'Σάρδεις, Μαγνησία, Τουρκία' }, country: 'Türkiye',
+    coordinates: { lat: 38.4807, lng: 28.0313 }, category: 'temple', status: 'partly-standing', sevenWonder: false,
+    period: { en: 'Hellenistic–Roman, begun early 3rd c. BC', el: 'Ελληνιστική–Ρωμαϊκή περίοδος, έναρξη αρχές 3ου αι. π.Χ.' },
+    description: { en: 'The fourth-largest Ionic temple of the classical world rises beneath the Sardian acropolis. Its immense pseudodipteral plan, refined marble carving, and two columns that have remained standing since antiquity make it a major study in Greek construction.', el: 'Ο τέταρτος μεγαλύτερος ιωνικός ναός του κλασικού κόσμου υψώνεται κάτω από την ακρόπολη των Σάρδεων. Η τεράστια ψευδοδίπτερη κάτοψη, η εκλεπτυσμένη μαρμαρογλυπτική και οι δύο κίονες που παραμένουν όρθιοι από την αρχαιότητα τον καθιστούν κορυφαίο δείγμα ελληνικής οικοδομικής.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Harvard–Cornell Archaeological Exploration of Sardis', url: 'https://sardisexpedition.org/en/essays/latw-yegul-temple-of-artemis' }]
+  },
+  {
+    id: 'troy', order: 52,
+    name: { en: 'Archaeological Site of Troy', el: 'Αρχαιολογικός Χώρος της Τροίας' },
+    location: { en: 'Hisarlık, Çanakkale, Türkiye', el: 'Χισαρλίκ, Τσανάκκαλε, Τουρκία' }, country: 'Türkiye',
+    coordinates: { lat: 39.9575, lng: 26.2389 }, category: 'crossroads', status: 'ruins', sevenWonder: false,
+    period: { en: 'Bronze Age–Roman, over four millennia of occupation', el: 'Εποχή του Χαλκού–Ρωμαϊκή περίοδος, πάνω από τέσσερις χιλιετίες κατοίκησης' },
+    description: { en: 'Troy was an Anatolian, multi-layered settlement rather than a Greek foundation. It belongs in the atlas because the Trojan War became central to Greek epic and identity, while later Greek Ilion added sanctuaries and civic monuments to the mound.', el: 'Η Τροία ήταν πολυστρωματικός οικισμός της Ανατολίας και όχι ελληνική ίδρυση. Ανήκει στον άτλαντα επειδή ο Τρωικός Πόλεμος έγινε κεντρικός στην ελληνική επική παράδοση και ταυτότητα, ενώ το μεταγενέστερο ελληνικό Ίλιο πρόσθεσε ιερά και δημόσια μνημεία στον λόφο.' },
+    heroImage: '', gallery: [], sources: [UNESCO(849, 'UNESCO — Archaeological Site of Troy')]
+  },
+  {
+    id: 'nemrut-dag', order: 53,
+    name: { en: 'Hierothesion of Nemrut Dağ', el: 'Ιεροθέσιο του Νεμρούτ Νταγ' },
+    location: { en: 'Adıyaman, Türkiye', el: 'Αντίγιαμαν, Τουρκία' }, country: 'Türkiye',
+    coordinates: { lat: 37.9803, lng: 38.7408 }, category: 'crossroads', status: 'ruins', sevenWonder: false,
+    period: { en: 'Late Hellenistic, 1st c. BC', el: 'Ύστερη ελληνιστική περίοδος, 1ος αι. π.Χ.' },
+    description: { en: 'Antiochus I of Commagene crowned the mountain with a colossal temple-tomb, terraces, inscriptions, and giant divine statues. Greek, Persian, and Anatolian forms were deliberately fused in one of the Hellenistic world’s most ambitious sacred landscapes.', el: 'Ο Αντίοχος Α΄ της Κομμαγηνής έστεψε το βουνό με κολοσσιαίο ναό-τάφο, αναβαθμίδες, επιγραφές και γιγάντια αγάλματα θεοτήτων. Ελληνικά, περσικά και ανατολιακά στοιχεία συνενώθηκαν σκόπιμα σε ένα από τα πιο φιλόδοξα ιερά τοπία του ελληνιστικού κόσμου.' },
+    heroImage: '', gallery: [], sources: [UNESCO(448, 'UNESCO — Nemrut Dağ')]
+  },
+  {
+    id: 'aphrodisias', order: 54,
+    name: { en: 'Aphrodisias and the Temple of Aphrodite', el: 'Αφροδισιάδα και Ναός της Αφροδίτης' },
+    location: { en: 'Geyre, Aydın, Türkiye', el: 'Γκέιρε, Αϊδίνιο, Τουρκία' }, country: 'Türkiye',
+    coordinates: { lat: 37.7088, lng: 28.7238 }, category: 'crossroads', status: 'partly-restored', sevenWonder: false,
+    period: { en: 'Hellenistic–Roman, chiefly 2nd c. BC–3rd c. AD', el: 'Ελληνιστική–Ρωμαϊκή περίοδος, κυρίως 2ος αι. π.Χ.–3ος αι. μ.Χ.' },
+    description: { en: 'Aphrodisias joined a distinctive Carian cult of Aphrodite with Greek and Roman urban culture. Nearby marble quarries sustained an internationally renowned school of sculpture, while the temple, Tetrapylon, theatre, Sebasteion, and stadium survive exceptionally well.', el: 'Η Αφροδισιάδα συνέδεσε μια ιδιαίτερη καρική λατρεία της Αφροδίτης με την ελληνική και ρωμαϊκή αστική κουλτούρα. Τα γειτονικά λατομεία μαρμάρου τροφοδότησαν διεθνώς φημισμένη σχολή γλυπτικής, ενώ ο ναός, το Τετράπυλο, το θέατρο, το Σεβαστείο και το στάδιο σώζονται εξαιρετικά.' },
+    heroImage: '', gallery: [], sources: [UNESCO(1519, 'UNESCO — Aphrodisias')]
+  },
+  {
+    id: 'palaepaphos-aphrodite', order: 55,
+    name: { en: 'Sanctuary of Aphrodite at Palaepaphos', el: 'Ιερό της Αφροδίτης στην Παλαίπαφο' },
+    location: { en: 'Kouklia, Paphos, Cyprus', el: 'Κούκλια, Πάφος, Κύπρος' }, country: 'Cyprus',
+    coordinates: { lat: 34.7086, lng: 32.5744 }, category: 'crossroads', status: 'ruins', sevenWonder: false,
+    period: { en: 'Late Bronze Age–Roman, from the 12th c. BC', el: 'Ύστερη Εποχή του Χαλκού–Ρωμαϊκή περίοδος, από τον 12ο αι. π.Χ.' },
+    description: { en: 'Palaepaphos linked a much older Cypriot fertility cult with the Hellenic Aphrodite. The sanctuary, associated with an early Mycenaean settlement, remained one of the Mediterranean’s most enduring centres of her worship.', el: 'Η Παλαίπαφος συνέδεσε μια πολύ αρχαιότερη κυπριακή λατρεία γονιμότητας με την ελληνική Αφροδίτη. Το ιερό, που συνδέεται με πρώιμη μυκηναϊκή εγκατάσταση, παρέμεινε ένα από τα μακροβιότερα κέντρα λατρείας της στη Μεσόγειο.' },
+    heroImage: '', gallery: [], sources: [UNESCO(79, 'UNESCO — Paphos')]
+  },
+  {
+    id: 'tauric-chersonese', order: 56,
+    name: { en: 'Tauric Chersonese and its Chora', el: 'Ταυρική Χερσόνησος και η Χώρα της' },
+    location: { en: 'Sevastopol, Crimea, Ukraine', el: 'Σεβαστούπολη, Κριμαία, Ουκρανία' }, country: 'Ukraine',
+    coordinates: { lat: 44.6100, lng: 33.4935 }, category: 'crossroads', status: 'ruins', sevenWonder: false,
+    period: { en: 'Classical–Byzantine, from the 5th c. BC', el: 'Κλασική–Βυζαντινή περίοδος, από τον 5ο αι. π.Χ.' },
+    description: { en: 'This Dorian settlement is included not simply as a colony but for its exceptional union of polis and agricultural chora. Hundreds of equal plots, vineyard walls, farmsteads, streets, and public buildings preserve a rare Greek cultural landscape on the Black Sea.', el: 'Αυτή η δωρική εγκατάσταση δεν περιλαμβάνεται απλώς ως αποικία, αλλά για την εξαιρετική ενότητα πόλης και αγροτικής χώρας. Εκατοντάδες ισομεγέθη κτήματα, αμπελουργικοί τοίχοι, αγροικίες, δρόμοι και δημόσια κτίρια διατηρούν ένα σπάνιο ελληνικό πολιτιστικό τοπίο στον Εύξεινο Πόντο.' },
+    heroImage: '', gallery: [], sources: [UNESCO(1411, 'UNESCO — Tauric Chersonese and its Chora')]
+  },
+  {
+    id: 'melqart-heracles-gadir', order: 57,
+    name: { en: 'Sanctuary of Melqart–Heracles at Gadir', el: 'Ιερό του Μελκάρτ–Ηρακλή στο Γάδειρα' },
+    location: { en: 'Traditional area near Sancti Petri, Cádiz, Spain', el: 'Παραδοσιακή περιοχή κοντά στο Σάνκτι Πέτρι, Κάδιθ, Ισπανία' }, country: 'Spain',
+    coordinates: { lat: 36.3805, lng: -6.2217 }, category: 'crossroads', status: 'lost', sevenWonder: false,
+    period: { en: 'Phoenician–Roman, from the early 1st millennium BC', el: 'Φοινικική–Ρωμαϊκή περίοδος, από τις αρχές της 1ης χιλιετίας π.Χ.' },
+    description: { en: 'The famous Phoenician sanctuary of Melqart at Gadir was identified by Greeks with Heracles and by Romans with Hercules Gaditanus. Its ancient renown is well documented, but its precise archaeological location remains unresolved; this marker is explicitly representative.', el: 'Το περίφημο φοινικικό ιερό του Μελκάρτ στο Γάδειρα ταυτίστηκε από τους Έλληνες με τον Ηρακλή και από τους Ρωμαίους με τον Hercules Gaditanus. Η αρχαία φήμη του τεκμηριώνεται καλά, αλλά η ακριβής αρχαιολογική θέση του παραμένει άλυτη· ο δείκτης είναι ρητά ενδεικτικός.' },
+    heroImage: '', gallery: [], sources: [{ title: 'IAPH — Sanctuary of Melqart / Hercules Gaditanus', url: 'https://repositorio.iaph.es/handle/11532/355250' }]
+  },
+  {
+    id: 'pillars-heracles', order: 58,
+    name: { en: 'Pillars of Heracles', el: 'Ηράκλειες Στήλες' },
+    location: { en: 'Strait of Gibraltar, Gibraltar and Morocco', el: 'Στενό του Γιβραλτάρ, Γιβραλτάρ και Μαρόκο' }, country: 'Gibraltar / Morocco',
+    coordinates: { lat: 35.9950, lng: -5.5500 }, category: 'mythic', status: 'standing', sevenWonder: false,
+    period: { en: 'Mythic geography, attested in Greek antiquity', el: 'Μυθολογική γεωγραφία, μαρτυρημένη στην ελληνική αρχαιότητα' },
+    description: { en: 'The Pillars marked the western threshold of the inhabited world in Greek geographical imagination. They were traditionally associated with Calpe, the Rock of Gibraltar, and Abyla on the African shore—often identified with Jebel Musa; this midpoint marker represents the pair, not a built monument.', el: 'Οι Ηράκλειες Στήλες σηματοδοτούσαν το δυτικό όριο της οικουμένης στην ελληνική γεωγραφική φαντασία. Ταυτίζονταν παραδοσιακά με την Κάλπη, τον Βράχο του Γιβραλτάρ, και την Αβύλη στην αφρικανική ακτή—συχνά το Τζεμπέλ Μούσα· ο δείκτης στο μέσο αναπαριστά το ζεύγος και όχι κατασκευασμένο μνημείο.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Gibraltar National Museum — Pillars of Heracles', url: 'https://www.gibmuseum.gi/news/scarabs-51' }]
+  },
+  {
+    id: 'mount-olympus', order: 59,
+    name: { en: 'Mount Olympus', el: 'Όλυμπος' },
+    location: { en: 'Pieria and Larissa, Greece', el: 'Πιερία και Λάρισα, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 40.0856, lng: 22.3586 }, category: 'mythic', status: 'standing', sevenWonder: false,
+    period: { en: 'Sacred mythic landscape of ancient Greek tradition', el: 'Ιερό μυθολογικό τοπίο της αρχαίας ελληνικής παράδοσης' },
+    description: { en: 'The highest massif in Greece was imagined as the dwelling of Zeus and the Olympian gods. This entry treats Olympus as a sacred natural and mythic landscape central to Greek culture—not as a human-built monument.', el: 'Το ψηλότερο ορεινό συγκρότημα της Ελλάδας νοούνταν ως κατοικία του Δία και των Ολύμπιων θεών. Η εγγραφή αντιμετωπίζει τον Όλυμπο ως ιερό φυσικό και μυθολογικό τοπίο κεντρικό για τον ελληνικό πολιτισμό—όχι ως ανθρώπινο οικοδόμημα.' },
+    heroImage: '', gallery: [], sources: [UNESCO(1719, 'UNESCO — The Wider Area of Mount Olympus')]
+  },
+  {
+    id: 'phaistos-palace', order: 60,
+    name: { en: 'Palace of Phaistos', el: 'Ανάκτορο της Φαιστού' },
+    location: { en: 'Phaistos, Heraklion, Crete, Greece', el: 'Φαιστός, Ηράκλειο, Κρήτη, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 35.0514, lng: 24.8146 }, category: 'palace', status: 'ruins', sevenWonder: false,
+    period: { en: 'Minoan, chiefly c. 1900–1450 BC', el: 'Μινωική περίοδος, κυρίως περ. 1900–1450 π.Χ.' },
+    description: { en: 'Phaistos preserves two successive Minoan palaces arranged around monumental courts, with grand stairways, magazines, ceremonial rooms, and commanding views over the Messara plain. The celebrated Phaistos Disc was discovered within the complex.', el: 'Η Φαιστός διατηρεί δύο διαδοχικά μινωικά ανάκτορα οργανωμένα γύρω από μνημειακές αυλές, με μεγάλες κλίμακες, αποθήκες, τελετουργικούς χώρους και πανοραμική θέα στην πεδιάδα της Μεσαράς. Ο περίφημος Δίσκος της Φαιστού βρέθηκε μέσα στο συγκρότημα.' },
+    heroImage: '', gallery: [], sources: [UNESCO(1733, 'UNESCO — Minoan Palatial Centres')]
+  },
+  {
+    id: 'palace-nestor-pylos', order: 61,
+    name: { en: 'Palace of Nestor at Pylos', el: 'Ανάκτορο του Νέστορα στην Πύλο' },
+    location: { en: 'Ano Englianos, Messenia, Greece', el: 'Άνω Εγκλιανός, Μεσσηνία, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 37.0283, lng: 21.6955 }, category: 'palace', status: 'excavated', sevenWonder: false,
+    period: { en: 'Mycenaean, chiefly 13th c. BC', el: 'Μυκηναϊκή περίοδος, κυρίως 13ος αι. π.Χ.' },
+    description: { en: 'One of the best-preserved Mycenaean palaces, Pylos retains a clear megaron plan, throne room, storerooms, archive, painted plaster, and a remarkable terracotta bathtub. Hundreds of Linear B tablets illuminate the administration of a Bronze Age kingdom.', el: 'Ένα από τα καλύτερα διατηρημένα μυκηναϊκά ανάκτορα, η Πύλος διασώζει ευανάγνωστη κάτοψη μεγάρου, αίθουσα θρόνου, αποθήκες, αρχείο, ζωγραφιστά κονιάματα και έναν εντυπωσιακό πήλινο λουτήρα. Εκατοντάδες πινακίδες Γραμμικής Β φωτίζουν τη διοίκηση ενός βασιλείου της Εποχής του Χαλκού.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Palace of Nestor', url: 'https://odysseus.culture.gr/h/3/eh355.jsp?obj_id=2562' }]
+  },
+  {
+    id: 'pella', order: 62,
+    name: { en: 'Pella — Palace, Agora and Mosaics', el: 'Πέλλα — Ανάκτορο, Αγορά και Ψηφιδωτά' },
+    location: { en: 'Pella, Central Macedonia, Greece', el: 'Πέλλα, Κεντρική Μακεδονία, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 40.7578, lng: 22.5196 }, category: 'complex', status: 'excavated', sevenWonder: false,
+    period: { en: 'Classical–Hellenistic, chiefly 4th–2nd c. BC', el: 'Κλασική–Ελληνιστική περίοδος, κυρίως 4ος–2ος αι. π.Χ.' },
+    description: { en: 'The capital of the Macedonian kingdom combined a vast palace, gridded streets, a monumental agora, sanctuaries, workshops, and luxurious peristyle houses. Its pebble mosaics, including the Stag Hunt and Dionysus scenes, are masterpieces of ancient Greek pictorial art.', el: 'Η πρωτεύουσα του μακεδονικού βασιλείου συνδύαζε τεράστιο ανάκτορο, ορθογώνιο οδικό κάνναβο, μνημειακή αγορά, ιερά, εργαστήρια και πολυτελείς περίστυλες οικίες. Τα βοτσαλωτά ψηφιδωτά της, όπως το Κυνήγι Ελαφιού και ο Διόνυσος, αποτελούν αριστουργήματα της αρχαίας ελληνικής εικαστικής τέχνης.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Pella', url: 'https://odysseus.culture.gr/h/3/eh351.jsp?obj_id=2399' }]
+  },
+  {
+    id: 'dion-sanctuary', order: 63,
+    name: { en: 'Dion and the Sanctuary of Olympian Zeus', el: 'Δίον και Ιερό του Ολυμπίου Διός' },
+    location: { en: 'Dion, Pieria, Greece', el: 'Δίον, Πιερία, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 40.1726, lng: 22.4900 }, category: 'sanctuary', status: 'ruins', sevenWonder: false,
+    period: { en: 'Classical–Roman, chiefly 5th c. BC–3rd c. AD', el: 'Κλασική–Ρωμαϊκή περίοδος, κυρίως 5ος αι. π.Χ.–3ος αι. μ.Χ.' },
+    description: { en: 'At the foot of Mount Olympus, Dion served as the principal sacred centre of the Macedonians. Sanctuaries of Zeus, Demeter, Isis, and other deities stand beside theatres, baths, streets, and villas in a water-rich landscape shaped by centuries of worship.', el: 'Στους πρόποδες του Ολύμπου, το Δίον υπήρξε το κυριότερο ιερό κέντρο των Μακεδόνων. Ιερά του Δία, της Δήμητρας, της Ίσιδας και άλλων θεοτήτων συνυπάρχουν με θέατρα, λουτρά, δρόμους και επαύλεις σε ένα υδάτινο τοπίο αιώνων λατρείας.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Dion', url: 'https://odysseus.culture.gr/h/3/gh351.jsp?obj_id=2508' }]
+  },
+  {
+    id: 'philippi', order: 64,
+    name: { en: 'Archaeological Site of Philippi', el: 'Αρχαιολογικός Χώρος Φιλίππων' },
+    location: { en: 'Philippi, Eastern Macedonia, Greece', el: 'Φίλιπποι, Ανατολική Μακεδονία, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 41.0147, lng: 24.2853 }, category: 'complex', status: 'ruins', sevenWonder: false,
+    period: { en: 'Hellenistic–Early Christian, from 356 BC', el: 'Ελληνιστική–Παλαιοχριστιανική περίοδος, από το 356 π.Χ.' },
+    description: { en: 'Refounded by Philip II in 356 BC, the fortified Hellenistic city preserves walls, gates, a theatre, and a funerary heroon. Roman forums and exceptional Early Christian basilicas later transformed the same strategic place on the route between Europe and Asia.', el: 'Επανιδρυμένοι από τον Φίλιππο Β΄ το 356 π.Χ., οι οχυρωμένοι ελληνιστικοί Φίλιπποι διατηρούν τείχη, πύλες, θέατρο και ταφικό ηρώο. Ρωμαϊκές αγορές και εξαιρετικές παλαιοχριστιανικές βασιλικές μεταμόρφωσαν αργότερα τον ίδιο στρατηγικό τόπο στη διαδρομή μεταξύ Ευρώπης και Ασίας.' },
+    heroImage: '', gallery: [], sources: [UNESCO(1517, 'UNESCO — Archaeological Site of Philippi')]
+  },
+  {
+    id: 'tower-winds', order: 65,
+    name: { en: 'Tower of the Winds', el: 'Πύργος των Ανέμων' },
+    location: { en: 'Roman Agora, Athens, Greece', el: 'Ρωμαϊκή Αγορά, Αθήνα, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 37.9742, lng: 23.7276 }, category: 'engineering', status: 'standing', sevenWonder: false,
+    period: { en: 'Hellenistic, late 2nd–early 1st c. BC', el: 'Ελληνιστική περίοδος, τέλη 2ου–αρχές 1ου αι. π.Χ.' },
+    description: { en: 'The octagonal marble Horologion of Andronikos of Kyrrhos united art and scientific observation. Reliefs personify the eight winds, while sundials, a water clock, and an ancient weather vane measured time and changing conditions.', el: 'Το οκταγωνικό μαρμάρινο Ωρολόγιο του Ανδρόνικου Κυρρήστου συνέδεσε την τέχνη με την επιστημονική παρατήρηση. Ανάγλυφα προσωποποιούν τους οκτώ ανέμους, ενώ ηλιακά ρολόγια, υδραυλικό ρολόι και αρχαίος ανεμοδείκτης μετρούσαν τον χρόνο και τις μεταβολές του καιρού.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Tower of the Winds', url: 'https://www.culture.gov.gr/el/Information/SitePages/view.aspx?nID=1664' }]
+  },
+  {
+    id: 'lavrion-thorikos', order: 66,
+    name: { en: 'Ancient Lavrion and Thorikos', el: 'Αρχαία Λαυρεωτική και Θορικός' },
+    location: { en: 'Lavreotiki, Attica, Greece', el: 'Λαυρεωτική, Αττική, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 37.7420, lng: 24.0543 }, category: 'engineering', status: 'ruins', sevenWonder: false,
+    period: { en: 'Bronze Age–Classical, chiefly 5th–4th c. BC', el: 'Εποχή του Χαλκού–Κλασική περίοδος, κυρίως 5ος–4ος αι. π.Χ.' },
+    description: { en: 'An immense landscape of shafts, galleries, ore washeries, furnaces, cisterns, and industrial settlements reveals the technology behind Athenian silver. The wealth financed the fleet and major civic works, while depending on extensive enslaved labour; nearby Thorikos preserves one of the oldest Greek theatres.', el: 'Ένα απέραντο τοπίο από φρέατα, στοές, πλυντήρια μεταλλεύματος, καμίνους, δεξαμενές και βιοτεχνικούς οικισμούς αποκαλύπτει την τεχνολογία του αθηναϊκού αργύρου. Ο πλούτος χρηματοδότησε τον στόλο και μεγάλα δημόσια έργα, βασιζόμενος όμως σε εκτεταμένη εργασία δούλων· ο γειτονικός Θορικός διατηρεί ένα από τα αρχαιότερα ελληνικά θέατρα.' },
+    heroImage: '', gallery: [], sources: [{ title: 'UNESCO Tentative List — Ancient Lavrion', url: 'https://whc.unesco.org/en/tentativelists/5857/' }]
+  },
+  {
+    id: 'library-mouseion-alexandria', order: 67,
+    name: { en: 'Library and Mouseion of Alexandria', el: 'Βιβλιοθήκη και Μουσείον της Αλεξάνδρειας' },
+    location: { en: 'Representative Royal Quarter, Alexandria, Egypt', el: 'Ενδεικτική θέση Βασιλικής Συνοικίας, Αλεξάνδρεια, Αίγυπτος' }, country: 'Egypt',
+    coordinates: { lat: 31.2088, lng: 29.9092 }, category: 'civic', status: 'lost', sevenWonder: false,
+    period: { en: 'Ptolemaic, founded in the early 3rd c. BC', el: 'Πτολεμαϊκή περίοδος, ίδρυση στις αρχές 3ου αι. π.Χ.' },
+    description: { en: 'The Ptolemaic Library and Mouseion formed antiquity’s most famous centre of collection, research, and scholarship, associated with figures such as Callimachus and Eratosthenes. Their exact position and architecture are lost, so this marker represents the ancient Royal Quarter rather than a claimed footprint.', el: 'Η πτολεμαϊκή Βιβλιοθήκη και το Μουσείον αποτέλεσαν το διασημότερο κέντρο συλλογής, έρευνας και λογιοσύνης της αρχαιότητας, συνδεδεμένο με μορφές όπως ο Καλλίμαχος και ο Ερατοσθένης. Η ακριβής θέση και η αρχιτεκτονική τους έχουν χαθεί, επομένως ο δείκτης αναπαριστά τη Βασιλική Συνοικία και όχι ένα βέβαιο αποτύπωμα.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Bibliotheca Alexandrina — Ancient Alexandria', url: 'https://www.bibalex.org/Attachments/Publications/Files/201303201500376555_AncientAlexandria.pdf' }]
+  },
+  {
+    id: 'antikythera-shipwreck', order: 68,
+    name: { en: 'Antikythera Shipwreck and Mechanism', el: 'Ναυάγιο των Αντικυθήρων και Μηχανισμός' },
+    location: { en: 'Off Antikythera, Greece', el: 'Ανοιχτά των Αντικυθήρων, Ελλάδα' }, country: 'Greece',
+    coordinates: { lat: 35.8902, lng: 23.3075 }, category: 'engineering', status: 'excavated', sevenWonder: false,
+    period: { en: 'Late Hellenistic, wrecked c. 60–50 BC', el: 'Ύστερη ελληνιστική περίοδος, ναυάγηση περ. 60–50 π.Χ.' },
+    description: { en: 'The wreck carried bronze and marble sculpture, luxury goods, and the Antikythera Mechanism—a sophisticated geared calculator for astronomical cycles. The underwater site remains under investigation, while the recovered mechanism is displayed in the National Archaeological Museum in Athens.', el: 'Το ναυάγιο μετέφερε χάλκινα και μαρμάρινα γλυπτά, πολύτιμα αντικείμενα και τον Μηχανισμό των Αντικυθήρων—έναν εξαιρετικά σύνθετο οδοντωτό υπολογιστή αστρονομικών κύκλων. Η υποβρύχια θέση συνεχίζει να ερευνάται, ενώ ο μηχανισμός εκτίθεται στο Εθνικό Αρχαιολογικό Μουσείο της Αθήνας.' },
+    heroImage: '', gallery: [], sources: [{ title: 'Woods Hole Oceanographic Institution — Antikythera Shipwreck', url: 'https://www.whoi.edu/ocean-learning-hub/ocean-topics/ocean-human-lives/underwater-archaeology/antikythera-shipwreck/' }]
+  },
+  {
+    id: 'thonis-heracleion', order: 69,
+    name: { en: 'Sunken City of Thonis–Heracleion', el: 'Βυθισμένη Πόλη Θώνις–Ηράκλειον' },
+    location: { en: 'Aboukir Bay, Egypt', el: 'Κόλπος Αμπουκίρ, Αίγυπτος' }, country: 'Egypt',
+    coordinates: { lat: 31.3042, lng: 30.1006 }, category: 'crossroads', status: 'excavated', sevenWonder: false,
+    period: { en: 'Late Egyptian–Hellenistic, chiefly 7th–1st c. BC', el: 'Ύστερη αιγυπτιακή–Ελληνιστική περίοδος, κυρίως 7ος–1ος αι. π.Χ.' },
+    description: { en: 'Before Alexandria, Thonis–Heracleion controlled maritime access to Egypt from the Greek world. Submerged temples, colossal statues, canals, harbour basins, anchors, and shipwrecks reveal an Egyptian port where Greek merchants and cults formed part of a profoundly connected Mediterranean city.', el: 'Πριν από την Αλεξάνδρεια, η Θώνις–Ηράκλειον έλεγχε τη θαλάσσια πρόσβαση στην Αίγυπτο από τον ελληνικό κόσμο. Βυθισμένοι ναοί, κολοσσιαία αγάλματα, κανάλια, λιμενολεκάνες, άγκυρες και ναυάγια αποκαλύπτουν ένα αιγυπτιακό λιμάνι όπου Έλληνες έμποροι και λατρείες αποτελούσαν μέρος μιας βαθιά διασυνδεδεμένης μεσογειακής πόλης.' },
+    heroImage: '', gallery: [], sources: [{ title: 'European Institute for Underwater Archaeology — Egypt', url: 'https://ieasm.institute/egypt.php?lang=en' }]
+  },
+  {
+    id: 'naukratis', order: 70,
+    name: { en: 'Naukratis', el: 'Ναύκρατις' },
+    location: { en: 'Kom Gi’eif, Nile Delta, Egypt', el: 'Κομ Γκιέιφ, Δέλτα του Νείλου, Αίγυπτος' }, country: 'Egypt',
+    coordinates: { lat: 30.9000, lng: 30.6167 }, category: 'crossroads', status: 'excavated', sevenWonder: false,
+    period: { en: 'Late Egyptian–Hellenistic, from the late 7th c. BC', el: 'Ύστερη αιγυπτιακή–Ελληνιστική περίοδος, από τα τέλη 7ου αι. π.Χ.' },
+    description: { en: 'Naukratis was an Egyptian harbour and international trading settlement rather than a simple Greek colony. Sanctuaries of Apollo, Hera, Aphrodite, the Dioskouroi, and the shared Hellenion stood among Egyptian sacred and commercial spaces used by diverse Mediterranean communities.', el: 'Η Ναύκρατις ήταν αιγυπτιακό λιμάνι και διεθνής εμπορικός οικισμός, όχι μια απλή ελληνική αποικία. Ιερά του Απόλλωνα, της Ήρας, της Αφροδίτης, των Διοσκούρων και το κοινό Ελλήνιο συνυπήρχαν με αιγυπτιακούς ιερούς και εμπορικούς χώρους που χρησιμοποιούσαν διαφορετικές μεσογειακές κοινότητες.' },
+    heroImage: '', gallery: [], sources: [{ title: 'British Museum — Naukratis: Greeks in Egypt', url: 'https://www.britishmuseum.org/research/projects/naukratis-greeks-egypt' }]
+  },
+  {
+    id: 'siwa-zeus-ammon', order: 71,
+    name: { en: 'Oracle Temple of Amun / Zeus-Ammon', el: 'Μαντείο του Άμμωνα / Διός-Άμμωνος' },
+    location: { en: 'Aghurmi, Siwa Oasis, Egypt', el: 'Αγούρμι, Όαση Σίβα, Αίγυπτος' }, country: 'Egypt',
+    coordinates: { lat: 29.2055, lng: 25.5197 }, category: 'crossroads', status: 'ruins', sevenWonder: false,
+    period: { en: 'Egyptian Late Period, chiefly 6th c. BC', el: 'Ύστερη περίοδος της Αιγύπτου, κυρίως 6ος αι. π.Χ.' },
+    description: { en: 'This was an Egyptian sanctuary of Amun whose oracle became famous across the Greek world through the syncretic Zeus-Ammon. Alexander the Great’s consultation in 331 BC made the remote oasis a pivotal landscape of both Egyptian religion and Hellenistic kingship.', el: 'Πρόκειται για αιγυπτιακό ιερό του Άμμωνα, του οποίου το μαντείο έγινε διάσημο στον ελληνικό κόσμο μέσω του συγκρητιστικού Διός-Άμμωνος. Η επίσκεψη του Μεγάλου Αλεξάνδρου το 331 π.Χ. κατέστησε τη μακρινή όαση κομβικό τοπίο τόσο της αιγυπτιακής θρησκείας όσο και της ελληνιστικής βασιλείας.' },
+    heroImage: '', gallery: [], sources: [{ title: 'UNESCO Tentative List — Siwa Archaeological Area', url: 'https://whc.unesco.org/en/tentativelists/186/' }]
+  },
+  {
+    id: 'emporion-empuries', order: 72,
+    name: { en: 'Greek Neapolis of Emporion', el: 'Ελληνική Νεάπολη του Εμπορίου' },
+    location: { en: 'Empúries, Catalonia, Spain', el: 'Εμπούριες, Καταλονία, Ισπανία' }, country: 'Spain',
+    coordinates: { lat: 42.1333, lng: 3.1202 }, category: 'crossroads', status: 'ruins', sevenWonder: false,
+    period: { en: 'Archaic–Hellenistic, from the 6th c. BC', el: 'Αρχαϊκή–Ελληνιστική περίοδος, από τον 6ο αι. π.Χ.' },
+    description: { en: 'Emporion is included for its unusually legible Greek Neapolis—not simply for being a colony. Walls, sanctuaries, an agora, stoa, streets, houses, and workshops survive beside a later Roman city, preserving the encounter between Greek settlers and Iberian communities.', el: 'Το Εμπόριον περιλαμβάνεται για την ασυνήθιστα ευανάγνωστη ελληνική Νεάπολή του—όχι απλώς επειδή ήταν αποικία. Τείχη, ιερά, αγορά, στοά, δρόμοι, οικίες και εργαστήρια σώζονται δίπλα σε μεταγενέστερη ρωμαϊκή πόλη, διατηρώντας τη συνάντηση Ελλήνων εγκατεστημένων και ιβηρικών κοινοτήτων.' },
+    heroImage: '', gallery: [], sources: [{ title: 'UNESCO Tentative List — Empúries', url: 'https://whc.unesco.org/en/tentativelists/1051/' }]
+  },
+  {
+    id: 'elea-velia', order: 73,
+    name: { en: 'Elea–Velia and Porta Rosa', el: 'Ελέα–Βέλια και Πόρτα Ρόζα' },
+    location: { en: 'Ascea, Campania, Italy', el: 'Άσεα, Καμπανία, Ιταλία' }, country: 'Italy',
+    coordinates: { lat: 40.1599, lng: 15.1555 }, category: 'complex', status: 'ruins', sevenWonder: false,
+    period: { en: 'Archaic–Hellenistic, founded c. 540 BC', el: 'Αρχαϊκή–Ελληνιστική περίοδος, ίδρυση περ. 540 π.Χ.' },
+    description: { en: 'Elea was home to the philosophical school of Parmenides and Zeno. Its acropolis, sanctuaries, paved streets, fortifications, and the exceptional arched Porta Rosa give monumental form to a city whose ideas transformed Greek philosophy.', el: 'Η Ελέα υπήρξε έδρα της φιλοσοφικής σχολής του Παρμενίδη και του Ζήνωνα. Η ακρόπολη, τα ιερά, οι πλακόστρωτοι δρόμοι, οι οχυρώσεις και η εξαιρετική τοξωτή Πόρτα Ρόζα δίνουν μνημειακή μορφή σε μια πόλη της οποίας οι ιδέες μεταμόρφωσαν την ελληνική φιλοσοφία.' },
+    heroImage: '', gallery: [], sources: [UNESCO(842, 'UNESCO — Archaeological Site of Velia')]
+  },
+  {
+    id: 'miletus', order: 74,
+    name: { en: 'Miletus — Theatre, Harbours and Civic Centre', el: 'Μίλητος — Θέατρο, Λιμένες και Αστικό Κέντρο' },
+    location: { en: 'Balat, Aydın, Türkiye', el: 'Μπαλάτ, Αϊδίνιο, Τουρκία' }, country: 'Türkiye',
+    coordinates: { lat: 37.5308, lng: 27.2775 }, category: 'complex', status: 'ruins', sevenWonder: false,
+    period: { en: 'Archaic–Roman, chiefly 6th c. BC–2nd c. AD', el: 'Αρχαϊκή–Ρωμαϊκή περίοδος, κυρίως 6ος αι. π.Χ.–2ος αι. μ.Χ.' },
+    description: { en: 'Miletus was a leading Ionian port associated with Thales, early natural philosophy, and influential traditions of planned urbanism. Its immense theatre, harbour monuments, public squares, sanctuaries, and civic buildings preserve the scale of a city that shaped Greek science and settlement planning.', el: 'Η Μίλητος ήταν κορυφαίο ιωνικό λιμάνι, συνδεδεμένο με τον Θαλή, την πρώιμη φυσική φιλοσοφία και επιδραστικές παραδόσεις οργανωμένης πολεοδομίας. Το τεράστιο θέατρο, τα λιμενικά μνημεία, οι δημόσιες πλατείες, τα ιερά και τα πολιτικά κτίρια διατηρούν την κλίμακα μιας πόλης που διαμόρφωσε την ελληνική επιστήμη και τον σχεδιασμό οικισμών.' },
+    heroImage: '', gallery: [], sources: [{ title: 'German Archaeological Institute — Miletus', url: 'https://www.dainst.org/en/blogs/new-website-miletus-excavation/392' }]
+  },
+  {
+    id: 'butrint', order: 75,
+    name: { en: 'Greek Theatre and Sanctuary at Butrint', el: 'Ελληνικό Θέατρο και Ιερό στο Βουθρωτό' },
+    location: { en: 'Butrint, Vlorë County, Albania', el: 'Βουθρωτό, Περιφέρεια Αυλώνας, Αλβανία' }, country: 'Albania',
+    coordinates: { lat: 39.7458, lng: 20.0200 }, category: 'crossroads', status: 'ruins', sevenWonder: false,
+    period: { en: 'Hellenistic–Byzantine, with earlier occupation', el: 'Ελληνιστική–Βυζαντινή περίοδος, με προγενέστερη κατοίκηση' },
+    description: { en: 'Butrint’s Greek theatre and Sanctuary of Asklepios occupy a wooded lagoon landscape later reshaped by Roman and Byzantine monuments. The entry highlights this substantial sacred and theatrical ensemble while acknowledging the site’s Epirote and multi-period identity.', el: 'Το ελληνικό θέατρο και το Ιερό του Ασκληπιού στο Βουθρωτό βρίσκονται σε ένα δασωμένο λιμνοθαλάσσιο τοπίο που μετασχηματίστηκε αργότερα από ρωμαϊκά και βυζαντινά μνημεία. Η εγγραφή αναδεικνύει αυτό το σημαντικό ιερό και θεατρικό σύνολο, αναγνωρίζοντας παράλληλα την ηπειρωτική και πολυστρωματική ταυτότητα του χώρου.' },
+    heroImage: '', gallery: [], sources: [UNESCO(570, 'UNESCO — Butrint')]
+  },
+  {
+    id: 'xanthos-letoon', order: 76,
+    name: { en: 'Xanthos–Letoon', el: 'Ξάνθος–Λητώον' },
+    location: { en: 'Antalya and Muğla, Türkiye', el: 'Αττάλεια και Μούγλα, Τουρκία' }, country: 'Türkiye',
+    coordinates: { lat: 36.3568, lng: 29.3183 }, category: 'crossroads', status: 'ruins', sevenWonder: false,
+    period: { en: 'Lycian–Hellenistic, chiefly 6th–2nd c. BC', el: 'Λυκιακή–Ελληνιστική περίοδος, κυρίως 6ος–2ος αι. π.Χ.' },
+    description: { en: 'The Lycian capital of Xanthos and the federal sanctuary at Letoon preserve an exceptional meeting of local and Hellenic traditions. Distinctive tombs, the Nereid Monument, a trilingual inscription, and temples of Leto, Artemis, and Apollo document cultural exchange without reducing the site to a Greek foundation.', el: 'Η λυκιακή πρωτεύουσα Ξάνθος και το ομοσπονδιακό ιερό στο Λητώον διατηρούν μια εξαιρετική συνάντηση τοπικών και ελληνικών παραδόσεων. Ιδιαίτεροι τάφοι, το Μνημείο των Νηρηίδων, μια τρίγλωσση επιγραφή και ναοί της Λητώς, της Αρτέμιδος και του Απόλλωνα τεκμηριώνουν την πολιτισμική ανταλλαγή χωρίς να παρουσιάζουν τον χώρο ως ελληνική ίδρυση.' },
+    heroImage: '', gallery: [], sources: [UNESCO(484, 'UNESCO — Xanthos–Letoon')]
+  },
+  {
+    id: 'ai-khanoum', order: 77,
+    name: { en: 'Aï Khanoum', el: 'Αϊ Χανούμ' },
+    location: { en: 'Takhar Province, Afghanistan', el: 'Επαρχία Ταχάρ, Αφγανιστάν' }, country: 'Afghanistan',
+    coordinates: { lat: 37.1690, lng: 69.4090 }, category: 'crossroads', status: 'ruins', sevenWonder: false,
+    period: { en: 'Hellenistic, chiefly 3rd–2nd c. BC', el: 'Ελληνιστική περίοδος, κυρίως 3ος–2ος αι. π.Χ.' },
+    description: { en: 'At the eastern edge of the Hellenistic world, Aï Khanoum combined a Greek theatre, gymnasium, fountain, inscriptions, and philosophical texts with palatial and religious forms rooted in Central Asia and Iran. Modern looting severely damaged the site, but its excavated record remains crucial evidence of a genuinely hybrid city.', el: 'Στο ανατολικό άκρο του ελληνιστικού κόσμου, το Αϊ Χανούμ συνδύαζε ελληνικό θέατρο, γυμνάσιο, κρήνη, επιγραφές και φιλοσοφικά κείμενα με ανακτορικές και θρησκευτικές μορφές ριζωμένες στην Κεντρική Ασία και το Ιράν. Η σύγχρονη λεηλασία προκάλεσε σοβαρές ζημιές, όμως το ανασκαφικό αρχείο παραμένει κρίσιμη μαρτυρία μιας πραγματικά υβριδικής πόλης.' },
+    heroImage: '', gallery: [], sources: [{ title: 'The Metropolitan Museum of Art — Afghanistan: Hidden Treasures', url: 'https://www.metmuseum.org/en/exhibitions/listings/2009/afghanistan' }]
   }
 ];
 
