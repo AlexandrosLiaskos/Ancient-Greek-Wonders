@@ -4,9 +4,11 @@ import assert from 'node:assert/strict';
 import { WONDERS } from '../src/data/wonders.js';
 import { facetCounts, filterWonders, normalizeSearchText, summarizeSurvival } from '../src/core/catalog.js';
 
-test('catalog contains 37 complete, unique and geographically valid records', () => {
-  assert.equal(WONDERS.length, 37);
-  assert.equal(new Set(WONDERS.map(({ id }) => id)).size, 37);
+const EXPECTED_CATALOG_SIZE = 77;
+
+test('catalog contains 77 complete, unique and geographically valid records', () => {
+  assert.equal(WONDERS.length, EXPECTED_CATALOG_SIZE);
+  assert.equal(new Set(WONDERS.map(({ id }) => id)).size, EXPECTED_CATALOG_SIZE);
 
   for (const wonder of WONDERS) {
     assert.match(wonder.id, /^[a-z0-9-]+$/);
@@ -15,8 +17,8 @@ test('catalog contains 37 complete, unique and geographically valid records', ()
     assert.ok(wonder.location.en && wonder.location.el, `${wonder.id}: bilingual location`);
     assert.ok(Number.isFinite(wonder.coordinates.lat));
     assert.ok(Number.isFinite(wonder.coordinates.lng));
-    assert.ok(wonder.coordinates.lat >= 22 && wonder.coordinates.lat <= 46);
-    assert.ok(wonder.coordinates.lng >= 9 && wonder.coordinates.lng <= 34);
+    assert.ok(wonder.coordinates.lat >= -90 && wonder.coordinates.lat <= 90);
+    assert.ok(wonder.coordinates.lng >= -180 && wonder.coordinates.lng <= 180);
     assert.deepEqual(wonder.gallery, []);
     assert.equal(wonder.heroImage, '');
     assert.ok(wonder.sources.length > 0, `${wonder.id}: source`);
@@ -45,7 +47,7 @@ test('filters compose by category, country, status and canonical wonder flag', (
 });
 
 test('empty filter values leave the catalog unchanged', () => {
-  assert.equal(filterWonders(WONDERS, { query: '', category: '', country: '', status: '' }).length, 37);
+  assert.equal(filterWonders(WONDERS, { query: '', category: '', country: '', status: '' }).length, EXPECTED_CATALOG_SIZE);
 });
 
 test('facet counts respect every other active filter and ignore their own selection', () => {
