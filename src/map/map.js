@@ -223,7 +223,7 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
         iconAnchor: [9, 9]
       });
 
-    const marker = L.marker(item.coordinates, { icon, title: item.name, keyboard: true });
+    const marker = L.marker(item.coordinates, { icon, keyboard: true });
     marker._mapCategory = cat.key;
     marker._wonderId = record.id;
 

@@ -37,7 +37,7 @@ export function createWonderHoverCardHTML(record, language) {
   const item = localizeRecord(record, language);
   const hero = record.media?.hero;
   const image = hero
-    ? `<img class="lagoon-hover-image" src="${escapeHtml(hero.src)}" srcset="${escapeHtml(hero.srcset)}" sizes="290px" width="${hero.width}" height="${hero.height}" alt="" loading="lazy" decoding="async" style="object-position:${escapeHtml(hero.focalPoint)}">`
+    ? `<img class="lagoon-hover-image" src="${escapeHtml(hero.src)}" srcset="${escapeHtml(hero.srcset)}" sizes="320px" width="${hero.width}" height="${hero.height}" alt="" loading="lazy" decoding="async" style="object-position:${escapeHtml(hero.focalPoint)}">`
     : '';
 
   const nameEn = record.name?.en || item.name;
@@ -53,13 +53,10 @@ export function createWonderHoverCardHTML(record, language) {
     </div>
     <div class="lagoon-hover-body">
       <span class="lagoon-hover-eyebrow">${escapeHtml(item.categoryLabel)}</span>
-      <h3 class="lagoon-hover-name">
-        <span class="lagoon-hover-name-en">${escapeHtml(primaryName)}</span>
-        ${secondaryName ? `
-          <span class="lagoon-hover-name-sep" aria-hidden="true">/</span>
-          <span class="lagoon-hover-name-gr">${escapeHtml(secondaryName)}</span>
-        ` : ''}
-      </h3>
+      <div class="lagoon-hover-name">
+        <strong class="lagoon-hover-name-en">${escapeHtml(primaryName)}</strong>
+        ${secondaryName ? `<span class="lagoon-hover-name-gr">${escapeHtml(secondaryName)}</span>` : ''}
+      </div>
       <div class="lagoon-hover-locality">
         <svg class="lagoon-hover-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -70,18 +67,15 @@ export function createWonderHoverCardHTML(record, language) {
       <div class="lagoon-hover-stats">
         <div class="lagoon-hover-stat">
           <span class="lagoon-hover-stat-label">${escapeHtml(t(language, 'status'))}</span>
-          <span class="lagoon-hover-basis-tag is-empty" aria-hidden="true"></span>
           <span class="lagoon-hover-stat-value">${escapeHtml(item.statusLabel)}</span>
         </div>
         <div class="lagoon-hover-stat">
           <span class="lagoon-hover-stat-label">${escapeHtml(t(language, 'period'))}</span>
-          <span class="lagoon-hover-basis-tag is-empty" aria-hidden="true"></span>
           <span class="lagoon-hover-stat-value">${escapeHtml(item.period)}</span>
         </div>
         ${record.sevenWonder ? `
         <div class="lagoon-hover-stat">
           <span class="lagoon-hover-stat-label">${escapeHtml(t(language, 'canonical'))}</span>
-          <span class="lagoon-hover-basis-tag is-empty" aria-hidden="true"></span>
           <span class="lagoon-hover-stat-value" style="color: #dc2626; font-weight: 700;">★ Seven Wonders</span>
         </div>` : ''}
       </div>

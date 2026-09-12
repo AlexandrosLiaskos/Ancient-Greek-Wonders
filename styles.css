@@ -749,7 +749,7 @@ html[lang="el"] .wm-title em {
 }
 
 .lagoon-hover-card {
-    width: min(290px, calc(100vw - 40px));
+    width: min(320px, calc(100vw - 32px));
     background: #ffffff;
     overflow: hidden;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -758,7 +758,7 @@ html[lang="el"] .wm-title em {
 
 .lagoon-hover-preview {
     width: 100%;
-    height: 130px;
+    height: 140px;
     border-bottom: 1px solid #e5e7eb;
     background: #f3f4f6;
     overflow: hidden;
@@ -786,63 +786,57 @@ html[lang="el"] .wm-title em {
 }
 
 .lagoon-hover-body {
-    padding: 0.7rem 0.85rem 0.75rem;
+    padding: 0.75rem 0.9rem 0.8rem;
 }
 
 .lagoon-hover-eyebrow {
     display: block;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 0.55rem;
+    font-size: 0.58rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     color: #6b7280;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
 }
 
 .lagoon-hover-name {
-    margin: 0 0 0.35rem;
-    font-family: var(--font-serif);
-    font-size: 1.05rem;
-    font-weight: 700;
-    line-height: 1.15;
-    color: var(--primary-color, #111827);
-    letter-spacing: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.35rem;
+    margin: 0 0 0.45rem;
+    line-height: 1.25;
 }
 
 .lagoon-hover-name-en {
-    color: var(--primary-color, #111827);
-}
-
-.lagoon-hover-name-sep {
+    display: block;
     font-family: var(--font-serif);
-    font-weight: 400;
-    font-size: 0.85em;
-    color: #9ca3af;
-    user-select: none;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary-color, #111827);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .lagoon-hover-name-gr {
+    display: block;
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
-    font-size: 0.78em;
+    font-size: 0.82rem;
     color: #4b5563;
+    margin-top: 0.2rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .lagoon-hover-locality {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.35rem;
     font-family: var(--font-serif);
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: #4b5563;
     margin: 0 0 0.55rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .lagoon-hover-pin {
@@ -864,17 +858,16 @@ html[lang="el"] .wm-title em {
     flex-direction: column;
     gap: 0;
     border-top: 1px dashed #e5e7eb;
-    padding-top: 0.4rem;
+    padding-top: 0.45rem;
 }
 
 .lagoon-hover-stat {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 0.45rem;
-    min-height: 1.55rem;
-    padding: 0.2rem 0;
-    line-height: 1.2;
+    gap: 0.6rem;
+    padding: 0.25rem 0;
+    line-height: 1.3;
 }
 
 .lagoon-hover-stat + .lagoon-hover-stat {
@@ -882,21 +875,25 @@ html[lang="el"] .wm-title em {
 }
 
 .lagoon-hover-stat-label {
+    flex-shrink: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: #4b5563;
+    letter-spacing: 0.12em;
+    color: #6b7280;
+    padding-top: 0.08rem;
 }
 
 .lagoon-hover-stat-value {
-    font-family: 'JetBrains Mono', monospace;
-    font-variant-numeric: tabular-nums;
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
     color: var(--primary-color, #111827);
     text-align: right;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 72%;
 }
 
 .lagoon-hover-basis-tag.is-empty {
@@ -905,10 +902,10 @@ html[lang="el"] .wm-title em {
 
 @media (max-width: 768px) {
     .lagoon-hover-card {
-        width: min(260px, calc(100vw - 36px));
+        width: min(280px, calc(100vw - 32px));
     }
     .lagoon-hover-preview {
-        height: 115px;
+        height: 120px;
     }
 }
 
