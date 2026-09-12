@@ -918,7 +918,40 @@
     CommonFilterPanel.prototype.buildShell = function () {
         var tab = document.getElementById('filters-tab');
         var existingPanel = document.getElementById('fbc-panel');
-        if (existingPanel) return;
+        if (existingPanel) {
+            var modal = document.getElementById('fbc-variable-modal');
+            var clearButton = existingPanel.querySelector('#clear-filters') || tab.querySelector('#clear-filters');
+            var advancedButton = existingPanel.querySelector('#sql-filter-btn') || tab.querySelector('#sql-filter-btn');
+            this.elements = {
+                tab: tab,
+                picker: existingPanel.querySelector('#fbc-picker-btn') || document.getElementById('fbc-picker-btn'),
+                pickerValue: existingPanel.querySelector('#fbc-picker-value') || document.getElementById('fbc-picker-value'),
+                content: existingPanel.querySelector('#fbc-content') || document.getElementById('fbc-content'),
+                activeSection: existingPanel.querySelector('#fbc-active-section') || document.getElementById('fbc-active-section'),
+                activeList: existingPanel.querySelector('#fbc-active-list') || document.getElementById('fbc-active-list'),
+                clearButton: clearButton,
+                advancedButton: advancedButton,
+                modal: modal,
+                modalClose: modal ? (modal.querySelector('#close-fbc-variable') || modal.querySelector('.modal-close')) : null,
+                modalSearch: modal ? (modal.querySelector('#fbc-variable-search-input') || modal.querySelector('.filter-modal-search-input')) : null,
+                modalList: modal ? (modal.querySelector('#fbc-variable-list') || modal.querySelector('.filter-modal-list')) : null
+            };
+            var advModal = document.getElementById('sql-filter-modal');
+            if (advModal) {
+                this.elements.advancedModal = advModal;
+                this.elements.advancedClose = advModal.querySelector('#close-sql-filter') || advModal.querySelector('.modal-close');
+                this.elements.advancedConditions = advModal.querySelector('#query-conditions');
+                this.elements.advancedAdd = advModal.querySelector('#add-condition');
+                this.elements.advancedPreview = advModal.querySelector('#query-preview-text');
+                this.elements.advancedError = advModal.querySelector('#sql-filter-error');
+                this.elements.advancedApply = advModal.querySelector('#apply-sql-filter');
+                this.elements.advancedClear = advModal.querySelector('#clear-sql-filter');
+                this.elements.advancedActive = advModal.querySelector('#sql-filter-active');
+                this.elements.advancedActiveText = advModal.querySelector('#sql-active-text');
+                this.generatedAdvanced = true;
+            }
+            return;
+        }
 
         var legacy = tab.querySelector('#filter-controls');
         if (!legacy) {
@@ -1032,13 +1065,26 @@
         var self = this;
         if (!this.elements.picker) return;
         this.elements.picker.addEventListener('click', function () { self.openPicker(); });
-        this.elements.modalClose.addEventListener('click', function () { self.closePicker(); });
-        this.elements.modal.addEventListener('click', function (event) {
-            if (event.target === self.elements.modal) self.closePicker();
-        });
-        this.elements.modalSearch.addEventListener('input', function () { self.populatePicker(); });
+        if (this.elements.modalClose) {
+            this.elements.modalClose.addEventListener('click', function () { self.closePicker(); });
+        }
+        if (this.elements.modal) {
+            this.elements.modal.addEventListener('click', function (event) {
+                if (event.target === self.elements.modal) self.closePicker();
+            });
+        }
+        if (this.elements.modalSearch) {
+            this.elements.modalSearch.addEventListener('input', function () { self.populatePicker(); });
+        }
         if (this.elements.clearButton) {
             this.elements.clearButton.addEventListener('click', function () {
+                self.fields.forEach(function (field) {
+                    var input = document.getElementById(field.inputId || (field.key + '-filter'));
+                    if (input) input.value = '';
+                    if (typeof self.config.onApply === 'function') {
+                        self.config.onApply(field, '');
+                    }
+                });
                 self.resetAdvanced(false);
                 self.renderActiveList();
                 window.setTimeout(function () { self.render(); }, 0);
@@ -1046,16 +1092,26 @@
         }
         if (this.generatedAdvanced && this.elements.advancedButton) {
             this.elements.advancedButton.addEventListener('click', function () { self.openAdvanced(); });
-            this.elements.advancedClose.addEventListener('click', function () { self.closeAdvanced(); });
-            this.elements.advancedModal.addEventListener('click', function (event) {
-                if (event.target === self.elements.advancedModal) self.closeAdvanced();
-            });
-            this.elements.advancedAdd.addEventListener('click', function () { self.addAdvancedCondition(); });
-            this.elements.advancedApply.addEventListener('click', function () { self.applyAdvanced(); });
-            this.elements.advancedClear.addEventListener('click', function () { self.resetAdvanced(true); });
+            if (this.elements.advancedClose) {
+                this.elements.advancedClose.addEventListener('click', function () { self.closeAdvanced(); });
+            }
+            if (this.elements.advancedModal) {
+                this.elements.advancedModal.addEventListener('click', function (event) {
+                    if (event.target === self.elements.advancedModal) self.closeAdvanced();
+                });
+            }
+            if (this.elements.advancedAdd) {
+                this.elements.advancedAdd.addEventListener('click', function () { self.addAdvancedCondition(); });
+            }
+            if (this.elements.advancedApply) {
+                this.elements.advancedApply.addEventListener('click', function () { self.applyAdvanced(); });
+            }
+            if (this.elements.advancedClear) {
+                this.elements.advancedClear.addEventListener('click', function () { self.resetAdvanced(true); });
+            }
         }
         document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape' && self.elements.modal.classList.contains('active')) self.closePicker();
+            if (event.key === 'Escape' && self.elements.modal && self.elements.modal.classList.contains('active')) self.closePicker();
             if (event.key === 'Escape' && self.elements.advancedModal && self.elements.advancedModal.classList.contains('active')) self.closeAdvanced();
         });
     };
@@ -1433,16 +1489,18 @@
     };
 
     CommonFilterPanel.prototype.openPicker = function () {
-        this.elements.modalSearch.value = '';
+        if (this.elements.modalSearch) this.elements.modalSearch.value = '';
         this.populatePicker();
-        this.elements.modal.classList.add('active');
-        document.body.classList.add('modal-open');
+        if (this.elements.modal) {
+            this.elements.modal.classList.add('active');
+            document.body.classList.add('modal-open');
+        }
         var search = this.elements.modalSearch;
-        window.setTimeout(function () { search.focus(); }, 80);
+        if (search) window.setTimeout(function () { search.focus(); }, 80);
     };
 
     CommonFilterPanel.prototype.closePicker = function () {
-        this.elements.modal.classList.remove('active');
+        if (this.elements.modal) this.elements.modal.classList.remove('active');
         document.body.classList.remove('modal-open');
     };
 
@@ -1451,7 +1509,7 @@
         var list = this.elements.modalList;
         if (!list) return;
         clear(list);
-        var term = (this.elements.modalSearch.value || '').toLocaleLowerCase(this.config.locale || undefined).trim();
+        var term = ((this.elements.modalSearch && this.elements.modalSearch.value) || '').toLocaleLowerCase(this.config.locale || undefined).trim();
         var groups = {};
         this.fields.forEach(function (field) {
             var group = field.group || localeText(self.config, 'variables', 'Variables');
@@ -1496,6 +1554,8 @@
     };
 
     CommonFilterPanel.prototype.currentValue = function (field) {
+        if (typeof field.getValue === 'function') return String(field.getValue() || '');
+        if (typeof this.config.getValue === 'function') return String(this.config.getValue(field) || '');
         var input = document.getElementById(field.inputId || (field.key + '-filter'));
         return input && input.value !== undefined ? String(input.value) : '';
     };
@@ -1527,7 +1587,9 @@
         if (!this.elements.content) return;
         var field = this.fields.find(function (item) { return item.key === self.selectedKey; }) || this.fields[0];
         if (!field) return;
-        this.elements.pickerValue.textContent = field.unit ? field.label + ' (' + field.unit + ')' : field.label;
+        if (this.elements.pickerValue) {
+            this.elements.pickerValue.textContent = field.unit ? field.label + ' (' + field.unit + ')' : field.label;
+        }
         this.renderActiveList();
         clear(this.elements.content);
 
@@ -1536,6 +1598,7 @@
         records.forEach(function (record) {
             var raw = self.fieldValue(record, field);
             if (raw === null || raw === undefined || raw === '') return;
+            if ((field.type === 'boolean' || field.key === 'sevenWonder') && raw !== true && raw !== 'true') return;
             var key = String(raw);
             counts[key] = (counts[key] || 0) + recordWeight(record, self.config);
         });

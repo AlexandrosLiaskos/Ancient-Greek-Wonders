@@ -18,6 +18,10 @@ test('static entry uses repository-relative local assets and WebGIS components',
   assert.match(html, /id="feature-guide-modal"/);
   assert.match(html, /id="references-modal"/);
   assert.match(html, /id="wonder-modal"/);
+  assert.match(html, /id="fbc-picker-btn"/);
+  assert.match(html, /id="fbc-variable-modal"/);
+  assert.match(html, /id="fbc-content"/);
+  assert.match(html, /id="clear-filters"/);
   assert.match(html, /family=Italianno/);
   assert.match(css, /\.masthead h1[^}]*font-family:\s*'Italianno'/s);
 });

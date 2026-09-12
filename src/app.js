@@ -213,6 +213,11 @@ class AncientGreekWondersApp {
       this.applyLanguage(nextLang, true);
     });
 
+    // Filter reset wiring
+    document.getElementById('clear-filters')?.addEventListener('click', () => {
+      this.clearAllFilters();
+    });
+
     // Global keyboard listener for Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -249,22 +254,51 @@ class AncientGreekWondersApp {
     });
   }
 
+  clearAllFilters() {
+    this.state.status = '';
+    this.state.category = '';
+    this.state.country = '';
+    this.state.sevenWonder = false;
+    this.state.query = '';
+    if (this.elements.globalSearchInput) this.elements.globalSearchInput.value = '';
+    ['status', 'category', 'country', 'sevenWonder', 'seven', 'period'].forEach((k) => {
+      const input = document.getElementById(`${k}-filter`);
+      if (input) input.value = '';
+    });
+    this.syncUrl();
+    this.applyFilters();
+  }
+
   initCommonAtlasInterface() {
     if (!window.NkuaWebGISUI?.createAtlasInterface) return;
 
     this.atlasInterface = window.NkuaWebGISUI.createAtlasInterface({
       getRecords: () => this.currentRecords,
+      getValue: (field) => {
+        const key = field.key;
+        if (key === 'sevenWonder') {
+          return this.state.sevenWonder ? 'true' : '';
+        }
+        return this.state[key] ? String(this.state[key]) : '';
+      },
       getOptions: (field) => {
+        if (field.key === 'sevenWonder') {
+          return ['true'];
+        }
         const values = new Set();
         this.wonders.forEach((w) => {
           const val = w[field.dataField || field.key];
-          if (val) values.add(val);
+          if (val !== undefined && val !== null && val !== '') values.add(String(val));
         });
         return Array.from(values).sort();
       },
       onApply: (field, value) => {
         const key = field.key;
-        this.state[key] = value;
+        if (key === 'sevenWonder') {
+          this.state.sevenWonder = value === true || value === 'true' || value === '1';
+        } else {
+          this.state[key] = value;
+        }
         this.syncUrl();
         this.applyFilters();
       },
@@ -288,10 +322,37 @@ class AncientGreekWondersApp {
         this.showWonderDetails(record.id);
       },
       filterFields: [
-        { key: 'status', dataField: 'status', label: this.state.language === 'el' ? 'Κατάσταση' : 'Survival condition', group: 'Archaeology' },
-        { key: 'category', dataField: 'category', label: this.state.language === 'el' ? 'Τύπος μνημείου' : 'Monument typology', group: 'Architecture' },
-        { key: 'country', dataField: 'country', label: this.state.language === 'el' ? 'Σύγχρονη χώρα' : 'Modern country', group: 'Geography' },
-        { key: 'sevenWonder', dataField: 'sevenWonder', label: this.state.language === 'el' ? 'Επτά Θαύματα' : 'Seven Wonders', group: 'Canonical' }
+        {
+          key: 'status',
+          dataField: 'status',
+          label: this.state.language === 'el' ? 'Κατάσταση' : 'Survival condition',
+          group: this.state.language === 'el' ? 'Αρχαιολογία' : 'Archaeology',
+          formatValue: (val) => STATUS_LABELS[val]?.[this.state.language] || val
+        },
+        {
+          key: 'category',
+          dataField: 'category',
+          label: this.state.language === 'el' ? 'Τύπος μνημείου' : 'Monument typology',
+          group: this.state.language === 'el' ? 'Αρχιτεκτονική' : 'Architecture',
+          formatValue: (val) => CATEGORY_LABELS[val]?.[this.state.language] || val
+        },
+        {
+          key: 'country',
+          dataField: 'country',
+          label: this.state.language === 'el' ? 'Σύγχρονη χώρα' : 'Modern country',
+          group: this.state.language === 'el' ? 'Γεωγραφία' : 'Geography',
+          formatValue: (val) => COUNTRY_LABELS[val]?.[this.state.language] || val
+        },
+        {
+          key: 'sevenWonder',
+          dataField: 'sevenWonder',
+          inputId: 'seven-filter',
+          label: this.state.language === 'el' ? 'Επτά Θαύματα' : 'Seven Wonders',
+          group: this.state.language === 'el' ? 'Κλασικά' : 'Canonical',
+          formatValue: (val) => (val === true || val === 'true' || val === '1')
+            ? (this.state.language === 'el' ? 'Κανονικά Επτά Θαύματα' : 'Canonical Seven Wonders')
+            : (this.state.language === 'el' ? 'Όλα τα μνημεία' : 'All monuments')
+        }
       ],
       statisticsFields: [
         {
@@ -491,6 +552,18 @@ class AncientGreekWondersApp {
     if (tabSearch) tabSearch.textContent = isEl ? 'Αναζήτηση' : 'Search';
     if (tabStats) tabStats.textContent = isEl ? 'Στατιστικά' : 'Statistics';
 
+    // Filter controls
+    const fbcEyebrow = document.getElementById('fbc-eyebrow');
+    const fbcModalTitle = document.getElementById('fbc-variable-modal-title');
+    const fbcSearchInput = document.getElementById('fbc-variable-search-input');
+    const clearFiltersBtn = document.getElementById('clear-filters');
+    const sqlFilterBtn = document.getElementById('sql-filter-btn');
+    if (fbcEyebrow) fbcEyebrow.textContent = isEl ? 'φιλτράρισμα κατά' : 'filter by';
+    if (fbcModalTitle) fbcModalTitle.textContent = isEl ? 'Επιλογή μεταβλητής' : 'Filter by';
+    if (fbcSearchInput) fbcSearchInput.placeholder = isEl ? 'Αναζήτηση μεταβλητών…' : 'Search variables…';
+    if (clearFiltersBtn) clearFiltersBtn.textContent = isEl ? 'Επαναφορά όλων' : 'Reset all';
+    if (sqlFilterBtn) sqlFilterBtn.innerHTML = isEl ? 'Σύνθετο ερώτημα<span class="fbc-link-arrow" aria-hidden="true"> →</span>' : 'Advanced query<span class="fbc-link-arrow" aria-hidden="true"> →</span>';
+
     // Search panel
     const searchHint = document.getElementById('search-hint');
     const searchLabel = document.getElementById('search-label');
@@ -533,6 +606,9 @@ class AncientGreekWondersApp {
 
     this.syncUrl();
     if (triggerUpdate) {
+      if (this.atlasInterface) {
+        this.initCommonAtlasInterface();
+      }
       this.updateView();
     }
   }
