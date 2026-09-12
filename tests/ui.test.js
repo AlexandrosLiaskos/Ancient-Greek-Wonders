@@ -2,7 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import { formatClusterCount, formatResultCount, t, localizeRecord } from '../src/i18n.js';
-import { createDetailMarkup, createMapPreviewMarkup, createResultMarkup } from '../src/ui/render.js';
+import {
+  createDetailMarkup,
+  createMapPreviewMarkup,
+  createResultMarkup,
+  createWonderHoverCardHTML
+} from '../src/ui/render.js';
 import { createFacetOptionsMarkup } from '../src/ui/filters.js';
 import { WONDERS } from '../src/data/wonders.js';
 
@@ -52,6 +57,18 @@ test('map preview connects the local hero to concise bilingual monument context'
   assert.match(markup, /Ακρόπολη Αθηνών, Ελλάδα/);
   assert.match(markup, /447–432 π\.Χ\./);
   assert.match(markup, /data-preview-details="parthenon"/);
+});
+
+test('wonder hover card connects hero image and bilingual attributes in lagoon card layout', () => {
+  const markup = createWonderHoverCardHTML(WONDERS[0], 'en');
+  assert.match(markup, /class="lagoon-hover-card"/);
+  assert.match(markup, /class="lagoon-hover-preview"/);
+  assert.match(markup, /class="lagoon-hover-name"/);
+  assert.match(markup, /Statue of Zeus at Olympia/);
+  assert.match(markup, /Άγαλμα του Διός στην Ολυμπία/);
+  assert.match(markup, /Olympia, Elis, Greece/);
+  assert.match(markup, /data-hover-wonder="statue-zeus-olympia"/);
+  assert.match(markup, /Seven Wonders/);
 });
 
 test('detail markup presents responsive local media with visible provenance', () => {

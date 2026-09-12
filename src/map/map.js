@@ -1,5 +1,5 @@
 import { formatClusterCount, localizeRecord, t } from '../i18n.js';
-import { createMapPreviewMarkup, escapeHtml } from '../ui/render.js';
+import { createMapPreviewMarkup, createWonderHoverCardHTML, escapeHtml } from '../ui/render.js';
 import { MeasurementTool } from './measurement-tool.js';
 
 export const WONDER_MAP_CATEGORIES = [
@@ -61,12 +61,53 @@ export function markerDescriptor(record, language) {
   };
 }
 
+export function pinTooltipInsideMap(tooltip, map, opts = {}) {
+  const el = tooltip?.getElement?.();
+  if (!el || !map) return;
+
+  const margin = opts.margin ?? 8;
+  const topOffset = opts.topOffset ?? [0, -14];
+  const botOffset = opts.botOffset ?? [0, 14];
+
+  const mapRect = map.getContainer().getBoundingClientRect();
+  let elRect = el.getBoundingClientRect();
+
+  const overflowsTop = elRect.top < mapRect.top + margin;
+  const overflowsBottom = elRect.bottom > mapRect.bottom - margin;
+  const dir = tooltip.options.direction;
+
+  if (overflowsTop && dir !== 'bottom') {
+    tooltip.options.direction = 'bottom';
+    tooltip.options.offset = botOffset;
+    tooltip.update();
+    elRect = el.getBoundingClientRect();
+  } else if (overflowsBottom && dir !== 'top') {
+    tooltip.options.direction = 'top';
+    tooltip.options.offset = topOffset;
+    tooltip.update();
+    elRect = el.getBoundingClientRect();
+  }
+
+  let dx = 0;
+  let dy = 0;
+  if (elRect.left < mapRect.left + margin) dx = (mapRect.left + margin) - elRect.left;
+  if (elRect.right > mapRect.right - margin) dx = (mapRect.right - margin) - elRect.right;
+  if (elRect.top < mapRect.top + margin) dy = (mapRect.top + margin) - elRect.top;
+  if (elRect.bottom > mapRect.bottom - margin) dy = (mapRect.bottom - margin) - elRect.bottom;
+
+  el.style.translate = (dx || dy) ? `${dx}px ${dy}px` : '';
+}
+
 export function revealMarkerPreview(cluster, marker) {
   if (!marker) return;
+  const open = () => {
+    if (typeof marker.openPopup === 'function') marker.openPopup();
+    else if (typeof marker.openTooltip === 'function') marker.openTooltip();
+  };
   if (typeof cluster.zoomToShowLayer === 'function') {
-    cluster.zoomToShowLayer(marker, () => marker.openPopup());
-  } else if (typeof marker.openPopup === 'function') {
-    marker.openPopup();
+    cluster.zoomToShowLayer(marker, open);
+  } else {
+    open();
   }
 }
 
@@ -112,6 +153,7 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
   const cluster = L.markerClusterGroup({
     showCoverageOnHover: false,
     maxClusterRadius: 48,
+    zoomToBoundsOnClick: true,
     spiderfyOnMaxZoom: true,
     iconCreateFunction: (group) => {
       if (globalThis.NkuaWebGISMap?.createCategoryClusterIcon) {
@@ -128,6 +170,7 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
   });
 
   const markers = new Map();
+  const tooltipCloseTimers = new Map();
   map.addLayer(cluster);
 
   const mapLegend = globalThis.NkuaWebGISMap?.addCategoryLegend ? globalThis.NkuaWebGISMap.addCategoryLegend(map, {
@@ -138,6 +181,36 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     classify: (record) => getWonderMapCategory(record).key
   }) : null;
 
+  const clearCloseTimer = (marker) => {
+    const id = tooltipCloseTimers.get(marker);
+    if (id) {
+      clearTimeout(id);
+      tooltipCloseTimers.delete(marker);
+    }
+  };
+
+  const scheduleClose = (marker, delay = 320) => {
+    clearCloseTimer(marker);
+    const id = setTimeout(() => {
+      marker.closeTooltip();
+      tooltipCloseTimers.delete(marker);
+    }, delay);
+    tooltipCloseTimers.set(marker, id);
+  };
+
+  const bindTooltipHover = (marker) => {
+    const tooltipEl = marker?.getTooltip?.()?.getElement?.();
+    if (!tooltipEl || tooltipEl.dataset.hoverBound === '1') return;
+    tooltipEl.dataset.hoverBound = '1';
+    tooltipEl.addEventListener('mouseenter', () => clearCloseTimer(marker));
+    tooltipEl.addEventListener('mouseleave', () => scheduleClose(marker, 180));
+    tooltipEl.addEventListener('click', (e) => {
+      e.stopPropagation();
+      marker.closeTooltip();
+      onSelect(marker._wonderId);
+    });
+  };
+
   const buildMarker = (record, lang) => {
     const item = markerDescriptor(record, lang);
     const cat = getWonderMapCategory(record);
@@ -146,27 +219,57 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
       : L.divIcon({
         className: '',
         html: item.iconMarkup,
-        iconSize: [28, 28],
-        iconAnchor: [14, 14]
+        iconSize: [18, 18],
+        iconAnchor: [9, 9]
       });
 
     const marker = L.marker(item.coordinates, { icon, title: item.name, keyboard: true });
     marker._mapCategory = cat.key;
-    marker.bindPopup(createMapPreviewMarkup(record, lang), {
-      className: 'wonder-preview-popup',
-      maxWidth: 360,
-      minWidth: 300,
-      offset: [0, -12],
-      closeButton: true,
-      autoPanPadding: [24, 24]
+    marker._wonderId = record.id;
+
+    marker.bindTooltip(createWonderHoverCardHTML(record, lang), {
+      className: 'custom-tooltip',
+      direction: 'top',
+      offset: [0, -14],
+      interactive: true,
+      opacity: 1
     });
-    marker.on('click', () => marker.openPopup());
+
+    // Provide openPopup fallback so any callers (e.g. revealMarkerPreview) open the tooltip
+    marker.openPopup = () => marker.openTooltip();
+    marker.closePopup = () => marker.closeTooltip();
+
+    marker.on('mouseover', () => {
+      clearCloseTimer(marker);
+      if (!marker.isTooltipOpen()) marker.openTooltip();
+    });
+
+    marker.on('mouseout', () => {
+      scheduleClose(marker, 320);
+    });
+
+    marker.on('tooltipopen', (e) => {
+      bindTooltipHover(marker);
+      requestAnimationFrame(() => pinTooltipInsideMap(e.tooltip, map));
+    });
+
+    marker.on('click', (e) => {
+      if (e && e.originalEvent) {
+        L.DomEvent.stopPropagation(e);
+      }
+      clearCloseTimer(marker);
+      marker.closeTooltip();
+      onSelect(record.id);
+    });
+
     return marker;
   };
 
   const update = (nextRecords, lang = language) => {
     language = lang;
     measurementTool.setLanguage(lang);
+    tooltipCloseTimers.forEach((id) => clearTimeout(id));
+    tooltipCloseTimers.clear();
     cluster.clearLayers();
     markers.clear();
     nextRecords.forEach((record) => {
@@ -183,6 +286,8 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
   element.addEventListener('click', (event) => {
     const action = event.target.closest('[data-preview-details]');
     if (action) onSelect(action.dataset.previewDetails);
+    const hoverCard = event.target.closest('[data-hover-wonder]');
+    if (hoverCard) onSelect(hoverCard.dataset.hoverWonder);
   });
 
   const focus = (record, { openPreview = true } = {}) => {
@@ -205,7 +310,10 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     update,
     focus,
     measurementTool,
-    closePreview: () => map.closePopup(),
+    closePreview: () => {
+      map.closeTooltip();
+      if (typeof map.closePopup === 'function') map.closePopup();
+    },
     invalidateSize: () => map.invalidateSize()
   };
 }

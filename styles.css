@@ -638,3 +638,278 @@ html[lang="el"] .wm-title em {
     text-decoration: underline;
 }
 
+/* ===============================================
+   Map Category Markers & Touch Target Hitbox
+   =============================================== */
+.map-category-marker {
+    width: 14px;
+    height: 14px;
+    border: 2.5px solid;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+    position: relative;
+    display: block;
+}
+
+/* Generous touch/cursor hitbox without affecting visual size */
+.map-category-marker::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.map-category-marker:hover {
+    transform: scale(1.35);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+}
+
+/* ===============================================
+   Cluster Icons & 4-Color Condition Badges
+   =============================================== */
+.minimal-cluster {
+    background: transparent !important;
+    border: none !important;
+}
+
+.cluster-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #000;
+    border: 2px solid #aaa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cluster-icon:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cluster-badge {
+    position: absolute;
+    color: #fff;
+    border: 1.5px solid #fff;
+    border-radius: 10px;
+    min-width: 16px;
+    height: 16px;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 13px;
+    text-align: center;
+    padding: 0 3px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.badge-slot-1 { right: -8px; bottom: 0px; }
+.badge-slot-2 { left: 50%; bottom: -7px; transform: translateX(-50%); }
+.badge-slot-3 { left: -8px; bottom: 0px; }
+.badge-slot-4 { right: 50%; top: -7px; transform: translateX(50%); }
+
+/* ===============================================
+   Wonder Rich Hover Card Tooltip (Matching Lagoons)
+   =============================================== */
+.leaflet-tooltip.custom-tooltip {
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    padding: 0;
+    pointer-events: auto;
+    overflow: hidden;
+    opacity: 1 !important;
+}
+
+.leaflet-tooltip.custom-tooltip .leaflet-tooltip-content {
+    margin: 0;
+    padding: 0;
+}
+
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+    display: none !important;
+}
+
+.lagoon-hover-card {
+    width: min(290px, calc(100vw - 40px));
+    background: #ffffff;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    cursor: pointer;
+}
+
+.lagoon-hover-preview {
+    width: 100%;
+    height: 130px;
+    border-bottom: 1px solid #e5e7eb;
+    background: #f3f4f6;
+    overflow: hidden;
+    position: relative;
+}
+
+.lagoon-hover-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.lagoon-hover-order {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    font-size: 10px;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+}
+
+.lagoon-hover-body {
+    padding: 0.7rem 0.85rem 0.75rem;
+}
+
+.lagoon-hover-eyebrow {
+    display: block;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.55rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: #6b7280;
+    margin-bottom: 0.2rem;
+}
+
+.lagoon-hover-name {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--primary-color, #111827);
+    letter-spacing: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem;
+}
+
+.lagoon-hover-name-en {
+    color: var(--primary-color, #111827);
+}
+
+.lagoon-hover-name-sep {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 0.85em;
+    color: #9ca3af;
+    user-select: none;
+}
+
+.lagoon-hover-name-gr {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.78em;
+    color: #4b5563;
+}
+
+.lagoon-hover-locality {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--font-serif);
+    font-size: 0.78rem;
+    color: #4b5563;
+    margin: 0 0 0.55rem;
+}
+
+.lagoon-hover-pin {
+    width: 0.85em;
+    height: 0.85em;
+    flex: 0 0 auto;
+    color: #6b7280;
+    opacity: 0.7;
+}
+
+.lagoon-hover-loc-main {
+    font-style: italic;
+    font-weight: 500;
+    color: #1f2937;
+}
+
+.lagoon-hover-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px dashed #e5e7eb;
+    padding-top: 0.4rem;
+}
+
+.lagoon-hover-stat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.45rem;
+    min-height: 1.55rem;
+    padding: 0.2rem 0;
+    line-height: 1.2;
+}
+
+.lagoon-hover-stat + .lagoon-hover-stat {
+    border-top: 1px dashed #e5e7eb;
+}
+
+.lagoon-hover-stat-label {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #4b5563;
+}
+
+.lagoon-hover-stat-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--primary-color, #111827);
+    text-align: right;
+}
+
+.lagoon-hover-basis-tag.is-empty {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .lagoon-hover-card {
+        width: min(260px, calc(100vw - 36px));
+    }
+    .lagoon-hover-preview {
+        height: 115px;
+    }
+}
+
+

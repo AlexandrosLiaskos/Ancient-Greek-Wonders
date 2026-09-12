@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { mapControlLabels, markerDescriptor, revealMarkerPreview } from '../src/map/map.js';
+import { mapControlLabels, markerDescriptor, pinTooltipInsideMap, revealMarkerPreview } from '../src/map/map.js';
 import { WONDERS } from '../src/data/wonders.js';
 
 test('marker descriptor carries stable styling and non-color status text', () => {
@@ -36,4 +36,25 @@ test('preview reveal waits until a clustered marker is visible', () => {
   const cluster = { zoomToShowLayer: (received, done) => { assert.equal(received, marker); done(); } };
   revealMarkerPreview(cluster, marker);
   assert.equal(opened, true);
+});
+
+test('pinTooltipInsideMap flips direction and updates when overflowing top', () => {
+  let updated = false;
+  const tooltipEl = {
+    getBoundingClientRect: () => ({ top: 2, bottom: 200, left: 10, right: 290 }),
+    style: { translate: '' }
+  };
+  const tooltip = {
+    options: { direction: 'top', offset: [0, -14] },
+    getElement: () => tooltipEl,
+    update: () => { updated = true; }
+  };
+  const map = {
+    getContainer: () => ({
+      getBoundingClientRect: () => ({ top: 0, bottom: 600, left: 0, right: 800 })
+    })
+  };
+  pinTooltipInsideMap(tooltip, map, { margin: 8 });
+  assert.equal(tooltip.options.direction, 'bottom');
+  assert.equal(updated, true);
 });

@@ -33,6 +33,62 @@ export function createMapPreviewMarkup(record, language) {
   </article>`;
 }
 
+export function createWonderHoverCardHTML(record, language) {
+  const item = localizeRecord(record, language);
+  const hero = record.media?.hero;
+  const image = hero
+    ? `<img class="lagoon-hover-image" src="${escapeHtml(hero.src)}" srcset="${escapeHtml(hero.srcset)}" sizes="290px" width="${hero.width}" height="${hero.height}" alt="" loading="lazy" decoding="async" style="object-position:${escapeHtml(hero.focalPoint)}">`
+    : '';
+
+  const nameEn = record.name?.en || item.name;
+  const nameEl = record.name?.el || '';
+  const isGreek = language === 'el';
+  const primaryName = isGreek ? (nameEl || nameEn) : nameEn;
+  const secondaryName = isGreek ? (nameEl ? nameEn : '') : nameEl;
+
+  return `<div class="lagoon-hover-card" data-hover-wonder="${escapeHtml(record.id)}">
+    <div class="lagoon-hover-preview">
+      ${image}
+      <span class="lagoon-hover-order" aria-hidden="true">${String(record.order).padStart(2, '0')}</span>
+    </div>
+    <div class="lagoon-hover-body">
+      <span class="lagoon-hover-eyebrow">${escapeHtml(item.categoryLabel)}</span>
+      <h3 class="lagoon-hover-name">
+        <span class="lagoon-hover-name-en">${escapeHtml(primaryName)}</span>
+        ${secondaryName ? `
+          <span class="lagoon-hover-name-sep" aria-hidden="true">/</span>
+          <span class="lagoon-hover-name-gr">${escapeHtml(secondaryName)}</span>
+        ` : ''}
+      </h3>
+      <div class="lagoon-hover-locality">
+        <svg class="lagoon-hover-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span class="lagoon-hover-loc-main">${escapeHtml(item.location)}</span>
+      </div>
+      <div class="lagoon-hover-stats">
+        <div class="lagoon-hover-stat">
+          <span class="lagoon-hover-stat-label">${escapeHtml(t(language, 'status'))}</span>
+          <span class="lagoon-hover-basis-tag is-empty" aria-hidden="true"></span>
+          <span class="lagoon-hover-stat-value">${escapeHtml(item.statusLabel)}</span>
+        </div>
+        <div class="lagoon-hover-stat">
+          <span class="lagoon-hover-stat-label">${escapeHtml(t(language, 'period'))}</span>
+          <span class="lagoon-hover-basis-tag is-empty" aria-hidden="true"></span>
+          <span class="lagoon-hover-stat-value">${escapeHtml(item.period)}</span>
+        </div>
+        ${record.sevenWonder ? `
+        <div class="lagoon-hover-stat">
+          <span class="lagoon-hover-stat-label">${escapeHtml(t(language, 'canonical'))}</span>
+          <span class="lagoon-hover-basis-tag is-empty" aria-hidden="true"></span>
+          <span class="lagoon-hover-stat-value" style="color: #dc2626; font-weight: 700;">★ Seven Wonders</span>
+        </div>` : ''}
+      </div>
+    </div>
+  </div>`;
+}
+
 function createMediaFigure(asset, language, index, eager) {
   const badge = asset.type === 'photo' ? '' : `<span class="media-type-badge">${escapeHtml(t(language, `mediaType_${asset.type}`))}</span>`;
   const alt = asset.alt[language] ?? asset.alt.en;
