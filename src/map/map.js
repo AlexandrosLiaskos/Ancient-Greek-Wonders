@@ -65,15 +65,20 @@ export function pinTooltipInsideMap(tooltip, map, opts = {}) {
   const el = tooltip?.getElement?.();
   if (!el || !map) return;
 
-  const margin = opts.margin ?? 8;
+  const marginX = opts.marginX ?? (opts.margin ?? 10);
+  const marginTop = opts.marginTop ?? (opts.margin ?? 10);
+  const marginBottom = opts.marginBottom ?? (opts.margin !== undefined ? opts.margin : 52);
   const topOffset = opts.topOffset ?? [0, -14];
   const botOffset = opts.botOffset ?? [0, 14];
+
+  // Reset any prior translation before measuring rects
+  el.style.translate = '';
 
   const mapRect = map.getContainer().getBoundingClientRect();
   let elRect = el.getBoundingClientRect();
 
-  const overflowsTop = elRect.top < mapRect.top + margin;
-  const overflowsBottom = elRect.bottom > mapRect.bottom - margin;
+  const overflowsTop = elRect.top < mapRect.top + marginTop;
+  const overflowsBottom = elRect.bottom > mapRect.bottom - marginBottom;
   const dir = tooltip.options.direction;
 
   if (overflowsTop && dir !== 'bottom') {
@@ -90,10 +95,10 @@ export function pinTooltipInsideMap(tooltip, map, opts = {}) {
 
   let dx = 0;
   let dy = 0;
-  if (elRect.left < mapRect.left + margin) dx = (mapRect.left + margin) - elRect.left;
-  if (elRect.right > mapRect.right - margin) dx = (mapRect.right - margin) - elRect.right;
-  if (elRect.top < mapRect.top + margin) dy = (mapRect.top + margin) - elRect.top;
-  if (elRect.bottom > mapRect.bottom - margin) dy = (mapRect.bottom - margin) - elRect.bottom;
+  if (elRect.left < mapRect.left + marginX) dx = (mapRect.left + marginX) - elRect.left;
+  if (elRect.right > mapRect.right - marginX) dx = (mapRect.right - marginX) - elRect.right;
+  if (elRect.top < mapRect.top + marginTop) dy = (mapRect.top + marginTop) - elRect.top;
+  if (elRect.bottom > mapRect.bottom - marginBottom) dy = (mapRect.bottom - marginBottom) - elRect.bottom;
 
   el.style.translate = (dx || dy) ? `${dx}px ${dy}px` : '';
 }
