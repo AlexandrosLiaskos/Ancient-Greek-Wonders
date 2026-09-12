@@ -1,0 +1,14 @@
+services:
+  ancient-greek-wonders:
+    image: nginx:1.27-alpine
+    container_name: ancient-greek-wonders
+    restart: unless-stopped
+    volumes:
+      - /opt/ancient-greek-wonders/current:/usr/share/nginx/html:ro
+      - /opt/ancient-greek-wonders/infra/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - nkua-proxy
+
+networks:
+  nkua-proxy:
+    external: true

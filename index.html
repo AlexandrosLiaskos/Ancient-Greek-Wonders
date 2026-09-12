@@ -1,152 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta id="meta-description" name="description" content="A bilingual interactive atlas of 77 wonders of the ancient Greek world.">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="icon" href="data:,">
-  <title>Wonders of the Ancient Greek World</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://unpkg.com">
-  <link rel="preconnect" href="https://a.basemaps.cartocdn.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-  <link rel="stylesheet" href="./styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Wonders of the Ancient Greek World</title>
+
+    <!-- SEO Meta Tags -->
+    <meta id="meta-description" name="description" content="Interactive WebGIS atlas of 77 monumental sanctuaries, temples, theatres, colossal statues, and engineering marvels across the ancient Mediterranean and Near East.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="National and Kapodistrian University of Athens">
+    <meta property="og:title" content="Wonders of the Ancient Greek World">
+    <meta property="og:description" content="Explore 77 wonders of the ancient Greek world with site locations, survival condition, architectural typologies, and classical sources.">
+    <meta property="og:url" content="https://liaskos.nkua.cloud/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Wonders of the Ancient Greek World">
+    <meta name="twitter:description" content="Explore 77 wonders of the ancient Greek world with site locations, survival condition, architectural typologies, and classical sources.">
+
+    <link rel="canonical" href="https://liaskos.nkua.cloud/">
+    <link rel="icon" href="data:,">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Italianno&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
+
+    <!-- Custom WebGIS CSS -->
+    <link rel="stylesheet" href="./assets/shared/lagoons-ui.css">
+    <link rel="stylesheet" href="./assets/shared/last-updated.css">
+    <link rel="stylesheet" href="./assets/shared/feature-guide.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./assets/shared/feature-guide.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#map" data-i18n="skipToMap">Skip to map</a>
-  <div id="app">
-    <header class="masthead">
-      <div class="masthead-rule" aria-hidden="true"></div>
-      <div class="masthead-copy">
-        <h1 id="masthead-title"><span>Wonders</span> <i>of the Ancient Greek World</i></h1>
-      </div>
-      <div class="masthead-actions">
-        <button id="about-button" class="icon-button" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="About">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 10v7M12 7h.01"/></svg>
-        </button>
-        <button id="language-toggle" class="language-button" type="button" aria-label="Switch language">ΕΛ</button>
-      </div>
-    </header>
-
-    <main class="app-shell">
-      <aside id="sidebar" class="sidebar workbench" aria-label="Catalog controls">
-        <button id="sheet-close" class="sheet-close mobile-only" type="button" aria-label="Close catalog"><span aria-hidden="true">×</span></button>
-        <nav class="tool-tabs" aria-label="Sections" role="tablist">
-          <button id="tab-browse" class="tool-tab is-active" type="button" role="tab" data-tab="browse" aria-controls="panel-browse" aria-selected="true" tabindex="0">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z M9 4v14M15 6v14"/></svg>
-            <span data-i18n="browse">Browse</span>
-          </button>
-          <button id="tab-filters" class="tool-tab" type="button" role="tab" data-tab="filters" aria-controls="panel-filters" aria-selected="false" tabindex="-1">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
-            <span data-i18n="filters">Filters</span><b id="filter-badge" class="tab-badge" hidden>0</b>
-          </button>
-          <button id="tab-search" class="tool-tab" type="button" role="tab" data-tab="search" aria-controls="panel-search" aria-selected="false" tabindex="-1">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4 4"/></svg>
-            <span data-i18n="searchTab">Search</span>
-          </button>
-        </nav>
-
-        <div class="sidebar-panel">
-          <section id="panel-browse" class="task-panel is-active" role="tabpanel" aria-labelledby="tab-browse" data-panel="browse">
-            <div class="panel-heading browse-heading">
-              <h2 data-i18n="browse">Browse</h2>
-              <span id="result-count" aria-live="polite">77 monuments shown</span>
+    <div id="app">
+        <!-- Welcome Modal — editorial poster -->
+        <div id="welcome-modal" class="modal welcome-modal wm">
+            <div class="modal-content wm-content">
+                <button class="wm-close" id="close-welcome" type="button" aria-label="Close welcome modal">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <article class="wm-poster">
+                    <div class="wm-cred">
+                        <div class="wm-institution">
+                            <img class="wm-institution-emblem" id="wm-emblem" src="./assets/shared/nkua-190-en-horizontal.png" alt="National and Kapodistrian University of Athens — 190 years, 1837–2027">
+                        </div>
+                    </div>
+                    <header class="wm-masthead">
+                        <div class="wm-eyebrow" id="wm-eyebrow">A WebGIS · 2026</div>
+                        <h1 class="wm-title" id="wm-title">Wonders<br><em class="wm-title-italic">of the Ancient Greek World</em></h1>
+                        <p class="wm-deck" id="wm-deck">
+                            Explore 77 monumental sanctuaries, temples, theatres, colossal statues, and engineering achievements across the ancient Mediterranean and Near East. Compare architectural typologies, historical chronologies, present survival conditions, and canonical Seven Wonders through records linked to classical literature and modern archaeological research.
+                        </p>
+                        <div class="wm-entry-row">
+                            <div class="wm-coverage" role="group" aria-label="Database coverage">
+                                <div class="wm-cov-block">
+                                    <span class="wm-cov-label" id="wm-cov-label-1">Monuments mapped</span>
+                                    <span class="wm-cov-value">77</span>
+                                </div>
+                                <span class="wm-cov-divider" aria-hidden="true"></span>
+                                <div class="wm-cov-block">
+                                    <span class="wm-cov-label" id="wm-cov-label-2">Geographic scope</span>
+                                    <span class="wm-cov-value-text" id="wm-cov-val-2">11 countries</span>
+                                </div>
+                                <span class="wm-cov-divider" aria-hidden="true"></span>
+                                <div class="wm-cov-block">
+                                    <span class="wm-cov-label" id="wm-cov-label-3">Chronology</span>
+                                    <span class="wm-cov-value-text" id="wm-cov-val-3">c. 1600 BC – 300 AD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <footer class="wm-foot">
+                        <div class="wm-team">
+                            <span class="wm-team-eyebrow" id="wm-team-eyebrow">Research &amp; project lead</span>
+                            <div class="wm-team-list">
+                                <figure class="wm-team-member">
+                                    <a class="team-photo-link" href="mailto:alexliaskos@geol.uoa.gr" aria-label="Email Alexandros Liaskos" title="alexliaskos@geol.uoa.gr">
+                                        <img src="./assets/shared/alexandros-liaskos.webp" alt="Alexandros Liaskos">
+                                    </a>
+                                    <figcaption>Alexandros Liaskos</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="wm-sig-tag">
+                            <span class="wm-sig-tag-eyebrow" id="wm-sig-eyebrow">Website developed by</span>
+                            <a href="mailto:alexliaskos@geol.uoa.gr"
+                                class="wm-signature wm-signature-sm" aria-label="Email Alexandros Liaskos" title="alexliaskos@geol.uoa.gr">
+                                <img src="./assets/shared/signature.png" alt="Alexandros Liaskos signature">
+                                <span class="wm-signature-name">Alexandros Liaskos</span>
+                            </a>
+                        </div>
+                        <span class="wm-visits" role="status" aria-live="polite" aria-describedby="wonders-visit-privacy">
+                            <span id="wm-visits-label">Recorded visits</span>
+                            <strong data-visit-count data-endpoint="./api/page-summary" data-storage-key="wonders-visit-counted-v1" data-locale="en">—</strong>
+                        </span>
+                        <span id="wonders-visit-privacy" class="sr-only">The counter does not use cookies or collect information that can identify individual visitors. Only the aggregate visit count is stored.</span>
+                    </footer>
+                </article>
             </div>
-            <section id="catalog-register" class="catalog-register" aria-label="Monuments">
-              <div id="result-list" class="result-list"></div>
-              <div id="empty-state" class="empty-state" hidden>
-                <p data-i18n="noResults">No monuments match these filters.</p>
-                <button id="empty-reset" class="primary-button" type="button" data-i18n="resetFilters">Show all monuments</button>
-              </div>
-            </section>
-          </section>
-
-          <section id="panel-filters" class="task-panel filters-panel" role="tabpanel" aria-labelledby="tab-filters" data-panel="filters" hidden>
-            <div class="panel-heading">
-              <h2 data-i18n="refineAtlas">Refine atlas</h2>
-              <button class="text-button" id="reset-filters" type="button" data-i18n="reset">Reset</button>
-            </div>
-            <nav class="facet-tabs" role="tablist" aria-label="Filter field">
-              <button id="facet-category" class="facet-tab is-active" type="button" role="tab" data-facet="category" aria-controls="facet-options" aria-selected="true" tabindex="0" data-i18n="category">Type</button>
-              <button id="facet-country" class="facet-tab" type="button" role="tab" data-facet="country" aria-controls="facet-options" aria-selected="false" tabindex="-1" data-i18n="countryShort">Country</button>
-              <button id="facet-status" class="facet-tab" type="button" role="tab" data-facet="status" aria-controls="facet-options" aria-selected="false" tabindex="-1" data-i18n="statusShort">Condition</button>
-              <button id="facet-sevenWonder" class="facet-tab" type="button" role="tab" data-facet="sevenWonder" aria-controls="facet-options" aria-selected="false" tabindex="-1" data-i18n="sevenShort">Seven</button>
-            </nav>
-            <label class="facet-search">
-              <span class="sr-only" data-i18n="searchFilterOptions">Search filter options</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4 4"/></svg>
-              <input id="facet-search-input" type="search" autocomplete="off" spellcheck="false" data-i18n-placeholder="searchFilterOptions" placeholder="Search filter options">
-            </label>
-            <div id="facet-options" class="facet-options" role="tabpanel" aria-labelledby="facet-category"></div>
-            <p id="facet-empty" class="facet-empty" data-i18n="noFilterOptions" hidden>No filter options match.</p>
-            <footer class="filter-dock">
-              <div class="filter-dock-heading"><span data-i18n="activeFilters">Active filters</span><b id="active-filter-count">0</b></div>
-              <div id="active-filters" class="active-filters" aria-live="polite"></div>
-            </footer>
-          </section>
-
-          <section id="panel-search" class="task-panel search-panel" role="tabpanel" aria-labelledby="tab-search" data-panel="search" hidden>
-            <div class="panel-heading search-heading"><h2 data-i18n="searchTab">Search</h2><span id="search-result-count">77</span></div>
-            <label class="search-box">
-              <span class="sr-only" data-i18n="search">Search monuments</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4 4"/></svg>
-              <input id="search-input" name="query" type="search" autocomplete="off" spellcheck="false" data-i18n-placeholder="searchHint" placeholder="Name, place, period, or description…">
-            </label>
-            <section class="catalog-register search-register" aria-label="Search results">
-              <div id="search-result-list" class="result-list"></div>
-              <div id="search-empty-state" class="empty-state" hidden>
-                <p data-i18n="noResults">No monuments match these filters.</p>
-                <button id="search-empty-reset" class="primary-button" type="button" data-i18n="resetFilters">Show all monuments</button>
-              </div>
-            </section>
-          </section>
-
-          <section id="panel-about" class="task-panel about-panel" aria-labelledby="about-title" data-panel="about" hidden>
-            <div class="panel-heading"><h2 id="about-title" data-i18n="about">About</h2><button id="about-back" class="text-button" type="button" data-i18n="backToBrowse">Back</button></div>
-            <p data-i18n="dataNote">A bilingual geographic catalog of 77 monuments and sacred landscapes across the ancient Greek world.</p>
-            <h3 data-i18n="methodology">Methodology</h3>
-            <p data-i18n="methodologyText">Coordinates identify the archaeological site or the commonly accepted historical location. They do not claim an exact footprint for lost monuments. Dates marked “c.” are approximate.</p>
-            <p class="image-policy" data-i18n="imagePolicy">Image fields are intentionally empty so the repository owner can curate and add local files.</p>
-          </section>
         </div>
-      </aside>
 
-      <section class="map-stage" aria-label="Map of ancient Greek wonders">
-        <div id="map" tabindex="0"></div>
-        <div id="map-preview-region" class="sr-only" aria-live="polite"></div>
-        <div id="map-fallback" class="map-fallback" role="status" hidden data-i18n="mapUnavailable">The interactive map is unavailable. Open the catalog to browse all monuments.</div>
-        <details id="map-legend" class="map-legend" open>
-          <summary><span data-i18n="legendTitle">Present condition</span><b id="legend-total">77</b></summary>
-          <div role="group" aria-label="Map legend">
-            <span><i class="legend-dot legend-dot--extant"></i><b data-i18n="legendExtant">Standing / restored</b><output data-legend-count="extant">0</output></span>
-            <span><i class="legend-dot legend-dot--ruins"></i><b data-i18n="legendRuins">Ruins / excavated</b><output data-legend-count="ruins">0</output></span>
-            <span><i class="legend-dot legend-dot--altered"></i><b data-i18n="legendAltered">Re-erected / unfinished</b><output data-legend-count="altered">0</output></span>
-            <span><i class="legend-dot legend-dot--lost"></i><b data-i18n="legendLost">Lost</b><output data-legend-count="lost">0</output></span>
-          </div>
-        </details>
-        <div class="map-status"><span id="map-count">77</span><span>37.20° N · 23.60° E</span></div>
-      </section>
-      <nav class="mobile-action-bar" aria-label="Atlas sections">
-        <button type="button" data-mobile-tab="browse" class="is-active"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z M9 4v14M15 6v14"/></svg><span data-i18n="browse">Browse</span></button>
-        <button type="button" data-mobile-tab="filters"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span data-i18n="filters">Filters</span><b id="mobile-filter-badge" hidden>0</b></button>
-        <button type="button" data-mobile-tab="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4 4"/></svg><span data-i18n="searchTab">Search</span></button>
-      </nav>
-    </main>
-  </div>
+        <!-- Error Banner -->
+        <div id="error-banner" class="error-banner hidden">
+            <div class="error-banner-content">
+                <div class="error-banner-icon">⚠️</div>
+                <div class="error-banner-message" id="error-banner-message"></div>
+                <button class="error-banner-close" id="error-banner-close" type="button" aria-label="Close error banner">×</button>
+            </div>
+        </div>
 
-  <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-title">
-    <button id="detail-close" class="dialog-close" type="button" aria-label="Close">×</button>
-    <article id="detail-content" class="detail-layout"></article>
-  </dialog>
+        <!-- Header -->
+        <header class="header" aria-label="Site header">
+            <div class="header-content">
+                <a class="header-institution-link" href="#" id="header-home-link" aria-label="National and Kapodistrian University of Athens">
+                    <img class="header-institution-emblem" id="header-emblem" src="./assets/shared/nkua-190-en-horizontal.png" alt="NKUA">
+                </a>
+                <div class="header-title">
+                    <span class="header-rule" aria-hidden="true"></span>
+                    <h1 id="header-title-text">Wonders <em>of the Ancient Greek World</em></h1>
+                    <span class="header-rule" aria-hidden="true"></span>
+                </div>
+                <div class="header-actions">
+                    <button id="language-toggle" class="language-toggle-btn" type="button" aria-label="Switch language">ΕΛ</button>
+                    <span class="last-updated" lang="en">Last updated: <time datetime="2026-09-12">12 September 2026</time></span>
+                </div>
+            </div>
+        </header>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-  <script type="module" src="./src/app.js"></script>
+        <!-- Mobile Controls -->
+        <div class="mobile-controls">
+            <button id="mobile-filters-toggle" class="mobile-toggle-btn" type="button">Filters</button>
+            <button id="mobile-search-toggle" class="mobile-toggle-btn" type="button">Search</button>
+            <button id="mobile-stats-toggle" class="mobile-toggle-btn" type="button">Statistics</button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar" aria-label="Atlas controls">
+                <button class="mobile-sidebar-close" id="mobile-sidebar-close" type="button" aria-label="Close sidebar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="sidebar-content">
+                    <div class="tab-nav" role="tablist" aria-label="Sidebar tabs">
+                        <button class="tab-button active" type="button" data-tab="filters" title="Filters" aria-label="Filters">
+                            <span class="tab-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                </svg>
+                            </span>
+                            <span class="tab-label" id="tab-label-filters">Filters</span>
+                        </button>
+                        <button class="tab-button" type="button" data-tab="search" title="Search" aria-label="Search">
+                            <span class="tab-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </span>
+                            <span class="tab-label" id="tab-label-search">Search</span>
+                        </button>
+                        <button class="tab-button" type="button" data-tab="stats" title="Statistics" aria-label="Statistics">
+                            <span class="tab-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+                                    <line x1="3" y1="20" x2="21" y2="20"></line>
+                                    <rect x="5" y="11" width="3" height="9"></rect>
+                                    <rect x="10" y="6" width="3" height="14"></rect>
+                                    <rect x="15" y="14" width="3" height="6"></rect>
+                                </svg>
+                            </span>
+                            <span class="tab-label" id="tab-label-stats">Statistics</span>
+                        </button>
+                    </div>
+
+                    <!-- Filters Tab Content -->
+                    <div class="tab-content active" id="filters-tab">
+                        <div id="filter-loading" class="filter-loading hidden">
+                            <div class="spinner-small"></div>
+                            <span>Loading filters…</span>
+                        </div>
+
+                        <div id="fbc-panel" class="fbc-panel">
+                            <!-- Variable picker -->
+                            <button id="fbc-picker-btn" class="fbc-picker-btn" type="button"
+                                    aria-haspopup="dialog" aria-controls="fbc-variable-modal">
+                                <span class="fbc-picker-eyebrow" id="fbc-eyebrow">filter by</span>
+                                <span class="fbc-picker-row">
+                                    <span id="fbc-picker-value" class="fbc-picker-value">Survival Condition</span>
+                                    <svg class="fbc-picker-chev" width="16" height="16" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </span>
+                            </button>
+
+                            <!-- Variable content area: list with counts -->
+                            <div id="fbc-content" class="fbc-content" aria-live="polite"></div>
+
+                            <!-- Active filters register -->
+                            <section id="fbc-active-section" class="fbc-active-section hidden">
+                                <div id="fbc-active-list" class="fbc-active-list"></div>
+                            </section>
+
+                            <div class="fbc-actions">
+                                <button id="clear-filters" class="fbc-link fbc-link-secondary" type="button">
+                                    Reset all
+                                </button>
+                                <button id="sql-filter-btn" class="fbc-link" type="button">
+                                    Advanced query<span class="fbc-link-arrow" aria-hidden="true"> →</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="filter-error" class="filter-error hidden"></div>
+
+                        <!-- Compatibility hidden inputs for FilterManager state -->
+                        <input type="hidden" id="status-filter" name="status" value="">
+                        <input type="hidden" id="category-filter" name="category" value="">
+                        <input type="hidden" id="country-filter" name="country" value="">
+                        <input type="hidden" id="seven-filter" name="sevenWonder" value="">
+                        <input type="hidden" id="period-filter" name="period" value="">
+                    </div>
+
+                    <!-- Search Tab Content -->
+                    <div class="tab-content" id="search-tab">
+                        <p class="stats-hint stats-hint-top" id="search-hint">
+                            Find a wonder by name, country, ancient region, architectural type, or period.
+                        </p>
+                        <div class="search-panel">
+                            <label for="global-search-input" class="search-label" id="search-label">Global Search</label>
+                            <input id="global-search-input" type="text" class="search-input"
+                                placeholder="Search Parthenon, Delphi, Olympia, Colossus…" autocomplete="off">
+                            <div id="global-search-results" class="search-results" aria-live="polite"></div>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Tab Content -->
+                    <div class="tab-content" id="stats-tab">
+                        <div class="statistics-panel">
+                            <p class="stats-hint stats-hint-top" id="stats-hint">
+                                Filter changes apply to statistics; clear all filters to view the full dataset.
+                                Hover bars for exact counts; click a bar to list its monuments.
+                            </p>
+
+                            <label class="search-label" for="stats-field-btn" id="stats-var-label">Variable:</label>
+                            <div class="filter-group stats-field-group">
+                                <button class="filter-selector has-value" id="stats-field-btn" type="button"
+                                        aria-haspopup="dialog" aria-controls="stats-variable-modal">
+                                    <span class="filter-selector-value" id="stats-field-btn-value">Survival condition</span>
+                                    <span class="stats-type-badge is-categorical" id="stats-type-badge" aria-hidden="true">categorical</span>
+                                    <svg class="filter-selector-arrow" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <figure class="stats-figure">
+                                <figcaption class="stats-figcaption" id="stats-figure-caption">
+                                    <span class="stats-fig-num">Fig.</span>
+                                    <span id="stats-figure-title">Wonders by condition</span>
+                                </figcaption>
+                                <div class="stats-chart-wrap" id="stats-chart-wrap" aria-live="polite"></div>
+                                <div class="stats-axis-label" id="stats-axis-label">Condition</div>
+                            </figure>
+
+                            <div class="stats-summary-head">
+                                <span class="stats-summary-eyebrow" id="stats-summary-eyebrow">Summary statistics</span>
+                                <button type="button" class="stats-glossary-btn" id="stats-glossary-btn"
+                                        aria-label="What do these statistics mean?">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                         stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                                        <circle cx="12" cy="8" r="0.5" fill="currentColor"></circle>
+                                    </svg>
+                                    <span id="stats-glossary-btn-text">What do these mean?</span>
+                                </button>
+                            </div>
+
+                            <div class="stats-summary" id="stats-summary" aria-live="polite">
+                                <div class="stats-row"><span class="stats-row-label">Catalogue total</span><span class="stats-row-dots"></span><strong class="stats-row-value" id="total-wonders">77</strong></div>
+                                <div class="stats-row"><span class="stats-row-label">Visible records</span><span class="stats-row-dots"></span><strong class="stats-row-value" id="visible-wonders">77</strong></div>
+                                <div class="stats-row"><span class="stats-row-label">Countries represented</span><span class="stats-row-dots"></span><strong class="stats-row-value" id="visible-countries">—</strong></div>
+                                <div class="stats-row"><span class="stats-row-label">Standing / restored</span><span class="stats-row-dots"></span><strong class="stats-row-value" id="visible-extant">—</strong></div>
+                                <div class="stats-row"><span class="stats-row-label">Ruins / excavated</span><span class="stats-row-dots"></span><strong class="stats-row-value" id="visible-ruins">—</strong></div>
+                                <div class="stats-row"><span class="stats-row-label">Re-erected / unfinished</span><span class="stats-row-dots"></span><strong class="stats-row-value" id="visible-altered">—</strong></div>
+                                <div class="stats-row"><span class="stats-row-label">Lost / submerged</span><span class="stats-row-dots"></span><strong class="stats-row-value" id="visible-lost">—</strong></div>
+                                <div class="stats-row"><span class="stats-row-label">Canonical Seven Wonders</span><span class="stats-row-dots"></span><strong class="stats-row-value" id="visible-seven">—</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Map Container -->
+            <main class="map-container" aria-label="Interactive map">
+                <div id="map"></div>
+                <div id="active-filter-display" class="active-filter-display"></div>
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p id="loading-text">Loading wonder data…</p>
+                </div>
+            </main>
+        </div>
+
+        <!-- Monument Detail Modal -->
+        <div id="wonder-modal" class="modal">
+            <div class="modal-content lagoon-modal-content">
+                <div class="modal-header lagoon-modal-header">
+                    <div class="lagoon-modal-titleblock" id="wonder-modal-titleblock"></div>
+                    <button class="modal-close" id="close-wonder-modal" type="button" aria-label="Close modal">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="wonder-details"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer" aria-label="Site footer">
+            <div class="footer-content">
+                <div class="footer-authorship">
+                    <div class="footer-project-team">
+                        <span class="footer-authorship-label" id="footer-authorship-label">Research &amp; project lead</span>
+                        <div class="footer-team-list">
+                            <figure class="footer-team-member">
+                                <a class="team-photo-link" href="mailto:alexliaskos@geol.uoa.gr" aria-label="Email Alexandros Liaskos" title="alexliaskos@geol.uoa.gr">
+                                    <img src="./assets/shared/alexandros-liaskos.webp" alt="Alexandros Liaskos">
+                                </a>
+                                <figcaption class="sr-only">Alexandros Liaskos</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-credit">
+                    <span class="footer-collection-name">Wonders <em>of the Ancient Greek World</em></span>
+                    <span class="footer-credit-meta">
+                        <span>© 2026</span><span class="footer-credit-dot" aria-hidden="true">·</span>
+                        <span>Content under <a class="footer-license-link" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer">CC BY 4.0</a></span>
+                    </span>
+                </div>
+                <nav class="footer-nav" aria-label="Site links">
+                    <button id="feature-guide-btn" class="footer-link" type="button" aria-haspopup="dialog" aria-controls="feature-guide-modal">Ancient Wonders</button>
+                    <span class="footer-dot" aria-hidden="true">&middot;</span>
+                    <button id="about-btn" class="footer-link" type="button">Welcome</button>
+                    <span class="footer-dot" aria-hidden="true">·</span>
+                    <button id="references-btn" class="footer-link" type="button">Sources</button>
+                    <span class="footer-dot" aria-hidden="true">·</span>
+                    <button id="submit-data-btn" class="footer-link" type="button">Submit data</button>
+                </nav>
+            </div>
+        </footer>
+
+        <!-- References Modal -->
+        <div id="references-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="reference-modal-heading">
+                        <h3 id="ref-modal-title">Sources &amp; citations</h3>
+                        <p id="ref-modal-desc">Use the reference that matches what you are citing.</p>
+                    </div>
+                    <button class="modal-close" id="close-references" type="button" aria-label="Close sources and citations">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="reference-sections">
+                        <section class="reference-section" aria-labelledby="wonders-platform-title">
+                            <header class="reference-section-heading">
+                                <h4 id="wonders-platform-title">Web platform</h4>
+                                <p id="ref-platform-desc">Cite the interactive website and interface.</p>
+                            </header>
+                            <div class="reference-section-copy">
+                                <p>Liaskos, A. (2026). <em>Wonders of the Ancient Greek World</em> [Interactive WebGIS]. <a href="https://liaskos.nkua.cloud" target="_blank" rel="noopener noreferrer">liaskos.nkua.cloud</a></p>
+                                <p><strong>Author affiliation</strong><br>National and Kapodistrian University of Athens</p>
+                            </div>
+                        </section>
+                        <section class="reference-section" aria-labelledby="wonders-dataset-title">
+                            <header class="reference-section-heading">
+                                <h4 id="wonders-dataset-title">Primary &amp; archaeological sources</h4>
+                                <p id="ref-dataset-desc">Classical texts, archaeological institutes, and heritage registries.</p>
+                            </header>
+                            <div class="reference-section-copy">
+                                <p id="ref-dataset-copy">Classical sources include Pausanias’s <em>Description of Greece</em> (Ἑλλάδος Περιήγησις), Herodotus’s <em>Histories</em>, Strabo’s <em>Geographica</em>, and Pliny the Elder’s <em>Naturalis Historia</em>. Archaeological documentation, excavation reports, and conservation records are curated from the Hellenic Ministry of Culture, the German Archaeological Institute (DAI), the British School at Athens (BSA), the American School of Classical Studies at Athens (ASCSA), and the UNESCO World Heritage Centre.</p>
+                            </div>
+                        </section>
+                        <section class="reference-section" aria-labelledby="wonders-licence-title">
+                            <header class="reference-section-heading">
+                                <h4 id="wonders-licence-title">Licence &amp; reuse</h4>
+                                <p id="ref-licence-desc">Terms for original platform content.</p>
+                            </header>
+                            <div class="reference-section-copy">
+                                <p>Except where third-party data, basemaps, photography, or institutional emblems are separately credited, the original text, interface, cartographic design, and research synthesis of this application are licensed under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer">Creative Commons Attribution 4.0 International licence (CC BY 4.0)</a>.</p>
+                                <p>You may share and adapt this material provided that you give appropriate credit, link to the licence, and indicate whether changes were made.</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Data Modal -->
+        <div id="submit-data-modal" class="modal submit-data-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="submit-data-title">Submit Ancient Wonders data</h3>
+                    <button class="modal-close" id="close-submit-data" type="button" aria-label="Close submission instructions">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="submit-data-intro"><p id="submit-data-intro-text">Submit an ancient Greek monument, archaeological site, or a correction supported by published scientific or archaeological literature. Describe coordinates, historical epoch, typology, and present condition.</p></div>
+                    <div class="submit-data-section">
+                        <h4 id="submit-prep-title">Prepare your submission</h4>
+                        <p id="submit-prep-desc">Include monument name (bilingual if possible), coordinates in WGS84, ancient region, modern country, historical epoch, and peer-reviewed or institutional citations.</p>
+                        <div class="submit-data-actions">
+                            <a class="btn-primary" id="submit-email-btn" href="mailto:alexliaskos@geol.uoa.gr?subject=Ancient%20Greek%20Wonders%20Data%20Submission&amp;body=Dear%20Alexandros%20Liaskos%2C%0A%0AI%20would%20like%20to%20submit%20data%20for%20Wonders%20of%20the%20Ancient%20Greek%20World.%0A%0AContributor%20Name%3A%20%0AAffiliation%3A%20%0ASite%2FMonument%20Name%3A%20%0ACoordinates%20(WGS84)%3A%20%0AModern%20Country%3A%20%0APeriod%2FDate%3A%20%0APresent%20Condition%3A%20%0ASupporting%20Sources%20%2F%20DOI%3A%20%0A%0AAdditional%20Notes%3A%20">Send submission by email</a>
+                        </div>
+                    </div>
+                    <div class="submit-data-section">
+                        <h4>Required fields</h4>
+                        <div class="template-table-wrapper"><table class="template-table submission-field-guide">
+                            <thead><tr><th scope="col">Field</th><th scope="col">Format</th><th scope="col">Description</th></tr></thead>
+                            <tbody><tr><th scope="row">Monument name</th><td>Text</td><td>Name of the ancient monument, sanctuary, or structure.</td></tr>
+                            <tr><th scope="row">Coordinates</th><td>WGS84 (degrees)</td><td>Decimal latitude and longitude.</td></tr>
+                            <tr><th scope="row">Modern country</th><td>Text</td><td>Country where the site is situated today.</td></tr>
+                            <tr><th scope="row">Period &amp; date</th><td>Text</td><td>Historical epoch (e.g. Classical, 5th c. BC).</td></tr>
+                            <tr><th scope="row">Present condition</th><td>Category</td><td>Standing, ruins, excavated, altered, or lost.</td></tr>
+                            <tr><th scope="row">Supporting source</th><td>Text / URL / DOI</td><td>Traceable archaeological publication or official registry.</td></tr></tbody>
+                        </table></div>
+                    </div>
+                    <p class="submit-data-note" id="submit-data-note-text">Submissions are reviewed and verified before inclusion in the atlas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters Variable Selection Modal -->
+        <div id="fbc-variable-modal" class="modal filter-selection-modal stats-variable-modal" role="dialog" aria-labelledby="fbc-variable-modal-title">
+            <div class="modal-content filter-selection-modal-content">
+                <div class="modal-header">
+                    <h3 id="fbc-variable-modal-title">Filter by</h3>
+                    <button class="modal-close" id="close-fbc-variable" type="button" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="filter-modal-search">
+                        <input type="search" id="fbc-variable-search-input" class="filter-modal-search-input"
+                            placeholder="Search variables…" autocomplete="off">
+                    </div>
+                    <div id="fbc-variable-list" class="filter-modal-list stats-variable-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Variable Selection Modal -->
+        <div id="stats-variable-modal" class="modal filter-selection-modal stats-variable-modal" role="dialog" aria-labelledby="stats-variable-modal-title">
+            <div class="modal-content filter-selection-modal-content">
+                <div class="modal-header">
+                    <h3 id="stats-variable-modal-title">Select Variable</h3>
+                    <button class="modal-close" id="close-stats-variable" type="button" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="filter-modal-search">
+                        <input type="search" id="stats-variable-search-input" class="filter-modal-search-input"
+                            placeholder="Search variables…" autocomplete="off">
+                    </div>
+                    <div id="stats-variable-list" class="filter-modal-list stats-variable-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Bin / Drill-Down Modal -->
+        <div id="stats-bin-modal" class="modal filter-selection-modal stats-bin-modal" role="dialog" aria-labelledby="stats-bin-modal-title">
+            <div class="modal-content filter-selection-modal-content">
+                <div class="modal-header">
+                    <h3 id="stats-bin-modal-title">Monuments</h3>
+                    <button class="modal-close" id="close-stats-bin" type="button" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="stats-bin-summary" id="stats-bin-summary" aria-live="polite"></div>
+                    <div id="stats-bin-list" class="filter-modal-list stats-bin-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Glossary Modal -->
+        <div id="stats-glossary-modal" class="modal filter-selection-modal stats-glossary-modal" role="dialog" aria-labelledby="stats-glossary-modal-title">
+            <div class="modal-content filter-selection-modal-content">
+                <div class="modal-header">
+                    <h3 id="stats-glossary-modal-title">Statistical Definitions</h3>
+                    <button class="modal-close" id="close-stats-glossary" type="button" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="stats-glossary-content" class="stats-glossary-content">
+                        <dl class="stats-glossary-list">
+                            <dt>Sample size (n)</dt>
+                            <dd>The number of valid, documented monuments currently visible or selected.</dd>
+                            <dt>Distribution / Frequency</dt>
+                            <dd>The relative count and proportion of monuments classified within each category or geographical region.</dd>
+                            <dt>Survival Condition</dt>
+                            <dd>Classification into four primary survival states: Standing/restored (preserved structural elevation), Ruins/excavated (substructure, foundational elements, or column stumps), Re-erected/unfinished (anastylosis or ancient abandoned projects), and Lost/submerged (destroyed, quarried away, or submerged).</dd>
+                            <dt>Canonical Seven Wonders</dt>
+                            <dd>The monuments included in classical Hellenistic lists of the Seven Wonders of the Ancient World (Phaedo of Byzantium, Antipater of Sidon).</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Query Builder Modal -->
+        <div id="sql-filter-modal" class="modal sql-filter-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Query Builder</h3>
+                    <button class="modal-close" id="close-sql-filter" type="button" aria-label="Close query builder">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="query-conditions" class="query-conditions"></div>
+
+                    <div class="query-builder-controls">
+                        <button id="add-condition" class="btn-add-condition" type="button">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            Add Condition
+                        </button>
+                        <button id="add-group" class="btn-add-group" type="button">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                            Add Group
+                        </button>
+                    </div>
+
+                    <div class="query-preview">
+                        <label>Generated Query:</label>
+                        <div id="query-preview-text" class="query-preview-text"><em>No conditions added</em></div>
+                    </div>
+
+                    <div id="sql-filter-error" class="sql-filter-error hidden"></div>
+
+                    <div class="sql-filter-actions">
+                        <button id="apply-sql-filter" class="btn-primary" type="button">Apply Filter</button>
+                        <button id="clear-sql-filter" class="btn-secondary" type="button">Clear All</button>
+                    </div>
+
+                    <div id="sql-filter-active" class="sql-filter-active hidden">
+                        <span class="sql-active-label">Active Filter:</span>
+                        <span id="sql-active-text"></span>
+                        <button id="clear-active-sql" class="btn-clear-sql" type="button">×</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /#app -->
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+    <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet/leaflet-maplibre-gl.js"></script>
+
+    <!-- NKUA WebGIS Shared Libraries -->
+    <script src="./assets/shared/common-map.js"></script>
+    <script src="./assets/shared/common-ui.js"></script>
+
+    <!-- Application Logic -->
+    <script type="module" src="./src/app.js"></script>
+
+    <!-- Feature Guide Modal (What is an Ancient Greek Wonder?) -->
+    <dialog id="feature-guide-modal" class="feature-guide-dialog" aria-labelledby="feature-guide-title">
+        <header class="feature-guide-header" aria-labelledby="feature-guide-title">
+            <h2 id="feature-guide-title">What is an Ancient Greek Wonder?</h2>
+            <button class="feature-guide-close" type="button" aria-label="Close explanation">&times;</button>
+        </header>
+        <div class="feature-guide-body">
+            <p class="feature-guide-definition" id="feature-guide-definition">
+                The wonders of the ancient Greek world encompass monumental temples, sanctuaries, civic spaces, engineering achievements, and colossal artworks created across the Greek mainland, Aegean islands, Magna Graecia, and the Hellenistic kingdoms (c. 1600 BC – 300 AD). From the canonical Seven Wonders to monumental amphitheatres and panhellenic sanctuaries, they reflect the pinnacles of classical architecture, geometry, religious devotion, and civic life.
+            </p>
+            <figure class="feature-guide-figure">
+                <img src="./assets/images/parthenon/hero-960.webp" width="960" height="720" alt="The Parthenon crowning the Acropolis of Athens, Greece." loading="lazy" decoding="async">
+                <figcaption id="feature-guide-caption">
+                    <span>The Parthenon (447–432 BC) on the Acropolis of Athens, Greece.</span>
+                    <span>Designed by Ictinus and Callicrates under the artistic direction of Phidias.</span>
+                </figcaption>
+            </figure>
+            <p class="feature-guide-source" id="feature-guide-source">
+                Academic references: Pausanias (<em>Description of Greece</em>), Herodotus (<em>Histories</em>), Strabo (<em>Geographica</em>), and UNESCO World Heritage Centre.
+            </p>
+        </div>
+    </dialog>
 </body>
 </html>

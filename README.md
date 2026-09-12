@@ -9,7 +9,8 @@ A fast bilingual WebGIS for 77 monuments and sacred landscapes across Greece and
 - Leaflet map with marker clustering and three cartographic backgrounds
 - Bilingual search plus type, country, condition, and Seven Wonders filters
 - Accessible monument details and mobile bottom-sheet navigation
-- GitHub Pages deployment through Actions
+- Production deployment on NKUA VPS at [liaskos.nkua.cloud](https://liaskos.nkua.cloud/) via Docker and Nginx reverse proxy
+- GitHub Pages compatibility preserved through static repository-relative architecture
 
 ## Run locally
 

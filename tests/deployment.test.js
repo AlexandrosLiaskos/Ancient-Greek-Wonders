@@ -2,25 +2,24 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 
-test('static entry uses repository-relative local assets', async () => {
+test('static entry uses repository-relative local assets and WebGIS components', async () => {
   const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
   assert.match(html, /href="\.\/styles\.css"/);
   assert.match(html, /src="\.\/src\/app\.js"/);
   assert.doesNotMatch(html, /(?:href|src)="\/(?!\/)/);
-  assert.match(html, /class="mobile-action-bar"/);
-  assert.match(html, /class="[^"]*workbench[^"]*"/);
-  assert.match(html, /id="map-preview-region"/);
-  assert.match(html, /class="tool-tabs"/);
-  assert.match(html, /data-tab="browse"/);
+  assert.match(html, /id="mobile-filters-toggle"/);
+  assert.match(html, /id="sidebar"/);
+  assert.match(html, /class="tab-nav"/);
   assert.match(html, /data-tab="filters"/);
-  assert.match(html, /data-mobile-tab="browse"/);
-  assert.match(html, /data-mobile-tab="filters"/);
-  assert.match(html, /<section class="map-stage"[\s\S]*id="map-legend"/);
+  assert.match(html, /data-tab="search"/);
+  assert.match(html, /data-tab="stats"/);
+  assert.match(html, /id="welcome-modal"/);
+  assert.match(html, /id="feature-guide-modal"/);
+  assert.match(html, /id="references-modal"/);
+  assert.match(html, /id="wonder-modal"/);
   assert.match(html, /family=Italianno/);
   assert.match(css, /\.masthead h1[^}]*font-family:\s*'Italianno'/s);
-  assert.doesNotMatch(html, /masthead-kicker/);
-  assert.doesNotMatch(html, /data-i18n="(?:atlasRegister|filterBy|findMonument)"/);
 });
 
 test('Greek masthead ships its calligraphic face with the static site', async () => {
@@ -36,9 +35,8 @@ test('Greek masthead ships its calligraphic face with the static site', async ()
   assert.match(css, /html\[lang="el"\] \.masthead h1[^}]*font-family:\s*'GFS Solomos'/s);
 });
 
-test('GitHub Pages workflow and repository documentation exist', async () => {
+test('VPS deployment and repository documentation exist', async () => {
   await Promise.all([
-    access(new URL('../.github/workflows/pages.yml', import.meta.url)),
     access(new URL('../README.md', import.meta.url)),
     access(new URL('../LICENSE', import.meta.url)),
     access(new URL('../.gitignore', import.meta.url))

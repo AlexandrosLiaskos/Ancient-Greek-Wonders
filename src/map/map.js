@@ -1,5 +1,42 @@
 import { formatClusterCount, localizeRecord, t } from '../i18n.js';
 import { createMapPreviewMarkup, escapeHtml } from '../ui/render.js';
+import { MeasurementTool } from './measurement-tool.js';
+
+export const WONDER_MAP_CATEGORIES = [
+  { key: 'extant', label: 'Standing / restored', color: '#059669', border: '#34d399' },
+  { key: 'ruins', label: 'Ruins / excavated', color: '#d97706', border: '#fbbf24' },
+  { key: 'altered', label: 'Re-erected / unfinished', color: '#2563eb', border: '#60a5fa' },
+  { key: 'lost', label: 'Lost / submerged', color: '#dc2626', border: '#f87171' }
+];
+
+export const SURVIVAL_GROUP_BY_STATUS = {
+  standing: 'extant',
+  restored: 'extant',
+  'partly-standing': 'extant',
+  'partly-restored': 'extant',
+  ruins: 'ruins',
+  excavated: 'ruins',
+  're-erected': 'altered',
+  unfinished: 'altered',
+  lost: 'lost'
+};
+
+export function getWonderMapCategory(wonder) {
+  const key = SURVIVAL_GROUP_BY_STATUS[wonder?.status] || 'ruins';
+  return WONDER_MAP_CATEGORIES.find((cat) => cat.key === key) || WONDER_MAP_CATEGORIES[1];
+}
+
+export function getLocalizedWonderCategories(language) {
+  if (language === 'el') {
+    return [
+      { key: 'extant', label: 'Όρθιο / αναστηλωμένο', color: '#059669', border: '#34d399' },
+      { key: 'ruins', label: 'Ερείπια / ανεσκαμμένο', color: '#d97706', border: '#fbbf24' },
+      { key: 'altered', label: 'Ανοικοδομημένο / ημιτελές', color: '#2563eb', border: '#60a5fa' },
+      { key: 'lost', label: 'Χαμένο / βυθισμένο', color: '#dc2626', border: '#f87171' }
+    ];
+  }
+  return WONDER_MAP_CATEGORIES;
+}
 
 export function mapControlLabels(language) {
   return { zoomIn: t(language, 'zoomIn'), zoomOut: t(language, 'zoomOut'), layers: t(language, 'mapLayers') };
@@ -26,35 +63,60 @@ export function markerDescriptor(record, language) {
 
 export function revealMarkerPreview(cluster, marker) {
   if (!marker) return;
-  cluster.zoomToShowLayer(marker, () => marker.openPopup());
+  if (typeof cluster.zoomToShowLayer === 'function') {
+    cluster.zoomToShowLayer(marker, () => marker.openPopup());
+  } else if (typeof marker.openPopup === 'function') {
+    marker.openPopup();
+  }
 }
 
 export function createWondersMap(element, records, { language = 'en', onSelect = () => {} } = {}) {
   const L = globalThis.L;
   if (!L) throw new Error('Leaflet is unavailable');
 
-  const map = L.map(element, { zoomControl: false, minZoom: 3, worldCopyJump: true }).setView([37.2, 23.6], 5);
-  const zoomControl = L.control.zoom({ position: 'topright' }).addTo(map);
+  const map = L.map(element, {
+    zoomControl: true,
+    minZoom: 3,
+    maxZoom: 19,
+    worldCopyJump: true
+  }).setView([37.2, 23.6], 5);
 
-  const layers = {
-    'Carto Light': L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  const baseMaps = globalThis.NkuaWebGISMap?.createBasemaps ? globalThis.NkuaWebGISMap.createBasemaps() : {
+    'Carto Positron': L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OpenStreetMap contributors &copy; CARTO', maxZoom: 20
     }),
     'OpenStreetMap': L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors', maxZoom: 19
-    }),
-    'OpenTopoMap': L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap', maxZoom: 17
     })
   };
-  layers['Carto Light'].addTo(map);
-  const layerControl = L.control.layers(layers, null, { position: 'topright' }).addTo(map);
+
+  let defaultBasemap = 'Carto Positron';
+  if (globalThis.NkuaWebGISMap?.addDefault) {
+    defaultBasemap = globalThis.NkuaWebGISMap.addDefault(map, baseMaps);
+  } else {
+    baseMaps['Carto Positron']?.addTo(map);
+  }
+
+  if (globalThis.NkuaWebGISMap?.addBasemapPicker) {
+    globalThis.NkuaWebGISMap.addBasemapPicker(map, baseMaps, { defaultName: defaultBasemap });
+  }
+
+  if (globalThis.NkuaWebGISMap?.addNorthArrow) {
+    globalThis.NkuaWebGISMap.addNorthArrow(map);
+  }
+
+  const measurementTool = new MeasurementTool(map, { language });
+
+  const categories = getLocalizedWonderCategories(language);
 
   const cluster = L.markerClusterGroup({
     showCoverageOnHover: false,
-    maxClusterRadius: 44,
+    maxClusterRadius: 48,
     spiderfyOnMaxZoom: true,
     iconCreateFunction: (group) => {
+      if (globalThis.NkuaWebGISMap?.createCategoryClusterIcon) {
+        return globalThis.NkuaWebGISMap.createCategoryClusterIcon(group, WONDER_MAP_CATEGORIES);
+      }
       const count = group.getChildCount();
       const size = count < 10 ? 'small' : count < 100 ? 'medium' : 'large';
       return L.divIcon({
@@ -64,25 +126,47 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
       });
     }
   });
+
   const markers = new Map();
   map.addLayer(cluster);
 
+  const mapLegend = globalThis.NkuaWebGISMap?.addCategoryLegend ? globalThis.NkuaWebGISMap.addCategoryLegend(map, {
+    title: language === 'el' ? 'Σημερινή κατάσταση' : 'Survival condition',
+    subtitle: language === 'el' ? '4 κατηγορίες' : '4 groups',
+    ariaLabel: language === 'el' ? 'Υπόμνημα κατάστασης μνημείων' : 'Wonder survival condition legend',
+    categories: WONDER_MAP_CATEGORIES,
+    classify: (record) => getWonderMapCategory(record).key
+  }) : null;
+
   const buildMarker = (record, lang) => {
     const item = markerDescriptor(record, lang);
-    const icon = L.divIcon({
-      className: '',
-      html: item.iconMarkup,
-      iconSize: [28, 28], iconAnchor: [14, 14]
-    });
+    const cat = getWonderMapCategory(record);
+    const icon = globalThis.NkuaWebGISMap?.createCategoryMarkerIcon
+      ? globalThis.NkuaWebGISMap.createCategoryMarkerIcon(cat, { size: 18 })
+      : L.divIcon({
+        className: '',
+        html: item.iconMarkup,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+
     const marker = L.marker(item.coordinates, { icon, title: item.name, keyboard: true });
-    marker.bindPopup(createMapPreviewMarkup(record, lang), { className: 'wonder-preview-popup', maxWidth: 360, minWidth: 310, offset: [0, -18], closeButton: true, autoPanPadding: [24, 24] });
-    marker.on('mouseover focus', () => marker.openPopup());
+    marker._mapCategory = cat.key;
+    marker.bindPopup(createMapPreviewMarkup(record, lang), {
+      className: 'wonder-preview-popup',
+      maxWidth: 360,
+      minWidth: 300,
+      offset: [0, -12],
+      closeButton: true,
+      autoPanPadding: [24, 24]
+    });
     marker.on('click', () => marker.openPopup());
     return marker;
   };
 
   const update = (nextRecords, lang = language) => {
     language = lang;
+    measurementTool.setLanguage(lang);
     cluster.clearLayers();
     markers.clear();
     nextRecords.forEach((record) => {
@@ -90,15 +174,10 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
       markers.set(record.id, marker);
       cluster.addLayer(marker);
     });
-    const labels = mapControlLabels(language);
-    const zoomLinks = zoomControl.getContainer().querySelectorAll('a');
-    [[zoomLinks[0], labels.zoomIn], [zoomLinks[1], labels.zoomOut]].forEach(([link, label]) => {
-      link?.setAttribute('title', label);
-      link?.setAttribute('aria-label', label);
-    });
-    const layerToggle = layerControl.getContainer().querySelector('.leaflet-control-layers-toggle');
-    layerToggle?.setAttribute('title', labels.layers);
-    layerToggle?.setAttribute('aria-label', labels.layers);
+
+    if (mapLegend?.update) {
+      mapLegend.update(nextRecords);
+    }
   };
 
   element.addEventListener('click', (event) => {
@@ -121,5 +200,12 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
   };
 
   update(records, language);
-  return { map, update, focus, closePreview: () => map.closePopup(), invalidateSize: () => map.invalidateSize() };
+  return {
+    map,
+    update,
+    focus,
+    measurementTool,
+    closePreview: () => map.closePopup(),
+    invalidateSize: () => map.invalidateSize()
+  };
 }

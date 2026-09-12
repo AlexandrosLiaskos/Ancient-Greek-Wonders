@@ -1,364 +1,546 @@
 import { WONDERS } from './data/wonders.js';
-import { facetCounts, filterWonders, normalizeSearchText, summarizeSurvival } from './core/catalog.js';
+import { filterWonders, normalizeSearchText, summarizeSurvival } from './core/catalog.js';
 import { parseUrlState, serializeUrlState } from './core/url-state.js';
-import { CATEGORY_LABELS, COUNTRY_LABELS, STATUS_LABELS, formatResultCount, t } from './i18n.js';
+import { CATEGORY_LABELS, COUNTRY_LABELS, STATUS_LABELS, formatResultCount, localizeRecord, t } from './i18n.js';
 import { createDetailMarkup, createResultMarkup } from './ui/render.js';
-import { createFacetOptionsMarkup, facetOptionLabel } from './ui/filters.js';
 import { initializeGallery } from './ui/gallery.js';
-import { createWondersMap } from './map/map.js';
+import { createWondersMap, WONDER_MAP_CATEGORIES, getWonderMapCategory } from './map/map.js';
 
-const state = parseUrlState(location.search, WONDERS);
-const $ = (selector) => document.querySelector(selector);
-const elements = {
-  language: $('#language-toggle'),
-  aboutButton: $('#about-button'),
-  sidebar: $('#sidebar'),
-  sheetClose: $('#sheet-close'),
-  search: $('#search-input'),
-  facetSearch: $('#facet-search-input'),
-  facetSearchShell: $('.facet-search'),
-  facetOptions: $('#facet-options'),
-  facetEmpty: $('#facet-empty'),
-  activeFilters: $('#active-filters'),
-  activeFilterCount: $('#active-filter-count'),
-  filterBadge: $('#filter-badge'),
-  mobileFilterBadge: $('#mobile-filter-badge'),
-  resultList: $('#result-list'),
-  searchResultList: $('#search-result-list'),
-  catalogRegister: $('#catalog-register'),
-  searchRegister: $('.search-register'),
-  resultCount: $('#result-count'),
-  searchResultCount: $('#search-result-count'),
-  mapCount: $('#map-count'),
-  empty: $('#empty-state'),
-  searchEmpty: $('#search-empty-state'),
-  dialog: $('#detail-dialog'),
-  detail: $('#detail-content'),
-  detailClose: $('#detail-close'),
-  fallback: $('#map-fallback'),
-  mapStage: $('.map-stage'),
-  mapLegend: $('#map-legend'),
-  legendTotal: $('#legend-total'),
-  mobileBar: $('.mobile-action-bar'),
-  metaDescription: $('#meta-description'),
-  previewRegion: $('#map-preview-region')
-};
+class AncientGreekWondersApp {
+  constructor() {
+    this.wonders = WONDERS;
+    this.state = parseUrlState(location.search, this.wonders);
+    if (!this.state.language) this.state.language = 'en';
 
-const primaryViews = new Set(['browse', 'filters', 'search']);
-const filterKeys = ['category', 'country', 'status', 'sevenWonder'];
-const mobileQuery = globalThis.matchMedia('(max-width: 760px)');
-const toolTabs = [...document.querySelectorAll('.tool-tab')];
-const facetTabs = [...document.querySelectorAll('.facet-tab')];
-let activeFacet = 'category';
-let facetQuery = '';
-let mapController = null;
-let currentRecords = WONDERS;
-let sidebarOpener = null;
-let detailGallery = null;
+    this.currentRecords = this.wonders;
+    this.mapController = null;
+    this.atlasInterface = null;
+    this.detailGallery = null;
+    this.activeFilterField = 'status';
 
-function syncUrl() {
-  const next = serializeUrlState(state);
-  history.replaceState({}, '', `${location.pathname}${next.size ? `?${next}` : ''}${location.hash}`);
-}
+    this.elements = {
+      app: document.getElementById('app'),
+      sidebar: document.getElementById('sidebar'),
+      map: document.getElementById('map'),
+      languageToggle: document.getElementById('language-toggle'),
+      mobileFilters: document.getElementById('mobile-filters-toggle'),
+      mobileSearch: document.getElementById('mobile-search-toggle'),
+      mobileStats: document.getElementById('mobile-stats-toggle'),
+      mobileSidebarClose: document.getElementById('mobile-sidebar-close'),
+      tabButtons: document.querySelectorAll('.tab-button'),
+      tabContents: document.querySelectorAll('.tab-content'),
+      
+      // Welcome modal
+      welcomeModal: document.getElementById('welcome-modal'),
+      closeWelcome: document.getElementById('close-welcome'),
+      aboutBtn: document.getElementById('about-btn'),
+      headerHomeLink: document.getElementById('header-home-link'),
+      
+      // References modal
+      referencesModal: document.getElementById('references-modal'),
+      referencesBtn: document.getElementById('references-btn'),
+      closeReferences: document.getElementById('close-references'),
+      
+      // Submit data modal
+      submitDataModal: document.getElementById('submit-data-modal'),
+      submitDataBtn: document.getElementById('submit-data-btn'),
+      closeSubmitData: document.getElementById('close-submit-data'),
+      
+      // Wonder detail modal
+      wonderModal: document.getElementById('wonder-modal'),
+      wonderTitleblock: document.getElementById('wonder-modal-titleblock'),
+      wonderDetails: document.getElementById('wonder-details'),
+      closeWonderModal: document.getElementById('close-wonder-modal'),
+      
+      // Stats glossary modal
+      statsGlossaryModal: document.getElementById('stats-glossary-modal'),
+      statsGlossaryBtn: document.getElementById('stats-glossary-btn'),
+      closeStatsGlossary: document.getElementById('close-stats-glossary'),
+      
+      // Search
+      globalSearchInput: document.getElementById('global-search-input'),
+      globalSearchResults: document.getElementById('global-search-results'),
+      
+      // Summary stats
+      totalWonders: document.getElementById('total-wonders'),
+      visibleWonders: document.getElementById('visible-wonders'),
+      visibleCountries: document.getElementById('visible-countries'),
+      visibleExtant: document.getElementById('visible-extant'),
+      visibleRuins: document.getElementById('visible-ruins'),
+      visibleAltered: document.getElementById('visible-altered'),
+      visibleLost: document.getElementById('visible-lost'),
+      visibleSeven: document.getElementById('visible-seven')
+    };
 
-function countActiveFilters() {
-  return filterKeys.reduce((count, key) => count + (state[key] ? 1 : 0), 0);
-}
+    this.init();
+  }
 
-function selectedFacetValue() {
-  return activeFacet === 'sevenWonder' ? (state.sevenWonder ? '1' : '') : state[activeFacet];
-}
+  init() {
+    this.applyLanguage(this.state.language, false);
+    this.initMap();
+    this.initSidebarTabs();
+    this.initModals();
+    this.initSearch();
+    this.initCommonAtlasInterface();
+    this.applyFilters();
+    this.initWelcomeModalAutoReveal();
+  }
 
-function renderFacetOptions() {
-  const normalizedQuery = normalizeSearchText(facetQuery);
-  const options = facetCounts(WONDERS, state, activeFacet)
-    .filter(({ value }) => !normalizedQuery || normalizeSearchText(facetOptionLabel(activeFacet, value, state.language)).includes(normalizedQuery))
-    .sort((a, b) => facetOptionLabel(activeFacet, a.value, state.language).localeCompare(facetOptionLabel(activeFacet, b.value, state.language), state.language));
+  initMap() {
+    this.mapController = createWondersMap(this.elements.map, this.currentRecords, {
+      language: this.state.language,
+      onSelect: (wonderId) => this.showWonderDetails(wonderId)
+    });
+  }
 
-  elements.facetOptions.innerHTML = createFacetOptionsMarkup({
-    facet: activeFacet,
-    language: state.language,
-    options,
-    selectedValue: selectedFacetValue()
-  });
-  elements.facetOptions.hidden = options.length === 0;
-  elements.facetOptions.setAttribute('aria-labelledby', `facet-${activeFacet}`);
-  elements.facetEmpty.hidden = options.length !== 0;
-  elements.facetSearchShell.hidden = activeFacet === 'sevenWonder';
-}
+  initSidebarTabs() {
+    this.elements.tabButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const tab = button.dataset.tab;
+        this.switchTab(tab);
+      });
+    });
 
-function renderActiveFilters() {
-  const chips = [];
-  if (state.category) chips.push(['category', CATEGORY_LABELS[state.category][state.language]]);
-  if (state.country) chips.push(['country', COUNTRY_LABELS[state.country][state.language]]);
-  if (state.status) chips.push(['status', STATUS_LABELS[state.status][state.language]]);
-  if (state.sevenWonder) chips.push(['sevenWonder', t(state.language, 'sevenOnly')]);
+    const openSidebarTab = (tab) => {
+      this.switchTab(tab);
+      this.elements.sidebar.classList.add('mobile-open');
+      document.body.classList.add('mobile-sidebar-active');
+    };
 
-  elements.activeFilters.innerHTML = chips.map(([key, label]) => `<button type="button" data-clear-filter="${key}" aria-label="${t(state.language, 'removeFilter')}: ${label}"><span>${label}</span><b aria-hidden="true">×</b></button>`).join('');
-  const count = countActiveFilters();
-  elements.activeFilterCount.textContent = count;
-  for (const badge of [elements.filterBadge, elements.mobileFilterBadge]) {
-    badge.textContent = count;
-    badge.hidden = count === 0;
+    this.elements.mobileFilters?.addEventListener('click', () => openSidebarTab('filters'));
+    this.elements.mobileSearch?.addEventListener('click', () => openSidebarTab('search'));
+    this.elements.mobileStats?.addEventListener('click', () => openSidebarTab('stats'));
+
+    this.elements.mobileSidebarClose?.addEventListener('click', () => {
+      this.elements.sidebar.classList.remove('mobile-open');
+      document.body.classList.remove('mobile-sidebar-active');
+    });
+  }
+
+  switchTab(tabName) {
+    this.elements.tabButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.tab === tabName);
+    });
+    this.elements.tabContents.forEach((content) => {
+      const match = content.id === `${tabName}-tab` || (tabName === 'stats' && content.id === 'stats-tab');
+      content.classList.toggle('active', match);
+    });
+    if (document.body) {
+      document.body.dataset.activeTab = tabName;
+    }
+  }
+
+  initModals() {
+    // Welcome modal
+    const openWelcome = () => {
+      this.elements.welcomeModal.classList.add('active');
+      document.body.classList.add('modal-open');
+    };
+    const closeWelcome = () => {
+      this.elements.welcomeModal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    };
+    this.elements.aboutBtn?.addEventListener('click', openWelcome);
+    this.elements.headerHomeLink?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openWelcome();
+    });
+    this.elements.closeWelcome?.addEventListener('click', closeWelcome);
+    this.elements.welcomeModal?.addEventListener('click', (e) => {
+      if (e.target === this.elements.welcomeModal) closeWelcome();
+    });
+
+    // References modal
+    const openRef = () => {
+      this.elements.referencesModal.classList.add('active');
+      document.body.classList.add('modal-open');
+    };
+    const closeRef = () => {
+      this.elements.referencesModal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    };
+    this.elements.referencesBtn?.addEventListener('click', openRef);
+    this.elements.closeReferences?.addEventListener('click', closeRef);
+    this.elements.referencesModal?.addEventListener('click', (e) => {
+      if (e.target === this.elements.referencesModal) closeRef();
+    });
+
+    // Submit data modal
+    const openSubmit = () => {
+      this.elements.submitDataModal.classList.add('active');
+      document.body.classList.add('modal-open');
+    };
+    const closeSubmit = () => {
+      this.elements.submitDataModal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    };
+    this.elements.submitDataBtn?.addEventListener('click', openSubmit);
+    this.elements.closeSubmitData?.addEventListener('click', closeSubmit);
+    this.elements.submitDataModal?.addEventListener('click', (e) => {
+      if (e.target === this.elements.submitDataModal) closeSubmit();
+    });
+
+    // Wonder details modal
+    this.elements.closeWonderModal?.addEventListener('click', () => {
+      this.elements.wonderModal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    });
+    this.elements.wonderModal?.addEventListener('click', (e) => {
+      if (e.target === this.elements.wonderModal) {
+        this.elements.wonderModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+      }
+    });
+
+    // Stats glossary modal
+    const openGlossary = () => {
+      this.elements.statsGlossaryModal.classList.add('active');
+      document.body.classList.add('modal-open');
+    };
+    const closeGlossary = () => {
+      this.elements.statsGlossaryModal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    };
+    this.elements.statsGlossaryBtn?.addEventListener('click', openGlossary);
+    this.elements.closeStatsGlossary?.addEventListener('click', closeGlossary);
+    this.elements.statsGlossaryModal?.addEventListener('click', (e) => {
+      if (e.target === this.elements.statsGlossaryModal) closeGlossary();
+    });
+
+    // Language switcher
+    this.elements.languageToggle?.addEventListener('click', () => {
+      const nextLang = this.state.language === 'en' ? 'el' : 'en';
+      this.applyLanguage(nextLang, true);
+    });
+
+    // Global keyboard listener for Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const activeModal = document.querySelector('.modal.active');
+        if (activeModal) {
+          activeModal.classList.remove('active');
+          document.body.classList.remove('modal-open');
+        }
+      }
+    });
+  }
+
+  initWelcomeModalAutoReveal() {
+    try {
+      const seen = window.sessionStorage.getItem('wonders-welcome-seen-v1');
+      if (!seen && this.elements.welcomeModal) {
+        this.elements.welcomeModal.classList.add('active');
+        document.body.classList.add('modal-open');
+        window.sessionStorage.setItem('wonders-welcome-seen-v1', 'yes');
+      }
+    } catch (_error) {
+      // Storage unavailable fallback
+    }
+  }
+
+  initSearch() {
+    const input = this.elements.globalSearchInput;
+    if (!input) return;
+
+    input.addEventListener('input', () => {
+      this.state.query = input.value.trim();
+      this.syncUrl();
+      this.applyFilters();
+    });
+  }
+
+  initCommonAtlasInterface() {
+    if (!window.NkuaWebGISUI?.createAtlasInterface) return;
+
+    this.atlasInterface = window.NkuaWebGISUI.createAtlasInterface({
+      getRecords: () => this.currentRecords,
+      getOptions: (field) => {
+        const values = new Set();
+        this.wonders.forEach((w) => {
+          const val = w[field.dataField || field.key];
+          if (val) values.add(val);
+        });
+        return Array.from(values).sort();
+      },
+      onApply: (field, value) => {
+        const key = field.key;
+        this.state[key] = value;
+        this.syncUrl();
+        this.applyFilters();
+      },
+      onAdvancedApply: (records) => {
+        this.currentRecords = records;
+        this.updateView();
+      },
+      onAdvancedClear: () => {
+        this.applyFilters();
+      },
+      statisticsRecordLabel: (record) => {
+        const item = localizeRecord(record, this.state.language);
+        return item.name;
+      },
+      statisticsRecordMeta: (record) => {
+        const item = localizeRecord(record, this.state.language);
+        return [item.location, item.period, item.statusLabel].filter(Boolean).join(' · ');
+      },
+      onStatisticsRecordSelect: (record) => {
+        this.mapController.focus(record);
+        this.showWonderDetails(record.id);
+      },
+      filterFields: [
+        { key: 'status', dataField: 'status', label: this.state.language === 'el' ? 'Κατάσταση' : 'Survival condition', group: 'Archaeology' },
+        { key: 'category', dataField: 'category', label: this.state.language === 'el' ? 'Τύπος μνημείου' : 'Monument typology', group: 'Architecture' },
+        { key: 'country', dataField: 'country', label: this.state.language === 'el' ? 'Σύγχρονη χώρα' : 'Modern country', group: 'Geography' },
+        { key: 'sevenWonder', dataField: 'sevenWonder', label: this.state.language === 'el' ? 'Επτά Θαύματα' : 'Seven Wonders', group: 'Canonical' }
+      ],
+      statisticsFields: [
+        {
+          key: 'status',
+          dataField: 'status',
+          label: this.state.language === 'el' ? 'Σημερινή κατάσταση' : 'Survival condition',
+          type: 'categorical',
+          group: 'Archaeology',
+          maxItems: 10,
+          description: this.state.language === 'el'
+            ? 'Κατάσταση διατήρησης του μνημείου (όρθιο, ερείπια, ανασκαμμένο, ανοικοδομημένο, χαμένο).'
+            : 'Preservation state of the ancient wonder according to contemporary archaeological documentation.'
+        },
+        {
+          key: 'category',
+          dataField: 'category',
+          label: this.state.language === 'el' ? 'Τυπολογία' : 'Typology',
+          type: 'categorical',
+          group: 'Architecture',
+          maxItems: 12,
+          description: this.state.language === 'el'
+            ? 'Αρχιτεκτονικός και λειτουργικός τύπος του μνημείου ή του χώρου.'
+            : 'Architectural and functional typology of the monument or complex.'
+        },
+        {
+          key: 'country',
+          dataField: 'country',
+          label: this.state.language === 'el' ? 'Σύγχρονη χώρα' : 'Country',
+          type: 'categorical',
+          group: 'Geography',
+          maxItems: 11,
+          description: this.state.language === 'el'
+            ? 'Σύγχρονο κράτος στο οποίο βρίσκεται σήμερα ο αρχαιολογικός χώρος.'
+            : 'Modern nation-state encompassing the ancient archaeological site.'
+        }
+      ]
+    });
+  }
+
+  applyFilters() {
+    this.currentRecords = filterWonders(this.wonders, this.state);
+    this.updateView();
+  }
+
+  updateView() {
+    this.mapController?.update(this.currentRecords, this.state.language);
+    this.updateSearchResults();
+    this.updateSummaryStats();
+    if (this.atlasInterface) {
+      this.atlasInterface.setRecords(this.currentRecords);
+    }
+  }
+
+  updateSearchResults() {
+    const list = this.elements.globalSearchResults;
+    if (!list) return;
+
+    if (!this.currentRecords.length) {
+      list.innerHTML = `<div class="fbc-empty" style="padding: 1rem; text-align: center; color: var(--text-muted);">${t(this.state.language, 'noResults')}</div>`;
+      return;
+    }
+
+    list.innerHTML = this.currentRecords.map((record) => createResultMarkup(record, this.state.language)).join('');
+
+    list.querySelectorAll('.result-item').forEach((item) => {
+      const wonderId = item.dataset.wonderId;
+      const record = this.wonders.find((w) => w.id === wonderId);
+      if (!record) return;
+
+      item.querySelector('[data-result-action="focus"]')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.mapController.focus(record);
+        if (window.innerWidth <= 768) {
+          this.elements.sidebar.classList.remove('mobile-open');
+          document.body.classList.remove('mobile-sidebar-active');
+        }
+      });
+
+      item.querySelector('[data-result-action="details"]')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.showWonderDetails(wonderId);
+      });
+    });
+  }
+
+  updateSummaryStats() {
+    const summary = summarizeSurvival(this.currentRecords);
+    const countries = new Set(this.currentRecords.map((r) => r.country)).size;
+    const sevenCount = this.currentRecords.filter((r) => r.sevenWonder).length;
+
+    if (this.elements.totalWonders) this.elements.totalWonders.textContent = this.wonders.length;
+    if (this.elements.visibleWonders) this.elements.visibleWonders.textContent = this.currentRecords.length;
+    if (this.elements.visibleCountries) this.elements.visibleCountries.textContent = countries;
+    if (this.elements.visibleExtant) this.elements.visibleExtant.textContent = summary.extant;
+    if (this.elements.visibleRuins) this.elements.visibleRuins.textContent = summary.ruins;
+    if (this.elements.visibleAltered) this.elements.visibleAltered.textContent = summary.altered;
+    if (this.elements.visibleLost) this.elements.visibleLost.textContent = summary.lost;
+    if (this.elements.visibleSeven) this.elements.visibleSeven.textContent = sevenCount;
+  }
+
+  showWonderDetails(wonderId) {
+    const record = this.wonders.find((w) => w.id === wonderId);
+    if (!record) return;
+
+    const item = localizeRecord(record, this.state.language);
+    const cat = getWonderMapCategory(record);
+
+    this.elements.wonderTitleblock.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+        <span class="cluster-badge" style="position: static; background: ${cat.color};">${item.statusLabel}</span>
+        ${record.sevenWonder ? '<span class="badge--altered" style="font-size: 11px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">Seven Wonders</span>' : ''}
+      </div>
+      <h2 style="font-family: var(--font-serif); font-size: 1.45rem; font-weight: 600; margin: 0;">${item.name}</h2>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 2px 0 0;">${item.location}</p>
+    `;
+
+    this.elements.wonderDetails.innerHTML = createDetailMarkup(record, this.state.language);
+    this.detailGallery = initializeGallery(this.elements.wonderDetails);
+
+    this.elements.wonderModal.classList.add('active');
+    document.body.classList.add('modal-open');
+  }
+
+  applyLanguage(language, triggerUpdate = true) {
+    this.state.language = language;
+    document.documentElement.lang = language;
+    const isEl = language === 'el';
+
+    // Update Language Toggle text
+    if (this.elements.languageToggle) {
+      this.elements.languageToggle.textContent = isEl ? 'EN' : 'ΕΛ';
+      this.elements.languageToggle.setAttribute('aria-label', isEl ? 'Switch to English' : 'Μετάβαση στα Ελληνικά');
+    }
+
+    // Update document title & metadata
+    document.title = isEl ? 'Θαύματα του Αρχαίου Ελληνικού Κόσμου' : 'Wonders of the Ancient Greek World';
+    const metaDesc = document.getElementById('meta-description');
+    if (metaDesc) {
+      metaDesc.content = isEl
+        ? 'Δίγλωσσος διαδραστικός άτλας WebGIS 77 μνημειακών ιερών, ναών, θεάτρων και τεχνικών έργων του αρχαίου ελληνικού κόσμου.'
+        : 'Interactive WebGIS atlas of 77 monumental sanctuaries, temples, theatres, colossal statues, and engineering marvels across the ancient Mediterranean and Near East.';
+    }
+
+    // Header Title
+    const headerTitle = document.getElementById('header-title-text');
+    if (headerTitle) {
+      headerTitle.innerHTML = isEl
+        ? 'Θαύματα <em>του Αρχαίου Ελληνικού Κόσμου</em>'
+        : 'Wonders <em>of the Ancient Greek World</em>';
+    }
+
+    // Emblem
+    const headerEmblem = document.getElementById('header-emblem');
+    const wmEmblem = document.getElementById('wm-emblem');
+    const emblemSrc = isEl ? './assets/shared/nkua-190-el-horizontal.png' : './assets/shared/nkua-190-en-horizontal.png';
+    if (headerEmblem) headerEmblem.src = emblemSrc;
+    if (wmEmblem) wmEmblem.src = emblemSrc;
+
+    // Welcome modal
+    const wmTitle = document.getElementById('wm-title');
+    const wmDeck = document.getElementById('wm-deck');
+    const wmEyebrow = document.getElementById('wm-eyebrow');
+    const wmCov1 = document.getElementById('wm-cov-label-1');
+    const wmCov2 = document.getElementById('wm-cov-label-2');
+    const wmCov3 = document.getElementById('wm-cov-label-3');
+    const wmTeamEyebrow = document.getElementById('wm-team-eyebrow');
+    const wmSigEyebrow = document.getElementById('wm-sig-eyebrow');
+    const wmVisitsLabel = document.getElementById('wm-visits-label');
+    const footerAuthorship = document.getElementById('footer-authorship-label');
+
+    if (wmTitle) {
+      wmTitle.innerHTML = isEl
+        ? 'Θαύματα<br><em class="wm-title-italic">του Αρχαίου Ελληνικού Κόσμου</em>'
+        : 'Wonders<br><em class="wm-title-italic">of the Ancient Greek World</em>';
+    }
+    if (wmDeck) {
+      wmDeck.textContent = isEl
+        ? 'Εξερευνήστε 77 μνημειακά ιερά, ναούς, θέατρα, κολοσσιαία αγάλματα και επιτεύγματα μηχανικής σε ολόκληρη τη Μεσόγειο και την Εγγύς Ανατολή. Συγκρίνετε αρχιτεκτονικές τυπολογίες, ιστορικές χρονολογίες, σημερινή κατάσταση διατήρησης και τα κανονικά Επτά Θαύματα μέσα από δεδομένα συνδεδεμένα με την κλασική γραμματεία και τη σύγχρονη αρχαιολογική έρευνα.'
+        : 'Explore 77 monumental sanctuaries, temples, theatres, colossal statues, and engineering achievements across the ancient Mediterranean and Near East. Compare architectural typologies, historical chronologies, present survival conditions, and canonical Seven Wonders through records linked to classical literature and modern archaeological research.';
+    }
+    if (wmEyebrow) wmEyebrow.textContent = isEl ? 'Ένα WebGIS · 2026' : 'A WebGIS · 2026';
+    if (wmCov1) wmCov1.textContent = isEl ? 'Μνημεία στον χάρτη' : 'Monuments mapped';
+    if (wmCov2) wmCov2.textContent = isEl ? 'Γεωγραφικό εύρος' : 'Geographic scope';
+    if (wmCov3) wmCov3.textContent = isEl ? 'Χρονολόγηση' : 'Chronology';
+    if (wmTeamEyebrow) wmTeamEyebrow.textContent = isEl ? 'Ερευνητική & επιστημονική επιμέλεια' : 'Research & project lead';
+    if (wmSigEyebrow) wmSigEyebrow.textContent = isEl ? 'Ανάπτυξη ιστοτόπου' : 'Website developed by';
+    if (wmVisitsLabel) wmVisitsLabel.textContent = isEl ? 'Καταγεγραμμένες επισκέψεις' : 'Recorded visits';
+    if (footerAuthorship) footerAuthorship.textContent = isEl ? 'Ερευνητική & επιστημονική επιμέλεια' : 'Research & project lead';
+
+    // Tabs
+    const tabFilters = document.getElementById('tab-label-filters');
+    const tabSearch = document.getElementById('tab-label-search');
+    const tabStats = document.getElementById('tab-label-stats');
+    if (tabFilters) tabFilters.textContent = isEl ? 'Φίλτρα' : 'Filters';
+    if (tabSearch) tabSearch.textContent = isEl ? 'Αναζήτηση' : 'Search';
+    if (tabStats) tabStats.textContent = isEl ? 'Στατιστικά' : 'Statistics';
+
+    // Search panel
+    const searchHint = document.getElementById('search-hint');
+    const searchLabel = document.getElementById('search-label');
+    const searchInput = document.getElementById('global-search-input');
+    if (searchHint) searchHint.textContent = isEl
+      ? 'Αναζητήστε ένα θαύμα με βάση το όνομα, τη χώρα, την αρχαία περιοχή, τον αρχιτεκτονικό τύπο ή την περίοδο.'
+      : 'Find a wonder by name, country, ancient region, architectural type, or period.';
+    if (searchLabel) searchLabel.textContent = isEl ? 'Καθολική αναζήτηση' : 'Global Search';
+    if (searchInput) searchInput.placeholder = isEl ? 'Αναζήτηση Παρθενώνας, Δελφοί, Ολυμπία, Κολοσσός…' : 'Search Parthenon, Delphi, Olympia, Colossus…';
+
+    // Statistics panel
+    const statsHint = document.getElementById('stats-hint');
+    const statsVarLabel = document.getElementById('stats-var-label');
+    const statsSummaryEyebrow = document.getElementById('stats-summary-eyebrow');
+    const statsGlossaryText = document.getElementById('stats-glossary-btn-text');
+    if (statsHint) statsHint.textContent = isEl
+      ? 'Οι επιλογές φίλτρων εφαρμόζονται στα στατιστικά. Καθαρίστε όλα τα φίλτρα για να δείτε το πλήρες σύνολο. Επιλέξτε μια στήλη για να δείτε τα μνημεία της.'
+      : 'Filter changes apply to statistics; clear all filters to view the full dataset. Hover bars for exact counts; click a bar to list its monuments.';
+    if (statsVarLabel) statsVarLabel.textContent = isEl ? 'Μεταβλητή:' : 'Variable:';
+    if (statsSummaryEyebrow) statsSummaryEyebrow.textContent = isEl ? 'Συνοπτικά στατιστικά' : 'Summary statistics';
+    if (statsGlossaryText) statsGlossaryText.textContent = isEl ? 'Τι σημαίνουν αυτά;' : 'What do these mean?';
+
+    // Feature guide modal
+    const fgTitle = document.getElementById('feature-guide-title');
+    const fgDef = document.getElementById('feature-guide-definition');
+    const fgBtn = document.getElementById('feature-guide-btn');
+    if (fgTitle) fgTitle.textContent = isEl ? 'Τι είναι ένα Αρχαίο Ελληνικό Θαύμα;' : 'What is an Ancient Greek Wonder?';
+    if (fgDef) fgDef.textContent = isEl
+      ? 'Τα θαύματα του αρχαίου ελληνικού κόσμου περιλαμβάνουν μνημειακούς ναούς, ιερά, δημόσιους χώρους, τεχνικά έργα και κολοσσιαία γλυπτά που δημιουργήθηκαν στον ελλαδικό χώρο, στα νησιά του Αιγαίου, στη Μεγάλη Ελλάδα και στα ελληνιστικά βασίλεια (περ. 1600 π.Χ. – 300 μ.Χ.). Από τα κανονικά Επτά Θαύματα έως τα μνημειακά αρχαία θέατρα και τα πανελλήνια ιερά, αντανακλούν τα κορυφαία επιτεύγματα της κλασικής αρχιτεκτονικής, της γεωμετρίας και της πολιτειακής ζωής.'
+      : 'The wonders of the ancient Greek world encompass monumental temples, sanctuaries, civic spaces, engineering achievements, and colossal artworks created across the Greek mainland, Aegean islands, Magna Graecia, and the Hellenistic kingdoms (c. 1600 BC – 300 AD). From the canonical Seven Wonders to monumental amphitheatres and panhellenic sanctuaries, they reflect the pinnacles of classical architecture, geometry, religious devotion, and civic life.';
+    if (fgBtn) fgBtn.textContent = isEl ? 'Αρχαία Θαύματα' : 'Ancient Wonders';
+
+    // Footer nav
+    const aboutBtn = document.getElementById('about-btn');
+    const refBtn = document.getElementById('references-btn');
+    const submitBtn = document.getElementById('submit-data-btn');
+    if (aboutBtn) aboutBtn.textContent = isEl ? 'Καλωσόρισμα' : 'Welcome';
+    if (refBtn) refBtn.textContent = isEl ? 'Πηγές' : 'Sources';
+    if (submitBtn) submitBtn.textContent = isEl ? 'Υποβολή δεδομένων' : 'Submit data';
+
+    this.syncUrl();
+    if (triggerUpdate) {
+      this.updateView();
+    }
+  }
+
+  syncUrl() {
+    const next = serializeUrlState(this.state);
+    history.replaceState({}, '', `${location.pathname}${next.size ? `?${next}` : ''}${location.hash}`);
   }
 }
 
-function renderLegend() {
-  const summary = summarizeSurvival(currentRecords);
-  elements.legendTotal.textContent = currentRecords.length;
-  Object.entries(summary).forEach(([group, count]) => {
-    document.querySelector(`[data-legend-count="${group}"]`).textContent = count;
-  });
-}
-
-function render() {
-  currentRecords = filterWonders(WONDERS, state);
-  const markup = currentRecords.map((record) => createResultMarkup(record, state.language)).join('');
-  elements.resultList.innerHTML = markup;
-  elements.searchResultList.innerHTML = markup;
-  elements.resultCount.textContent = formatResultCount(state.language, currentRecords.length);
-  elements.searchResultCount.textContent = currentRecords.length;
-  elements.mapCount.textContent = currentRecords.length;
-  elements.empty.hidden = currentRecords.length !== 0;
-  elements.searchEmpty.hidden = currentRecords.length !== 0;
-  elements.resultList.hidden = currentRecords.length === 0;
-  elements.searchResultList.hidden = currentRecords.length === 0;
-  renderActiveFilters();
-  renderFacetOptions();
-  renderLegend();
-  mapController?.update(currentRecords, state.language);
-}
-
-function renderAndSync() {
-  render();
-  syncUrl();
-}
-
-function updateTranslations() {
-  document.documentElement.lang = state.language;
-  document.title = state.language === 'el' ? 'Θαύματα του Αρχαίου Ελληνικού Κόσμου' : 'Wonders of the Ancient Greek World';
-  elements.metaDescription.content = t(state.language, 'metaDescription');
-  $('#masthead-title').innerHTML = state.language === 'el'
-    ? '<span>Θαύματα</span> <i>του Αρχαίου Ελληνικού Κόσμου</i>'
-    : '<span>Wonders</span> <i>of the Ancient Greek World</i>';
-  document.querySelectorAll('[data-i18n]').forEach((node) => { node.textContent = t(state.language, node.dataset.i18n); });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach((node) => { node.placeholder = t(state.language, node.dataset.i18nPlaceholder); });
-  elements.language.textContent = t(state.language, 'language');
-  elements.language.setAttribute('aria-label', t(state.language, 'languageLabel'));
-  elements.aboutButton.setAttribute('aria-label', t(state.language, 'about'));
-  elements.sheetClose.setAttribute('aria-label', t(state.language, 'closeCatalog'));
-  elements.sidebar.setAttribute('aria-label', t(state.language, 'catalogControls'));
-  $('.tool-tabs').setAttribute('aria-label', t(state.language, 'sections'));
-  $('.facet-tabs').setAttribute('aria-label', t(state.language, 'filterField'));
-  elements.mapStage.setAttribute('aria-label', t(state.language, 'mapLabel'));
-  elements.mapLegend.querySelector('[role="group"]').setAttribute('aria-label', t(state.language, 'legendLabel'));
-  elements.mobileBar.setAttribute('aria-label', t(state.language, 'sections'));
-  elements.catalogRegister.setAttribute('aria-label', t(state.language, 'monuments'));
-  elements.searchRegister.setAttribute('aria-label', t(state.language, 'searchResults'));
-}
-
-function setView(view, { focusSearch = true, sync = true } = {}) {
-  state.activeTab = view;
-  toolTabs.forEach((button) => {
-    const active = button.dataset.tab === view;
-    button.classList.toggle('is-active', active);
-    button.setAttribute('aria-selected', String(active));
-    button.tabIndex = active ? 0 : -1;
-  });
-  document.querySelectorAll('.task-panel').forEach((panel) => {
-    const active = panel.dataset.panel === view;
-    panel.classList.toggle('is-active', active);
-    panel.hidden = !active;
-  });
-  document.querySelectorAll('[data-mobile-tab]').forEach((button) => button.classList.toggle('is-active', button.dataset.mobileTab === view));
-  elements.aboutButton.setAttribute('aria-expanded', String(view === 'about' && (!mobileQuery.matches || elements.sidebar.classList.contains('is-open'))));
-  if (view === 'search' && focusSearch) setTimeout(() => elements.search.focus(), 0);
-  if (sync) syncUrl();
-}
-
-function setFacet(facet, { focus = false } = {}) {
-  activeFacet = facet;
-  facetQuery = '';
-  elements.facetSearch.value = '';
-  facetTabs.forEach((button) => {
-    const active = button.dataset.facet === facet;
-    button.classList.toggle('is-active', active);
-    button.setAttribute('aria-selected', String(active));
-    button.tabIndex = active ? 0 : -1;
-    if (active && focus) button.focus();
-  });
-  renderFacetOptions();
-}
-
-function openDetails(id, focusMap = false) {
-  const record = WONDERS.find((item) => item.id === id);
-  if (!record) return;
-  state.selectedId = record.id;
-  elements.detail.innerHTML = createDetailMarkup(record, state.language);
-  detailGallery = initializeGallery(elements.detail);
-  elements.detailClose.setAttribute('aria-label', t(state.language, 'close'));
-  if (!elements.dialog.open) elements.dialog.showModal();
-  if (focusMap) mapController?.focus(record);
-  syncUrl();
-}
-
-function resetFilters() {
-  Object.assign(state, { query: '', category: '', country: '', status: '', sevenWonder: false });
-  elements.search.value = '';
-  elements.facetSearch.value = '';
-  facetQuery = '';
-  renderAndSync();
-}
-
-function handleResultClick(event) {
-  const item = event.target.closest('[data-wonder-id]');
-  const action = event.target.closest('[data-result-action]');
-  if (!item || !action) return;
-  const record = WONDERS.find((candidate) => candidate.id === item.dataset.wonderId);
-  if (!record) return;
-
-  if (action.dataset.resultAction === 'details') {
-    openDetails(record.id, true);
-  } else {
-    mapController?.focus(record, { openPreview: true });
-    elements.previewRegion.textContent = `${record.name[state.language]}, ${record.location[state.language]}`;
-    if (mobileQuery.matches) toggleSidebar(false);
-  }
-}
-
-function toggleSidebar(force) {
-  if (!mobileQuery.matches) return;
-  const open = typeof force === 'boolean' ? force : !elements.sidebar.classList.contains('is-open');
-  if (open) sidebarOpener = document.activeElement;
-  elements.sidebar.classList.toggle('is-open', open);
-  elements.sidebar.toggleAttribute('inert', !open);
-  elements.sidebar.setAttribute('aria-hidden', String(!open));
-  elements.mapStage.toggleAttribute('inert', open);
-  elements.mapStage.setAttribute('aria-hidden', String(open));
-  elements.mobileBar.toggleAttribute('inert', open);
-  elements.mobileBar.setAttribute('aria-hidden', String(open));
-  elements.aboutButton.setAttribute('aria-expanded', String(open && state.activeTab === 'about'));
-
-  if (open) {
-    requestAnimationFrame(() => elements.sheetClose.focus());
-  } else if (sidebarOpener instanceof HTMLElement) {
-    sidebarOpener.focus();
-  }
-
-  const delay = globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 220;
-  setTimeout(() => mapController?.invalidateSize(), delay);
-}
-
-function moveRovingTab(buttons, currentButton, event, axisKeys) {
-  if (![...axisKeys, 'Home', 'End'].includes(event.key)) return;
-  event.preventDefault();
-  const current = buttons.indexOf(currentButton);
-  const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1
-    : (current + (event.key === axisKeys[1] ? 1 : -1) + buttons.length) % buttons.length;
-  buttons[nextIndex].click();
-  buttons[nextIndex].focus();
-}
-
-toolTabs.forEach((button) => {
-  button.addEventListener('click', (event) => setView(button.dataset.tab, { focusSearch: event.detail > 0 }));
-  button.addEventListener('keydown', (event) => moveRovingTab(toolTabs, button, event, ['ArrowLeft', 'ArrowRight']));
+window.addEventListener('DOMContentLoaded', () => {
+  window.ancientGreekWonders = new AncientGreekWondersApp();
 });
-facetTabs.forEach((button) => {
-  button.addEventListener('click', () => setFacet(button.dataset.facet));
-  button.addEventListener('keydown', (event) => moveRovingTab(facetTabs, button, event, ['ArrowLeft', 'ArrowRight']));
-});
-
-elements.language.addEventListener('click', () => {
-  state.language = state.language === 'en' ? 'el' : 'en';
-  updateTranslations();
-  render();
-  if (state.selectedId && elements.dialog.open) openDetails(state.selectedId);
-  syncUrl();
-});
-elements.aboutButton.addEventListener('click', () => {
-  setView('about', { focusSearch: false });
-  if (mobileQuery.matches) toggleSidebar(true);
-});
-$('#about-back').addEventListener('click', () => setView('browse', { focusSearch: false }));
-elements.search.addEventListener('input', (event) => {
-  state.query = event.target.value;
-  renderAndSync();
-});
-elements.facetSearch.addEventListener('input', (event) => {
-  facetQuery = event.target.value;
-  renderFacetOptions();
-});
-elements.facetOptions.addEventListener('click', (event) => {
-  const option = event.target.closest('[data-filter-key]');
-  if (!option) return;
-  const { filterKey: key, filterValue: value } = option.dataset;
-  if (key === 'sevenWonder') state.sevenWonder = !state.sevenWonder;
-  else state[key] = state[key] === value ? '' : value;
-  renderAndSync();
-});
-elements.activeFilters.addEventListener('click', (event) => {
-  const button = event.target.closest('[data-clear-filter]');
-  if (!button) return;
-  const key = button.dataset.clearFilter;
-  state[key] = key === 'sevenWonder' ? false : '';
-  renderAndSync();
-});
-$('#reset-filters').addEventListener('click', resetFilters);
-$('#empty-reset').addEventListener('click', resetFilters);
-$('#search-empty-reset').addEventListener('click', resetFilters);
-elements.resultList.addEventListener('click', handleResultClick);
-elements.searchResultList.addEventListener('click', handleResultClick);
-elements.detailClose.addEventListener('click', () => elements.dialog.close());
-elements.dialog.addEventListener('click', (event) => { if (event.target === elements.dialog) elements.dialog.close(); });
-elements.dialog.addEventListener('close', () => { state.selectedId = null; syncUrl(); });
-elements.sheetClose.addEventListener('click', () => toggleSidebar(false));
-document.querySelectorAll('[data-mobile-tab]').forEach((button) => button.addEventListener('click', () => {
-  setView(button.dataset.mobileTab, { focusSearch: false });
-  toggleSidebar(true);
-}));
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && elements.sidebar.classList.contains('is-open') && !elements.dialog.open) toggleSidebar(false);
-  if (elements.dialog.open && event.key === 'ArrowLeft') detailGallery?.move(-1);
-  if (elements.dialog.open && event.key === 'ArrowRight') detailGallery?.move(1);
-});
-
-function syncResponsiveState(matches) {
-  if (matches) {
-    elements.mapLegend.removeAttribute('open');
-    toggleSidebar(false);
-  } else {
-    elements.mapLegend.setAttribute('open', '');
-    elements.sidebar.classList.remove('is-open');
-    elements.sidebar.removeAttribute('inert');
-    elements.sidebar.removeAttribute('aria-hidden');
-    elements.mapStage.removeAttribute('inert');
-    elements.mapStage.removeAttribute('aria-hidden');
-    elements.mobileBar.removeAttribute('inert');
-    elements.mobileBar.removeAttribute('aria-hidden');
-    mapController?.invalidateSize();
-  }
-}
-
-mobileQuery.addEventListener('change', ({ matches }) => syncResponsiveState(matches));
-
-updateTranslations();
-elements.search.value = state.query;
-setView(primaryViews.has(state.activeTab) || state.activeTab === 'about' ? state.activeTab : 'browse', { focusSearch: false, sync: false });
-render();
-syncResponsiveState(mobileQuery.matches);
-syncUrl();
-
-try {
-  mapController = createWondersMap($('#map'), currentRecords, { language: state.language, onSelect: (id) => openDetails(id) });
-  mapController.map.on('mousemove', ({ latlng }) => {
-    $('.map-status span:last-child').textContent = `${latlng.lat.toFixed(2)}° N · ${latlng.lng.toFixed(2)}° E`;
-  });
-} catch (error) {
-  console.error(error);
-  elements.fallback.hidden = false;
-  $('#map').classList.add('is-unavailable');
-  setView('search');
-  if (mobileQuery.matches) toggleSidebar(true);
-}
-
-if (state.selectedId) requestAnimationFrame(() => openDetails(state.selectedId, true));

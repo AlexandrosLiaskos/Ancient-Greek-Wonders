@@ -1,0 +1,52 @@
+.last-updated {
+    position: static;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.3em;
+    max-inline-size: 100%;
+    box-sizing: border-box;
+    padding: 3px 8px;
+    border: 1px solid #c5d7da;
+    border-radius: 999px;
+    background: #fff;
+    color: #23575e;
+    box-shadow: 0 1px 4px rgb(23 58 66 / 6%);
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    white-space: nowrap;
+}
+
+.header > .header-content > .header-actions:has(.last-updated) {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+}
+
+.hero-copy > .last-updated {
+    align-self: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+@media (max-width: 840px) {
+    .last-updated {
+        padding: 2px 6px;
+        font-size: 8.5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header:has(.last-updated) .header-institution-link {
+        grid-column: 1;
+        justify-self: start;
+    }
+
+    .header:has(.last-updated) .header-institution-emblem {
+        width: clamp(5rem, 28vw, 9rem);
+    }
+}
