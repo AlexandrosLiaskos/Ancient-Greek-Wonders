@@ -734,11 +734,13 @@ html[lang="el"] .wm-title em {
     pointer-events: auto;
     overflow: hidden;
     opacity: 1 !important;
+    white-space: normal !important;
 }
 
 .leaflet-tooltip.custom-tooltip .leaflet-tooltip-content {
     margin: 0;
     padding: 0;
+    white-space: normal !important;
 }
 
 .leaflet-tooltip-top:before,
@@ -754,6 +756,7 @@ html[lang="el"] .wm-title em {
     overflow: hidden;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     cursor: pointer;
+    white-space: normal !important;
 }
 
 .lagoon-hover-preview {
@@ -813,6 +816,7 @@ html[lang="el"] .wm-title em {
     color: var(--primary-color, #111827);
     word-break: break-word;
     overflow-wrap: break-word;
+    white-space: normal !important;
 }
 
 .lagoon-hover-name-gr {
@@ -825,6 +829,7 @@ html[lang="el"] .wm-title em {
     margin-top: 0.2rem;
     word-break: break-word;
     overflow-wrap: break-word;
+    white-space: normal !important;
 }
 
 .lagoon-hover-locality {
@@ -837,6 +842,7 @@ html[lang="el"] .wm-title em {
     margin: 0 0 0.55rem;
     word-break: break-word;
     overflow-wrap: break-word;
+    white-space: normal !important;
 }
 
 .lagoon-hover-pin {
@@ -893,6 +899,7 @@ html[lang="el"] .wm-title em {
     text-align: right;
     word-break: break-word;
     overflow-wrap: break-word;
+    white-space: normal !important;
     max-width: 72%;
 }
 
