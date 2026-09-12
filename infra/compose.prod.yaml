@@ -9,6 +9,18 @@ services:
     networks:
       - nkua-proxy
 
+  ancient-greek-wonders-counter:
+    image: python:3.12-alpine
+    container_name: ancient-greek-wonders-counter
+    restart: unless-stopped
+    command: ["python", "/app/visit_counter.py", "--host", "0.0.0.0", "--port", "8766", "--count-file", "/app/data/visits.json"]
+    volumes:
+      - /opt/ancient-greek-wonders/infra/visit_counter.py:/app/visit_counter.py:ro
+      - /opt/ancient-greek-wonders/data/visits:/app/data:rw
+    networks:
+      - nkua-proxy
+
 networks:
   nkua-proxy:
     external: true
+

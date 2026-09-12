@@ -43,11 +43,12 @@ release_id=$1
 remote_archive=$2
 release_dir="$app_root/releases/$release_id"
 
-mkdir -p "$release_dir" "$app_root/infra"
+mkdir -p "$release_dir" "$app_root/infra" "$app_root/data/visits"
 tar -xzf "$remote_archive" -C "$release_dir"
 
 install -m 0644 "$release_dir/infra/nginx.conf" "$app_root/infra/nginx.conf"
 install -m 0644 "$release_dir/infra/compose.prod.yaml" "$app_root/infra/compose.prod.yaml"
+install -m 0644 "$release_dir/infra/visit_counter.py" "$app_root/infra/visit_counter.py"
 
 ln -s "$release_dir" "$app_root/current.next"
 mv -Tf "$app_root/current.next" "$app_root/current"

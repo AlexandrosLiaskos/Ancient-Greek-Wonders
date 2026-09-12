@@ -479,6 +479,8 @@ class AncientGreekWondersApp {
     if (wmTeamEyebrow) wmTeamEyebrow.textContent = isEl ? 'Ερευνητική & επιστημονική επιμέλεια' : 'Research & project lead';
     if (wmSigEyebrow) wmSigEyebrow.textContent = isEl ? 'Ανάπτυξη ιστοτόπου' : 'Website developed by';
     if (wmVisitsLabel) wmVisitsLabel.textContent = isEl ? 'Καταγεγραμμένες επισκέψεις' : 'Recorded visits';
+    const wmVisitCount = document.querySelector('[data-visit-count]');
+    if (wmVisitCount) wmVisitCount.setAttribute('data-locale', isEl ? 'el' : 'en');
     if (footerAuthorship) footerAuthorship.textContent = isEl ? 'Ερευνητική & επιστημονική επιμέλεια' : 'Research & project lead';
 
     // Tabs
