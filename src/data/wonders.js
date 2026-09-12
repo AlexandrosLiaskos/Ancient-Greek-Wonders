@@ -76,7 +76,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 36.3514, lng: 25.4037 }, category: 'settlement', status: 'excavated', sevenWonder: false,
     period: { en: 'Late Bronze Age, buried in the 17th c. BC', el: 'Ύστερη Εποχή του Χαλκού, καταχώθηκε τον 17ο αι. π.Χ.' },
     description: { en: 'Volcanic deposits preserved a prosperous Aegean town with multi-storeyed buildings, streets, furnishings, and celebrated wall paintings. No bodies have been found, suggesting evacuation before the eruption.', el: 'Οι ηφαιστειακές αποθέσεις διατήρησαν μια ακμαία αιγαιακή πόλη με πολυώροφα κτίρια, δρόμους, εξοπλισμό και περίφημες τοιχογραφίες. Η απουσία σορών υποδηλώνει εκκένωση πριν από την έκρηξη.' },
-    heroImage: '', gallery: [], sources: [CULTURE_GR]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Akrotiri of Thera', url: 'http://odysseus.culture.gr/h/3/gh351.jsp?obj_id=2410' }]
   },
   {
     id: 'knossos', order: 9,
@@ -103,7 +103,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.9693, lng: 23.7331 }, category: 'temple', status: 'partly-standing', sevenWonder: false,
     period: { en: 'Archaic foundations; completed AD 131/132', el: 'Αρχαϊκή θεμελίωση· ολοκλήρωση 131/132 μ.Χ.' },
     description: { en: 'Begun under the Peisistratids and completed centuries later by Hadrian, the enormous Corinthian dipteral temple originally carried 104 columns. Fifteen remain standing.', el: 'Άρχισε επί Πεισιστρατιδών και ολοκληρώθηκε αιώνες αργότερα από τον Αδριανό. Ο τεράστιος κορινθιακός δίπτερος ναός διέθετε αρχικά 104 κίονες· δεκαπέντε παραμένουν όρθιοι.' },
-    heroImage: '', gallery: [], sources: [CULTURE_GR]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Temple of Olympian Zeus', url: 'http://odysseus.culture.gr/h/2/gh251.jsp?obj_id=741' }]
   },
   {
     id: 'hephaestion', order: 12,
@@ -112,7 +112,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.9756, lng: 23.7214 }, category: 'temple', status: 'standing', sevenWonder: false,
     period: { en: 'Classical, mid-5th c. BC', el: 'Κλασική περίοδος, μέσα 5ου αι. π.Χ.' },
     description: { en: 'This unusually complete Doric peripteral temple overlooks the Agora. Its conversion into a Christian church helped preserve its columns, entablature, pediments, and much of its roof.', el: 'Αυτός ο ασυνήθιστα ακέραιος δωρικός περίπτερος ναός δεσπόζει πάνω από την Αγορά. Η μετατροπή του σε χριστιανική εκκλησία συνέβαλε στη διατήρηση των κιόνων, του θριγκού, των αετωμάτων και μεγάλου μέρους της στέγης.' },
-    heroImage: '', gallery: [], sources: [CULTURE_GR]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Temple of Hephaestus', url: 'http://odysseus.culture.gr/h/2/gh251.jsp?obj_id=1462' }]
   },
   {
     id: 'erechtheion', order: 13,
@@ -139,7 +139,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.6500, lng: 24.0245 }, category: 'temple', status: 'partly-standing', sevenWonder: false,
     period: { en: 'Classical, c. 444–440 BC', el: 'Κλασική περίοδος, περ. 444–440 π.Χ.' },
     description: { en: 'The marble Doric hexastyle temple occupies a commanding headland above the Aegean sea lanes. It replaced an Archaic predecessor destroyed during the Persian invasion.', el: 'Ο μαρμάρινος δωρικός εξάστυλος ναός δεσπόζει σε ακρωτήριο πάνω από τους θαλάσσιους δρόμους του Αιγαίου. Αντικατέστησε αρχαϊκό προκάτοχο που καταστράφηκε κατά την περσική εισβολή.' },
-    heroImage: '', gallery: [], sources: [CULTURE_GR]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Sanctuary of Poseidon at Sounion', url: 'http://odysseus.culture.gr/h/3/gh351.jsp?obj_id=2390' }]
   },
   {
     id: 'temple-zeus-olympia', order: 16,
@@ -175,7 +175,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.7543, lng: 23.5330 }, category: 'temple', status: 'partly-standing', sevenWonder: false,
     period: { en: 'Late Archaic, c. 500–490 BC', el: 'Ύστερη αρχαϊκή περίοδος, περ. 500–490 π.Χ.' },
     description: { en: 'The Doric peripteral temple crowns a wooded hill in Aegina. Its celebrated pedimental sculpture marks the transition from Archaic to Early Classical style.', el: 'Ο δωρικός περίπτερος ναός στεφανώνει έναν δασωμένο λόφο της Αίγινας. Τα περίφημα αετωματικά γλυπτά του σηματοδοτούν τη μετάβαση από την αρχαϊκή στην πρώιμη κλασική τέχνη.' },
-    heroImage: '', gallery: [], sources: [CULTURE_GR]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Sanctuary of Aphaia on Aegina', url: 'http://odysseus.culture.gr/h/3/gh351.jsp?obj_id=2377' }]
   },
   {
     id: 'sanctuary-apollo-delos', order: 20,
@@ -220,7 +220,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.5867, lng: 12.8340 }, category: 'temple', status: 're-erected', sevenWonder: false,
     period: { en: 'Classical, c. 460–450 BC', el: 'Κλασική περίοδος, περ. 460–450 π.Χ.' },
     description: { en: 'Temple E is conventionally attributed to Hera and was re-erected by anastylosis in the 20th century. Its prominent present form must therefore be read as a modern reconstruction from ancient material.', el: 'Ο ναός Ε αποδίδεται συμβατικά στην Ήρα και αναστηλώθηκε με αναστήλωση κατά τον 20ό αιώνα. Η επιβλητική σημερινή μορφή του πρέπει συνεπώς να διαβάζεται ως νεότερη ανασύνθεση αρχαίου υλικού.' },
-    heroImage: '', gallery: [], sources: [{ title: 'Sicilian Archaeological Parks — Selinunte', url: 'https://parchiarcheologici.regione.sicilia.it/' }]
+    heroImage: '', gallery: [], sources: [{ title: 'Parco Archeologico di Selinunte', url: 'https://parchiarcheologici.regione.sicilia.it/selinunte/' }]
   },
   {
     id: 'temple-segesta', order: 25,
@@ -229,7 +229,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.9416, lng: 12.8325 }, category: 'temple', status: 'unfinished', sevenWonder: false,
     period: { en: 'Late Classical, late 5th c. BC', el: 'Ύστερη κλασική περίοδος, τέλη 5ου αι. π.Χ.' },
     description: { en: 'The remarkably preserved Doric peristyle was never completed: column fluting, cella, and roof are absent, and lifting bosses remain on the blocks. Its patronage and intended cult are still debated.', el: 'Η εντυπωσιακά διατηρημένη δωρική περίσταση δεν ολοκληρώθηκε ποτέ: λείπουν οι ραβδώσεις των κιόνων, ο σηκός και η στέγη, ενώ στους λίθους παραμένουν οι εξοχές ανύψωσης. Η ανάθεση και η προβλεπόμενη λατρεία παραμένουν υπό συζήτηση.' },
-    heroImage: '', gallery: [], sources: [{ title: 'Sicilian Archaeological Parks — Segesta', url: 'https://parchiarcheologici.regione.sicilia.it/' }]
+    heroImage: '', gallery: [], sources: [{ title: 'Parco Archeologico di Segesta', url: 'https://parchiarcheologici.regione.sicilia.it/segesta/' }]
   },
   {
     id: 'apollo-didyma', order: 26,
@@ -238,7 +238,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.3847, lng: 27.2566 }, category: 'temple', status: 'ruins', sevenWonder: false,
     period: { en: 'Hellenistic rebuilding, from c. 300 BC', el: 'Ελληνιστική ανοικοδόμηση, από περ. 300 π.Χ.' },
     description: { en: 'The immense Ionic oracle temple was planned with 120 columns, although it was never finished. Monumental stairways and tunnels led to an open-air inner court containing the sacred spring and smaller shrine.', el: 'Ο τεράστιος ιωνικός μαντικός ναός σχεδιάστηκε με 120 κίονες, αλλά δεν ολοκληρώθηκε ποτέ. Μνημειακές κλίμακες και σήραγγες οδηγούσαν σε υπαίθρια εσωτερική αυλή με την ιερή πηγή και μικρότερο ναΐσκο.' },
-    heroImage: '', gallery: [], sources: [{ title: 'Turkish Museums — Didyma', url: 'https://www.turkishmuseums.com/' }]
+    heroImage: '', gallery: [], sources: [{ title: 'UNESCO Tentative List — Archaeological Site of Didyma', url: 'https://whc.unesco.org/en/tentativelists/6611/' }]
   },
   {
     id: 'athena-polias-priene', order: 27,
@@ -337,7 +337,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.9312, lng: 22.9933 }, category: 'engineering', status: 'ruins', sevenWonder: false,
     period: { en: 'Archaic, probably 6th c. BC', el: 'Αρχαϊκή περίοδος, πιθανότατα 6ος αι. π.Χ.' },
     description: { en: 'The paved trackway across the Corinthian Isthmus allowed wheeled carriers to move vessels or cargo between the Saronic and Corinthian gulfs. Surviving sections preserve wheel grooves and engineered surfaces.', el: 'Ο λιθόστρωτος δρόμος πάνω από τον Ισθμό της Κορίνθου επέτρεπε σε τροχοφόρα οχήματα να μεταφέρουν πλοία ή φορτία μεταξύ Σαρωνικού και Κορινθιακού κόλπου. Σωζόμενα τμήματα διατηρούν αυλακώσεις τροχών και διαμορφωμένες επιφάνειες.' },
-    heroImage: '', gallery: [], sources: [CULTURE_GR]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Diolkos', url: 'http://odysseus.culture.gr/h/2/gh251.jsp?obj_id=10339' }]
   },
   {
     id: 'theatre-dionysus-athens', order: 38,
@@ -346,7 +346,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.9704, lng: 23.7277 }, category: 'theatre', status: 'ruins', sevenWonder: false,
     period: { en: 'Classical–Hellenistic, 5th–4th c. BC', el: 'Κλασική–Ελληνιστική περίοδος, 5ος–4ος αι. π.Χ.' },
     description: { en: 'The principal theatre of classical Athens grew from the cult of Dionysus and hosted the dramatic competitions of the City Dionysia. The works of Aeschylus, Sophocles, Euripides, and Aristophanes were performed in this theatrical tradition.', el: 'Το κύριο θέατρο της κλασικής Αθήνας αναπτύχθηκε μέσα από τη λατρεία του Διονύσου και φιλοξενούσε τους δραματικούς αγώνες των Μεγάλων Διονυσίων. Σε αυτή τη θεατρική παράδοση παρουσιάστηκαν έργα του Αισχύλου, του Σοφοκλή, του Ευριπίδη και του Αριστοφάνη.' },
-    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Theatre of Dionysus', url: 'https://odysseus.culture.gr/h/2/eh251.jsp?obj_id=10341' }]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Theatre of Dionysus', url: 'http://odysseus.culture.gr/h/2/eh251.jsp?obj_id=10341' }]
   },
   {
     id: 'eleusis-telesterion', order: 39,
@@ -355,7 +355,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 38.0410, lng: 23.5390 }, category: 'sanctuary', status: 'ruins', sevenWonder: false,
     period: { en: 'Archaic–Roman; Classical Telesterion', el: 'Αρχαϊκή–Ρωμαϊκή περίοδος· κλασικό Τελεστήριο' },
     description: { en: 'Eleusis was the Panhellenic centre of the Mysteries of Demeter and Kore. Its immense Telesterion was repeatedly enlarged to accommodate initiates while preserving the secrecy of rites celebrated for many centuries.', el: 'Η Ελευσίνα υπήρξε το πανελλήνιο κέντρο των Μυστηρίων της Δήμητρας και της Κόρης. Το τεράστιο Τελεστήριο διευρύνθηκε επανειλημμένα για να υποδέχεται τους μύστες, ενώ οι τελετές του παρέμεναν απόρρητες επί πολλούς αιώνες.' },
-    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Eleusis', url: 'https://odysseus.culture.gr/h/3/gh351.jsp?obj_id=2373' }]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Eleusis', url: 'http://odysseus.culture.gr/h/3/gh351.jsp?obj_id=2373' }]
   },
   {
     id: 'dodona-sanctuary-oracle', order: 40,
@@ -364,7 +364,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 39.5463, lng: 20.7878 }, category: 'sanctuary', status: 'ruins', sevenWonder: false,
     period: { en: 'Archaic–Roman, with earlier cult origins', el: 'Αρχαϊκή–Ρωμαϊκή περίοδος, με αρχαιότερες απαρχές λατρείας' },
     description: { en: 'Tradition regarded Dodona as the oldest Greek oracle. Priests interpreted signs associated with Zeus’s sacred oak, while thousands of inscribed lead questions preserve unusually direct evidence of ancient concerns; the sanctuary also contains a vast theatre.', el: 'Η παράδοση θεωρούσε τη Δωδώνη το αρχαιότερο ελληνικό μαντείο. Οι ιερείς ερμήνευαν σημεία που συνδέονταν με την ιερή δρυ του Δία, ενώ χιλιάδες ενεπίγραφες μολύβδινες ερωτήσεις διασώζουν άμεσες μαρτυρίες των αρχαίων προβληματισμών· το ιερό περιλαμβάνει και ένα τεράστιο θέατρο.' },
-    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Dodona', url: 'https://odysseus.culture.gr/h/3/eh351.jsp?obj_id=2365' }]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Dodona', url: 'http://odysseus.culture.gr/h/3/eh351.jsp?obj_id=2365' }]
   },
   {
     id: 'great-gods-samothrace', order: 41,
@@ -391,7 +391,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 36.0915, lng: 28.0881 }, category: 'citadel', status: 'partly-restored', sevenWonder: false,
     period: { en: 'Archaic–Hellenistic', el: 'Αρχαϊκή–Ελληνιστική περίοδος' },
     description: { en: 'Terraces, stairways, stoas, and the small temple of Athena Lindia form a carefully staged sacred ascent above the sea. The sanctuary expressed the identity and maritime reach of one of Rhodes’s oldest cities.', el: 'Αναβαθμίδες, κλίμακες, στοές και ο μικρός ναός της Αθηνάς Λινδίας διαμορφώνουν μια σκηνοθετημένη ιερή άνοδο πάνω από τη θάλασσα. Το ιερό εξέφραζε την ταυτότητα και τη ναυτική ακτινοβολία μιας από τις αρχαιότερες πόλεις της Ρόδου.' },
-    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Acropolis of Lindos', url: 'https://odysseus.culture.gr/h/3/gh355.jsp?obj_id=2383' }]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Acropolis of Lindos', url: 'http://odysseus.culture.gr/h/3/gh355.jsp?obj_id=2383' }]
   },
   {
     id: 'nemea-zeus-stadium', order: 44,
@@ -409,7 +409,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.9059, lng: 22.8784 }, category: 'temple', status: 'partly-standing', sevenWonder: false,
     period: { en: 'Archaic, c. 540 BC', el: 'Αρχαϊκή περίοδος, περ. 540 π.Χ.' },
     description: { en: 'Seven monolithic limestone columns preserve the commanding profile of one of mainland Greece’s earliest large Doric temples. It overlooked the agora of wealthy Corinth beneath Acrocorinth.', el: 'Επτά μονολιθικοί ασβεστολιθικοί κίονες διατηρούν την επιβλητική μορφή ενός από τους πρωιμότερους μεγάλους δωρικούς ναούς της ηπειρωτικής Ελλάδας. Δέσποζε πάνω από την αγορά της εύπορης Κορίνθου, κάτω από τον Ακροκόρινθο.' },
-    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Ancient Corinth', url: 'https://odysseus.culture.gr/h/3/gh355.jsp?obj_id=2388' }]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Ancient Corinth', url: 'http://odysseus.culture.gr/h/3/gh355.jsp?obj_id=2388' }]
   },
   {
     id: 'aigai-palace-royal-tombs', order: 46,
@@ -512,11 +512,11 @@ const RAW_WONDERS = [
   },
   {
     id: 'melqart-heracles-gadir', order: 57,
-    name: { en: 'Sanctuary of Melqart–Heracles at Gadir', el: 'Ιερό του Μελκάρτ–Ηρακλή στο Γάδειρα' },
+    name: { en: 'Sanctuary of Melqart–Heracles at Gadir', el: 'Ιερό του Μελκάρτ–Ηρακλή στα Γάδειρα' },
     location: { en: 'Traditional area near Sancti Petri, Cádiz, Spain', el: 'Παραδοσιακή περιοχή κοντά στο Σάνκτι Πέτρι, Κάδιθ, Ισπανία' }, country: 'Spain',
     coordinates: { lat: 36.3805, lng: -6.2217 }, category: 'crossroads', status: 'lost', sevenWonder: false,
     period: { en: 'Phoenician–Roman, from the early 1st millennium BC', el: 'Φοινικική–Ρωμαϊκή περίοδος, από τις αρχές της 1ης χιλιετίας π.Χ.' },
-    description: { en: 'The famous Phoenician sanctuary of Melqart at Gadir was identified by Greeks with Heracles and by Romans with Hercules Gaditanus. Its ancient renown is well documented, but its precise archaeological location remains unresolved; this marker is explicitly representative.', el: 'Το περίφημο φοινικικό ιερό του Μελκάρτ στο Γάδειρα ταυτίστηκε από τους Έλληνες με τον Ηρακλή και από τους Ρωμαίους με τον Hercules Gaditanus. Η αρχαία φήμη του τεκμηριώνεται καλά, αλλά η ακριβής αρχαιολογική θέση του παραμένει άλυτη· ο δείκτης είναι ρητά ενδεικτικός.' },
+    description: { en: 'The famous Phoenician sanctuary of Melqart at Gadir was identified by Greeks with Heracles and by Romans with Hercules Gaditanus. Its ancient renown is well documented, but its precise archaeological location remains unresolved; this marker is explicitly representative.', el: 'Το περίφημο φοινικικό ιερό του Μελκάρτ στα Γάδειρα ταυτίστηκε από τους Έλληνες με τον Ηρακλή και από τους Ρωμαίους με τον Hercules Gaditanus. Η αρχαία φήμη του τεκμηριώνεται καλά, αλλά η ακριβής αρχαιολογική θέση του παραμένει άλυτη· ο δείκτης είναι ρητά ενδεικτικός.' },
     heroImage: '', gallery: [], sources: [{ title: 'IAPH — Sanctuary of Melqart / Hercules Gaditanus', url: 'https://repositorio.iaph.es/handle/11532/355250' }]
   },
   {
@@ -553,7 +553,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.0283, lng: 21.6955 }, category: 'palace', status: 'excavated', sevenWonder: false,
     period: { en: 'Mycenaean, chiefly 13th c. BC', el: 'Μυκηναϊκή περίοδος, κυρίως 13ος αι. π.Χ.' },
     description: { en: 'One of the best-preserved Mycenaean palaces, Pylos retains a clear megaron plan, throne room, storerooms, archive, painted plaster, and a remarkable terracotta bathtub. Hundreds of Linear B tablets illuminate the administration of a Bronze Age kingdom.', el: 'Ένα από τα καλύτερα διατηρημένα μυκηναϊκά ανάκτορα, η Πύλος διασώζει ευανάγνωστη κάτοψη μεγάρου, αίθουσα θρόνου, αποθήκες, αρχείο, ζωγραφιστά κονιάματα και έναν εντυπωσιακό πήλινο λουτήρα. Εκατοντάδες πινακίδες Γραμμικής Β φωτίζουν τη διοίκηση ενός βασιλείου της Εποχής του Χαλκού.' },
-    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Palace of Nestor', url: 'https://odysseus.culture.gr/h/3/eh355.jsp?obj_id=2562' }]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Palace of Nestor', url: 'http://odysseus.culture.gr/h/3/eh355.jsp?obj_id=2562' }]
   },
   {
     id: 'pella', order: 62,
@@ -562,7 +562,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 40.7578, lng: 22.5196 }, category: 'complex', status: 'excavated', sevenWonder: false,
     period: { en: 'Classical–Hellenistic, chiefly 4th–2nd c. BC', el: 'Κλασική–Ελληνιστική περίοδος, κυρίως 4ος–2ος αι. π.Χ.' },
     description: { en: 'The capital of the Macedonian kingdom combined a vast palace, gridded streets, a monumental agora, sanctuaries, workshops, and luxurious peristyle houses. Its pebble mosaics, including the Stag Hunt and Dionysus scenes, are masterpieces of ancient Greek pictorial art.', el: 'Η πρωτεύουσα του μακεδονικού βασιλείου συνδύαζε τεράστιο ανάκτορο, ορθογώνιο οδικό κάνναβο, μνημειακή αγορά, ιερά, εργαστήρια και πολυτελείς περίστυλες οικίες. Τα βοτσαλωτά ψηφιδωτά της, όπως το Κυνήγι Ελαφιού και ο Διόνυσος, αποτελούν αριστουργήματα της αρχαίας ελληνικής εικαστικής τέχνης.' },
-    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Pella', url: 'https://odysseus.culture.gr/h/3/eh351.jsp?obj_id=2399' }]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Pella', url: 'http://odysseus.culture.gr/h/3/eh351.jsp?obj_id=2399' }]
   },
   {
     id: 'dion-sanctuary', order: 63,
@@ -571,7 +571,7 @@ const RAW_WONDERS = [
     coordinates: { lat: 40.1726, lng: 22.4900 }, category: 'sanctuary', status: 'ruins', sevenWonder: false,
     period: { en: 'Classical–Roman, chiefly 5th c. BC–3rd c. AD', el: 'Κλασική–Ρωμαϊκή περίοδος, κυρίως 5ος αι. π.Χ.–3ος αι. μ.Χ.' },
     description: { en: 'At the foot of Mount Olympus, Dion served as the principal sacred centre of the Macedonians. Sanctuaries of Zeus, Demeter, Isis, and other deities stand beside theatres, baths, streets, and villas in a water-rich landscape shaped by centuries of worship.', el: 'Στους πρόποδες του Ολύμπου, το Δίον υπήρξε το κυριότερο ιερό κέντρο των Μακεδόνων. Ιερά του Δία, της Δήμητρας, της Ίσιδας και άλλων θεοτήτων συνυπάρχουν με θέατρα, λουτρά, δρόμους και επαύλεις σε ένα υδάτινο τοπίο αιώνων λατρείας.' },
-    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Dion', url: 'https://odysseus.culture.gr/h/3/gh351.jsp?obj_id=2508' }]
+    heroImage: '', gallery: [], sources: [{ title: 'Hellenic Ministry of Culture — Dion', url: 'http://odysseus.culture.gr/h/3/gh351.jsp?obj_id=2508' }]
   },
   {
     id: 'philippi', order: 64,
@@ -697,7 +697,10 @@ const RAW_WONDERS = [
     coordinates: { lat: 37.1690, lng: 69.4090 }, category: 'crossroads', status: 'ruins', sevenWonder: false,
     period: { en: 'Hellenistic, chiefly 3rd–2nd c. BC', el: 'Ελληνιστική περίοδος, κυρίως 3ος–2ος αι. π.Χ.' },
     description: { en: 'At the eastern edge of the Hellenistic world, Aï Khanoum combined a Greek theatre, gymnasium, fountain, inscriptions, and philosophical texts with palatial and religious forms rooted in Central Asia and Iran. Modern looting severely damaged the site, but its excavated record remains crucial evidence of a genuinely hybrid city.', el: 'Στο ανατολικό άκρο του ελληνιστικού κόσμου, το Αϊ Χανούμ συνδύαζε ελληνικό θέατρο, γυμνάσιο, κρήνη, επιγραφές και φιλοσοφικά κείμενα με ανακτορικές και θρησκευτικές μορφές ριζωμένες στην Κεντρική Ασία και το Ιράν. Η σύγχρονη λεηλασία προκάλεσε σοβαρές ζημιές, όμως το ανασκαφικό αρχείο παραμένει κρίσιμη μαρτυρία μιας πραγματικά υβριδικής πόλης.' },
-    heroImage: '', gallery: [], sources: [{ title: 'The Metropolitan Museum of Art — Afghanistan: Hidden Treasures', url: 'https://www.metmuseum.org/en/exhibitions/listings/2009/afghanistan' }]
+    heroImage: '', gallery: [], sources: [
+      { title: 'Encyclopaedia Iranica — Āy Ḵānom', url: 'https://www.iranicaonline.org/articles/ay-kanom' },
+      { title: 'The Metropolitan Museum of Art — Afghanistan: Hidden Treasures', url: 'https://www.metmuseum.org/en/exhibitions/listings/2009/afghanistan' }
+    ]
   }
 ];
 

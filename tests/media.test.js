@@ -43,6 +43,8 @@ test('attachMedia preserves order, maps stable ids and rejects unknown ids', () 
 
 test('all curated media records have complete local heroes and at least two gallery images', async () => {
   const recordsWithMedia = WONDERS.filter(({ media }) => media);
+  assert.equal(WONDERS.length, 77);
+  assert.equal(recordsWithMedia.length, 77);
   assert.deepEqual(Object.keys(MEDIA_BY_ID).sort(), recordsWithMedia.map(({ id }) => id).sort());
   for (const record of recordsWithMedia) {
     const hero = record.media?.hero;

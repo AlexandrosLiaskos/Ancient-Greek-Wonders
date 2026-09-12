@@ -3,7 +3,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import sharp from 'sharp';
 
-const USER_AGENT = 'AncientGreekWonders/1.0 (educational static atlas; local media build)';
+const USER_AGENT = 'AncientGreekWondersAtlas/1.0 (https://alexandrosliaskos.github.io/Ancient-Greek-Wonders/; alexliaskosga@gmail.com; educational static atlas; local media build)';
 const MAX_BYTES = 25 * 1024 * 1024;
 const WIDTHS = [960, 1920];
 const REUSABLE_LICENSE = /^(?:CC0|Public domain|CC BY(?:-SA)?(?: [234]\.[05])?)$/i;
@@ -166,7 +166,7 @@ function mediaModule(mediaById) {
 
 function attributions(entries, mediaById) {
   const rows = entries.flatMap(({ id }) => [mediaById[id].hero, ...mediaById[id].gallery].map((asset, index) =>
-    `| ${id} | ${index ? `Gallery ${index}` : 'Hero'} | ${asset.creator.replaceAll('|', '\\|')} | [Source](${asset.sourceUrl}) | [${asset.license}](${asset.licenseUrl}) |`
+    `| ${id} | ${index ? `Gallery ${index}` : 'Hero'} | ${(asset.creator || 'Unknown creator').replaceAll('|', '\\|').replace(/\s+/g, ' ').trim()} | [Source](${asset.sourceUrl}) | [${asset.license}](${asset.licenseUrl}) |`
   ));
   return `# Image Attributions\n\nAll published images are stored locally. The canonical source pages and reuse terms are listed below.\n\n| Monument ID | Image | Creator | Source | License |\n|---|---|---|---|---|\n${rows.join('\n')}\n`;
 }
@@ -194,7 +194,8 @@ export async function buildManifest(root = process.cwd(), fetchImpl = fetch) {
     existingMedia = existingModule.MEDIA_BY_ID ?? {};
   } catch {}
   const mediaById = {};
-  for (const entry of entries) {
+  for (let i = 0; i < entries.length; i += 1) {
+    const entry = entries[i];
     let cached = false;
     const previous = existingMedia[entry.id]?.hero;
     const previousTitle = previous?.sourceUrl ? decodeURIComponent(new URL(previous.sourceUrl).pathname.split('/').at(-1)).replaceAll('_', ' ').replace(/^File:/, '') : '';
@@ -203,6 +204,7 @@ export async function buildManifest(root = process.cwd(), fetchImpl = fetch) {
       await access(join(root, 'assets', 'images', entry.id, 'hero-960.webp'));
       cached = !selectedTitle || previousTitle.toLowerCase() === selectedTitle.toLowerCase();
     } catch {}
+    console.log(`[${i + 1}/${entries.length}] Building ${entry.id} (${cached ? 'cached' : 'downloading'})...`);
     const remoteOverride = cached && previous ? {
       creator: previous.creator, date: previous.date, sourceUrl: previous.sourceUrl,
       sourceWidth: previous.width, sourceHeight: previous.height,

@@ -85,10 +85,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "simonjenkins' photos",
-        "date": "",
+        "date": "2013-04-24 09:06:08",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ephesus_Temple_of_Artemis_2.jpg",
         "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "focalPoint": "50% 50%"
       },
       {
@@ -102,10 +102,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Yair Haklai",
-        "date": "",
+        "date": "2009-08-14 12:44:23",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Column_drum_from_the_temple_of_Artemis_at_Ephesus_(British_Museum).jpg",
         "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -140,7 +140,7 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "artwork",
         "creator": "Unknown creator",
-        "date": "",
+        "date": "2006-07-11 22:44:27",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:J.F.Bertuch-Weltwunder2.JPG",
         "license": "Public domain",
         "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
@@ -157,7 +157,7 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Nevit Dilmen",
-        "date": "",
+        "date": "2004",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_maussolleion-bodrum-nevit.jpg",
         "license": "CC BY-SA 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
@@ -305,10 +305,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Orlovic",
-        "date": "",
+        "date": "2005",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Epidaurus_seats.JPG",
         "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "focalPoint": "50% 50%"
       },
       {
@@ -322,10 +322,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "plusgood",
-        "date": "",
+        "date": "2012-03-04 08:51:04",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nafplio,_Greece_-_Ancient_Epidaurus_Theatre_Site.jpg",
         "license": "CC BY 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -360,10 +360,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Patar knight",
-        "date": "",
+        "date": "2009-03-15",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columns_of_the_Temple_of_Apollo_at_Delphi,_Greece.jpeg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
@@ -377,10 +377,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Ronny Siegel",
-        "date": "",
+        "date": "2013-06-13 11:06:12",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delphi_-_Temple_of_Apollo_2.jpg",
         "license": "CC BY 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -415,10 +415,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Norbert Nagel",
-        "date": "",
+        "date": "2012-07-12",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Archaeological_site_of_Akrotiri_-_Santorini_-_July_12th_2012_-_11.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
@@ -432,10 +432,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Norbert Nagel",
-        "date": "",
+        "date": "2012-07-12",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Archaeological_site_of_Akrotiri_-_Santorini_-_July_12th_2012_-_05.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -470,10 +470,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Marc Ryckaert (MJJR)",
-        "date": "",
+        "date": "2009-06-13",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Knossos_R01.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
@@ -487,10 +487,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Marc Ryckaert (MJJR)",
-        "date": "",
+        "date": "2009-06-13 09:04:09",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Knossos_R03.jpg",
         "license": "CC BY 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -525,10 +525,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Thermos",
-        "date": "",
+        "date": "5 December 2005 (according to Exif data)",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parthenon_from_south.jpg",
         "license": "CC BY-SA 2.5",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
         "focalPoint": "50% 50%"
       },
       {
@@ -542,10 +542,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Eusebius",
-        "date": "",
+        "date": "2008-07-20",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parthenon_-_facade_ouest.jpg",
         "license": "CC BY 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -580,10 +580,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "No machine-readable author provided. Chrisfl assumed (based on copyright claims).",
-        "date": "",
+        "date": "15 January 2006 (according to Exif data)",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Olympian_Zeus_-_Olympieion.jpg",
         "license": "CC BY-SA 2.5",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
         "focalPoint": "50% 50%"
       },
       {
@@ -597,7 +597,7 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "elveoflight",
-        "date": "",
+        "date": "2005-02-20",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Olympian_Zeus_and_the_Acropolis.jpg",
         "license": "CC BY-SA 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
@@ -635,10 +635,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Eusebius",
-        "date": "",
+        "date": "2008-07-20",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:H%C3%A9pha%C3%AFst%C3%A9ion_and_Agii_Apostoli.jpg",
         "license": "CC BY 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
         "focalPoint": "50% 50%"
       },
       {
@@ -652,10 +652,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Jorge Láscar from Australia",
-        "date": "",
+        "date": "2008-12-02 09:12",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lascar_Agora_and_Temple_of_Hephaestus_(4517149683).jpg",
         "license": "CC BY 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -690,10 +690,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Carole Raddato from FRANKFURT, Germany",
-        "date": "",
+        "date": "2014-04-17 12:17",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Erechtheion,_Acropolis_of_Athens_(14073017681).jpg",
         "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "focalPoint": "50% 50%"
       },
       {
@@ -707,10 +707,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Jebulon",
-        "date": "",
+        "date": "2016-07-22",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erechtheion_eastern_facade_Acropolis_Athens_Greece.jpg",
         "license": "CC0",
-        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
         "focalPoint": "50% 50%"
       }
     ]
@@ -745,10 +745,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Tilemahos Efthimiadis from Athens, Greece",
-        "date": "",
+        "date": "2010-09-27 18:23",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Athena_Nike_(5041690983).jpg",
         "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "focalPoint": "50% 50%"
       },
       {
@@ -762,10 +762,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Tilemahos Efthimiadis from Athens, Greece",
-        "date": "",
+        "date": "2010-09-27 18:27",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Athena_Nike_(5041769791).jpg",
         "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -800,10 +800,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Tilemahos Efthimiadis",
-        "date": "",
+        "date": "2009-07-18 17:47:32",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Poseidon,_Cape_Sounion,_Greece.jpg",
         "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "focalPoint": "50% 50%"
       },
       {
@@ -817,10 +817,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Nikthestoned",
-        "date": "",
+        "date": "2012-06-15",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Poseidon_from_the_East,_June_2012.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -855,7 +855,7 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Napoleon Vier at Dutch Wikipedia",
-        "date": "",
+        "date": "29 May 2005 (original upload date)",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olympia_-_ru%C3%AFne_Zeustempel.jpg",
         "license": "CC BY-SA 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
@@ -872,10 +872,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Wknight94 talk",
-        "date": "",
+        "date": "2010-02-01",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Column_in_Temple_of_Zeus_in_Olympia_2.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -910,10 +910,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Matěj Baťha",
-        "date": "",
+        "date": "2007-07-28",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olympia_-_Temple_of_Hera_1.jpg",
         "license": "CC BY-SA 2.5",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
         "focalPoint": "50% 50%"
       },
       {
@@ -927,10 +927,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Matěj Baťha",
-        "date": "",
+        "date": "2007-07-28",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olympia_-_Temple_of_Hera_2.jpg",
         "license": "CC BY-SA 2.5",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
         "focalPoint": "50% 50%"
       }
     ]
@@ -965,10 +965,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Oren Rozen",
-        "date": "",
+        "date": "2011-09-04",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bassae_Temple_of_Apollo_040911.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
@@ -982,10 +982,10 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Carole Raddato from FRANKFURT, Germany",
-        "date": "",
+        "date": "2014-04-22 10:14",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Temple_of_Apollo_Epikourios_at_Bassae,_Proanos,_Arcadia,_Greece_(14096118517).jpg",
         "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1020,27 +1020,27 @@ export const MEDIA_BY_ID = Object.freeze({
         },
         "type": "photo",
         "creator": "Alun Salt",
-        "date": "",
+        "date": "2005-01-01 13:40:47",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aegina,_The_Temple_of_Aphaia.jpg",
         "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/temple-aphaia/gallery-2-500.webp",
-        "srcset": "./assets/images/temple-aphaia/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/temple-aphaia/gallery-2-960.webp",
+        "srcset": "./assets/images/temple-aphaia/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 720,
         "alt": {
           "en": "Additional curated view of Temple of Aphaia",
           "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Αφαίας"
         },
         "type": "photo",
         "creator": "Alun Salt",
-        "date": "",
+        "date": "2005-01-01 13:41:05",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aegina,_The_Temple_of_Aphaia_1.jpg",
         "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1065,37 +1065,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/sanctuary-apollo-delos/gallery-1-500.webp",
-        "srcset": "./assets/images/sanctuary-apollo-delos/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/sanctuary-apollo-delos/gallery-1-1920.webp",
+        "srcset": "./assets/images/sanctuary-apollo-delos/gallery-1-960.webp 960w, ./assets/images/sanctuary-apollo-delos/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
         "alt": {
           "en": "Additional curated view of Sanctuary of Apollo on Delos",
           "el": "Επιλεγμένη επιπλέον άποψη: Ιερό του Απόλλωνα στη Δήλο"
         },
         "type": "photo",
         "creator": "Romain Delanoë",
-        "date": "",
+        "date": "2006-09-01 12:34:54",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ruines_de_D%C3%A9los.jpg",
         "license": "CC BY 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/sanctuary-apollo-delos/gallery-2-500.webp",
-        "srcset": "./assets/images/sanctuary-apollo-delos/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 333,
+        "src": "./assets/images/sanctuary-apollo-delos/gallery-2-1920.webp",
+        "srcset": "./assets/images/sanctuary-apollo-delos/gallery-2-960.webp 960w, ./assets/images/sanctuary-apollo-delos/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1278,
         "alt": {
           "en": "Additional curated view of Sanctuary of Apollo on Delos",
           "el": "Επιλεγμένη επιπλέον άποψη: Ιερό του Απόλλωνα στη Δήλο"
         },
         "type": "photo",
         "creator": "Zde",
-        "date": "",
+        "date": "2010-052-30 13:43:14",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altar_ancient_Delos_102250.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1120,37 +1120,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/valley-temples-concordia/gallery-1-500.webp",
-        "srcset": "./assets/images/valley-temples-concordia/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 331,
+        "src": "./assets/images/valley-temples-concordia/gallery-1-1920.webp",
+        "srcset": "./assets/images/valley-temples-concordia/gallery-1-960.webp 960w, ./assets/images/valley-temples-concordia/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1270,
         "alt": {
           "en": "Additional curated view of Valley of the Temples / Temple of Concordia",
           "el": "Επιλεγμένη επιπλέον άποψη: Κοιλάδα των Ναών / Ναός της Ομόνοιας"
         },
         "type": "photo",
         "creator": "Berthold Werner",
-        "date": "",
+        "date": "2012-10-07 12:51:18",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Agrigent_BW_2012-10-07_12-51-18.JPG",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/valley-temples-concordia/gallery-2-500.webp",
-        "srcset": "./assets/images/valley-temples-concordia/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 333,
+        "src": "./assets/images/valley-temples-concordia/gallery-2-1920.webp",
+        "srcset": "./assets/images/valley-temples-concordia/gallery-2-960.webp 960w, ./assets/images/valley-temples-concordia/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1279,
         "alt": {
           "en": "Additional curated view of Valley of the Temples / Temple of Concordia",
           "el": "Επιλεγμένη επιπλέον άποψη: Κοιλάδα των Ναών / Ναός της Ομόνοιας"
         },
         "type": "photo",
         "creator": "Berthold Werner",
-        "date": "",
+        "date": "2012-10-07 12:51:45",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Agrigent_BW_2012-10-07_12-51-45.JPG",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1175,37 +1175,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/hera-paestum/gallery-1-500.webp",
-        "srcset": "./assets/images/hera-paestum/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 340,
+        "src": "./assets/images/hera-paestum/gallery-1-1920.webp",
+        "srcset": "./assets/images/hera-paestum/gallery-1-960.webp 960w, ./assets/images/hera-paestum/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1307,
         "alt": {
           "en": "Additional curated view of Temple of Hera at Paestum",
           "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Ήρας στην Ποσειδωνία"
         },
         "type": "photo",
         "creator": "Franco Antonio",
-        "date": "",
+        "date": "2004-02-12 17:36:25",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paestum-Capaccio_140.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/hera-paestum/gallery-2-500.webp",
-        "srcset": "./assets/images/hera-paestum/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 836,
+        "src": "./assets/images/hera-paestum/gallery-2-1920.webp",
+        "srcset": "./assets/images/hera-paestum/gallery-2-960.webp 960w, ./assets/images/hera-paestum/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 3210,
         "alt": {
           "en": "Additional curated view of Temple of Hera at Paestum",
           "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Ήρας στην Ποσειδωνία"
         },
         "type": "photo",
-        "creator": "Dave &amp; Margie Hill / Kleerup from Centennial, CO, USA",
-        "date": "",
+        "creator": "Dave & Margie Hill / Kleerup from Centennial, CO, USA",
+        "date": "2011-05-26 12:31",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paestum_ruins_(6120386305).jpg",
         "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1230,37 +1230,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/poseidon-paestum/gallery-1-500.webp",
-        "srcset": "./assets/images/poseidon-paestum/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 666,
+        "src": "./assets/images/poseidon-paestum/gallery-1-960.webp",
+        "srcset": "./assets/images/poseidon-paestum/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 1278,
         "alt": {
           "en": "Additional curated view of “Temple of Poseidon” at Paestum",
           "el": "Επιλεγμένη επιπλέον άποψη: «Ναός του Ποσειδώνα» στην Ποσειδωνία"
         },
         "type": "photo",
         "creator": "Velvet",
-        "date": "",
+        "date": "2011-08-05",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paestum_temple_neptune_detail.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/poseidon-paestum/gallery-2-500.webp",
-        "srcset": "./assets/images/poseidon-paestum/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 154,
+        "src": "./assets/images/poseidon-paestum/gallery-2-1920.webp",
+        "srcset": "./assets/images/poseidon-paestum/gallery-2-960.webp 960w, ./assets/images/poseidon-paestum/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 590,
         "alt": {
           "en": "Additional curated view of “Temple of Poseidon” at Paestum",
           "el": "Επιλεγμένη επιπλέον άποψη: «Ναός του Ποσειδώνα» στην Ποσειδωνία"
         },
         "type": "photo",
         "creator": "Velvet",
-        "date": "",
+        "date": "2011-08-21",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paestum_temple_neptune.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1285,34 +1285,34 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/temple-e-selinunte/gallery-1-500.webp",
-        "srcset": "./assets/images/temple-e-selinunte/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/temple-e-selinunte/gallery-1-960.webp",
+        "srcset": "./assets/images/temple-e-selinunte/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 720,
         "alt": {
           "en": "Additional curated view of Temple E (Hera) at Selinunte",
           "el": "Επιλεγμένη επιπλέον άποψη: Ναός Ε (Ήρας) στον Σελινούντα"
         },
         "type": "photo",
         "creator": "Unknown creator",
-        "date": "",
+        "date": "2006-01-17 00:56:46",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Selinunte,_Tempio_E_(1).jpg",
         "license": "Public domain",
         "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/temple-e-selinunte/gallery-2-500.webp",
-        "srcset": "./assets/images/temple-e-selinunte/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/temple-e-selinunte/gallery-2-960.webp",
+        "srcset": "./assets/images/temple-e-selinunte/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 720,
         "alt": {
           "en": "Additional curated view of Temple E (Hera) at Selinunte",
           "el": "Επιλεγμένη επιπλέον άποψη: Ναός Ε (Ήρας) στον Σελινούντα"
         },
         "type": "photo",
         "creator": "Unknown creator",
-        "date": "",
+        "date": "2006-01-17 01:04:51",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Selinunte,_Tempio_E_(2).jpg",
         "license": "Public domain",
         "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
@@ -1340,34 +1340,34 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/temple-segesta/gallery-1-500.webp",
-        "srcset": "./assets/images/temple-segesta/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 345,
+        "src": "./assets/images/temple-segesta/gallery-1-960.webp",
+        "srcset": "./assets/images/temple-segesta/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 662,
         "alt": {
           "en": "Additional curated view of Doric Temple of Segesta",
           "el": "Επιλεγμένη επιπλέον άποψη: Δωρικός Ναός της Σεγέστας"
         },
         "type": "photo",
         "creator": "Unknown creator",
-        "date": "",
+        "date": "2020-03-23 08:24:11",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Segesta,_Tempio_greco.jpg",
         "license": "Public domain",
         "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/temple-segesta/gallery-2-500.webp",
-        "srcset": "./assets/images/temple-segesta/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/temple-segesta/gallery-2-1920.webp",
+        "srcset": "./assets/images/temple-segesta/gallery-2-960.webp 960w, ./assets/images/temple-segesta/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
         "alt": {
           "en": "Additional curated view of Doric Temple of Segesta",
           "el": "Επιλεγμένη επιπλέον άποψη: Δωρικός Ναός της Σεγέστας"
         },
         "type": "photo",
         "creator": "Evan Erickson",
-        "date": "",
+        "date": "2004-03-07",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Segesta-Temple01.JPG",
         "license": "Public domain",
         "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
@@ -1395,37 +1395,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/apollo-didyma/gallery-1-500.webp",
-        "srcset": "./assets/images/apollo-didyma/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 750,
+        "src": "./assets/images/apollo-didyma/gallery-1-1920.webp",
+        "srcset": "./assets/images/apollo-didyma/gallery-1-960.webp 960w, ./assets/images/apollo-didyma/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 2880,
         "alt": {
           "en": "Additional curated view of Temple of Apollo at Didyma",
           "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Απόλλωνα στα Δίδυμα"
         },
         "type": "photo",
         "creator": "José Luiz",
-        "date": "",
+        "date": "2011-09-22",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Apollo_in_Didyma_(2).JPG",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/apollo-didyma/gallery-2-500.webp",
-        "srcset": "./assets/images/apollo-didyma/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 352,
+        "src": "./assets/images/apollo-didyma/gallery-2-1920.webp",
+        "srcset": "./assets/images/apollo-didyma/gallery-2-960.webp 960w, ./assets/images/apollo-didyma/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1350,
         "alt": {
           "en": "Additional curated view of Temple of Apollo at Didyma",
           "el": "Επιλεγμένη επιπλέον άποψη: Ναός του Απόλλωνα στα Δίδυμα"
         },
         "type": "photo",
         "creator": "Bernard Gagnon",
-        "date": "",
+        "date": "2014-05-31",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Apollo,_Didyma_01.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1450,37 +1450,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/athena-polias-priene/gallery-1-500.webp",
-        "srcset": "./assets/images/athena-polias-priene/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/athena-polias-priene/gallery-1-1920.webp",
+        "srcset": "./assets/images/athena-polias-priene/gallery-1-960.webp 960w, ./assets/images/athena-polias-priene/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
         "alt": {
           "en": "Additional curated view of Temple of Athena Polias at Priene",
           "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Αθηνάς Πολιάδος στην Πριήνη"
         },
         "type": "photo",
         "creator": "Tomisti",
-        "date": "",
+        "date": "2011",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Athena_Temple_Priene_1.jpg",
         "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/athena-polias-priene/gallery-2-500.webp",
-        "srcset": "./assets/images/athena-polias-priene/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/athena-polias-priene/gallery-2-1920.webp",
+        "srcset": "./assets/images/athena-polias-priene/gallery-2-960.webp 960w, ./assets/images/athena-polias-priene/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
         "alt": {
           "en": "Additional curated view of Temple of Athena Polias at Priene",
           "el": "Επιλεγμένη επιπλέον άποψη: Ναός της Αθηνάς Πολιάδος στην Πριήνη"
         },
         "type": "photo",
         "creator": "Tomisti",
-        "date": "",
+        "date": "2011",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Athena_Temple_Priene_3.jpg",
         "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1615,37 +1615,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/mycenae/gallery-1-500.webp",
-        "srcset": "./assets/images/mycenae/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/mycenae/gallery-1-1920.webp",
+        "srcset": "./assets/images/mycenae/gallery-1-960.webp 960w, ./assets/images/mycenae/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
         "alt": {
           "en": "Additional curated view of Mycenae",
           "el": "Επιλεγμένη επιπλέον άποψη: Μυκήνες"
         },
         "type": "photo",
         "creator": "David Monniaux",
-        "date": "",
+        "date": "2004",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mycenae_ruins_dsc06390.jpg",
         "license": "CC BY-SA 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/mycenae/gallery-2-500.webp",
-        "srcset": "./assets/images/mycenae/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 405,
+        "src": "./assets/images/mycenae/gallery-2-1920.webp",
+        "srcset": "./assets/images/mycenae/gallery-2-960.webp 960w, ./assets/images/mycenae/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1555,
         "alt": {
           "en": "Additional curated view of Mycenae",
           "el": "Επιλεγμένη επιπλέον άποψη: Μυκήνες"
         },
         "type": "photo",
         "creator": "Andreas Trepte",
-        "date": "",
+        "date": "07.01.2008",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lions-Gate-Mycenae.jpg",
         "license": "CC BY-SA 2.5",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1670,34 +1670,34 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/olympia-sanctuary-stadium/gallery-1-500.webp",
-        "srcset": "./assets/images/olympia-sanctuary-stadium/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 117,
+        "src": "./assets/images/olympia-sanctuary-stadium/gallery-1-1920.webp",
+        "srcset": "./assets/images/olympia-sanctuary-stadium/gallery-1-960.webp 960w, ./assets/images/olympia-sanctuary-stadium/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 450,
         "alt": {
           "en": "Additional curated view of Sanctuary and Stadium of Olympia",
           "el": "Επιλεγμένη επιπλέον άποψη: Ιερό και Στάδιο της Ολυμπίας"
         },
         "type": "photo",
         "creator": "Kevin Chan",
-        "date": "",
+        "date": "2007-09",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:StadiumOlympia.jpg",
         "license": "CC BY 2.5",
-        "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/olympia-sanctuary-stadium/gallery-2-500.webp",
-        "srcset": "./assets/images/olympia-sanctuary-stadium/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/olympia-sanctuary-stadium/gallery-2-960.webp",
+        "srcset": "./assets/images/olympia-sanctuary-stadium/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 720,
         "alt": {
           "en": "Additional curated view of Sanctuary and Stadium of Olympia",
           "el": "Επιλεγμένη επιπλέον άποψη: Ιερό και Στάδιο της Ολυμπίας"
         },
         "type": "photo",
         "creator": "Dwaipayanc",
-        "date": "",
+        "date": "2006-07-11",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:OlympicRaceTrackOlympia.JPG",
         "license": "Public domain",
         "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
@@ -1725,37 +1725,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/delphi-sanctuary/gallery-1-500.webp",
-        "srcset": "./assets/images/delphi-sanctuary/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/delphi-sanctuary/gallery-1-1920.webp",
+        "srcset": "./assets/images/delphi-sanctuary/gallery-1-960.webp 960w, ./assets/images/delphi-sanctuary/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
         "alt": {
           "en": "Additional curated view of Archaeological Sanctuary of Delphi",
           "el": "Επιλεγμένη επιπλέον άποψη: Αρχαιολογικό Ιερό των Δελφών"
         },
         "type": "photo",
         "creator": "Millevache",
-        "date": "",
+        "date": "2007",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delphi_stairs2.JPG",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/delphi-sanctuary/gallery-2-500.webp",
-        "srcset": "./assets/images/delphi-sanctuary/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 281,
+        "src": "./assets/images/delphi-sanctuary/gallery-2-1920.webp",
+        "srcset": "./assets/images/delphi-sanctuary/gallery-2-960.webp 960w, ./assets/images/delphi-sanctuary/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1081,
         "alt": {
           "en": "Additional curated view of Archaeological Sanctuary of Delphi",
           "el": "Επιλεγμένη επιπλέον άποψη: Αρχαιολογικό Ιερό των Δελφών"
         },
         "type": "photo",
         "creator": "F. Harbin",
-        "date": "",
+        "date": "2012-10-02",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delphi-Archaeological_Site.jpg",
         "license": "CC BY 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1780,37 +1780,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/athenian-agora/gallery-1-500.webp",
-        "srcset": "./assets/images/athenian-agora/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 389,
+        "src": "./assets/images/athenian-agora/gallery-1-960.webp",
+        "srcset": "./assets/images/athenian-agora/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 747,
         "alt": {
           "en": "Additional curated view of Athenian Agora",
           "el": "Επιλεγμένη επιπλέον άποψη: Αρχαία Αγορά Αθηνών"
         },
         "type": "photo",
         "creator": "DerHexer",
-        "date": "",
+        "date": "2008-03-31",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stoa_of_Attalos_at_the_Ancient_Agora_of_Athens.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/athenian-agora/gallery-2-500.webp",
-        "srcset": "./assets/images/athenian-agora/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 667,
+        "src": "./assets/images/athenian-agora/gallery-2-960.webp",
+        "srcset": "./assets/images/athenian-agora/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 1280,
         "alt": {
           "en": "Additional curated view of Athenian Agora",
           "el": "Επιλεγμένη επιπλέον άποψη: Αρχαία Αγορά Αθηνών"
         },
         "type": "photo",
         "creator": "DerHexer",
-        "date": "",
+        "date": "2008-03-31",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stoa_of_Attalos_at_the_Ancient_Agora_of_Athens_2.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1835,37 +1835,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/odeon-herodes-atticus/gallery-1-500.webp",
-        "srcset": "./assets/images/odeon-herodes-atticus/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 232,
+        "src": "./assets/images/odeon-herodes-atticus/gallery-1-1920.webp",
+        "srcset": "./assets/images/odeon-herodes-atticus/gallery-1-960.webp 960w, ./assets/images/odeon-herodes-atticus/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 892,
         "alt": {
           "en": "Additional curated view of Odeon of Herodes Atticus",
           "el": "Επιλεγμένη επιπλέον άποψη: Ωδείο Ηρώδου του Αττικού"
         },
         "type": "photo",
         "creator": "Tomisti",
-        "date": "",
+        "date": "2011",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Odeon_of_Herodes_Atticus_night-time_panorama.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/odeon-herodes-atticus/gallery-2-500.webp",
-        "srcset": "./assets/images/odeon-herodes-atticus/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 333,
+        "src": "./assets/images/odeon-herodes-atticus/gallery-2-1920.webp",
+        "srcset": "./assets/images/odeon-herodes-atticus/gallery-2-960.webp 960w, ./assets/images/odeon-herodes-atticus/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1278,
         "alt": {
           "en": "Additional curated view of Odeon of Herodes Atticus",
           "el": "Επιλεγμένη επιπλέον άποψη: Ωδείο Ηρώδου του Αττικού"
         },
         "type": "photo",
         "creator": "Nikthestoned",
-        "date": "",
+        "date": "2012-06-13",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Odeon_of_Herodes_Atticus_2012.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1890,37 +1890,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/propylaea-athens/gallery-1-500.webp",
-        "srcset": "./assets/images/propylaea-athens/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 333,
+        "src": "./assets/images/propylaea-athens/gallery-1-1920.webp",
+        "srcset": "./assets/images/propylaea-athens/gallery-1-960.webp 960w, ./assets/images/propylaea-athens/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1277,
         "alt": {
           "en": "Additional curated view of Propylaea of the Acropolis",
           "el": "Επιλεγμένη επιπλέον άποψη: Προπύλαια της Ακρόπολης"
         },
         "type": "photo",
         "creator": "Mstyslav Chernov",
-        "date": "",
+        "date": "2011-05-13 20:51:52",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Propylaea,_Athenian_Acropolis_(internal_view),_Athens_cityscape._Athens,_Greece.jpg",
         "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/propylaea-athens/gallery-2-500.webp",
-        "srcset": "./assets/images/propylaea-athens/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/propylaea-athens/gallery-2-1920.webp",
+        "srcset": "./assets/images/propylaea-athens/gallery-2-960.webp 960w, ./assets/images/propylaea-athens/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1439,
         "alt": {
           "en": "Additional curated view of Propylaea of the Acropolis",
           "el": "Επιλεγμένη επιπλέον άποψη: Προπύλαια της Ακρόπολης"
         },
         "type": "photo",
         "creator": "Tilemahos Efthimiadis from Athens, Greece",
-        "date": "",
+        "date": "2010-09-27 18:47",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Propylaea,_Acropolis_of_Athens,_Greece._(5042486692).jpg",
         "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -1945,37 +1945,37 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/tunnel-eupalinos/gallery-1-500.webp",
-        "srcset": "./assets/images/tunnel-eupalinos/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 667,
+        "src": "./assets/images/tunnel-eupalinos/gallery-1-1920.webp",
+        "srcset": "./assets/images/tunnel-eupalinos/gallery-1-960.webp 960w, ./assets/images/tunnel-eupalinos/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 2560,
         "alt": {
           "en": "Additional curated view of Tunnel of Eupalinos",
           "el": "Επιλεγμένη επιπλέον άποψη: Ευπαλίνειο Όρυγμα"
         },
         "type": "photo",
         "creator": "Tomisti",
-        "date": "",
+        "date": "2013",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tunnel_of_Eupalinos_02.jpg",
         "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/tunnel-eupalinos/gallery-2-500.webp",
-        "srcset": "./assets/images/tunnel-eupalinos/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 667,
+        "src": "./assets/images/tunnel-eupalinos/gallery-2-1920.webp",
+        "srcset": "./assets/images/tunnel-eupalinos/gallery-2-960.webp 960w, ./assets/images/tunnel-eupalinos/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 2560,
         "alt": {
           "en": "Additional curated view of Tunnel of Eupalinos",
           "el": "Επιλεγμένη επιπλέον άποψη: Ευπαλίνειο Όρυγμα"
         },
         "type": "photo",
         "creator": "Tomisti",
-        "date": "",
+        "date": "2013",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tunnel_of_Eupalinos_01.jpg",
         "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "focalPoint": "50% 50%"
       }
     ]
@@ -2000,37 +2000,2237 @@ export const MEDIA_BY_ID = Object.freeze({
     },
     "gallery": [
       {
-        "src": "./assets/images/diolkos/gallery-1-500.webp",
-        "srcset": "./assets/images/diolkos/gallery-1-500.webp 500w",
-        "width": 500,
-        "height": 375,
+        "src": "./assets/images/diolkos/gallery-1-960.webp",
+        "srcset": "./assets/images/diolkos/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 720,
         "alt": {
           "en": "Additional curated view of Diolkos",
           "el": "Επιλεγμένη επιπλέον άποψη: Δίολκος"
         },
         "type": "photo",
         "creator": "Heinz Schmitz",
-        "date": "",
+        "date": "2005-05-12",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diolkos2.jpg",
         "license": "CC BY-SA 2.5",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/diolkos/gallery-2-500.webp",
-        "srcset": "./assets/images/diolkos/gallery-2-500.webp 500w",
-        "width": 500,
-        "height": 667,
+        "src": "./assets/images/diolkos/gallery-2-960.webp",
+        "srcset": "./assets/images/diolkos/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 1280,
         "alt": {
           "en": "Additional curated view of Diolkos",
           "el": "Επιλεγμένη επιπλέον άποψη: Δίολκος"
         },
         "type": "photo",
         "creator": "Dan Diffendale",
-        "date": "",
+        "date": "2008-06-18 16:22:41",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diolkos,_Western_End._Pic_01.jpg",
         "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "theatre-dionysus-athens": {
+    "hero": {
+      "src": "./assets/images/theatre-dionysus-athens/hero-1920.webp",
+      "srcset": "./assets/images/theatre-dionysus-athens/hero-960.webp 960w, ./assets/images/theatre-dionysus-athens/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1278,
+      "alt": {
+        "en": "The stone auditorium and orchestra of the Theatre of Dionysus on the southern slope of the Acropolis",
+        "el": "Το λίθινο κοίλο και η ορχήστρα του Θεάτρου του Διονύσου στη νότια κλιτύ της Ακρόπολης"
+      },
+      "type": "photo",
+      "creator": "Jebulon",
+      "date": "2015-10-26 11:32:12",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Theatre_of_Dionysus_Acropolis_Athens_Greece.jpg",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/theatre-dionysus-athens/gallery-1-1920.webp",
+        "srcset": "./assets/images/theatre-dionysus-athens/gallery-1-960.webp 960w, ./assets/images/theatre-dionysus-athens/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 2885,
+        "alt": {
+          "en": "Statue base and architectural remains near the Theatre of Dionysus",
+          "el": "Βάθρο αγάλματος και αρχιτεκτονικά κατάλοιπα κοντά στο Θέατρο του Διονύσου"
+        },
+        "type": "photo",
+        "creator": "Jebulon",
+        "date": "2015-05-17 16:01:31",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Statue_Menander_Dionysus_Theatre_Athens_Greece.jpg",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/theatre-dionysus-athens/gallery-2-1920.webp",
+        "srcset": "./assets/images/theatre-dionysus-athens/gallery-2-960.webp 960w, ./assets/images/theatre-dionysus-athens/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1258,
+        "alt": {
+          "en": "Overview of the Theatre of Dionysus towards Mount Hymettus",
+          "el": "Πανοραμική άποψη του Θεάτρου του Διονύσου προς τον Υμηττό"
+        },
+        "type": "photo",
+        "creator": "Petter Ulleland",
+        "date": "2017-09-22 15:00:51",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Theatre_of_Dionysus_2017.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "eleusis-telesterion": {
+    "hero": {
+      "src": "./assets/images/eleusis-telesterion/hero-1920.webp",
+      "srcset": "./assets/images/eleusis-telesterion/hero-960.webp 960w, ./assets/images/eleusis-telesterion/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1280,
+      "alt": {
+        "en": "The tiered rock-cut seating and column foundations of the Telesterion at Eleusis",
+        "el": "Τα λαξευμένα στον βράχο εδώλια και οι βάσεις κιόνων του Τελεστηρίου στην Ελευσίνα"
+      },
+      "type": "photo",
+      "creator": "TimeTravelRome",
+      "date": "2022-04-13 08:38:04",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Eleusis_-_Telesterion_01.jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/eleusis-telesterion/gallery-1-1920.webp",
+        "srcset": "./assets/images/eleusis-telesterion/gallery-1-960.webp 960w, ./assets/images/eleusis-telesterion/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "Ruins of the sacred initiation hall of the Eleusinian Mysteries",
+          "el": "Ερείπια της αίθουσας μυήσεων των Ελευσίνιων Μυστηρίων"
+        },
+        "type": "photo",
+        "creator": "TimeTravelRome",
+        "date": "2022-04-13 08:48:25",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Eleusis_-_Telesterion_03.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/eleusis-telesterion/gallery-2-1920.webp",
+        "srcset": "./assets/images/eleusis-telesterion/gallery-2-960.webp 960w, ./assets/images/eleusis-telesterion/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "Stone terraces of the Telesterion overlooking the sacred precinct",
+          "el": "Λίθινα άνδηρα του Τελεστηρίου με θέα στον ιερό χώρο της Ελευσίνας"
+        },
+        "type": "photo",
+        "creator": "TimeTravelRome",
+        "date": "2022-04-13 08:54:55",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Eleusis_-_Telesterion_06.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "dodona-sanctuary-oracle": {
+    "hero": {
+      "src": "./assets/images/dodona-sanctuary-oracle/hero-1920.webp",
+      "srcset": "./assets/images/dodona-sanctuary-oracle/hero-960.webp 960w, ./assets/images/dodona-sanctuary-oracle/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1440,
+      "alt": {
+        "en": "The ancient theatre of Dodona framed by the peaks of Mount Tomaros",
+        "el": "Το αρχαίο θέατρο της Δωδώνης με φόντο τις κορυφές του όρους Τόμαρος"
+      },
+      "type": "photo",
+      "creator": "User:.Koen",
+      "date": "2006-05",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dodona_Theatre_5.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/dodona-sanctuary-oracle/gallery-1-1920.webp",
+        "srcset": "./assets/images/dodona-sanctuary-oracle/gallery-1-960.webp 960w, ./assets/images/dodona-sanctuary-oracle/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 803,
+        "alt": {
+          "en": "Tiered seating of the monumental Hellenistic theatre at Dodona",
+          "el": "Τα εδώλια του μνημειακού ελληνιστικού θεάτρου της Δωδώνης"
+        },
+        "type": "photo",
+        "creator": "Pudelek",
+        "date": "2014-08",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dodona_(%CE%94%CF%89%CE%B4%CF%8E%CE%BD%CE%B7)_-_Ancient_Greek_theatre.JPG",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/dodona-sanctuary-oracle/gallery-2-1920.webp",
+        "srcset": "./assets/images/dodona-sanctuary-oracle/gallery-2-960.webp 960w, ./assets/images/dodona-sanctuary-oracle/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Panoramic view across the orchestra and cavea of Dodona",
+          "el": "Πανοραμική άποψη της ορχήστρας και του κοίλου της Δωδώνης"
+        },
+        "type": "photo",
+        "creator": "Cosal",
+        "date": "2015-08-09",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dodona,_Amphitheater_2015.JPG",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "great-gods-samothrace": {
+    "hero": {
+      "src": "./assets/images/great-gods-samothrace/hero-960.webp",
+      "srcset": "./assets/images/great-gods-samothrace/hero-960.webp 960w",
+      "width": 960,
+      "height": 720,
+      "alt": {
+        "en": "Remains of the Hieron and sacred complex in the Sanctuary of the Great Gods, Samothrace",
+        "el": "Κατάλοιπα του Ιερού και του κτιριακού συγκροτήματος των Μεγάλων Θεών στη Σαμοθράκη"
+      },
+      "type": "photo",
+      "creator": "No machine-readable author provided. Marsyas assumed (based on copyright claims).",
+      "date": "21 September 2001 (according to Exif data)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samothraki_Hieron.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/great-gods-samothrace/gallery-1-960.webp",
+        "srcset": "./assets/images/great-gods-samothrace/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 1440,
+        "alt": {
+          "en": "Columns and marble foundations among the lush ravine of Palaiopolis",
+          "el": "Κίονες και μαρμάρινα θεμέλια στη δασωμένη χαράδρα της Παλαιόπολης"
+        },
+        "type": "photo",
+        "creator": "Félix Potuit",
+        "date": "2008-05-06",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samothrace_Sanctuaire1.jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/great-gods-samothrace/gallery-2-1920.webp",
+        "srcset": "./assets/images/great-gods-samothrace/gallery-2-960.webp 960w, ./assets/images/great-gods-samothrace/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1249,
+        "alt": {
+          "en": "View over the mystery sanctuary towards the Thracian Sea",
+          "el": "Άποψη του μυστηριακού ιερού προς το Θρακικό Πέλαγος"
+        },
+        "type": "photo",
+        "creator": "Ggia",
+        "date": "2002-08",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:20020800_Sanctuary_of_the_Great_Gods_Palaiopolis_Samothrace_island_Thrace_Greece.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "heraion-samos": {
+    "hero": {
+      "src": "./assets/images/heraion-samos/hero-1920.webp",
+      "srcset": "./assets/images/heraion-samos/hero-960.webp 960w, ./assets/images/heraion-samos/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 2945,
+      "alt": {
+        "en": "The surviving standing column of the colossal Archaic Temple of Hera at Samos",
+        "el": "Ο σωζόμενος όρθιος κίονας του κολοσσιαίου αρχαϊκού Ναού της Ήρας στη Σάμο"
+      },
+      "type": "photo",
+      "creator": "Kramer96",
+      "date": "2012-09-07",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:HeraionSamos.jpg",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/heraion-samos/gallery-1-1920.webp",
+        "srcset": "./assets/images/heraion-samos/gallery-1-960.webp 960w, ./assets/images/heraion-samos/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1259,
+        "alt": {
+          "en": "Close-up of the monolithic column drums and stylobate of the Heraion",
+          "el": "Κοντινή άποψη των σπονδύλων και του στυλοβάτη του Ηραίου"
+        },
+        "type": "photo",
+        "creator": "Tomisti",
+        "date": "2013",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heraion_of_Samos_2.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/heraion-samos/gallery-2-1920.webp",
+        "srcset": "./assets/images/heraion-samos/gallery-2-960.webp 960w, ./assets/images/heraion-samos/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Wide landscape of the marshy coastal sanctuary of Hera",
+          "el": "Ευρεία άποψη του παραθαλάσσιου ιερού της Ήρας"
+        },
+        "type": "photo",
+        "creator": "Tomisti",
+        "date": "2013",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heraion_of_Samos_6.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "lindos-acropolis-athena": {
+    "hero": {
+      "src": "./assets/images/lindos-acropolis-athena/hero-1920.webp",
+      "srcset": "./assets/images/lindos-acropolis-athena/hero-960.webp 960w, ./assets/images/lindos-acropolis-athena/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1371,
+      "alt": {
+        "en": "Doric columns of the Hellenistic stoa and Temple of Athena Lindia high above the Aegean",
+        "el": "Δωρικοί κίονες της ελληνιστικής στοάς και του ναού της Αθηνάς Λινδίας ψηλά πάνω από το Αιγαίο"
+      },
+      "type": "photo",
+      "creator": "Manfred Werner (Tsui)",
+      "date": "2019-11-24",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindos_Acropolis_%CE%91%CE%BA%CF%81%CF%8C%CF%80%CE%BF%CE%BB%CE%B7_%CF%84%CE%B7%CF%82_%CE%9B%CE%AF%CE%BD%CE%B4%CE%BF%CF%85_Rhodes_%CE%A1%CF%8C%CE%B4%CE%BF%CF%82_2019-11-24_24.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "focalPoint": "50% 40%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/lindos-acropolis-athena/gallery-1-1920.webp",
+        "srcset": "./assets/images/lindos-acropolis-athena/gallery-1-960.webp 960w, ./assets/images/lindos-acropolis-athena/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1326,
+        "alt": {
+          "en": "The dramatic sea cliffs and restored colonnade of the Acropolis of Lindos",
+          "el": "Οι απόκρημνοι βράχοι και η αναστηλωμένη κιονοστοιχία της Ακρόπολης της Λίνδου"
+        },
+        "type": "photo",
+        "creator": "Bernard Gagnon",
+        "date": "2011-10-23",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acropolis_of_Lindos_02.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/lindos-acropolis-athena/gallery-2-1920.webp",
+        "srcset": "./assets/images/lindos-acropolis-athena/gallery-2-960.webp 960w, ./assets/images/lindos-acropolis-athena/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 2606,
+        "alt": {
+          "en": "Fortified approach and gate leading up to the Sanctuary of Athena Lindia",
+          "el": "Οχυρωμένη πρόσβαση και πύλη που οδηγεί στο ιερό της Αθηνάς Λινδίας"
+        },
+        "type": "photo",
+        "creator": "Bernard Gagnon",
+        "date": "2011-10-23",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Medieval_gate_of_the_acropolis_of_Lindos.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "nemea-zeus-stadium": {
+    "hero": {
+      "src": "./assets/images/nemea-zeus-stadium/hero-1920.webp",
+      "srcset": "./assets/images/nemea-zeus-stadium/hero-960.webp 960w, ./assets/images/nemea-zeus-stadium/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1272,
+      "alt": {
+        "en": "Restored columns and entablature of the 4th-century BCE Temple of Zeus at Nemea",
+        "el": "Αναστηλωμένοι κίονες και θριγκός του ναού του Διός του 4ου αιώνα π.Χ. στη Νεμέα"
+      },
+      "type": "photo",
+      "creator": "Carole Raddato from FRANKFURT, Germany",
+      "date": "2014-04-21 13:04",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Zeus,_constructed_during_the_last_third_of_the_4th_century_B.C._(ca_._330),_Nemea_(14065091554).jpg",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/nemea-zeus-stadium/gallery-1-1920.webp",
+        "srcset": "./assets/images/nemea-zeus-stadium/gallery-1-960.webp 960w, ./assets/images/nemea-zeus-stadium/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1277,
+        "alt": {
+          "en": "Foundations of the sacred houses (oikoi) with the Temple of Zeus beyond",
+          "el": "Θεμέλια των οίκων με τον ναό του Διός στο βάθος"
+        },
+        "type": "photo",
+        "creator": "Zde",
+        "date": "2020-09-23 09:49:07",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oikoi_and_the_Temple_of_Nemean_Zeus,_330_BC,_201746.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/nemea-zeus-stadium/gallery-2-1920.webp",
+        "srcset": "./assets/images/nemea-zeus-stadium/gallery-2-960.webp 960w, ./assets/images/nemea-zeus-stadium/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1277,
+        "alt": {
+          "en": "Doric colonnade of the Temple of Zeus illuminated by afternoon light",
+          "el": "Δωρική κιονοστοιχία του ναού του Νεμείου Διός στο απογευματινό φως"
+        },
+        "type": "photo",
+        "creator": "Zde",
+        "date": "2020-09-23 09:54:40",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Nemean_Zeus,_330_BC,_201750.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "apollo-ancient-corinth": {
+    "hero": {
+      "src": "./assets/images/apollo-ancient-corinth/hero-1920.webp",
+      "srcset": "./assets/images/apollo-ancient-corinth/hero-960.webp 960w, ./assets/images/apollo-ancient-corinth/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1337,
+      "alt": {
+        "en": "Monolithic Doric columns of the Archaic Temple of Apollo with the Acrocorinth in the background",
+        "el": "Μονολιθικοί δωρικοί κίονες του αρχαϊκού Ναού του Απόλλωνα με τον Ακροκόρινθο στο βάθος"
+      },
+      "type": "photo",
+      "creator": "Berthold Werner",
+      "date": "2017-10-10",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korinth_BW_2017-10-10_10-50-32.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/apollo-ancient-corinth/gallery-1-1920.webp",
+        "srcset": "./assets/images/apollo-ancient-corinth/gallery-1-960.webp 960w, ./assets/images/apollo-ancient-corinth/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1277,
+        "alt": {
+          "en": "Detailed view of the Archaic fluted limestone columns of Apollo's temple",
+          "el": "Λεπτομέρεια των αρχαϊκών ραβδωτών κιόνων του ναού του Απόλλωνα"
+        },
+        "type": "photo",
+        "creator": "Berthold Werner",
+        "date": "2017-10-10",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korinth_BW_2017-10-10_10-54-58.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/apollo-ancient-corinth/gallery-2-1920.webp",
+        "srcset": "./assets/images/apollo-ancient-corinth/gallery-2-960.webp 960w, ./assets/images/apollo-ancient-corinth/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1416,
+        "alt": {
+          "en": "View through the monolithic colonnade across the Roman forum of Corinth",
+          "el": "Άποψη μέσα από την κιονοστοιχία προς τη ρωμαϊκή αγορά της Κορίνθου"
+        },
+        "type": "photo",
+        "creator": "Berthold Werner",
+        "date": "2017-10-10",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korinth_BW_2017-10-10_10-55-28.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "aigai-palace-royal-tombs": {
+    "hero": {
+      "src": "./assets/images/aigai-palace-royal-tombs/hero-1920.webp",
+      "srcset": "./assets/images/aigai-palace-royal-tombs/hero-960.webp 960w, ./assets/images/aigai-palace-royal-tombs/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1284,
+      "alt": {
+        "en": "The Great Tumulus earthen shelter housing the Royal Tombs of the Macedonian dynasty at Aigai",
+        "el": "Το προστατευτικό κέλυφος της Μεγάλης Τούμπας των βασιλικών τάφων της μακεδονικής δυναστείας στις Αιγές"
+      },
+      "type": "photo",
+      "creator": "Colin W",
+      "date": "Taken on 21 October 2008",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Royal_Tombs,_Vergina_-_panoramio.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/aigai-palace-royal-tombs/gallery-1-1920.webp",
+        "srcset": "./assets/images/aigai-palace-royal-tombs/gallery-1-960.webp 960w, ./assets/images/aigai-palace-royal-tombs/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1284,
+        "alt": {
+          "en": "Entrance walkway leading into the underground museum of the Royal Tombs",
+          "el": "Διάδρομος εισόδου στο υπόγειο μουσείο των Βασιλικών Τάφων της Βεργίνας"
+        },
+        "type": "photo",
+        "creator": "Colin W",
+        "date": "Taken on 21 October 2008",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Entrance_to_the_Royal_Tombs,_Vergina_-_panoramio.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/aigai-palace-royal-tombs/gallery-2-1920.webp",
+        "srcset": "./assets/images/aigai-palace-royal-tombs/gallery-2-960.webp 960w, ./assets/images/aigai-palace-royal-tombs/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 2560,
+        "alt": {
+          "en": "Exquisite metalwork and jewelry from the necropolis of ancient Aigai",
+          "el": "Εξαιρετικά μεταλλικά κοσμήματα και κτερίσματα από τη νεκρόπολη των Αιγών"
+        },
+        "type": "photo",
+        "creator": "Mary Harrsch",
+        "date": "9th century BCE",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grave_Goods_of_a_9th_century_BCE_aristocratic_woman_buried_near_the_royal_tombs_in_the_necropolis_of_Aigai.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "tiryns-citadel": {
+    "hero": {
+      "src": "./assets/images/tiryns-citadel/hero-1920.webp",
+      "srcset": "./assets/images/tiryns-citadel/hero-960.webp 960w, ./assets/images/tiryns-citadel/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 3026,
+      "alt": {
+        "en": "Corbelled stone gallery built of monumental Cyclopean masonry inside the fortress of Tiryns",
+        "el": "Εκφορική λίθινη στοά με μνημειακή κυκλώπεια τοιχοποιία στο εσωτερικό του φρουρίου της Τίρυνθας"
+      },
+      "type": "photo",
+      "creator": "Davide Mauro",
+      "date": "2018-04-22 09:28:49",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gallery_in_Tiryns_01.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/tiryns-citadel/gallery-1-1920.webp",
+        "srcset": "./assets/images/tiryns-citadel/gallery-1-960.webp 960w, ./assets/images/tiryns-citadel/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "Vaulted Cyclopean corridor penetrating the eastern ramparts of Tiryns",
+          "el": "Τοξωτός κυκλώπειος διάδρομος στα ανατολικά τείχη της Τίρυνθας"
+        },
+        "type": "photo",
+        "creator": "Davide Mauro",
+        "date": "2018-04-22 09:29:18",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gallery_in_Tiryns_02.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/tiryns-citadel/gallery-2-1920.webp",
+        "srcset": "./assets/images/tiryns-citadel/gallery-2-960.webp 960w, ./assets/images/tiryns-citadel/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 2886,
+        "alt": {
+          "en": "Interior vista along the vaulted corbelled casemate gallery of Tiryns",
+          "el": "Εσωτερική άποψη της εκφορικής τοξωτής στοάς των τειχών της Τίρυνθας"
+        },
+        "type": "photo",
+        "creator": "Zde",
+        "date": "2020-09-24 10:09:56",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gallery_in_Tiryns,_202010.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "ancient-messene": {
+    "hero": {
+      "src": "./assets/images/ancient-messene/hero-1920.webp",
+      "srcset": "./assets/images/ancient-messene/hero-960.webp 960w, ./assets/images/ancient-messene/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1272,
+      "alt": {
+        "en": "Doric colonnade enclosing the monumental ancient stadium of Messene",
+        "el": "Δωρική κιονοστοιχία που περιβάλλει το μνημειακό αρχαίο στάδιο της Μεσσήνης"
+      },
+      "type": "photo",
+      "creator": "Peulle",
+      "date": "2017-09-23 13:58:01",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columns_in_Ancient_Messene_(5).jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/ancient-messene/gallery-1-1920.webp",
+        "srcset": "./assets/images/ancient-messene/gallery-1-960.webp 960w, ./assets/images/ancient-messene/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1274,
+        "alt": {
+          "en": "Erected columns along the running track and stone seating of Messene",
+          "el": "Αναστηλωμένοι κίονες κατά μήκος του στίβου και των κερκίδων της Μεσσήνης"
+        },
+        "type": "photo",
+        "creator": "Peulle",
+        "date": "2017-09-23 13:58:37",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columns_in_Ancient_Messene_(6).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/ancient-messene/gallery-2-1920.webp",
+        "srcset": "./assets/images/ancient-messene/gallery-2-960.webp 960w, ./assets/images/ancient-messene/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1297,
+        "alt": {
+          "en": "Colonnaded stoa overlooking the expansive archaeological valley of Messene",
+          "el": "Στοά με κιονοστοιχίες με θέα στην ευρεία αρχαιολογική κοιλάδα της Μεσσήνης"
+        },
+        "type": "photo",
+        "creator": "Peulle",
+        "date": "2017-09-23 13:59:40",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columns_in_Ancient_Messene_(7).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "greek-theatre-syracuse": {
+    "hero": {
+      "src": "./assets/images/greek-theatre-syracuse/hero-960.webp",
+      "srcset": "./assets/images/greek-theatre-syracuse/hero-960.webp 960w",
+      "width": 960,
+      "height": 720,
+      "alt": {
+        "en": "The classical Greek theatre of Syracuse carved directly into the rocky hillside of Temenites",
+        "el": "Το κλασικό ελληνικό θέατρο των Συρακουσών λαξευμένο απευθείας στον βράχο του λόφου Τεμενίτη"
+      },
+      "type": "photo",
+      "creator": "No machine-readable author provided. Urban~commonswiki assumed (based on copyright claims).",
+      "date": "18 August 2005 (according to Exif data)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Syracuse_Theatre1.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/greek-theatre-syracuse/gallery-1-1920.webp",
+        "srcset": "./assets/images/greek-theatre-syracuse/gallery-1-960.webp 960w, ./assets/images/greek-theatre-syracuse/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Sweeping semicircular cavea of the Syracuse theatre overlooking the Ionian Sea",
+          "el": "Το ημικυκλικό κοίλο του θεάτρου των Συρακουσών με θέα προς το Ιόνιο Πέλαγος"
+        },
+        "type": "photo",
+        "creator": "Pequod76",
+        "date": "2005-09-18",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Teatro_greco_di_Siracusa.JPG",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/greek-theatre-syracuse/gallery-2-1920.webp",
+        "srcset": "./assets/images/greek-theatre-syracuse/gallery-2-960.webp 960w, ./assets/images/greek-theatre-syracuse/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1224,
+        "alt": {
+          "en": "Rock-cut steps and diazoma of the ancient Greek theatre in Syracuse",
+          "el": "Λαξευμένες βαθμίδες και διάζωμα του αρχαίου θεάτρου στις Συρακούσες"
+        },
+        "type": "photo",
+        "creator": "Jerzy Strzelecki",
+        "date": "2002",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Syracusa01(js).jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "pergamon-acropolis": {
+    "hero": {
+      "src": "./assets/images/pergamon-acropolis/hero-1920.webp",
+      "srcset": "./assets/images/pergamon-acropolis/hero-960.webp 960w, ./assets/images/pergamon-acropolis/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1281,
+      "alt": {
+        "en": "The breathtakingly steep Hellenistic theatre tumbling down the western slope of Pergamon's acropolis",
+        "el": "Το εξαιρετικά απότομο ελληνιστικό θέατρο στη δυτική πλαγιά της ακρόπολης της Περγάμου"
+      },
+      "type": "photo",
+      "creator": "--Rensi 16:51, 21. Jun. 2009 (CEST)",
+      "date": "1992-11",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pergamon,_Theater_am_Hang.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/pergamon-acropolis/gallery-1-1920.webp",
+        "srcset": "./assets/images/pergamon-acropolis/gallery-1-960.webp 960w, ./assets/images/pergamon-acropolis/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1292,
+        "alt": {
+          "en": "View from the upper cavea down to the theatre terrace and the valley of the Caicus",
+          "el": "Άποψη από το άνω διάζωμα προς τη θεατρική ταράτσα και την κοιλάδα του Καΐκου"
+        },
+        "type": "photo",
+        "creator": "Bernard Gagnon",
+        "date": "2014-06-02",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Theatre_of_Pergamon.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/pergamon-acropolis/gallery-2-1920.webp",
+        "srcset": "./assets/images/pergamon-acropolis/gallery-2-960.webp 960w, ./assets/images/pergamon-acropolis/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Stone tiers of the 10,000-seat theatre of Pergamon against the distant Aegean hills",
+          "el": "Λίθινες σειρές του θεάτρου των 10.000 θεατών στην Πέργαμο"
+        },
+        "type": "photo",
+        "creator": "Dosseman",
+        "date": "2004-03-11 13:24:03",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pergamon_Theatre_007.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "artemis-sardis": {
+    "hero": {
+      "src": "./assets/images/artemis-sardis/hero-1920.webp",
+      "srcset": "./assets/images/artemis-sardis/hero-960.webp 960w, ./assets/images/artemis-sardis/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1285,
+      "alt": {
+        "en": "Colossal surviving Ionic columns of the monumental Temple of Artemis at Sardis",
+        "el": "Κολοσσιαίοι σωζόμενοι ιωνικοί κίονες του μνημειακού Ναού της Αρτέμιδος στις Σάρδεις"
+      },
+      "type": "photo",
+      "creator": "simonjenkins' photos",
+      "date": "2013-04-23 14:45:34",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Artemis_Sardis_Turkey.jpg",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/artemis-sardis/gallery-1-1920.webp",
+        "srcset": "./assets/images/artemis-sardis/gallery-1-960.webp 960w, ./assets/images/artemis-sardis/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 2917,
+        "alt": {
+          "en": "Detailed view of the intricately carved Ionic capitals and column drums at Sardis",
+          "el": "Λεπτομέρεια των περίτεχνα σκαλισμένων ιωνικών κιονοκράνων και σπονδύλων στις Σάρδεις"
+        },
+        "type": "photo",
+        "creator": "simonjenkins' photos",
+        "date": "2013-04-23 14:23:11",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Artemis_Sardis_Turkey3.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/artemis-sardis/gallery-2-1920.webp",
+        "srcset": "./assets/images/artemis-sardis/gallery-2-960.webp 960w, ./assets/images/artemis-sardis/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1285,
+        "alt": {
+          "en": "The temple precinct framed by the rugged slopes of Mount Tmolus",
+          "el": "Ο ιερός περίβολος με φόντο τις απόκρημνες πλαγιές του όρους Τμώλος"
+        },
+        "type": "photo",
+        "creator": "simonjenkins' photos",
+        "date": "2013-04-23 14:26:13",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Artemis_Sardis_Turkey4.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "troy": {
+    "hero": {
+      "src": "./assets/images/troy/hero-960.webp",
+      "srcset": "./assets/images/troy/hero-960.webp 960w",
+      "width": 960,
+      "height": 720,
+      "alt": {
+        "en": "Battered limestone fortification wall of the Bronze Age citadel of Troy (Troy VI)",
+        "el": "Κεκλιμένο ασβεστολιθικό οχυρωματικό τείχος της ακρόπολης της Εποχής του Χαλκού στην Τροία (Τροία VI)"
+      },
+      "type": "photo",
+      "creator": "CherryX",
+      "date": "2012-09-27 10:05:35",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Walls_of_Troy_(3).jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/troy/gallery-1-960.webp",
+        "srcset": "./assets/images/troy/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 720,
+        "alt": {
+          "en": "Sloping stone masonry of the monumental defensive bastion at Troy",
+          "el": "Επικλινής λιθοδομή του μνημειακού αμυντικού προμαχώνα της Τροίας"
+        },
+        "type": "photo",
+        "creator": "CherryX",
+        "date": "2012-09-27 10:05:55",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Walls_of_Troy_(2).jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/troy/gallery-2-1920.webp",
+        "srcset": "./assets/images/troy/gallery-2-960.webp 960w, ./assets/images/troy/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "The archaeological tell of Hisarlik overlooking the Scamander plain and the Dardanelles",
+          "el": "Ο αρχαιολογικός γήλοφος του Χισαρλίκ με θέα στην πεδιάδα του Σκαμάνδρου και τα Δαρδανέλλια"
+        },
+        "type": "photo",
+        "creator": "Barrowbob",
+        "date": "2025-10-30",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hisarl%C4%B1k_(Troy).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "nemrut-dag": {
+    "hero": {
+      "src": "./assets/images/nemrut-dag/hero-1920.webp",
+      "srcset": "./assets/images/nemrut-dag/hero-960.webp 960w, ./assets/images/nemrut-dag/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 2767,
+      "alt": {
+        "en": "Colossal carved stone heads of gods and King Antiochus I Theos on the summit of Mount Nemrut",
+        "el": "Κολοσσιαίες λίθινες κεφαλές θεών και του βασιλιά Αντιόχου Α΄ Θεού στην κορυφή του όρους Νεμρούτ"
+      },
+      "type": "photo",
+      "creator": "Bernard Gagnon",
+      "date": "2014-05-23",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nemrut_Da%C4%9F%C4%B1_05.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/nemrut-dag/gallery-1-1920.webp",
+        "srcset": "./assets/images/nemrut-dag/gallery-1-960.webp 960w, ./assets/images/nemrut-dag/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1272,
+        "alt": {
+          "en": "The Eastern Terrace featuring enthroned syncretic Hellenistic-Persian deities and colossal heads",
+          "el": "Η Ανατολική Ταράτσα με τους ένθρονους συγκρητιστικούς ελληνοπερσικούς θεούς"
+        },
+        "type": "photo",
+        "creator": "Carole Raddato from FRANKFURT, Germany",
+        "date": "2017-07-10 18:34",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Eastern_Terrace_with_thrones_and_heads,_Nemrut_Dagi,_Turkey_(38974968610).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/nemrut-dag/gallery-2-1920.webp",
+        "srcset": "./assets/images/nemrut-dag/gallery-2-960.webp 960w, ./assets/images/nemrut-dag/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1271,
+        "alt": {
+          "en": "Detailed view of the colossal head of Apollo-Mithra-Helios-Hermes at Nemrut",
+          "el": "Κοντινή όψη της κολοσσιαίας κεφαλής του Απόλλωνα-Μίθρα-Ηλίου-Ερμή στο Νεμρούτ"
+        },
+        "type": "photo",
+        "creator": "Carole Raddato from FRANKFURT, Germany",
+        "date": "2017-07-10 18:43",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Eastern_Terrace_with_thrones_and_heads,_Nemrut_Dagi,_Turkey_(38974543510).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "aphrodisias": {
+    "hero": {
+      "src": "./assets/images/aphrodisias/hero-1920.webp",
+      "srcset": "./assets/images/aphrodisias/hero-960.webp 960w, ./assets/images/aphrodisias/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1280,
+      "alt": {
+        "en": "The monumental restored marble Tetrapylon gateway at Aphrodisias",
+        "el": "Ο μνημειακός αναστηλωμένος μαρμάρινος Τετράπυλος της Αφροδισιάδας"
+      },
+      "type": "photo",
+      "creator": "Bernard Gagnon",
+      "date": "2014-05-30",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphrodisias_-_Tetrapylon_01.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/aphrodisias/gallery-1-1920.webp",
+        "srcset": "./assets/images/aphrodisias/gallery-1-960.webp 960w, ./assets/images/aphrodisias/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1310,
+        "alt": {
+          "en": "Corinthian columns and sculpted relief pediment of the Tetrapylon gate",
+          "el": "Κορινθιακοί κίονες και ανάγλυφο αέτωμα της πύλης του Τετραπύλου"
+        },
+        "type": "photo",
+        "creator": "Bernard Gagnon",
+        "date": "2014-05-30",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphrodisias_-_Tetrapylon_02.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/aphrodisias/gallery-2-1920.webp",
+        "srcset": "./assets/images/aphrodisias/gallery-2-960.webp 960w, ./assets/images/aphrodisias/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "Fluted and spiral columns of the gateway leading to the Sanctuary of Aphrodite",
+          "el": "Ραβδωτοί και ελικοειδείς κίονες της πύλης προς το ιερό της Αφροδίτης"
+        },
+        "type": "photo",
+        "creator": "Bernard Gagnon",
+        "date": "2014-05-30",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphrodisias_-_Tetrapylon_03.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "palaepaphos-aphrodite": {
+    "hero": {
+      "src": "./assets/images/palaepaphos-aphrodite/hero-1920.webp",
+      "srcset": "./assets/images/palaepaphos-aphrodite/hero-960.webp 960w, ./assets/images/palaepaphos-aphrodite/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1250,
+      "alt": {
+        "en": "Megalithic stone foundations and Roman halls of the Sanctuary of Aphrodite at Palaepaphos (Kouklia)",
+        "el": "Μεγαλιθικά πέτρινα θεμέλια και ρωμαϊκές αίθουσες του Ιερού της Αφροδίτης στην Παλαίπαφο (Κούκλια)"
+      },
+      "type": "photo",
+      "creator": "Nikodem Nijaki",
+      "date": "2014-02-22 09:03:03",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanctuary_Aphrodite_Kouklia_Cyprus_01.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/palaepaphos-aphrodite/gallery-1-1920.webp",
+        "srcset": "./assets/images/palaepaphos-aphrodite/gallery-1-960.webp 960w, ./assets/images/palaepaphos-aphrodite/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1087,
+        "alt": {
+          "en": "Massive ashlar blocks of the sacred temenos wall at Palaepaphos",
+          "el": "Ογκώδεις ισόδομοι δόμοι του ιερού περιβόλου στην Παλαίπαφο"
+        },
+        "type": "photo",
+        "creator": "Nikodem Nijaki",
+        "date": "2014-02-22 09:05:44",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanctuary_Aphrodite_Kouklia_Cyprus_04.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/palaepaphos-aphrodite/gallery-2-1920.webp",
+        "srcset": "./assets/images/palaepaphos-aphrodite/gallery-2-960.webp 960w, ./assets/images/palaepaphos-aphrodite/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1079,
+        "alt": {
+          "en": "Mosaic floors and structural remnants in the open court of Aphrodite's sanctuary",
+          "el": "Ψηφιδωτά δάπεδα και δομικά κατάλοιπα στην υπαίθρια αυλή του ιερού της Αφροδίτης"
+        },
+        "type": "photo",
+        "creator": "Nikodem Nijaki",
+        "date": "2014-02-22 09:06:34",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanctuary_Aphrodite_Kouklia_Cyprus_05.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "tauric-chersonese": {
+    "hero": {
+      "src": "./assets/images/tauric-chersonese/hero-1920.webp",
+      "srcset": "./assets/images/tauric-chersonese/hero-960.webp 960w, ./assets/images/tauric-chersonese/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1280,
+      "alt": {
+        "en": "The marble columns of the 1935 Basilica standing before the Black Sea at Tauric Chersonese",
+        "el": "Οι μαρμάρινοι κίονες της Βασιλικής του 1935 μπροστά στη Μαύρη Θάλασσα στην Ταυρική Χερσόνησο"
+      },
+      "type": "photo",
+      "creator": "Dmitry A. Mottl",
+      "date": "2009-01",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chersonesos_columns.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/tauric-chersonese/gallery-1-1920.webp",
+        "srcset": "./assets/images/tauric-chersonese/gallery-1-960.webp 960w, ./assets/images/tauric-chersonese/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "The ancient Greek theatre of Chersonesus, the only classical theatre on the northern Black Sea coast",
+          "el": "Το αρχαίο ελληνικό θέατρο της Χερσονήσου, το μοναδικό κλασικό θέατρο στις βόρειες ακτές του Ευξείνου Πόντου"
+        },
+        "type": "photo",
+        "creator": "Alexxx1979",
+        "date": "2012-05-07 11:58:46",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sevastopol_Chersonesus_Theatre_IMG_0622_1725.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/tauric-chersonese/gallery-2-1920.webp",
+        "srcset": "./assets/images/tauric-chersonese/gallery-2-960.webp 960w, ./assets/images/tauric-chersonese/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1088,
+        "alt": {
+          "en": "Excavated stone quarters and defensive perimeter of the ancient Dorian colony",
+          "el": "Ανασκαμμένες συνοικίες και αμυντική περίμετρος της αρχαίας δωρικής αποικίας"
+        },
+        "type": "photo",
+        "creator": "Dmitry A. Mottl",
+        "date": "2009-01",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chersonesos_ruins.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "melqart-heracles-gadir": {
+    "hero": {
+      "src": "./assets/images/melqart-heracles-gadir/hero-960.webp",
+      "srcset": "./assets/images/melqart-heracles-gadir/hero-960.webp 960w",
+      "width": 960,
+      "height": 720,
+      "alt": {
+        "en": "The islet castle of Sancti Petri at San Fernando (Cádiz), traditional site of the Temple of Melqart-Heracles",
+        "el": "Το νησιωτικό κάστρο Sancti Petri στο Σαν Φερνάντο (Κάδιθ), παραδοσιακή θέση του Ναού του Μέλκαρτ-Ηρακλή"
+      },
+      "type": "photo",
+      "creator": "“Pablo Jones. Peejayem”",
+      "date": "2007-07-29",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castillo_de_Sancti_Petri.JPG",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/melqart-heracles-gadir/gallery-1-1920.webp",
+        "srcset": "./assets/images/melqart-heracles-gadir/gallery-1-960.webp 960w, ./assets/images/melqart-heracles-gadir/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1110,
+        "alt": {
+          "en": "Panoramic view of the Sancti Petri reef guard tower guarding the Atlantic entrance",
+          "el": "Πανοραμική άποψη του οχυρού του Sancti Petri στην είσοδο του Ατλαντικού"
+        },
+        "type": "photo",
+        "creator": "Liki Fumei from Gijón-Asturias, España",
+        "date": "2010-06-14 20:34:56",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fortaleza_-_Fortress.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/melqart-heracles-gadir/gallery-2-960.webp",
+        "srcset": "./assets/images/melqart-heracles-gadir/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 640,
+        "alt": {
+          "en": "Coastline and tidal marshes facing the legendary temple island of Gadir",
+          "el": "Ακτογραμμή και παλιρροϊκά έλη απέναντι από το θρυλικό νησί του ναού στα Γάδειρα"
+        },
+        "type": "photo",
+        "creator": "Carlos Alejo",
+        "date": "Taken on 25 August 2008",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castillo_de_Sancti_Petri_-_panoramio.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "pillars-heracles": {
+    "hero": {
+      "src": "./assets/images/pillars-heracles/hero-960.webp",
+      "srcset": "./assets/images/pillars-heracles/hero-960.webp 960w",
+      "width": 960,
+      "height": 720,
+      "alt": {
+        "en": "Mount Jebel Musa on the Moroccan coast, the southern Pillar of Heracles",
+        "el": "Το όρος Τζεμπέλ Μούσα στις μαροκινές ακτές, η νότια Ηράκλεια Στήλη"
+      },
+      "type": "photo",
+      "creator": "Unknown creator",
+      "date": "2005-09-29 05:06:11",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jebel_musa.jpg",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/pillars-heracles/gallery-1-1920.webp",
+        "srcset": "./assets/images/pillars-heracles/gallery-1-960.webp 960w, ./assets/images/pillars-heracles/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 862,
+        "alt": {
+          "en": "View across the Strait of Gibraltar uniting the Mediterranean and the Atlantic",
+          "el": "Άποψη του Στενού του Γιβραλτάρ που ενώνει τη Μεσόγειο με τον Ατλαντικό"
+        },
+        "type": "photo",
+        "creator": "Bachmont",
+        "date": "2007-04-04",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gibraltar_Maroc.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/pillars-heracles/gallery-2-1920.webp",
+        "srcset": "./assets/images/pillars-heracles/gallery-2-960.webp 960w, ./assets/images/pillars-heracles/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 612,
+        "alt": {
+          "en": "The Rock of Gibraltar rising abruptly from the sea as the northern Pillar of Heracles",
+          "el": "Ο Βράχος του Γιβραλτάρ που ορθώνεται απότομα ως η βόρεια Ηράκλεια Στήλη"
+        },
+        "type": "photo",
+        "creator": "John Cummings",
+        "date": "2012-07-09",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gibraltar_banner.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "mount-olympus": {
+    "hero": {
+      "src": "./assets/images/mount-olympus/hero-1920.webp",
+      "srcset": "./assets/images/mount-olympus/hero-960.webp 960w, ./assets/images/mount-olympus/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1307,
+      "alt": {
+        "en": "The summit of Mytikas, highest peak of Mount Olympus and mythic throne of the gods",
+        "el": "Η κορυφή του Μύτικα, το υψηλότερο σημείο του Ολύμπου και μυθικός θρόνος των θεών"
+      },
+      "type": "photo",
+      "creator": "Stolbovsky",
+      "date": "2019-09-03 09:53:17",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mytikas_peak_02.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 40%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/mount-olympus/gallery-1-1920.webp",
+        "srcset": "./assets/images/mount-olympus/gallery-1-960.webp 960w, ./assets/images/mount-olympus/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 526,
+        "alt": {
+          "en": "Alpine limestone ridges and crags of the Olympus massif",
+          "el": "Αλπικές ασβεστολιθικές κορυφογραμμές και ορθοπλαγιές του Ολύμπου"
+        },
+        "type": "photo",
+        "creator": "kallerna",
+        "date": "2023-10-21 08:09:19",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olympus_National_Park_8.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/mount-olympus/gallery-2-1920.webp",
+        "srcset": "./assets/images/mount-olympus/gallery-2-960.webp 960w, ./assets/images/mount-olympus/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1279,
+        "alt": {
+          "en": "Aerial vista of the Plateau of the Muses beneath the precipitous peak of Mytikas",
+          "el": "Εναέρια άποψη του Οροπεδίου των Μουσών κάτω από την απόκρημνη κορυφή του Μύτικα"
+        },
+        "type": "photo",
+        "creator": "Isymeoni",
+        "date": "2020-08-29 11:25:25",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Greece_Mount-Olympus_Muses-Plateau_Mytikas-2918m_Christos-Kakkalos-Refuge_Aerial-ISymeonidis.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "phaistos-palace": {
+    "hero": {
+      "src": "./assets/images/phaistos-palace/hero-1920.webp",
+      "srcset": "./assets/images/phaistos-palace/hero-960.webp 960w, ./assets/images/phaistos-palace/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1440,
+      "alt": {
+        "en": "The monumental grand staircase and central court of the Minoan palace of Phaistos",
+        "el": "Η μνημειακή μεγάλη κλίμακα και η κεντρική αυλή του μινωικού ανακτόρου της Φαιστού"
+      },
+      "type": "photo",
+      "creator": "Z thomas",
+      "date": "2016-05-11 13:20:11",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Festos_kreta_2016-05-11_(1).jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/phaistos-palace/gallery-1-1920.webp",
+        "srcset": "./assets/images/phaistos-palace/gallery-1-960.webp 960w, ./assets/images/phaistos-palace/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "The theatrical area and broad paved west court overlooking the Messara Plain",
+          "el": "Ο θεατρικός χώρος και η πλακόστρωτη δυτική αυλή με θέα στην πεδιάδα της Μεσαράς"
+        },
+        "type": "photo",
+        "creator": "Z thomas",
+        "date": "2016-05-11 13:26:34",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Festos_kreta_2016-05-11_(2).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/phaistos-palace/gallery-2-1920.webp",
+        "srcset": "./assets/images/phaistos-palace/gallery-2-960.webp 960w, ./assets/images/phaistos-palace/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1278,
+        "alt": {
+          "en": "Stone foundations and storage magazines in the southern wing of Phaistos",
+          "el": "Λίθινα θεμέλια και αποθηκευτικοί χώροι στη νότια πτέρυγα της Φαιστού"
+        },
+        "type": "photo",
+        "creator": "Jebulon",
+        "date": "2015-02-25",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Excavations_Phaestos_Crete.jpg",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "palace-nestor-pylos": {
+    "hero": {
+      "src": "./assets/images/palace-nestor-pylos/hero-1920.webp",
+      "srcset": "./assets/images/palace-nestor-pylos/hero-960.webp 960w, ./assets/images/palace-nestor-pylos/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 2754,
+      "alt": {
+        "en": "Excavated stone structures and courtyard of the Mycenaean Palace of Nestor at Pylos",
+        "el": "Ανασκαμμένες λίθινες δομές και αυλή του μυκηναϊκού Ανακτόρου του Νέστορος στην Πύλο"
+      },
+      "type": "photo",
+      "creator": "Peulle",
+      "date": "2017-09-24 09:37:22",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palace_of_Nestor_fountain.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/palace-nestor-pylos/gallery-1-1920.webp",
+        "srcset": "./assets/images/palace-nestor-pylos/gallery-1-960.webp 960w, ./assets/images/palace-nestor-pylos/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1272,
+        "alt": {
+          "en": "The plaster hearth and throne foundation in the royal Megaron of Nestor",
+          "el": "Η κυκλική εστία και η βάση του θρόνου στο βασιλικό Μέγαρο του Νέστορος"
+        },
+        "type": "photo",
+        "creator": "Peulle",
+        "date": "2017-09-24 10:14:24",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palace_of_Nestor_throne_base_(1).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/palace-nestor-pylos/gallery-2-1920.webp",
+        "srcset": "./assets/images/palace-nestor-pylos/gallery-2-960.webp 960w, ./assets/images/palace-nestor-pylos/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1272,
+        "alt": {
+          "en": "Storage pithoi set in clay benches in the palace olive oil storerooms",
+          "el": "Πίθοι αποθήκευσης λαδιού ενσωματωμένοι σε πήλινα θρανία στο ανάκτορο της Πύλου"
+        },
+        "type": "photo",
+        "creator": "Peulle",
+        "date": "2017-09-24 10:20:50",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palace_of_Nestor_oil_jars_(1).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "pella": {
+    "hero": {
+      "src": "./assets/images/pella/hero-1920.webp",
+      "srcset": "./assets/images/pella/hero-960.webp 960w, ./assets/images/pella/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1402,
+      "alt": {
+        "en": "The Lion Hunt pebble mosaic floor from the House of Dionysus at Pella",
+        "el": "Το ψηφιδωτό δάπεδο με βότσαλα που αναπαριστά το Κυνήγι του Λέοντος από την Οικία του Διονύσου στην Πέλλα"
+      },
+      "type": "photo",
+      "creator": "Egisto Sani from Italy",
+      "date": "2015-08-13 13:36",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pella_Mosaics_IV_%E2%80%93_The_Lion_Hunt_(49988157988).jpg",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/pella/gallery-1-1920.webp",
+        "srcset": "./assets/images/pella/gallery-1-960.webp 960w, ./assets/images/pella/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 971,
+        "alt": {
+          "en": "Detail of the figures and natural pebble shading in the Pella hunting mosaic",
+          "el": "Λεπτομέρεια των μορφών και της σκίασης με φυσικά βότσαλα στο ψηφιδωτό της Πέλλας"
+        },
+        "type": "photo",
+        "creator": "Egisto Sani from Italy",
+        "date": "2017-08-30 15:15",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pella_Mosaics_II_%E2%80%93_The_Lion_Hunt_(49988158703).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/pella/gallery-2-1920.webp",
+        "srcset": "./assets/images/pella/gallery-2-960.webp 960w, ./assets/images/pella/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1570,
+        "alt": {
+          "en": "The companion and hero raising swords against the lion in the Pella pebble masterpiece",
+          "el": "Ο σύντροφος και ο ήρωας με υψωμένα ξίφη κατά του λέοντος στο ψηφιδωτό αριστούργημα της Πέλλας"
+        },
+        "type": "photo",
+        "creator": "Egisto Sani from Italy",
+        "date": "2017-08-30 16:10",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pella_Mosaics_I_%E2%80%93_The_Lion_Hunt_(49988918902).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "dion-sanctuary": {
+    "hero": {
+      "src": "./assets/images/dion-sanctuary/hero-1920.webp",
+      "srcset": "./assets/images/dion-sanctuary/hero-960.webp 960w, ./assets/images/dion-sanctuary/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1440,
+      "alt": {
+        "en": "The waterlogged foundations and altars of the Sanctuary of Isis at ancient Dion",
+        "el": "Τα πλημμυρισμένα θεμέλια και οι βωμοί του Ιερού της Ίσιδος στο αρχαίο Δίον"
+      },
+      "type": "photo",
+      "creator": "Carole Raddato from FRANKFURT, Germany",
+      "date": "2012-04-03 09:52",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanctuary_of_Isis,_Ancient_Dion_(6934095414).jpg",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/dion-sanctuary/gallery-1-1920.webp",
+        "srcset": "./assets/images/dion-sanctuary/gallery-1-960.webp 960w, ./assets/images/dion-sanctuary/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1439,
+        "alt": {
+          "en": "Statue bases and sacred pool in the lush water sanctuary of Dion beneath Mount Olympus",
+          "el": "Βάθρα αγαλμάτων και ιερή δεξαμενή στο υδάτινο ιερό του Δίου στους πρόποδες του Ολύμπου"
+        },
+        "type": "photo",
+        "creator": "Carole Raddato from FRANKFURT, Germany",
+        "date": "2012-04-03 09:51",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanctuary_of_Isis,_Ancient_Dion_(6934090576).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/dion-sanctuary/gallery-2-1920.webp",
+        "srcset": "./assets/images/dion-sanctuary/gallery-2-960.webp 960w, ./assets/images/dion-sanctuary/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Spring-fed waters flowing through the marble sanctuaries of Dion",
+          "el": "Πηγαία νερά που ρέουν ανάμεσα στα μαρμάρινα ιερά του Δίου"
+        },
+        "type": "photo",
+        "creator": "Carole Raddato from FRANKFURT, Germany",
+        "date": "2012-04-03 10:09",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanctuary_of_Isis,_Ancient_Dion_(7080294715).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "philippi": {
+    "hero": {
+      "src": "./assets/images/philippi/hero-1920.webp",
+      "srcset": "./assets/images/philippi/hero-960.webp 960w, ./assets/images/philippi/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1121,
+      "alt": {
+        "en": "The ancient theatre of Philippi built into the slope of the acropolis hill",
+        "el": "Το αρχαίο θέατρο των Φιλίππων ενταγμένο στην πλαγιά του λόφου της ακρόπολης"
+      },
+      "type": "photo",
+      "creator": "MrPanyGoff",
+      "date": "2012-12-30 13:53:36",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Philippi_-_1.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/philippi/gallery-1-1920.webp",
+        "srcset": "./assets/images/philippi/gallery-1-960.webp 960w, ./assets/images/philippi/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1233,
+        "alt": {
+          "en": "Stone cavea and orchestra of the Hellenistic-Roman theatre at Philippi",
+          "el": "Το λίθινο κοίλο και η ορχήστρα του ελληνιστικού-ρωμαϊκού θεάτρου των Φιλίππων"
+        },
+        "type": "photo",
+        "creator": "MrPanyGoff",
+        "date": "2012-12-30 14:00:33",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ancient_theatre_-_Philippi.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/philippi/gallery-2-1920.webp",
+        "srcset": "./assets/images/philippi/gallery-2-960.webp 960w, ./assets/images/philippi/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 604,
+        "alt": {
+          "en": "Panoramic vista across the theatre and the broad plain of Drama and Philippi",
+          "el": "Πανοραμική άποψη του θεάτρου και της εύφορης πεδιάδας των Φιλίππων"
+        },
+        "type": "photo",
+        "creator": "Tomisti",
+        "date": "2011",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Philippi_theatre_panorama.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "tower-winds": {
+    "hero": {
+      "src": "./assets/images/tower-winds/hero-1920.webp",
+      "srcset": "./assets/images/tower-winds/hero-960.webp 960w, ./assets/images/tower-winds/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 921,
+      "alt": {
+        "en": "The octagonal Pentelic marble Horologion of Andronikos Kyrrhestes (Tower of the Winds) in Athens",
+        "el": "Το οκταγωνικό ωρολόγιο του Ανδρονίκου Κυρρήστου (Πύργος των Ανέμων) από πεντελικό μάρμαρο στην Αθήνα"
+      },
+      "type": "photo",
+      "creator": "Andreas Trepte",
+      "date": "05.01.2008",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tower_of_the_Winds_Athen.jpg",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/tower-winds/gallery-1-1920.webp",
+        "srcset": "./assets/images/tower-winds/gallery-1-960.webp 960w, ./assets/images/tower-winds/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1282,
+        "alt": {
+          "en": "High-relief personifications of the eight winds carved on the frieze of the tower",
+          "el": "Ανάγλυφες προσωποποιήσεις των οκτώ ανέμων στη ζωφόρο του πύργου"
+        },
+        "type": "photo",
+        "creator": "Jakub Hałun",
+        "date": "2024-05-31 09:13:08",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tower_of_the_Winds,_Athens,_20240531_0913_9422.jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/tower-winds/gallery-2-1920.webp",
+        "srcset": "./assets/images/tower-winds/gallery-2-960.webp 960w, ./assets/images/tower-winds/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1266,
+        "alt": {
+          "en": "View of the tower with the Acropolis rock rising in the background",
+          "el": "Άποψη του πύργου με τον βράχο της Ακρόπολης στο βάθος"
+        },
+        "type": "photo",
+        "creator": "Jakub Hałun",
+        "date": "2024-05-31 09:12:38",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tower_of_the_Winds,_Athens,_20240531_0912_9420.jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "lavrion-thorikos": {
+    "hero": {
+      "src": "./assets/images/lavrion-thorikos/hero-960.webp",
+      "srcset": "./assets/images/lavrion-thorikos/hero-960.webp 960w",
+      "width": 960,
+      "height": 646,
+      "alt": {
+        "en": "Historical 1819 engraving by Edward Dodwell showing the unique elliptical Archaic theatre of Thorikos",
+        "el": "Ιστορικό χαρακτικό του 1819 από τον Edward Dodwell που απεικονίζει το μοναδικό ελλειψοειδές αρχαϊκό θέατρο του Θορικού"
+      },
+      "type": "engraving",
+      "creator": "Edward Dodwell",
+      "date": "1819",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Theatre_at_Thorikos_-_Dodwell_Edward_-_1819.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/lavrion-thorikos/gallery-1-1920.webp",
+        "srcset": "./assets/images/lavrion-thorikos/gallery-1-960.webp 960w, ./assets/images/lavrion-thorikos/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1139,
+        "alt": {
+          "en": "The surviving straight stone tiers of the theatre of Thorikos overlooking the silver-bearing hills",
+          "el": "Οι σωζόμενες ευθύγραμμες λίθινες κερκίδες του θεάτρου του Θορικού με θέα στα αργυρούχα υψώματα"
+        },
+        "type": "photo",
+        "creator": "C messier",
+        "date": "2016-03-26 15:05:03",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%CE%91%CF%81%CF%87%CE%B1%CE%AF%CE%BF_%CE%B8%CE%AD%CE%B1%CF%84%CF%81%CE%BF_%CE%98%CE%BF%CF%81%CE%B9%CE%BA%CE%BF%CF%8D_7018.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/lavrion-thorikos/gallery-2-1920.webp",
+        "srcset": "./assets/images/lavrion-thorikos/gallery-2-960.webp 960w, ./assets/images/lavrion-thorikos/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1157,
+        "alt": {
+          "en": "Curving retaining wall and rugged coastal setting of the industrial mining settlement of Thorikos",
+          "el": "Καμπύλος αναλημματικός τοίχος και το παράκτιο τοπίο του μεταλλευτικού οικισμού του Θορικού"
+        },
+        "type": "photo",
+        "creator": "Rab Lawrence from Aberdeen/Scotland",
+        "date": "2019-10-20 10:51",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thorikos_-_ancient_Greek_theatre_(48930569458).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "library-mouseion-alexandria": {
+    "hero": {
+      "src": "./assets/images/library-mouseion-alexandria/hero-1920.webp",
+      "srcset": "./assets/images/library-mouseion-alexandria/hero-960.webp 960w, ./assets/images/library-mouseion-alexandria/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1920,
+      "alt": {
+        "en": "Colorized 19th-century artistic reconstruction of the Great Library of Alexandria",
+        "el": "Επιχρωματισμένη καλλιτεχνική αναπαράσταση του 19ου αιώνα της Μεγάλης Βιβλιοθήκης της Αλεξάνδρειας"
+      },
+      "type": "artwork",
+      "creator": "O. Von Corven, Colorized by K. Vail Abdelhamid",
+      "date": "19th century ADdate QS:P,+1850-00-00T00:00:00Z/7",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Great_Library_of_Alexandria_-_Colorized.jpg",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/library-mouseion-alexandria/gallery-1-960.webp",
+        "srcset": "./assets/images/library-mouseion-alexandria/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 976,
+        "alt": {
+          "en": "Historic illustration of scholars gathering in the Great Library of Alexandria",
+          "el": "Ιστορική απεικόνιση λογίων που συγκεντρώνονται στη Μεγάλη Βιβλιοθήκη της Αλεξάνδρειας"
+        },
+        "type": "artwork",
+        "creator": "O. Von Corven",
+        "date": "19th centurydate QS:P571,+1850-00-00T00:00:00Z/7",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ancientlibraryalex.jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/library-mouseion-alexandria/gallery-2-960.webp",
+        "srcset": "./assets/images/library-mouseion-alexandria/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 811,
+        "alt": {
+          "en": "Ptolemy II Philadelphus in conversation with the scholars of the Mouseion, by Jean-Baptiste de Champaigne",
+          "el": "Ο Πτολεμαίος Β΄ Φιλάδελφος συνομιλεί με τους λογίους του Μουσείου, έργο του Jean-Baptiste de Champaigne"
+        },
+        "type": "artwork",
+        "creator": "Jean Baptiste de Champaigne",
+        "date": "1672date QS:P571,+1672-00-00T00:00:00Z/9",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ptoleme_2_by_Jean-Baptiste_de_Champaigne.jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "antikythera-shipwreck": {
+    "hero": {
+      "src": "./assets/images/antikythera-shipwreck/hero-960.webp",
+      "srcset": "./assets/images/antikythera-shipwreck/hero-960.webp 960w",
+      "width": 960,
+      "height": 856,
+      "alt": {
+        "en": "Fragment A of the bronze Antikythera Mechanism displaying interlocking gear wheels, National Archaeological Museum, Athens",
+        "el": "Το Θραύσμα Α του χάλκινου Μηχανισμού των Αντικυθήρων με οδοντωτούς τροχούς, Εθνικό Αρχαιολογικό Μουσείο, Αθήνα"
+      },
+      "type": "photo",
+      "creator": "No machine-readable author provided. Marsyas assumed (based on copyright claims).",
+      "date": "20 December 2005 (original upload date)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:NAMA_Machine_d%27Anticyth%C3%A8re_1.jpg",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/antikythera-shipwreck/gallery-1-1920.webp",
+        "srcset": "./assets/images/antikythera-shipwreck/gallery-1-960.webp 960w, ./assets/images/antikythera-shipwreck/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1440,
+        "alt": {
+          "en": "Close-up of the complex bronze gear trains and astronomical inscriptions of the mechanism",
+          "el": "Κοντινή όψη των περίπλοκων χάλκινων γραναζιών και αστρονομικών επιγραφών του μηχανισμού"
+        },
+        "type": "photo",
+        "creator": "Tilemahos Efthimiadis from Athens, Greece",
+        "date": "2009-03-15 13:22",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Antikythera_Mechanism_(3471987204).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/antikythera-shipwreck/gallery-2-1920.webp",
+        "srcset": "./assets/images/antikythera-shipwreck/gallery-2-960.webp 960w, ./assets/images/antikythera-shipwreck/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 2560,
+        "alt": {
+          "en": "Modern reconstruction model showing the dials and indicators of the ancient mechanical computer",
+          "el": "Σύγχρονο μοντέλο ανακατασκευής που δείχνει τους δίσκους και τους δείκτες του αρχαίου υπολογιστή"
+        },
+        "type": "photo",
+        "creator": "Gts-tg",
+        "date": "2017-09-23 14:29:32",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Antikythera_mechanism_clockface,_1st-2nd_century_BC,_Greece_(model).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "thonis-heracleion": {
+    "hero": {
+      "src": "./assets/images/thonis-heracleion/hero-1920.webp",
+      "srcset": "./assets/images/thonis-heracleion/hero-960.webp 960w, ./assets/images/thonis-heracleion/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1403,
+      "alt": {
+        "en": "The Twin Stele of Nectanebo I (Decree of Saïs) discovered at submerged Thonis-Heracleion, Egyptian Museum, Cairo",
+        "el": "Η δίδυμη Στήλη του Νεκτανεβώ Α΄ (Διάταγμα της Σάιδος) από τη βυθισμένη Θώνιδα-Ηράκλειο, Αιγυπτιακό Μουσείο Καΐρου"
+      },
+      "type": "photo",
+      "creator": "Kristoferb",
+      "date": "2011-04-29 02:04:39",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Egyptian_Museum_9.JPG",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/thonis-heracleion/gallery-1-900.webp",
+        "srcset": "./assets/images/thonis-heracleion/gallery-1-900.webp 900w",
+        "width": 900,
+        "height": 1200,
+        "alt": {
+          "en": "Limestone statuette head recovered from the submerged ruins of Heracleion",
+          "el": "Ασβεστολιθική κεφαλή αγαλματιδίου που ανασύρθηκε από τα βυθισμένα ερείπια του Ηρακλείου"
+        },
+        "type": "photo",
+        "creator": "Jean-Pierre Dalbéra",
+        "date": "2015-11-27 18:41:34",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:T%C3%AAte_de_statuette_chypriote_(Exposition_Osiris,_Institut_du_Monde_Arabe).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/thonis-heracleion/gallery-2-788.webp",
+        "srcset": "./assets/images/thonis-heracleion/gallery-2-788.webp 788w",
+        "width": 788,
+        "height": 1054,
+        "alt": {
+          "en": "Monumental granite bilingual stela of Ptolemy VIII recovered from the bay of Aboukir",
+          "el": "Μνημειακή δίγλωσση γρανιτένια στήλη του Πτολεμαίου Η΄ που ανασύρθηκε από τον κόλπο του Αμπουκίρ"
+        },
+        "type": "photo",
+        "creator": "No machine-readable author provided. World Imaging assumed (based on copyright claims).",
+        "date": "10 December 2006 (according to Exif data)",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:PtolemyVIIIStela.jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "naukratis": {
+    "hero": {
+      "src": "./assets/images/naukratis/hero-960.webp",
+      "srcset": "./assets/images/naukratis/hero-960.webp 960w",
+      "width": 960,
+      "height": 623,
+      "alt": {
+        "en": "Chian Wild Goat style chalice fragment painted with a bearded man, excavated at Naukratis, British Museum",
+        "el": "Όστρακο χιακού κυπέλλου ρυθμού των Αιγάγρων με γενειοφόρο άνδρα, από την ανασκαφή της Ναυκράτιδος, Βρετανικό Μουσείο"
+      },
+      "type": "photo",
+      "creator": "ArchaiOptix",
+      "date": "2016-02-12 15:01:45",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chian_Wild_Goat_Style_-_chalice_-_Naukratis_Painter_-_Lemos_727_-_bearded_man_-_London_BM_1888-0601-501.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/naukratis/gallery-1-1920.webp",
+        "srcset": "./assets/images/naukratis/gallery-1-960.webp 960w, ./assets/images/naukratis/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1169,
+        "alt": {
+          "en": "Chian chalice fragment depicting a procession of men dedicated at the Milesian sanctuary in Naukratis",
+          "el": "Θραύσμα χιακού κυπέλλου με πομπή ανδρών, αφιέρωμα στο ιερό των Μιλησίων στη Ναύκρατη"
+        },
+        "type": "photo",
+        "creator": "ArchaiOptix",
+        "date": "2016-02-12 15:01:48",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chian_Wild_Goat_Style_-_chalice_-_Naukratis_Painter_-_Lemos_737_-_procession_of_men_-_London_BM_1888-0601-513.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/naukratis/gallery-2-960.webp",
+        "srcset": "./assets/images/naukratis/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 1090,
+        "alt": {
+          "en": "Archaic limestone relief fragment of a Greek hoplite found at the trading emporion of Naukratis",
+          "el": "Αρχαϊκό ασβεστολιθικό ανάγλυφο θραύσμα Έλληνα οπλίτη από το εμπορείο της Ναυκράτιδος"
+        },
+        "type": "photo",
+        "creator": "Zunkir",
+        "date": "2022-06-08 11:56:51",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Relief_hoplite_Naukratis_BM_1900,0214.21.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "siwa-zeus-ammon": {
+    "hero": {
+      "src": "./assets/images/siwa-zeus-ammon/hero-1920.webp",
+      "srcset": "./assets/images/siwa-zeus-ammon/hero-960.webp 960w, ./assets/images/siwa-zeus-ammon/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "en": "The ancient Temple of the Oracle of Amun perched on the limestone hill of Aghurmi in Siwa Oasis",
+        "el": "Ο αρχαίος Ναός του Μαντείου του Άμμωνα στον ασβεστολιθικό λόφο του Αγκούρμι στην όαση Σίουα"
+      },
+      "type": "photo",
+      "creator": "Isabelle + Stéphane Gallay",
+      "date": "2009-03-04",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oracle_of_the_Temple_of_Amun_(03-2009).jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/siwa-zeus-ammon/gallery-1-960.webp",
+        "srcset": "./assets/images/siwa-zeus-ammon/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 720,
+        "alt": {
+          "en": "Stone walls and hypostyle masonry of the Oracle temple visited by Alexander the Great",
+          "el": "Πέτρινοι τοίχοι και τοιχοποιία του Μαντείου που επισκέφθηκε ο Μέγας Αλέξανδρος"
+        },
+        "type": "photo",
+        "creator": "tom chandler",
+        "date": "2007-10-13",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ruins_near_of_the_Temple_of_Amun_at_Siwa.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/siwa-zeus-ammon/gallery-2-1920.webp",
+        "srcset": "./assets/images/siwa-zeus-ammon/gallery-2-960.webp 960w, ./assets/images/siwa-zeus-ammon/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 2885,
+        "alt": {
+          "en": "Expansive palm groves and salt lakes of Siwa viewed from the heights of the oracle precinct",
+          "el": "Εκτεταμένοι φοινικώνες και αλμυρές λίμνες της Σίουα από τον ιερό χώρο του μαντείου"
+        },
+        "type": "photo",
+        "creator": "Michael Hermann",
+        "date": "2016-03-10 06:32:36",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_from_Aghurmi_Hill,_Siwa_Oasis_04.JPG",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "emporion-empuries": {
+    "hero": {
+      "src": "./assets/images/emporion-empuries/hero-960.webp",
+      "srcset": "./assets/images/emporion-empuries/hero-960.webp 960w",
+      "width": 960,
+      "height": 720,
+      "alt": {
+        "en": "The southern stone gate and defensive walls of the Greek city (Neapolis) at Emporion, Catalonia",
+        "el": "Η νότια πύλη και τα αμυντικά τείχη της ελληνικής πόλης (Νεάπολης) στο Εμπόριο της Καταλονίας"
+      },
+      "type": "photo",
+      "creator": "LeZibou",
+      "date": "2007",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Empuries_PorteSudNeapolis.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/emporion-empuries/gallery-1-960.webp",
+        "srcset": "./assets/images/emporion-empuries/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 720,
+        "alt": {
+          "en": "The stone precinct and terraces of the Asklepieion healing sanctuary at Emporion",
+          "el": "Ο περίβολος και τα άνδηρα του θεραπευτικού ιερού του Ασκληπιού στο Εμπόριο"
+        },
+        "type": "photo",
+        "creator": "LeZibou",
+        "date": "2007",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Empuries_Asklepieion.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/emporion-empuries/gallery-2-960.webp",
+        "srcset": "./assets/images/emporion-empuries/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 720,
+        "alt": {
+          "en": "Peristyle courtyard house with classical colonnades overlooking the Mediterranean shore",
+          "el": "Περιστύλια οικία με κιονοστοιχίες με θέα στις ακτές της Μεσογείου"
+        },
+        "type": "photo",
+        "creator": "LeZibou",
+        "date": "2007",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Empuries_MaisonduPeristyle.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "elea-velia": {
+    "hero": {
+      "src": "./assets/images/elea-velia/hero-1920.webp",
+      "srcset": "./assets/images/elea-velia/hero-960.webp 960w, ./assets/images/elea-velia/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1440,
+      "alt": {
+        "en": "The monumental dry-stone arch of Porta Rosa (4th century BCE) at Elea / Velia",
+        "el": "Η μνημειακή λιθόκτιστη αψίδα της Porta Rosa (4ος αι. π.Χ.) στην Ελέα / Βέλια"
+      },
+      "type": "photo",
+      "creator": "Carlomorino",
+      "date": "2011-07-15",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Velia_0975.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/elea-velia/gallery-1-1920.webp",
+        "srcset": "./assets/images/elea-velia/gallery-1-960.webp 960w, ./assets/images/elea-velia/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "Paved Greek street passing beneath the true stone arch of Porta Rosa",
+          "el": "Πλακόστρωτος αρχαίος δρόμος που διέρχεται κάτω από την αψίδα της Porta Rosa"
+        },
+        "type": "photo",
+        "creator": "Mboesch",
+        "date": "2014-02-22 16:07:22",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elea-velia-via-porta-rosa-02.JPG",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/elea-velia/gallery-2-1920.webp",
+        "srcset": "./assets/images/elea-velia/gallery-2-960.webp 960w, ./assets/images/elea-velia/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "The massive retaining walls and fortification gorge of the Eleatic philosophers' city",
+          "el": "Οι ογκώδεις αναλημματικοί τοίχοι και τα οχυρωματικά έργα της πατρίδας των Ελεατών φιλοσόφων"
+        },
+        "type": "photo",
+        "creator": "Mboesch",
+        "date": "2014-02-22 16:07:13",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elea-velia-via-porta-rosa-03.JPG",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "miletus": {
+    "hero": {
+      "src": "./assets/images/miletus/hero-1920.webp",
+      "srcset": "./assets/images/miletus/hero-960.webp 960w, ./assets/images/miletus/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 590,
+      "alt": {
+        "en": "The monumental 15,000-seat Greco-Roman theatre of Miletus facing the former Lion Harbor",
+        "el": "Το μνημειακό ελληνορωμαϊκό θέατρο 15.000 θέσεων της Μιλήτου μπροστά στο άλλοτε Λιμάνι των Λεόντων"
+      },
+      "type": "photo",
+      "creator": "Bernard Gagnon",
+      "date": "2014-05-31",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miletus_-_Ancient_Greek_theatre_01.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/miletus/gallery-1-1920.webp",
+        "srcset": "./assets/images/miletus/gallery-1-960.webp 960w, ./assets/images/miletus/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1291,
+        "alt": {
+          "en": "Vaulted stone vomitoria and corridors supporting the upper tiers of the Miletus theatre",
+          "el": "Τοξωτοί διάδρομοι και στοές που στηρίζουν τις ανώτερες κερκίδες του θεάτρου της Μιλήτου"
+        },
+        "type": "photo",
+        "creator": "Bernard Gagnon",
+        "date": "2014-05-31",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miletus_-_Ancient_Greek_theatre_02.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/miletus/gallery-2-1920.webp",
+        "srcset": "./assets/images/miletus/gallery-2-960.webp 960w, ./assets/images/miletus/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1337,
+        "alt": {
+          "en": "The vaulted barrel arches of the dramatic facade of the theatre at Miletus",
+          "el": "Οι επιβλητικές θολωτές αψίδες της πρόσοψης του θεάτρου στη Μίλητο"
+        },
+        "type": "photo",
+        "creator": "Bernard Gagnon",
+        "date": "2014-05-31",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miletus_-_Ancient_Greek_theatre_03.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "butrint": {
+    "hero": {
+      "src": "./assets/images/butrint/hero-1920.webp",
+      "srcset": "./assets/images/butrint/hero-960.webp 960w, ./assets/images/butrint/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1285,
+      "alt": {
+        "en": "The Hellenistic theatre of Butrint nestling amidst the wooded archaeological lagoon of Epirus",
+        "el": "Το ελληνιστικό θέατρο του Βουθρωτού μέσα στο δασωμένο αρχαιολογικό τοπίο της λιμνοθάλασσας της Ηπείρου"
+      },
+      "type": "photo",
+      "creator": "Geoff Wong",
+      "date": "2009-07-14 12:52:50",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amphitheatre_of_Butrint_2009.jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "focalPoint": "50% 50%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/butrint/gallery-1-1920.webp",
+        "srcset": "./assets/images/butrint/gallery-1-960.webp 960w, ./assets/images/butrint/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "Ancient Greek inscriptions of slave manumissions carved directly into the theatre's stage blocks",
+          "el": "Αρχαιοελληνικές επιγραφές απελευθέρωσης δούλων χαραγμένες στους δόμους του θεάτρου του Βουθρωτού"
+        },
+        "type": "photo",
+        "creator": "Marcin Konsek",
+        "date": "2011-08-30 11:16:55",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2011_Butrint_10_-_Greek_scripts_at_the_theatre.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/butrint/gallery-2-1920.webp",
+        "srcset": "./assets/images/butrint/gallery-2-960.webp 960w, ./assets/images/butrint/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 1280,
+        "alt": {
+          "en": "The ancient theatre and the Venetian acropolis tower crowning the promontory",
+          "el": "Το αρχαίο θέατρο και ο βενετσιάνικος πύργος της ακρόπολης στην κορυφή του ακρωτηρίου"
+        },
+        "type": "photo",
+        "creator": "Marcin Konsek",
+        "date": "2011-08-30 11:21:05",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2011_Butrint_15_Theatre_and_Fortress.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "xanthos-letoon": {
+    "hero": {
+      "src": "./assets/images/xanthos-letoon/hero-1920.webp",
+      "srcset": "./assets/images/xanthos-letoon/hero-960.webp 960w, ./assets/images/xanthos-letoon/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 2885,
+      "alt": {
+        "en": "The iconic monolithic pillar tombs (Harpy Tomb and Pillar Sarcophagus) at Xanthos, Lycia",
+        "el": "Οι εμβληματικοί μονολιθικοί πυλώδεις τάφοι (Τάφος των Αρπυιών και Σαρκοφάγος) στην Ξάνθο της Λυκίας"
+      },
+      "type": "photo",
+      "creator": "Dosseman",
+      "date": "2013-12-17 11:25:02",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xanthos_Harpy_tomb_and_the_pillared_sarcophagus_4347.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/xanthos-letoon/gallery-1-1920.webp",
+        "srcset": "./assets/images/xanthos-letoon/gallery-1-960.webp 960w, ./assets/images/xanthos-letoon/gallery-1-1920.webp 1920w",
+        "width": 1920,
+        "height": 1278,
+        "alt": {
+          "en": "Close-up of the sculpted limestone relief panels adorning the Harpy Tomb",
+          "el": "Κοντινή άποψη των ανάγλυφων ασβεστολιθικών πλακών που κοσμούν τον Τάφο των Αρπυιών"
+        },
+        "type": "photo",
+        "creator": "Dosseman",
+        "date": "2011-03-19 11:05:18",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xanthos_Harpy_tomb_and_the_pillared_sarcophagus_5172.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/xanthos-letoon/gallery-2-1920.webp",
+        "srcset": "./assets/images/xanthos-letoon/gallery-2-960.webp 960w, ./assets/images/xanthos-letoon/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 2885,
+        "alt": {
+          "en": "The stone pillar tombs standing beside the Roman theatre of Xanthos",
+          "el": "Οι πέτρινοι πυλώνες-τάφοι δίπλα στο ρωμαϊκό θέατρο της Ξάνθου"
+        },
+        "type": "photo",
+        "creator": "Dosseman",
+        "date": "2011-03-19 10:52:29",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xanthos_Harpy_tomb_and_the_pillared_sarcophagus_5159.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "focalPoint": "50% 50%"
+      }
+    ]
+  },
+  "ai-khanoum": {
+    "hero": {
+      "src": "./assets/images/ai-khanoum/hero-960.webp",
+      "srcset": "./assets/images/ai-khanoum/hero-960.webp 960w",
+      "width": 960,
+      "height": 1836,
+      "alt": {
+        "en": "Classical Greek high-relief limestone sculpture depicting an elderly philosopher, excavated at Ai-Khanoum, Afghanistan",
+        "el": "Κλασικό ελληνικό ασβεστολιθικό ανάγλυφο που απεικονίζει ηλικιωμένο φιλόσοφο, από την ανασκαφή στο Άι-Χανούμ του Αφγανιστάν"
+      },
+      "type": "photo",
+      "creator": "H Sinica",
+      "date": "2019-11-06 10:34:51",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ai-Khanoum_high-relief.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "focalPoint": "50% 45%"
+    },
+    "gallery": [
+      {
+        "src": "./assets/images/ai-khanoum/gallery-1-960.webp",
+        "srcset": "./assets/images/ai-khanoum/gallery-1-960.webp 960w",
+        "width": 960,
+        "height": 1647,
+        "alt": {
+          "en": "Bronze statuette of Heracles wearing a laurel wreath found at Hellenistic Ai-Khanoum",
+          "el": "Χάλκινο αγαλματίδιο του Ηρακλή με δάφνινο στεφάνι από το ελληνιστικό Άι-Χανούμ"
+        },
+        "type": "photo",
+        "creator": "H Sinica",
+        "date": "2019-12-23 14:07:01",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ai-Khanoum_statuette.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "focalPoint": "50% 50%"
+      },
+      {
+        "src": "./assets/images/ai-khanoum/gallery-2-960.webp",
+        "srcset": "./assets/images/ai-khanoum/gallery-2-960.webp 960w",
+        "width": 960,
+        "height": 950,
+        "alt": {
+          "en": "Gilded silver Cybele plate in Greco-Bactrian syncretic style, National Museum of Afghanistan",
+          "el": "Επάργυρος επίχρυσος δίσκος της Κυβέλης σε ελληνοβακτριανό ρυθμό, Εθνικό Μουσείο Αφγανιστάν"
+        },
+        "type": "photo",
+        "creator": "No machine-readable author provided. World Imaging assumed (based on copyright claims).",
+        "date": "3rd century BC (artefact); 13 December 2006 (according to Exif data) (photograph)",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:AiKhanoumPlateSharp.jpg",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
         "focalPoint": "50% 50%"
       }
     ]
