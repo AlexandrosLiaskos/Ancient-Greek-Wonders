@@ -3082,75 +3082,75 @@ export const MEDIA_BY_ID = Object.freeze({
   },
   "melqart-heracles-gadir": {
     "hero": {
-      "src": "./assets/images/melqart-heracles-gadir/hero-960.webp",
-      "srcset": "./assets/images/melqart-heracles-gadir/hero-960.webp 960w",
-      "width": 960,
-      "height": 720,
+      "src": "./assets/images/melqart-heracles-gadir/hero-1920.webp",
+      "srcset": "./assets/images/melqart-heracles-gadir/hero-960.webp 960w, ./assets/images/melqart-heracles-gadir/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 2557,
       "alt": {
-        "en": "The islet castle of Sancti Petri at San Fernando (Cádiz), traditional site of the Temple of Melqart-Heracles",
-        "el": "Το νησιωτικό κάστρο Sancti Petri στο Σαν Φερνάντο (Κάδιθ), παραδοσιακή θέση του Ναού του Μέλκαρτ-Ηρακλή"
+        "en": "Archaic bronze torso of Hercules Gaditanus excavated from the underwater sanctuary of Melqart at Sancti Petri, Museo de Cádiz",
+        "el": "Αρχαϊκός χάλκινος κορμός του Ηρακλή των Γαδείρων (Hercules Gaditanus) από το υποθαλάσσιο ιερό του Μέλκαρτ στο Σάνκτι Πέτρι, Μουσείο του Κάδιθ"
       },
       "type": "photo",
-      "creator": "“Pablo Jones. Peejayem”",
-      "date": "2007-07-29",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castillo_de_Sancti_Petri.JPG",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
-      "focalPoint": "50% 50%"
+      "creator": "Jl FilpoC",
+      "date": "2021-06-12",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:H%C3%A9rcules_Gaditano,_Her%C3%A1kleion_de_Gadir.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "focalPoint": "50% 35%"
     },
     "gallery": [
       {
         "src": "./assets/images/melqart-heracles-gadir/gallery-1-1920.webp",
         "srcset": "./assets/images/melqart-heracles-gadir/gallery-1-960.webp 960w, ./assets/images/melqart-heracles-gadir/gallery-1-1920.webp 1920w",
         "width": 1920,
-        "height": 1110,
+        "height": 2560,
         "alt": {
-          "en": "Panoramic view of the Sancti Petri reef guard tower guarding the Atlantic entrance",
-          "el": "Πανοραμική άποψη του οχυρού του Sancti Petri στην είσοδο του Ατλαντικού"
+          "en": "Archaic bronze votive statuette of Melqart retrieved from the temple channel of Sancti Petri, Museo de Cádiz",
+          "el": "Αρχαϊκό χάλκινο αναθηματικό αγαλματίδιο του Μέλκαρτ από τον δίαυλο του ναού στο Σάνκτι Πέτρι, Μουσείο του Κάδιθ"
         },
         "type": "photo",
-        "creator": "Liki Fumei from Gijón-Asturias, España",
-        "date": "2010-06-14 20:34:56",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fortaleza_-_Fortress.jpg",
-        "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "creator": "Jl FilpoC",
+        "date": "2021-06-12",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melqart_divinizado_como_el_dios_Osiris,_Museo_de_C%C3%A1diz.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "focalPoint": "50% 50%"
       },
       {
-        "src": "./assets/images/melqart-heracles-gadir/gallery-2-960.webp",
-        "srcset": "./assets/images/melqart-heracles-gadir/gallery-2-960.webp 960w",
-        "width": 960,
-        "height": 640,
+        "src": "./assets/images/melqart-heracles-gadir/gallery-2-1920.webp",
+        "srcset": "./assets/images/melqart-heracles-gadir/gallery-2-960.webp 960w, ./assets/images/melqart-heracles-gadir/gallery-2-1920.webp 1920w",
+        "width": 1920,
+        "height": 2880,
         "alt": {
-          "en": "Coastline and tidal marshes facing the legendary temple island of Gadir",
-          "el": "Ακτογραμμή και παλιρροϊκά έλη απέναντι από το θρυλικό νησί του ναού στα Γάδειρα"
+          "en": "Collection of archaic bronze votive figurines dedicated by ancient mariners at the Herakleion of Gadir, Museo de Cádiz",
+          "el": "Συλλογή αρχαϊκών χάλκινων αναθηματικών ειδωλίων που αφιέρωσαν αρχαίοι ναυτικοί στο Ηράκλειο των Γαδείρων, Μουσείο του Κάδιθ"
         },
         "type": "photo",
-        "creator": "Carlos Alejo",
-        "date": "Taken on 25 August 2008",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castillo_de_Sancti_Petri_-_panoramio.jpg",
-        "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "creator": "Daniel VILLAFRUELA.",
+        "date": "13 September 2011.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Museo_de_C%C3%A1diz-Estatuillas_pre_romanas-20110913.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "focalPoint": "50% 50%"
       }
     ]
   },
   "pillars-heracles": {
     "hero": {
-      "src": "./assets/images/pillars-heracles/hero-960.webp",
-      "srcset": "./assets/images/pillars-heracles/hero-960.webp 960w",
-      "width": 960,
-      "height": 720,
+      "src": "./assets/images/pillars-heracles/hero-1920.webp",
+      "srcset": "./assets/images/pillars-heracles/hero-960.webp 960w, ./assets/images/pillars-heracles/hero-1920.webp 1920w",
+      "width": 1920,
+      "height": 1280,
       "alt": {
-        "en": "Mount Jebel Musa on the Moroccan coast, the southern Pillar of Heracles",
-        "el": "Το όρος Τζεμπέλ Μούσα στις μαροκινές ακτές, η νότια Ηράκλεια Στήλη"
+        "en": "The Pillars of Hercules monument at Europa Point, Gibraltar, with classical columns framing the bronze relief map of the Ancient World",
+        "el": "Το μνημείο των Ηράκλειων Στηλών στο Europa Point του Γιβραλτάρ, με κλασικούς κίονες που πλαισιώνουν τον ανάγλυφο χάρτη του Αρχαίου Κόσμου"
       },
       "type": "photo",
-      "creator": "Unknown creator",
-      "date": "2005-09-29 05:06:11",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jebel_musa.jpg",
-      "license": "CC BY-SA 2.5",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "creator": "Paul",
+      "date": "2007-04-06 13:44:14",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pillars_of_Hercules_(The_Ancient_World),_Europa_Point,_Gibraltar.jpg",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "focalPoint": "50% 50%"
     },
     "gallery": [
@@ -3158,34 +3158,34 @@ export const MEDIA_BY_ID = Object.freeze({
         "src": "./assets/images/pillars-heracles/gallery-1-1920.webp",
         "srcset": "./assets/images/pillars-heracles/gallery-1-960.webp 960w, ./assets/images/pillars-heracles/gallery-1-1920.webp 1920w",
         "width": 1920,
-        "height": 862,
+        "height": 2958,
         "alt": {
-          "en": "View across the Strait of Gibraltar uniting the Mediterranean and the Atlantic",
-          "el": "Άποψη του Στενού του Γιβραλτάρ που ενώνει τη Μεσόγειο με τον Ατλαντικό"
+          "en": "Renaissance engraving by Heinrich Aldegrever depicting Heracles erecting the twin columns at the western boundary of the ecumene, Metropolitan Museum of Art",
+          "el": "Αναγεννησιακό χαρακτικό του Χάινριχ Άλντεγκρεβερ που απεικονίζει τον Ηρακλή να υψώνει τις Στήλες στο δυτικό όριο της οικουμένης, Μητροπολιτικό Μουσείο Τέχνης"
         },
-        "type": "photo",
-        "creator": "Bachmont",
-        "date": "2007-04-04",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gibraltar_Maroc.jpg",
-        "license": "CC BY 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "type": "engraving",
+        "creator": "Heinrich Aldegrever",
+        "date": "1550date QS:P571,+1550-00-00T00:00:00Z/9",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Pillars_of_Hercules,_from_The_Labors_of_Hercules_MET_DP836672.jpg",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
         "focalPoint": "50% 50%"
       },
       {
         "src": "./assets/images/pillars-heracles/gallery-2-1920.webp",
         "srcset": "./assets/images/pillars-heracles/gallery-2-960.webp 960w, ./assets/images/pillars-heracles/gallery-2-1920.webp 1920w",
         "width": 1920,
-        "height": 612,
+        "height": 1280,
         "alt": {
-          "en": "The Rock of Gibraltar rising abruptly from the sea as the northern Pillar of Heracles",
-          "el": "Ο Βράχος του Γιβραλτάρ που ορθώνεται απότομα ως η βόρεια Ηράκλεια Στήλη"
+          "en": "Gorham's Cave on the sheer sea cliff of the Rock of Gibraltar (Mons Calpe), where ancient Greek and Phoenician mariners dedicated offerings to Heracles",
+          "el": "Το Σπήλαιο του Γκόρχαμ στους απόκρημνους βράχους του Γιβραλτάρ (Κάλπη), όπου αρχαίοι Έλληνες και Φοίνικες ναυτικοί αφιέρωναν αναθήματα στον Ηρακλή"
         },
         "type": "photo",
-        "creator": "John Cummings",
-        "date": "2012-07-09",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gibraltar_banner.jpg",
-        "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "creator": "Gibmetal77",
+        "date": "2007-07-03",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gorham%27s_Cave.jpg",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
         "focalPoint": "50% 50%"
       }
     ]
