@@ -3,10 +3,9 @@ import { createMapPreviewMarkup, createWonderHoverCardHTML, escapeHtml } from '.
 import { MeasurementTool } from './measurement-tool.js';
 
 export const WONDER_MAP_CATEGORIES = [
-  { key: 'extant', label: 'Standing / restored', color: '#059669', border: '#34d399' },
+  { key: 'lost', label: 'Lost / submerged', color: '#dc2626', border: '#f87171' },
   { key: 'ruins', label: 'Ruins / excavated', color: '#d97706', border: '#fbbf24' },
-  { key: 'altered', label: 'Re-erected / unfinished', color: '#2563eb', border: '#60a5fa' },
-  { key: 'lost', label: 'Lost / submerged', color: '#dc2626', border: '#f87171' }
+  { key: 'extant', label: 'Standing / restored', color: '#059669', border: '#34d399' }
 ];
 
 export const SURVIVAL_GROUP_BY_STATUS = {
@@ -16,8 +15,8 @@ export const SURVIVAL_GROUP_BY_STATUS = {
   'partly-restored': 'extant',
   ruins: 'ruins',
   excavated: 'ruins',
-  're-erected': 'altered',
-  unfinished: 'altered',
+  're-erected': 'ruins',
+  unfinished: 'ruins',
   lost: 'lost'
 };
 
@@ -29,10 +28,9 @@ export function getWonderMapCategory(wonder) {
 export function getLocalizedWonderCategories(language) {
   if (language === 'el') {
     return [
-      { key: 'extant', label: 'Όρθιο / αναστηλωμένο', color: '#059669', border: '#34d399' },
+      { key: 'lost', label: 'Χαμένο / βυθισμένο', color: '#dc2626', border: '#f87171' },
       { key: 'ruins', label: 'Ερείπια / ανεσκαμμένο', color: '#d97706', border: '#fbbf24' },
-      { key: 'altered', label: 'Ανοικοδομημένο / ημιτελές', color: '#2563eb', border: '#60a5fa' },
-      { key: 'lost', label: 'Χαμένο / βυθισμένο', color: '#dc2626', border: '#f87171' }
+      { key: 'extant', label: 'Όρθιο / αναστηλωμένο', color: '#059669', border: '#34d399' }
     ];
   }
   return WONDER_MAP_CATEGORIES;
@@ -65,9 +63,7 @@ export function pinTooltipInsideMap(tooltip, map, opts = {}) {
   const el = tooltip?.getElement?.();
   if (!el || !map) return;
 
-  const marginX = opts.marginX ?? (opts.margin ?? 10);
-  const marginTop = opts.marginTop ?? (opts.margin ?? 10);
-  const marginBottom = opts.marginBottom ?? (opts.margin !== undefined ? opts.margin : 52);
+  const margin = opts.margin ?? 8;
   const topOffset = opts.topOffset ?? [0, -14];
   const botOffset = opts.botOffset ?? [0, 14];
 
@@ -77,8 +73,8 @@ export function pinTooltipInsideMap(tooltip, map, opts = {}) {
   const mapRect = map.getContainer().getBoundingClientRect();
   let elRect = el.getBoundingClientRect();
 
-  const overflowsTop = elRect.top < mapRect.top + marginTop;
-  const overflowsBottom = elRect.bottom > mapRect.bottom - marginBottom;
+  const overflowsTop = elRect.top < mapRect.top + margin;
+  const overflowsBottom = elRect.bottom > mapRect.bottom - margin;
   const dir = tooltip.options.direction;
 
   if (overflowsTop && dir !== 'bottom') {
@@ -95,10 +91,10 @@ export function pinTooltipInsideMap(tooltip, map, opts = {}) {
 
   let dx = 0;
   let dy = 0;
-  if (elRect.left < mapRect.left + marginX) dx = (mapRect.left + marginX) - elRect.left;
-  if (elRect.right > mapRect.right - marginX) dx = (mapRect.right - marginX) - elRect.right;
-  if (elRect.top < mapRect.top + marginTop) dy = (mapRect.top + marginTop) - elRect.top;
-  if (elRect.bottom > mapRect.bottom - marginBottom) dy = (mapRect.bottom - marginBottom) - elRect.bottom;
+  if (elRect.left < mapRect.left + margin) dx = (mapRect.left + margin) - elRect.left;
+  if (elRect.right > mapRect.right - margin) dx = (mapRect.right - margin) - elRect.right;
+  if (elRect.top < mapRect.top + margin) dy = (mapRect.top + margin) - elRect.top;
+  if (elRect.bottom > mapRect.bottom - margin) dy = (mapRect.bottom - margin) - elRect.bottom;
 
   el.style.translate = (dx || dy) ? `${dx}px ${dy}px` : '';
 }
@@ -124,7 +120,10 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     zoomControl: true,
     minZoom: 3,
     maxZoom: 19,
-    worldCopyJump: true
+    worldCopyJump: true,
+    zoomSnap: 0.25,
+    zoomDelta: 0.5,
+    wheelPxPerZoomLevel: 80
   }).setView([37.2, 23.6], 5);
 
   const baseMaps = globalThis.NkuaWebGISMap?.createBasemaps ? globalThis.NkuaWebGISMap.createBasemaps() : {
@@ -178,11 +177,24 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
   const tooltipCloseTimers = new Map();
   map.addLayer(cluster);
 
+  const closeAllTooltips = () => {
+    tooltipCloseTimers.forEach((id) => clearTimeout(id));
+    tooltipCloseTimers.clear();
+    markers.forEach((m) => {
+      if (m && typeof m.closeTooltip === 'function') {
+        m.closeTooltip();
+      }
+    });
+  };
+
+  map.on('click', closeAllTooltips);
+  map.on('zoomstart movestart', closeAllTooltips);
+
   const mapLegend = globalThis.NkuaWebGISMap?.addCategoryLegend ? globalThis.NkuaWebGISMap.addCategoryLegend(map, {
     title: language === 'el' ? 'Σημερινή κατάσταση' : 'Survival condition',
-    subtitle: language === 'el' ? '4 κατηγορίες' : '4 groups',
+    subtitle: language === 'el' ? 'σύγχρονη εποχή' : 'by modern era',
     ariaLabel: language === 'el' ? 'Υπόμνημα κατάστασης μνημείων' : 'Wonder survival condition legend',
-    categories: WONDER_MAP_CATEGORIES,
+    categories: getLocalizedWonderCategories(language),
     classify: (record) => getWonderMapCategory(record).key
   }) : null;
 
@@ -211,7 +223,7 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     tooltipEl.addEventListener('mouseleave', () => scheduleClose(marker, 180));
     tooltipEl.addEventListener('click', (e) => {
       e.stopPropagation();
-      marker.closeTooltip();
+      closeAllTooltips();
       onSelect(marker._wonderId);
     });
   };
@@ -246,7 +258,14 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
 
     marker.on('mouseover', () => {
       clearCloseTimer(marker);
-      if (!marker.isTooltipOpen()) marker.openTooltip();
+      if (!marker.isTooltipOpen()) {
+        markers.forEach((other) => {
+          if (other !== marker && other.isTooltipOpen && other.isTooltipOpen()) {
+            other.closeTooltip();
+          }
+        });
+        marker.openTooltip();
+      }
     });
 
     marker.on('mouseout', () => {
@@ -262,8 +281,7 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
       if (e && e.originalEvent) {
         L.DomEvent.stopPropagation(e);
       }
-      clearCloseTimer(marker);
-      marker.closeTooltip();
+      closeAllTooltips();
       onSelect(record.id);
     });
 
@@ -316,7 +334,7 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     focus,
     measurementTool,
     closePreview: () => {
-      map.closeTooltip();
+      closeAllTooltips();
       if (typeof map.closePopup === 'function') map.closePopup();
     },
     invalidateSize: () => map.invalidateSize()

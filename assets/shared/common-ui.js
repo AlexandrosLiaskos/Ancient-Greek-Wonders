@@ -1647,7 +1647,7 @@
             shown.forEach(function (value) {
                 var row = makeElement('button', 'fbc-list-row' + (value === self.currentValue(field) ? ' is-active' : ''));
                 row.type = 'button';
-                row.title = self.formatFieldValue(field, value);
+                row.setAttribute('aria-label', self.formatFieldValue(field, value));
                 var label = makeElement('span', 'fbc-list-label');
                 label.textContent = self.formatFieldValue(field, value);
                 var count = makeElement('span', 'fbc-list-count');

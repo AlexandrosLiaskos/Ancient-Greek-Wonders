@@ -41,7 +41,7 @@ export class MeasurementTool {
 
         const toggleBtn = L.DomUtil.create('button', 'measurement-btn', container);
         toggleBtn.type = 'button';
-        toggleBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.3 15.3 8.7 2.7a2.4 2.4 0 0 0-3.4 0L2.7 5.3a2.4 2.4 0 0 0 0 3.4l12.6 12.6a2.4 2.4 0 0 0 3.4 0l2.6-2.6a2.4 2.4 0 0 0 0-3.4Z"/><path d="m14.5 4.5 3 3"/><path d="m11.5 7.5 2 2"/><path d="m8.5 10.5 3 3"/><path d="m5.5 13.5 2 2"/></svg>';
+        toggleBtn.innerHTML = '📏';
         toggleBtn.title = title;
         toggleBtn.setAttribute('aria-label', title);
 

@@ -109,7 +109,7 @@
                             </a>
                         </div>
                         <span class="wm-visits" role="status" aria-live="polite" aria-describedby="wonders-visit-privacy">
-                            <span id="wm-visits-label">Recorded visits</span>
+                            <span id="wm-visits-label">Recorded page visits</span>
                             <strong data-visit-count data-endpoint="./api/page-summary" data-storage-key="wonders-visit-counted-v1" data-locale="en" data-unavailable="—">—</strong>
                         </span>
                         <span id="wonders-visit-privacy" class="sr-only">The counter does not use cookies or collect information that can identify individual visitors. Only the aggregate visit count is stored.</span>
@@ -139,7 +139,6 @@
                     <span class="header-rule" aria-hidden="true"></span>
                 </div>
                 <div class="header-actions">
-                    <button id="language-toggle" class="language-toggle-btn" type="button" aria-label="Switch language">ΕΛ</button>
                     <span class="last-updated" lang="en">Last updated: <time datetime="2026-09-12">12 September 2026</time></span>
                 </div>
             </div>
@@ -164,7 +163,7 @@
                 </button>
                 <div class="sidebar-content">
                     <div class="tab-nav" role="tablist" aria-label="Sidebar tabs">
-                        <button class="tab-button active" type="button" data-tab="filters" title="Filters" aria-label="Filters">
+                        <button class="tab-button active" type="button" data-tab="filters" aria-label="Filters">
                             <span class="tab-icon" aria-hidden="true">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
@@ -172,7 +171,7 @@
                             </span>
                             <span class="tab-label" id="tab-label-filters">Filters</span>
                         </button>
-                        <button class="tab-button" type="button" data-tab="search" title="Search" aria-label="Search">
+                        <button class="tab-button" type="button" data-tab="search" aria-label="Search">
                             <span class="tab-icon" aria-hidden="true">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <circle cx="11" cy="11" r="8"></circle>
@@ -181,7 +180,7 @@
                             </span>
                             <span class="tab-label" id="tab-label-search">Search</span>
                         </button>
-                        <button class="tab-button" type="button" data-tab="stats" title="Statistics" aria-label="Statistics">
+                        <button class="tab-button" type="button" data-tab="stats" aria-label="Statistics">
                             <span class="tab-icon" aria-hidden="true">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
                                     <line x1="3" y1="20" x2="21" y2="20"></line>
@@ -247,13 +246,14 @@
                     <!-- Search Tab Content -->
                     <div class="tab-content" id="search-tab">
                         <p class="stats-hint stats-hint-top" id="search-hint">
-                            Find a wonder by name, country, ancient region, architectural type, or period.
+                            Selecting a result applies it as a filter — affecting the map, statistics, and monument counts.
                         </p>
                         <div class="search-panel">
                             <label for="global-search-input" class="search-label" id="search-label">Global Search</label>
                             <input id="global-search-input" type="text" class="search-input"
                                 placeholder="Search Parthenon, Delphi, Olympia, Colossus…" autocomplete="off">
-                            <div id="global-search-results" class="search-results" aria-live="polite"></div>
+                            <div id="global-search-results" class="search-results hidden" aria-live="polite"></div>
+                            <div id="global-search-selected" class="search-selected hidden"></div>
                         </div>
                     </div>
 
@@ -371,11 +371,13 @@
                 <nav class="footer-nav" aria-label="Site links">
                     <button id="feature-guide-btn" class="footer-link" type="button" aria-haspopup="dialog" aria-controls="feature-guide-modal">Ancient Wonders</button>
                     <span class="footer-dot" aria-hidden="true">&middot;</span>
-                    <button id="about-btn" class="footer-link" type="button">Welcome</button>
+                    <button id="about-btn" class="footer-link" type="button">About</button>
                     <span class="footer-dot" aria-hidden="true">·</span>
                     <button id="references-btn" class="footer-link" type="button">Sources</button>
                     <span class="footer-dot" aria-hidden="true">·</span>
                     <button id="submit-data-btn" class="footer-link" type="button">Submit data</button>
+                    <span class="footer-dot" aria-hidden="true">·</span>
+                    <button id="language-toggle" class="footer-link" type="button" aria-label="Switch language">Ελληνικά</button>
                 </nav>
             </div>
         </footer>

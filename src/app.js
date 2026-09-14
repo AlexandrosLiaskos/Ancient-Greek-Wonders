@@ -2,7 +2,7 @@ import { WONDERS } from './data/wonders.js';
 import { filterWonders, normalizeSearchText, summarizeSurvival } from './core/catalog.js';
 import { parseUrlState, serializeUrlState } from './core/url-state.js';
 import { CATEGORY_LABELS, COUNTRY_LABELS, STATUS_LABELS, formatResultCount, localizeRecord, t } from './i18n.js';
-import { createDetailMarkup, createResultMarkup } from './ui/render.js';
+import { createDetailMarkup, createResultMarkup, escapeHtml } from './ui/render.js';
 import { initializeGallery } from './ui/gallery.js';
 import { createWondersMap, WONDER_MAP_CATEGORIES, getWonderMapCategory } from './map/map.js';
 
@@ -132,13 +132,21 @@ class AncientGreekWondersApp {
 
   initModals() {
     // Welcome modal
+    const closeWelcome = () => {
+      const finish = () => {
+        this.elements.welcomeModal?.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        this.mapController?.invalidateSize?.();
+      };
+      if (window.NkuaWebGISUI?.revealWelcomeModal && this.elements.welcomeModal) {
+        window.NkuaWebGISUI.revealWelcomeModal(this.elements.welcomeModal, finish);
+      } else {
+        finish();
+      }
+    };
     const openWelcome = () => {
       this.elements.welcomeModal.classList.add('active');
       document.body.classList.add('modal-open');
-    };
-    const closeWelcome = () => {
-      this.elements.welcomeModal.classList.remove('active');
-      document.body.classList.remove('modal-open');
     };
     this.elements.aboutBtn?.addEventListener('click', openWelcome);
     this.elements.headerHomeLink?.addEventListener('click', (e) => {
@@ -245,12 +253,217 @@ class AncientGreekWondersApp {
 
   initSearch() {
     const input = this.elements.globalSearchInput;
-    if (!input) return;
+    const resultsContainer = this.elements.globalSearchResults;
+    if (!input || !resultsContainer) return;
 
     input.addEventListener('input', () => {
-      this.state.query = input.value.trim();
+      const query = input.value.trim();
+      this.state.query = query;
       this.syncUrl();
-      this.applyFilters();
+
+      if (!query || query.length < 1) {
+        resultsContainer.classList.add('hidden');
+        resultsContainer.innerHTML = '';
+        this.applyFilters();
+        return;
+      }
+
+      this.renderAutocomplete(query);
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        input.value = '';
+        this.state.query = '';
+        resultsContainer.classList.add('hidden');
+        resultsContainer.innerHTML = '';
+        this.syncUrl();
+        this.applyFilters();
+      }
+    });
+
+    input.addEventListener('focus', () => {
+      const query = input.value.trim();
+      if (query.length >= 1) {
+        this.renderAutocomplete(query);
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#search-tab')) {
+        resultsContainer.classList.add('hidden');
+      }
+    });
+  }
+
+  renderAutocomplete(query) {
+    const container = this.elements.globalSearchResults;
+    if (!container) return;
+
+    const normQuery = normalizeSearchText(query);
+    const lang = this.state.language;
+    const isEl = lang === 'el';
+
+    // 1. Monuments (wonders)
+    const wonderMatches = [];
+    for (const record of this.wonders) {
+      const normNameEn = normalizeSearchText(record.name.en);
+      const normNameEl = normalizeSearchText(record.name.el);
+      const normLocEn = normalizeSearchText(record.location.en);
+      const normLocEl = normalizeSearchText(record.location.el);
+
+      if (normNameEn.includes(normQuery) || normNameEl.includes(normQuery) || normLocEn.includes(normQuery) || normLocEl.includes(normQuery)) {
+        const primaryName = isEl ? record.name.el : record.name.en;
+        const subLocation = isEl ? record.location.el : record.location.en;
+        wonderMatches.push({
+          record,
+          primaryText: primaryName,
+          secondaryText: subLocation
+        });
+        if (wonderMatches.length >= 6) break;
+      }
+    }
+
+    // 2. Locations / Regions
+    const locationSet = new Map();
+    for (const record of this.wonders) {
+      const locStr = isEl ? record.location.el : record.location.en;
+      const parts = locStr.split(',').map((s) => s.trim()).filter(Boolean);
+      for (const part of parts) {
+        if (!locationSet.has(part.toLowerCase())) {
+          if (normalizeSearchText(part).includes(normQuery)) {
+            locationSet.set(part.toLowerCase(), { value: part, filterKey: 'location' });
+          }
+        }
+      }
+    }
+    const locationMatches = Array.from(locationSet.values()).slice(0, 5);
+
+    // 3. Countries
+    const countrySet = new Map();
+    for (const record of this.wonders) {
+      const rawCountry = record.country;
+      const countryDisplay = COUNTRY_LABELS[rawCountry]?.[lang] ?? rawCountry;
+      if (normalizeSearchText(countryDisplay).includes(normQuery) || normalizeSearchText(rawCountry).includes(normQuery)) {
+        if (!countrySet.has(rawCountry)) {
+          countrySet.set(rawCountry, { value: rawCountry, display: countryDisplay, filterKey: 'country' });
+        }
+      }
+    }
+    const countryMatches = Array.from(countrySet.values()).slice(0, 5);
+
+    // 4. Typology / Categories
+    const categorySet = new Map();
+    for (const record of this.wonders) {
+      const rawCat = record.category;
+      const catDisplay = CATEGORY_LABELS[rawCat]?.[lang] ?? rawCat;
+      if (normalizeSearchText(catDisplay).includes(normQuery) || normalizeSearchText(rawCat).includes(normQuery)) {
+        if (!categorySet.has(rawCat)) {
+          categorySet.set(rawCat, { value: rawCat, display: catDisplay, filterKey: 'category' });
+        }
+      }
+    }
+    const categoryMatches = Array.from(categorySet.values()).slice(0, 5);
+
+    const totalMatches = wonderMatches.length + locationMatches.length + countryMatches.length + categoryMatches.length;
+
+    if (totalMatches === 0) {
+      container.innerHTML = `<div class="search-empty">${isEl ? 'Δεν βρέθηκαν αποτελέσματα' : 'No results found'}</div>`;
+      container.classList.remove('hidden');
+      return;
+    }
+
+    const highlight = (text, q) => {
+      const escaped = escapeHtml(text);
+      if (!q) return escaped;
+      const re = new RegExp(`(${escapeHtml(q).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return escaped.replace(re, '<mark>$1</mark>');
+    };
+
+    let html = '';
+
+    if (wonderMatches.length > 0) {
+      html += `<div class="search-results-section">
+        <div class="search-results-header">${isEl ? 'Θαύματα' : 'Wonders'}</div>
+        ${wonderMatches.map((m) => `
+          <button class="search-result-item" type="button" data-autocomplete-type="wonder" data-wonder-id="${m.record.id}">
+            <span class="search-result-text">
+              <strong>${highlight(m.primaryText, query)}</strong>
+              <small style="display: block; font-size: 0.76rem; color: var(--text-secondary); margin-top: 2px;">${escapeHtml(m.secondaryText)}</small>
+            </span>
+          </button>
+        `).join('')}
+      </div>`;
+    }
+
+    if (locationMatches.length > 0) {
+      html += `<div class="search-results-section">
+        <div class="search-results-header">${isEl ? 'Τοποθεσίες' : 'Locations'}</div>
+        ${locationMatches.map((m) => `
+          <button class="search-result-item" type="button" data-autocomplete-type="filter" data-filter-key="query" data-filter-val="${escapeHtml(m.value)}">
+            <span class="search-result-text">${highlight(m.value, query)}</span>
+          </button>
+        `).join('')}
+      </div>`;
+    }
+
+    if (countryMatches.length > 0) {
+      html += `<div class="search-results-section">
+        <div class="search-results-header">${isEl ? 'Χώρες' : 'Countries'}</div>
+        ${countryMatches.map((m) => `
+          <button class="search-result-item" type="button" data-autocomplete-type="filter" data-filter-key="country" data-filter-val="${escapeHtml(m.value)}">
+            <span class="search-result-text">${highlight(m.display, query)}</span>
+          </button>
+        `).join('')}
+      </div>`;
+    }
+
+    if (categoryMatches.length > 0) {
+      html += `<div class="search-results-section">
+        <div class="search-results-header">${isEl ? 'Τυπολογία' : 'Typology'}</div>
+        ${categoryMatches.map((m) => `
+          <button class="search-result-item" type="button" data-autocomplete-type="filter" data-filter-key="category" data-filter-val="${escapeHtml(m.value)}">
+            <span class="search-result-text">${highlight(m.display, query)}</span>
+          </button>
+        `).join('')}
+      </div>`;
+    }
+
+    container.innerHTML = html;
+    container.classList.remove('hidden');
+
+    container.querySelectorAll('[data-autocomplete-type="wonder"]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.wonderId;
+        const record = this.wonders.find((w) => w.id === id);
+        if (record) {
+          this.mapController?.focus(record);
+          this.showWonderDetails(id);
+          container.classList.add('hidden');
+          if (window.innerWidth <= 768) {
+            this.elements.sidebar.classList.remove('mobile-open');
+            document.body.classList.remove('mobile-sidebar-active');
+          }
+        }
+      });
+    });
+
+    container.querySelectorAll('[data-autocomplete-type="filter"]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.filterKey;
+        const val = btn.dataset.filterVal;
+        if (key === 'query') {
+          this.state.query = val;
+          if (this.elements.globalSearchInput) this.elements.globalSearchInput.value = val;
+        } else {
+          this.state[key] = val;
+          const input = document.getElementById(`${key}-filter`);
+          if (input) input.value = val;
+        }
+        this.syncUrl();
+        this.applyFilters();
+        container.classList.add('hidden');
+      });
     });
   }
 
@@ -261,6 +474,10 @@ class AncientGreekWondersApp {
     this.state.sevenWonder = false;
     this.state.query = '';
     if (this.elements.globalSearchInput) this.elements.globalSearchInput.value = '';
+    if (this.elements.globalSearchResults) {
+      this.elements.globalSearchResults.classList.add('hidden');
+      this.elements.globalSearchResults.innerHTML = '';
+    }
     ['status', 'category', 'country', 'sevenWonder', 'seven', 'period'].forEach((k) => {
       const input = document.getElementById(`${k}-filter`);
       if (input) input.value = '';
@@ -410,32 +627,13 @@ class AncientGreekWondersApp {
     const list = this.elements.globalSearchResults;
     if (!list) return;
 
-    if (!this.currentRecords.length) {
-      list.innerHTML = `<div class="fbc-empty" style="padding: 1rem; text-align: center; color: var(--text-muted);">${t(this.state.language, 'noResults')}</div>`;
+    if (!this.state.query || this.state.query.trim().length === 0) {
+      list.classList.add('hidden');
+      list.innerHTML = '';
       return;
     }
 
-    list.innerHTML = this.currentRecords.map((record) => createResultMarkup(record, this.state.language)).join('');
-
-    list.querySelectorAll('.result-item').forEach((item) => {
-      const wonderId = item.dataset.wonderId;
-      const record = this.wonders.find((w) => w.id === wonderId);
-      if (!record) return;
-
-      item.querySelector('[data-result-action="focus"]')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.mapController.focus(record);
-        if (window.innerWidth <= 768) {
-          this.elements.sidebar.classList.remove('mobile-open');
-          document.body.classList.remove('mobile-sidebar-active');
-        }
-      });
-
-      item.querySelector('[data-result-action="details"]')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.showWonderDetails(wonderId);
-      });
-    });
+    this.renderAutocomplete(this.state.query);
   }
 
   updateSummaryStats() {
@@ -458,15 +656,17 @@ class AncientGreekWondersApp {
     if (!record) return;
 
     const item = localizeRecord(record, this.state.language);
-    const cat = getWonderMapCategory(record);
+    const isEl = this.state.language === 'el';
 
     this.elements.wonderTitleblock.innerHTML = `
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-        <span class="cluster-badge" style="position: static; background: ${cat.color};">${item.statusLabel}</span>
-        ${record.sevenWonder ? '<span class="badge--altered" style="font-size: 11px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">Seven Wonders</span>' : ''}
-      </div>
-      <h2 style="font-family: var(--font-serif); font-size: 1.45rem; font-weight: 600; margin: 0;">${item.name}</h2>
-      <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 2px 0 0;">${item.location}</p>
+      <span class="lagoon-eyebrow">${isEl ? 'Αρχαίο Ελληνικό Θαύμα' : 'Ancient Greek Wonder'}</span>
+      <h2 class="lagoon-name">
+        <span class="lagoon-name-en">${escapeHtml(record.name.en)}</span>
+        ${record.name.el ? `<span class="lagoon-name-sep" aria-hidden="true">/</span><span class="lagoon-name-gr">${escapeHtml(record.name.el)}</span>` : ''}
+      </h2>
+      <p class="lagoon-locality">
+        <span class="lagoon-pin-icon" aria-hidden="true">📍</span> <em>${escapeHtml(item.location)}</em>
+      </p>
     `;
 
     this.elements.wonderDetails.innerHTML = createDetailMarkup(record, this.state.language);
@@ -483,7 +683,7 @@ class AncientGreekWondersApp {
 
     // Update Language Toggle text
     if (this.elements.languageToggle) {
-      this.elements.languageToggle.textContent = isEl ? 'EN' : 'ΕΛ';
+      this.elements.languageToggle.textContent = isEl ? 'English' : 'Ελληνικά';
       this.elements.languageToggle.setAttribute('aria-label', isEl ? 'Switch to English' : 'Μετάβαση στα Ελληνικά');
     }
 
@@ -539,7 +739,7 @@ class AncientGreekWondersApp {
     if (wmCov3) wmCov3.textContent = isEl ? 'Χρονολόγηση' : 'Chronology';
     if (wmTeamEyebrow) wmTeamEyebrow.textContent = isEl ? 'Ερευνητική & επιστημονική επιμέλεια' : 'Research & project lead';
     if (wmSigEyebrow) wmSigEyebrow.textContent = isEl ? 'Ανάπτυξη ιστοτόπου' : 'Website developed by';
-    if (wmVisitsLabel) wmVisitsLabel.textContent = isEl ? 'Καταγεγραμμένες επισκέψεις' : 'Recorded visits';
+    if (wmVisitsLabel) wmVisitsLabel.textContent = isEl ? 'Καταγεγραμμένες επισκέψεις σελίδας' : 'Recorded page visits';
     const wmVisitCount = document.querySelector('[data-visit-count]');
     if (wmVisitCount) wmVisitCount.setAttribute('data-locale', isEl ? 'el' : 'en');
     if (footerAuthorship) footerAuthorship.textContent = isEl ? 'Ερευνητική & επιστημονική επιμέλεια' : 'Research & project lead';
@@ -569,10 +769,10 @@ class AncientGreekWondersApp {
     const searchLabel = document.getElementById('search-label');
     const searchInput = document.getElementById('global-search-input');
     if (searchHint) searchHint.textContent = isEl
-      ? 'Αναζητήστε ένα θαύμα με βάση το όνομα, τη χώρα, την αρχαία περιοχή, τον αρχιτεκτονικό τύπο ή την περίοδο.'
-      : 'Find a wonder by name, country, ancient region, architectural type, or period.';
+      ? 'Η επιλογή αποτελέσματος εφαρμόζεται ως φίλτρο — επηρεάζοντας τον χάρτη, τα στατιστικά και το πλήθος των μνημείων.'
+      : 'Selecting a result applies it as a filter — affecting the map, statistics, and monument counts.';
     if (searchLabel) searchLabel.textContent = isEl ? 'Καθολική αναζήτηση' : 'Global Search';
-    if (searchInput) searchInput.placeholder = isEl ? 'Αναζήτηση Παρθενώνας, Δελφοί, Ολυμπία, Κολοσσός…' : 'Search Parthenon, Delphi, Olympia, Colossus…';
+    if (searchInput) searchInput.placeholder = isEl ? 'Αναζήτηση ονόματος, τοποθεσίας, τυπολογίας…' : 'Search name, location, typology…';
 
     // Statistics panel
     const statsHint = document.getElementById('stats-hint');
@@ -596,18 +796,23 @@ class AncientGreekWondersApp {
       : 'The wonders of the ancient Greek world encompass monumental temples, sanctuaries, civic spaces, engineering achievements, and colossal artworks created across the Greek mainland, Aegean islands, Magna Graecia, and the Hellenistic kingdoms (c. 1600 BC – 300 AD). From the canonical Seven Wonders to monumental amphitheatres and panhellenic sanctuaries, they reflect the pinnacles of classical architecture, geometry, religious devotion, and civic life.';
     if (fgBtn) fgBtn.textContent = isEl ? 'Αρχαία Θαύματα' : 'Ancient Wonders';
 
+    const wmCta = document.getElementById('wm-cta-label');
+    if (wmCta) wmCta.textContent = isEl ? 'Είσοδος στον άτλαντα' : 'Enter the atlas';
+
     // Footer nav
     const aboutBtn = document.getElementById('about-btn');
     const refBtn = document.getElementById('references-btn');
     const submitBtn = document.getElementById('submit-data-btn');
-    if (aboutBtn) aboutBtn.textContent = isEl ? 'Καλωσόρισμα' : 'Welcome';
+    if (aboutBtn) aboutBtn.textContent = isEl ? 'Σχετικά' : 'About';
     if (refBtn) refBtn.textContent = isEl ? 'Πηγές' : 'Sources';
     if (submitBtn) submitBtn.textContent = isEl ? 'Υποβολή δεδομένων' : 'Submit data';
 
     this.syncUrl();
     if (triggerUpdate) {
       if (this.atlasInterface) {
-        this.initCommonAtlasInterface();
+        this.atlasInterface.setRecords(this.currentRecords);
+        this.atlasInterface.filterPanel?.render?.();
+        this.atlasInterface.statisticsPanel?.render?.();
       }
       this.updateView();
     }
@@ -615,7 +820,8 @@ class AncientGreekWondersApp {
 
   syncUrl() {
     const next = serializeUrlState(this.state);
-    history.replaceState({}, '', `${location.pathname}${next.size ? `?${next}` : ''}${location.hash}`);
+    const query = next ? next.toString() : '';
+    history.replaceState({}, '', `${location.pathname}${query ? `?${query}` : ''}${location.hash}`);
   }
 }
 

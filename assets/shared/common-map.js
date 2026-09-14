@@ -341,7 +341,7 @@
 
             var title = String(category.label || category.key).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 
-            return '<span class="cluster-badge ' + badgeSlots[index] + '" title="' + title + ': ' + categoryCount.toLocaleString('en-US') + '" style="background:' + category.color + '">' + formatCount(categoryCount) + '</span>';
+            return '<span class="cluster-badge ' + badgeSlots[index] + '" aria-label="' + title + ': ' + categoryCount.toLocaleString('en-US') + '" style="background:' + category.color + '">' + formatCount(categoryCount) + '</span>';
         }).join('');
 
         var size = count >= 100 ? 44 : count >= 10 ? 40 : 36;
