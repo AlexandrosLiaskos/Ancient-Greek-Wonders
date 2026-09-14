@@ -313,6 +313,19 @@
         return count >= 1000 ? compactPinCount.format(count).replace(/([KMBT])$/, '\u202f$1') : String(count);
     }
 
+    function getClusterBadgeSize(count) {
+        if (count >= 25) return 26;
+        if (count >= 10) return 24;
+        if (count >= 4) return 22;
+        return 20;
+    }
+
+    function getClusterFontSize(count) {
+        if (count >= 100) return 9.5;
+        if (count >= 10) return 10.5;
+        return 11;
+    }
+
     function createCategoryClusterIcon(cluster, categories, summary) {
         categories = Array.isArray(categories) ? categories.slice(0, 4) : [];
         var children = typeof cluster.getAllChildMarkers === 'function'
@@ -327,29 +340,51 @@
             if (key) counts[key] = (counts[key] || 0) + 1;
         });
 
-        var badgeSlots;
-        if (categories.length === 4) {
-            badgeSlots = ['badge-slot-1', 'badge-slot-2', 'badge-slot-3', 'badge-slot-4'];
-        } else if (categories.length === 2) {
-            badgeSlots = ['badge-high', 'badge-low'];
-        } else {
-            badgeSlots = ['badge-high', 'badge-medium', 'badge-low'];
-        }
-        var badges = categories.map(function (category, index) {
-            var categoryCount = counts[category.key] || 0;
-            if (!categoryCount) return '';
+        var activeCategories = categories.filter(function (category) {
+            return (counts[category.key] || 0) > 0;
+        });
 
+        if (activeCategories.length === 0) {
+            var fallbackColor = (categories[0] && categories[0].color) || '#ea580c';
+            var fallbackSize = getClusterBadgeSize(count);
+            return L.divIcon({
+                html: '<div class="cluster-stack-wrapper"><span class="cluster-stack-badge" style="background:' + fallbackColor + ';width:' + fallbackSize + 'px;height:' + fallbackSize + 'px;font-size:' + getClusterFontSize(count) + 'px;">' + formatCount(count) + '</span></div>',
+                className: 'minimal-cluster',
+                iconSize: L.point(fallbackSize, fallbackSize),
+                iconAnchor: L.point(fallbackSize / 2, fallbackSize / 2)
+            });
+        }
+
+        var overlap = 5;
+        var totalWidth = 0;
+        var maxHeight = 0;
+        var badgesHtml = '';
+
+        activeCategories.forEach(function (category, index) {
+            var categoryCount = counts[category.key] || 0;
+            var badgeSize = getClusterBadgeSize(categoryCount);
+            var fontSize = getClusterFontSize(categoryCount);
             var title = String(category.label || category.key).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 
-            return '<span class="cluster-badge ' + badgeSlots[index] + '" aria-label="' + title + ': ' + categoryCount.toLocaleString('en-US') + '" style="background:' + category.color + '">' + formatCount(categoryCount) + '</span>';
-        }).join('');
+            if (index === 0) {
+                totalWidth += badgeSize;
+            } else {
+                totalWidth += (badgeSize - overlap);
+            }
+            if (badgeSize > maxHeight) {
+                maxHeight = badgeSize;
+            }
 
-        var size = count >= 100 ? 44 : count >= 10 ? 40 : 36;
+            var zIndex = activeCategories.length - index;
+
+            badgesHtml += '<span class="cluster-stack-badge" aria-label="' + title + ': ' + categoryCount.toLocaleString('en-US') + '" style="background:' + category.color + ';width:' + badgeSize + 'px;height:' + badgeSize + 'px;font-size:' + fontSize + 'px;z-index:' + zIndex + ';">' + formatCount(categoryCount) + '</span>';
+        });
+
         return L.divIcon({
-            html: '<div class="cluster-icon" style="width:' + size + 'px;height:' + size + 'px">' + formatCount(count) + badges + '</div>',
+            html: '<div class="cluster-stack-wrapper" style="width:' + totalWidth + 'px;height:' + maxHeight + 'px">' + badgesHtml + '</div>',
             className: 'minimal-cluster',
-            iconSize: L.point(size, size),
-            iconAnchor: L.point(size / 2, size / 2)
+            iconSize: L.point(totalWidth, maxHeight),
+            iconAnchor: L.point(totalWidth / 2, maxHeight / 2)
         });
     }
 

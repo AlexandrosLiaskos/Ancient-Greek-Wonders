@@ -1,7 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { mapControlLabels, markerDescriptor, pinTooltipInsideMap, revealMarkerPreview } from '../src/map/map.js';
+import {
+  mapControlLabels,
+  markerDescriptor,
+  pinTooltipInsideMap,
+  revealMarkerPreview,
+  createStackedClusterMarkup,
+  getClusterBadgeSize,
+  createStackedCategoryClusterIcon
+} from '../src/map/map.js';
 import { WONDERS } from '../src/data/wonders.js';
 
 test('marker descriptor carries stable styling and non-color status text', () => {
@@ -57,4 +65,46 @@ test('pinTooltipInsideMap flips direction and updates when overflowing top', () 
   pinTooltipInsideMap(tooltip, map, { margin: 8 });
   assert.equal(tooltip.options.direction, 'bottom');
   assert.equal(updated, true);
+});
+
+test('createStackedClusterMarkup produces purely colored category badges without black circle', () => {
+  const categories = [
+    { key: 'lost', label: 'Lost / submerged', color: '#b91c1c' },
+    { key: 'ruins', label: 'Ruins / excavated', color: '#ea580c' },
+    { key: 'extant', label: 'Standing / restored', color: '#0d9488' }
+  ];
+
+  // 1 category cluster
+  const single = createStackedClusterMarkup({ ruins: 3 }, categories);
+  assert.match(single.html, /class="cluster-stack-wrapper"/);
+  assert.match(single.html, /class="cluster-stack-badge"/);
+  assert.doesNotMatch(single.html, /#000/);
+  assert.doesNotMatch(single.html, /background:#000/);
+  assert.match(single.html, /background:#ea580c/);
+  assert.match(single.html, />3<\/span>/);
+  assert.equal(single.width, 20);
+
+  // Multi-category stacked cluster
+  const multi = createStackedClusterMarkup({ lost: 1, ruins: 4, extant: 2 }, categories);
+  assert.match(multi.html, /background:#b91c1c/);
+  assert.match(multi.html, /background:#ea580c/);
+  assert.match(multi.html, /background:#0d9488/);
+  assert.match(multi.html, />1<\/span>/);
+  assert.match(multi.html, />4<\/span>/);
+  assert.match(multi.html, />2<\/span>/);
+  assert.doesNotMatch(multi.html, /#000/);
+  // Total width with 5px overlap: lost(20) + ruins(22 - 5) + extant(20 - 5) = 52px
+  assert.equal(multi.width, 52);
+  assert.equal(multi.height, 22);
+});
+
+test('getClusterBadgeSize scales progressively with count while remaining compact', () => {
+  assert.equal(getClusterBadgeSize(1), 20);
+  assert.equal(getClusterBadgeSize(3), 20);
+  assert.equal(getClusterBadgeSize(4), 22);
+  assert.equal(getClusterBadgeSize(9), 22);
+  assert.equal(getClusterBadgeSize(10), 24);
+  assert.equal(getClusterBadgeSize(25), 26);
+  assert.equal(getClusterBadgeSize(50), 26);
+  assert.ok(getClusterBadgeSize(50) < 30, 'Even largest cluster badge stays far smaller than old 44px black circle');
 });

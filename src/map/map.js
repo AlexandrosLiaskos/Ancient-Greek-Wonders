@@ -113,6 +113,84 @@ export function getLocalizedWonderCategories(language) {
   return WONDER_MAP_CATEGORIES;
 }
 
+export function getClusterBadgeSize(count) {
+  if (count >= 25) return 26;
+  if (count >= 10) return 24;
+  if (count >= 4) return 22;
+  return 20;
+}
+
+export function getClusterFontSize(count) {
+  if (count >= 100) return 9.5;
+  if (count >= 10) return 10.5;
+  return 11;
+}
+
+export function createStackedClusterMarkup(counts, categories = WONDER_MAP_CATEGORIES) {
+  const activeCategories = categories.filter((c) => (counts[c.key] || 0) > 0);
+  if (activeCategories.length === 0) {
+    const fallbackColor = categories[0]?.color || '#ea580c';
+    const size = 20;
+    return {
+      html: `<div class="cluster-stack-wrapper"><span class="cluster-stack-badge" style="background:${fallbackColor};width:${size}px;height:${size}px;font-size:11px;">1</span></div>`,
+      width: size,
+      height: size
+    };
+  }
+
+  const overlap = 5;
+  let totalWidth = 0;
+  let maxHeight = 0;
+  let badgesHtml = '';
+
+  activeCategories.forEach((cat, index) => {
+    const count = counts[cat.key] || 0;
+    const size = getClusterBadgeSize(count);
+    const fontSize = getClusterFontSize(count);
+    const zIndex = activeCategories.length - index;
+
+    if (index === 0) {
+      totalWidth += size;
+    } else {
+      totalWidth += (size - overlap);
+    }
+    if (size > maxHeight) {
+      maxHeight = size;
+    }
+
+    const title = escapeHtml(String(cat.label || cat.key));
+    badgesHtml += `<span class="cluster-stack-badge" aria-label="${title}: ${count}" style="background:${cat.color};width:${size}px;height:${size}px;font-size:${fontSize}px;z-index:${zIndex};">${count}</span>`;
+  });
+
+  return {
+    html: `<div class="cluster-stack-wrapper" style="width:${totalWidth}px;height:${maxHeight}px">${badgesHtml}</div>`,
+    width: totalWidth,
+    height: maxHeight
+  };
+}
+
+export function createStackedCategoryClusterIcon(group, categories = WONDER_MAP_CATEGORIES) {
+  const L = globalThis.L;
+  const children = typeof group?.getAllChildMarkers === 'function' ? group.getAllChildMarkers() : [];
+  const counts = Object.create(null);
+  children.forEach((marker) => {
+    const key = marker?._mapCategory;
+    if (key) counts[key] = (counts[key] || 0) + 1;
+  });
+
+  const { html, width, height } = createStackedClusterMarkup(counts, categories);
+  if (!L || typeof L.divIcon !== 'function') {
+    return { html, className: 'minimal-cluster', iconSize: [width, height], iconAnchor: [width / 2, height / 2] };
+  }
+
+  return L.divIcon({
+    html,
+    className: 'minimal-cluster',
+    iconSize: L.point(width, height),
+    iconAnchor: L.point(width / 2, height / 2)
+  });
+}
+
 export function mapControlLabels(language) {
   return { zoomIn: t(language, 'zoomIn'), zoomOut: t(language, 'zoomOut'), layers: t(language, 'mapLayers') };
 }
@@ -268,16 +346,7 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     zoomToBoundsOnClick: true,
     spiderfyOnMaxZoom: true,
     iconCreateFunction: (group) => {
-      if (globalThis.NkuaWebGISMap?.createCategoryClusterIcon) {
-        return globalThis.NkuaWebGISMap.createCategoryClusterIcon(group, WONDER_MAP_CATEGORIES);
-      }
-      const count = group.getChildCount();
-      const size = count < 10 ? 'small' : count < 100 ? 'medium' : 'large';
-      return L.divIcon({
-        className: `marker-cluster marker-cluster-${size}`,
-        html: `<div role="img" aria-label="${escapeHtml(formatClusterCount(language, count))}"><span>${count}</span></div>`,
-        iconSize: [40, 40]
-      });
+      return createStackedCategoryClusterIcon(group, categories);
     }
   });
 

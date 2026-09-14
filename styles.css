@@ -294,11 +294,47 @@ html[lang="el"] .masthead h1 {
     z-index: 1000;
 }
 
-/* Cluster Icon & 4 Badge Slots (Matching Lagoons) */
+/* Stacked Category Cluster (Pure colored badges without black circle) */
 .minimal-cluster {
     background: transparent !important;
     border: none !important;
 }
+.cluster-stack-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.28));
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    line-height: 1;
+}
+.cluster-stack-wrapper:hover {
+    transform: scale(1.14);
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.42));
+    z-index: 1000;
+}
+.cluster-stack-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 700;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    margin-left: -5px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+.cluster-stack-badge:first-child {
+    margin-left: 0;
+}
+
+/* Fallback Cluster Icon */
 .cluster-icon {
     display: flex;
     align-items: center;
