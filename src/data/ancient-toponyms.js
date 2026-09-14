@@ -5889,5 +5889,1673 @@ export const ANCIENT_TOPONYMS = [
     "lng": 24.3317,
     "minZoom": 9.5,
     "priority": 3
+  },
+  {
+    "id": "reg-galatia",
+    "name": {
+      "en": "GALATIA",
+      "el": "ΓΑΛΑΤΙΑ"
+    },
+    "type": "region",
+    "lat": 39.8,
+    "lng": 32.8,
+    "minZoom": 5.5,
+    "maxZoom": 10,
+    "priority": 2
+  },
+  {
+    "id": "reg-lycaonia",
+    "name": {
+      "en": "LYCAONIA",
+      "el": "ΛΥΚΑΟΝΙΑ"
+    },
+    "type": "region",
+    "lat": 38,
+    "lng": 32.8,
+    "minZoom": 6,
+    "maxZoom": 10,
+    "priority": 2
+  },
+  {
+    "id": "reg-isauria",
+    "name": {
+      "en": "ISAURIA",
+      "el": "ΙΣΑΥΡΙΑ"
+    },
+    "type": "region",
+    "lat": 37,
+    "lng": 32.2,
+    "minZoom": 6.5,
+    "maxZoom": 10,
+    "priority": 3
+  },
+  {
+    "id": "reg-peraea-rhodiorum",
+    "name": {
+      "en": "PERAEA RHODIORUM",
+      "el": "ΠΕΡΑΙΑ ΡΟΔΙΩΝ"
+    },
+    "type": "subregion",
+    "lat": 36.75,
+    "lng": 28.15,
+    "minZoom": 7,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "reg-teuthrania",
+    "name": {
+      "en": "TEUTHRANIA",
+      "el": "ΤΕΥΘΡΑΝΙΑ"
+    },
+    "type": "subregion",
+    "lat": 39.1,
+    "lng": 27.35,
+    "minZoom": 7,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "reg-dardania-troad",
+    "name": {
+      "en": "DARDANIA",
+      "el": "ΔΑΡΔΑΝΙΑ"
+    },
+    "type": "subregion",
+    "lat": 40.05,
+    "lng": 26.4,
+    "minZoom": 7,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "city-ancyra",
+    "name": {
+      "en": "Ancyra",
+      "el": "Άγκυρα"
+    },
+    "type": "city_secondary",
+    "lat": 39.9333,
+    "lng": 32.8597,
+    "minZoom": 6.5,
+    "priority": 2
+  },
+  {
+    "id": "city-gordium",
+    "name": {
+      "en": "Gordium",
+      "el": "Γόρδιον"
+    },
+    "type": "city_secondary",
+    "lat": 39.65,
+    "lng": 31.9833,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-nicomedia",
+    "name": {
+      "en": "Nicomedia",
+      "el": "Νικομήδεια"
+    },
+    "type": "city_secondary",
+    "lat": 40.7667,
+    "lng": 29.9333,
+    "minZoom": 6.5,
+    "priority": 2
+  },
+  {
+    "id": "city-iconium",
+    "name": {
+      "en": "Iconium",
+      "el": "Ικόνιον"
+    },
+    "type": "city_secondary",
+    "lat": 37.8714,
+    "lng": 32.4847,
+    "minZoom": 6.5,
+    "priority": 2
+  },
+  {
+    "id": "city-heraclea-pontica",
+    "name": {
+      "en": "Heraclea Pontica",
+      "el": "Ηράκλεια Ποντική"
+    },
+    "type": "city_secondary",
+    "lat": 41.2847,
+    "lng": 31.4178,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-amisus",
+    "name": {
+      "en": "Amisus",
+      "el": "Αμισός"
+    },
+    "type": "city_secondary",
+    "lat": 41.3,
+    "lng": 36.3333,
+    "minZoom": 6.5,
+    "priority": 2
+  },
+  {
+    "id": "city-amastris",
+    "name": {
+      "en": "Amastris",
+      "el": "Άμαστρις"
+    },
+    "type": "city_secondary",
+    "lat": 41.75,
+    "lng": 32.3833,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-cerasus",
+    "name": {
+      "en": "Cerasus",
+      "el": "Κερασούς"
+    },
+    "type": "city_secondary",
+    "lat": 40.9167,
+    "lng": 38.3833,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-cotyora",
+    "name": {
+      "en": "Cotyora",
+      "el": "Κοτύωρα"
+    },
+    "type": "city_secondary",
+    "lat": 40.9833,
+    "lng": 37.8833,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-mylasa",
+    "name": {
+      "en": "Mylasa",
+      "el": "Μύλασα"
+    },
+    "type": "city_secondary",
+    "lat": 37.3133,
+    "lng": 27.7817,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-alabanda",
+    "name": {
+      "en": "Alabanda",
+      "el": "Αλάβανδα"
+    },
+    "type": "city_minor",
+    "lat": 37.5942,
+    "lng": 27.9233,
+    "minZoom": 8.5,
+    "priority": 3
+  },
+  {
+    "id": "city-stratonicea",
+    "name": {
+      "en": "Stratonicea",
+      "el": "Στρατονίκεια"
+    },
+    "type": "city_minor",
+    "lat": 37.3139,
+    "lng": 28.0644,
+    "minZoom": 8.5,
+    "priority": 3
+  },
+  {
+    "id": "city-tlos",
+    "name": {
+      "en": "Tlos",
+      "el": "Τλως"
+    },
+    "type": "city_minor",
+    "lat": 36.5539,
+    "lng": 29.3528,
+    "minZoom": 9,
+    "priority": 3
+  },
+  {
+    "id": "city-pinara",
+    "name": {
+      "en": "Pinara",
+      "el": "Πίναρα"
+    },
+    "type": "city_minor",
+    "lat": 36.4897,
+    "lng": 29.2611,
+    "minZoom": 9,
+    "priority": 3
+  },
+  {
+    "id": "city-limyra",
+    "name": {
+      "en": "Limyra",
+      "el": "Λίμυρα"
+    },
+    "type": "city_minor",
+    "lat": 36.3417,
+    "lng": 30.17,
+    "minZoom": 9,
+    "priority": 3
+  },
+  {
+    "id": "city-arycanda",
+    "name": {
+      "en": "Arycanda",
+      "el": "Αρύκανδα"
+    },
+    "type": "city_minor",
+    "lat": 36.5139,
+    "lng": 30.0603,
+    "minZoom": 9,
+    "priority": 3
+  },
+  {
+    "id": "city-apamea-cibotus",
+    "name": {
+      "en": "Apamea Cibotus",
+      "el": "Απάμεια Κιβωτός"
+    },
+    "type": "city_secondary",
+    "lat": 38.0167,
+    "lng": 30.0167,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-pessinus",
+    "name": {
+      "en": "Pessinus",
+      "el": "Πεσσινούς"
+    },
+    "type": "city_secondary",
+    "lat": 39.3333,
+    "lng": 31.59,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-aizanoi",
+    "name": {
+      "en": "Aizanoi",
+      "el": "Αιζανοί"
+    },
+    "type": "city_secondary",
+    "lat": 39.2008,
+    "lng": 29.6108,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-caesarea-mazaca",
+    "name": {
+      "en": "Mazaca (Caesarea)",
+      "el": "Μάζακα (Καισάρεια)"
+    },
+    "type": "city_secondary",
+    "lat": 38.7322,
+    "lng": 35.4853,
+    "minZoom": 6.5,
+    "priority": 2
+  },
+  {
+    "id": "city-tyana",
+    "name": {
+      "en": "Tyana",
+      "el": "Τύανα"
+    },
+    "type": "city_secondary",
+    "lat": 37.85,
+    "lng": 34.6167,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-samosata",
+    "name": {
+      "en": "Samosata",
+      "el": "Σαμόσατα"
+    },
+    "type": "city_secondary",
+    "lat": 37.55,
+    "lng": 38.4833,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "reg-salaminia",
+    "name": {
+      "en": "SALAMINIA",
+      "el": "ΣΑΛΑΜΙΝΙΑ"
+    },
+    "type": "subregion",
+    "lat": 35.2,
+    "lng": 33.85,
+    "minZoom": 7.5,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "reg-paphia",
+    "name": {
+      "en": "PAPHIA",
+      "el": "ΠΑΦΙΑ"
+    },
+    "type": "subregion",
+    "lat": 34.8,
+    "lng": 32.45,
+    "minZoom": 7.5,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "reg-kourion-dist",
+    "name": {
+      "en": "CURIAS",
+      "el": "ΚΟΥΡΙΑΣ"
+    },
+    "type": "subregion",
+    "lat": 34.66,
+    "lng": 32.9,
+    "minZoom": 8,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "reg-amathusia",
+    "name": {
+      "en": "AMATHUSIA",
+      "el": "ΑΜΑΘΟΥΣΙΑ"
+    },
+    "type": "subregion",
+    "lat": 34.72,
+    "lng": 33.15,
+    "minZoom": 8,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "reg-karpasia",
+    "name": {
+      "en": "CARPASIA",
+      "el": "ΚΑΡΠΑΣΙΑ"
+    },
+    "type": "subregion",
+    "lat": 35.5,
+    "lng": 34.3,
+    "minZoom": 7.5,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "city-kourion",
+    "name": {
+      "en": "Kourion (Curium)",
+      "el": "Κούριον"
+    },
+    "type": "city_secondary",
+    "lat": 34.6653,
+    "lng": 32.8872,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-amathus",
+    "name": {
+      "en": "Amathus",
+      "el": "Αμαθούς"
+    },
+    "type": "city_secondary",
+    "lat": 34.7125,
+    "lng": 33.1419,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-marion",
+    "name": {
+      "en": "Marion (Arsinoe)",
+      "el": "Μάριον"
+    },
+    "type": "city_secondary",
+    "lat": 35.0333,
+    "lng": 32.425,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-soloi-cyp",
+    "name": {
+      "en": "Soloi (Cyprus)",
+      "el": "Σόλοι Κύπρου"
+    },
+    "type": "city_secondary",
+    "lat": 35.14,
+    "lng": 32.81,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-lapethos",
+    "name": {
+      "en": "Lapethos",
+      "el": "Λάπηθος"
+    },
+    "type": "city_secondary",
+    "lat": 35.34,
+    "lng": 33.17,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-keryneia",
+    "name": {
+      "en": "Ceryneia",
+      "el": "Κερύνεια"
+    },
+    "type": "city_secondary",
+    "lat": 35.34,
+    "lng": 33.32,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-idalion",
+    "name": {
+      "en": "Idalion",
+      "el": "Ιδάλιον"
+    },
+    "type": "city_secondary",
+    "lat": 34.98,
+    "lng": 33.37,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-tamassos",
+    "name": {
+      "en": "Tamassos",
+      "el": "Ταμασσός"
+    },
+    "type": "city_secondary",
+    "lat": 35.025,
+    "lng": 33.2417,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-palaepaphos",
+    "name": {
+      "en": "Palaepaphos",
+      "el": "Παλαίπαφος"
+    },
+    "type": "city_secondary",
+    "lat": 34.7072,
+    "lng": 32.5744,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "reg-elymia",
+    "name": {
+      "en": "ELYMIA",
+      "el": "ΕΛΥΜΙΑ"
+    },
+    "type": "subregion",
+    "lat": 37.95,
+    "lng": 12.75,
+    "minZoom": 7,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "reg-daunia",
+    "name": {
+      "en": "DAUNIA",
+      "el": "ΔΑΥΝΙΑ"
+    },
+    "type": "subregion",
+    "lat": 41.45,
+    "lng": 15.55,
+    "minZoom": 7,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "reg-peucetia",
+    "name": {
+      "en": "PEUCETIA",
+      "el": "ΠΕΥΚΕΤΙΑ"
+    },
+    "type": "subregion",
+    "lat": 41,
+    "lng": 16.75,
+    "minZoom": 7,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "reg-samnium",
+    "name": {
+      "en": "SAMNIUM",
+      "el": "ΣΑΜΝΙΟΝ"
+    },
+    "type": "region",
+    "lat": 41.5,
+    "lng": 14.5,
+    "minZoom": 6.5,
+    "maxZoom": 10,
+    "priority": 2
+  },
+  {
+    "id": "reg-picenum",
+    "name": {
+      "en": "PICENUM",
+      "el": "ΠΙΚΗΝΟΝ"
+    },
+    "type": "region",
+    "lat": 43,
+    "lng": 13.5,
+    "minZoom": 6.5,
+    "maxZoom": 10,
+    "priority": 2
+  },
+  {
+    "id": "reg-umbria",
+    "name": {
+      "en": "UMBRIA",
+      "el": "ΟΜΒΡΙΚΗ"
+    },
+    "type": "region",
+    "lat": 43,
+    "lng": 12.5,
+    "minZoom": 6.5,
+    "maxZoom": 10,
+    "priority": 2
+  },
+  {
+    "id": "city-eryx",
+    "name": {
+      "en": "Eryx",
+      "el": "Έρυξ"
+    },
+    "type": "city_secondary",
+    "lat": 38.0378,
+    "lng": 12.5878,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-panormus",
+    "name": {
+      "en": "Panormus",
+      "el": "Πάνορμος"
+    },
+    "type": "city_secondary",
+    "lat": 38.1157,
+    "lng": 13.3615,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-tyndaris",
+    "name": {
+      "en": "Tyndaris",
+      "el": "Τυνδαρίς"
+    },
+    "type": "city_secondary",
+    "lat": 38.1433,
+    "lng": 15.0442,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-naxos-sicily",
+    "name": {
+      "en": "Naxos (Sicilia)",
+      "el": "Νάξος Σικελίας"
+    },
+    "type": "city_secondary",
+    "lat": 37.82,
+    "lng": 15.2667,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-leontini",
+    "name": {
+      "en": "Leontini",
+      "el": "Λεοντίνοι"
+    },
+    "type": "city_secondary",
+    "lat": 37.2833,
+    "lng": 15,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-camarina",
+    "name": {
+      "en": "Camarina",
+      "el": "Καμάρινα"
+    },
+    "type": "city_secondary",
+    "lat": 36.8722,
+    "lng": 14.4833,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-lipara",
+    "name": {
+      "en": "Lipara",
+      "el": "Λιπάρα"
+    },
+    "type": "city_secondary",
+    "lat": 38.4678,
+    "lng": 14.9547,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-hipponion",
+    "name": {
+      "en": "Hipponion",
+      "el": "Ιππώνιον"
+    },
+    "type": "city_secondary",
+    "lat": 38.675,
+    "lng": 16.1,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-caulonia",
+    "name": {
+      "en": "Caulonia",
+      "el": "Καυλωνία"
+    },
+    "type": "city_secondary",
+    "lat": 38.3833,
+    "lng": 16.5167,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-heraclea-luc",
+    "name": {
+      "en": "Heraclea Lucaniae",
+      "el": "Ηράκλεια Λευκανίας"
+    },
+    "type": "city_secondary",
+    "lat": 40.2167,
+    "lng": 16.6667,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-hydruntum",
+    "name": {
+      "en": "Hydruntum",
+      "el": "Υδρούς"
+    },
+    "type": "city_secondary",
+    "lat": 40.1444,
+    "lng": 18.4917,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-brundisium",
+    "name": {
+      "en": "Brundisium",
+      "el": "Βρεντέσιον"
+    },
+    "type": "city_secondary",
+    "lat": 40.6383,
+    "lng": 17.9458,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-barium",
+    "name": {
+      "en": "Barium",
+      "el": "Βάριον"
+    },
+    "type": "city_secondary",
+    "lat": 41.1253,
+    "lng": 16.8667,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-puteoli",
+    "name": {
+      "en": "Puteoli (Dicaearchia)",
+      "el": "Ποτίολοι (Δικαιάρχεια)"
+    },
+    "type": "city_secondary",
+    "lat": 40.8228,
+    "lng": 14.1225,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-capua",
+    "name": {
+      "en": "Capua",
+      "el": "Καπύη"
+    },
+    "type": "city_secondary",
+    "lat": 41.0833,
+    "lng": 14.25,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-pithecusae",
+    "name": {
+      "en": "Pithecusae",
+      "el": "Πιθηκούσσαι"
+    },
+    "type": "city_secondary",
+    "lat": 40.75,
+    "lng": 13.8833,
+    "minZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-ancona",
+    "name": {
+      "en": "Ancona",
+      "el": "Αγκών"
+    },
+    "type": "city_secondary",
+    "lat": 43.6167,
+    "lng": 13.5167,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "sea-bosporus-cimmerius",
+    "name": {
+      "en": "BOSPORUS CIMMERIUS",
+      "el": "ΚΙΜΜΕΡΙΟΣ ΒΟΣΠΟΡΟΣ"
+    },
+    "type": "water",
+    "lat": 45.35,
+    "lng": 36.6,
+    "minZoom": 6.5,
+    "maxZoom": 11,
+    "priority": 2
+  },
+  {
+    "id": "reg-sindica",
+    "name": {
+      "en": "SINDICA",
+      "el": "ΣΙΝΔΙΚΗ"
+    },
+    "type": "subregion",
+    "lat": 45.1,
+    "lng": 37.2,
+    "minZoom": 6.5,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "reg-scythia-minor",
+    "name": {
+      "en": "SCYTHIA MINOR",
+      "el": "ΜΙΚΡΑ ΣΚΥΘΙΑ"
+    },
+    "type": "subregion",
+    "lat": 44.5,
+    "lng": 28.5,
+    "minZoom": 6.5,
+    "maxZoom": 11,
+    "priority": 3
+  },
+  {
+    "id": "macro-sarmatia",
+    "name": {
+      "en": "SARMATIA",
+      "el": "ΣΑΡΜΑΤΙΑ"
+    },
+    "type": "macro",
+    "lat": 48,
+    "lng": 36.5,
+    "minZoom": 3.5,
+    "maxZoom": 7,
+    "priority": 1
+  },
+  {
+    "id": "city-phanagoria",
+    "name": {
+      "en": "Phanagoria",
+      "el": "Φαναγόρεια"
+    },
+    "type": "city_secondary",
+    "lat": 45.28,
+    "lng": 36.97,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-hermonassa",
+    "name": {
+      "en": "Hermonassa",
+      "el": "Ερμώνασσα"
+    },
+    "type": "city_secondary",
+    "lat": 45.22,
+    "lng": 36.72,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-gorgippia",
+    "name": {
+      "en": "Gorgippia",
+      "el": "Γοργιππία"
+    },
+    "type": "city_secondary",
+    "lat": 44.89,
+    "lng": 37.31,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-theodosia",
+    "name": {
+      "en": "Theodosia",
+      "el": "Θεοδοσία"
+    },
+    "type": "city_secondary",
+    "lat": 45.0333,
+    "lng": 35.3833,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-tanais",
+    "name": {
+      "en": "Tanais",
+      "el": "Τάναϊς"
+    },
+    "type": "city_secondary",
+    "lat": 47.2667,
+    "lng": 39.3333,
+    "minZoom": 6.5,
+    "priority": 2
+  },
+  {
+    "id": "city-dioscurias",
+    "name": {
+      "en": "Dioscurias",
+      "el": "Διοσκουριάς"
+    },
+    "type": "city_secondary",
+    "lat": 43,
+    "lng": 41.0167,
+    "minZoom": 6.5,
+    "priority": 2
+  },
+  {
+    "id": "city-phasis",
+    "name": {
+      "en": "Phasis",
+      "el": "Φᾶσις"
+    },
+    "type": "city_secondary",
+    "lat": 42.15,
+    "lng": 41.67,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-odessus",
+    "name": {
+      "en": "Odessus",
+      "el": "Οδησσός"
+    },
+    "type": "city_secondary",
+    "lat": 43.2,
+    "lng": 27.9167,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-mesembria-pont",
+    "name": {
+      "en": "Mesembria Pontica",
+      "el": "Μεσημβρία Ποντική"
+    },
+    "type": "city_secondary",
+    "lat": 42.6589,
+    "lng": 27.7333,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-apollonia-pont",
+    "name": {
+      "en": "Apollonia Pontica",
+      "el": "Απολλωνία Ποντική"
+    },
+    "type": "city_secondary",
+    "lat": 42.4167,
+    "lng": 27.6958,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-tomis",
+    "name": {
+      "en": "Tomis",
+      "el": "Τόμις"
+    },
+    "type": "city_secondary",
+    "lat": 44.18,
+    "lng": 28.65,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-histria",
+    "name": {
+      "en": "Histria",
+      "el": "Ιστρίη"
+    },
+    "type": "city_secondary",
+    "lat": 44.5486,
+    "lng": 28.775,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-callatis",
+    "name": {
+      "en": "Callatis",
+      "el": "Κάλλατις"
+    },
+    "type": "city_secondary",
+    "lat": 43.8167,
+    "lng": 28.5833,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-tyras",
+    "name": {
+      "en": "Tyras",
+      "el": "Τύρας"
+    },
+    "type": "city_secondary",
+    "lat": 46.2,
+    "lng": 30.35,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "reg-coele-syria",
+    "name": {
+      "en": "COELE SYRIA",
+      "el": "ΚΟΙΛΗ ΣΥΡΙΑ"
+    },
+    "type": "region",
+    "lat": 33.85,
+    "lng": 36,
+    "minZoom": 6,
+    "maxZoom": 10,
+    "priority": 2
+  },
+  {
+    "id": "reg-decapolis",
+    "name": {
+      "en": "DECAPOLIS",
+      "el": "ΔΕΚΑΠΟΛΙΣ"
+    },
+    "type": "subregion",
+    "lat": 32.5,
+    "lng": 35.9,
+    "minZoom": 6.5,
+    "maxZoom": 10,
+    "priority": 3
+  },
+  {
+    "id": "reg-nabataea",
+    "name": {
+      "en": "NABATAEA",
+      "el": "ΝΑΒΑΤΑΙΑ"
+    },
+    "type": "region",
+    "lat": 30.3,
+    "lng": 35.5,
+    "minZoom": 5.5,
+    "maxZoom": 9,
+    "priority": 2
+  },
+  {
+    "id": "reg-palmyrene",
+    "name": {
+      "en": "PALMYRENE",
+      "el": "ΠΑΛΜΥΡΗΝΗ"
+    },
+    "type": "subregion",
+    "lat": 34.55,
+    "lng": 38.28,
+    "minZoom": 6.5,
+    "maxZoom": 10,
+    "priority": 3
+  },
+  {
+    "id": "macro-mesopotamia",
+    "name": {
+      "en": "MESOPOTAMIA",
+      "el": "ΜΕΣΟΠΟΤΑΜΙΑ"
+    },
+    "type": "macro",
+    "lat": 34.5,
+    "lng": 42,
+    "minZoom": 3.5,
+    "maxZoom": 7,
+    "priority": 1
+  },
+  {
+    "id": "reg-assyria",
+    "name": {
+      "en": "ASSYRIA",
+      "el": "ΑΣΣΥΡΙΑ"
+    },
+    "type": "region",
+    "lat": 36,
+    "lng": 43.5,
+    "minZoom": 5,
+    "maxZoom": 9,
+    "priority": 2
+  },
+  {
+    "id": "reg-susiana",
+    "name": {
+      "en": "SUSIANA",
+      "el": "ΣΟΥΣΙΑΝΗ"
+    },
+    "type": "region",
+    "lat": 32.2,
+    "lng": 48.2,
+    "minZoom": 5.5,
+    "maxZoom": 9,
+    "priority": 2
+  },
+  {
+    "id": "reg-persis",
+    "name": {
+      "en": "PERSIS",
+      "el": "ΠΕΡΣΙΣ"
+    },
+    "type": "region",
+    "lat": 30.5,
+    "lng": 49.8,
+    "minZoom": 5,
+    "maxZoom": 9,
+    "priority": 2
+  },
+  {
+    "id": "reg-hyrcania",
+    "name": {
+      "en": "HYRCANIA",
+      "el": "ΥΡΚΑΝΙΑ"
+    },
+    "type": "region",
+    "lat": 36.8,
+    "lng": 49.5,
+    "minZoom": 5,
+    "maxZoom": 8,
+    "priority": 2
+  },
+  {
+    "id": "city-palmyra",
+    "name": {
+      "en": "Palmyra (Tadmor)",
+      "el": "Παλμύρα"
+    },
+    "type": "city_major",
+    "lat": 34.5556,
+    "lng": 38.2672,
+    "minZoom": 6,
+    "priority": 1
+  },
+  {
+    "id": "city-petra",
+    "name": {
+      "en": "Petra",
+      "el": "Πέτρα"
+    },
+    "type": "city_major",
+    "lat": 30.3285,
+    "lng": 35.4444,
+    "minZoom": 6,
+    "priority": 1
+  },
+  {
+    "id": "city-baalbek",
+    "name": {
+      "en": "Heliopolis (Baalbek)",
+      "el": "Ηλιούπολις (Μπάαλμπεκ)"
+    },
+    "type": "city_major",
+    "lat": 34.0069,
+    "lng": 36.2044,
+    "minZoom": 6.5,
+    "priority": 1
+  },
+  {
+    "id": "city-seleucia-pieria",
+    "name": {
+      "en": "Seleucia Pieria",
+      "el": "Σελεύκεια Πιερία"
+    },
+    "type": "city_secondary",
+    "lat": 36.12,
+    "lng": 35.92,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-laodicea-mare",
+    "name": {
+      "en": "Laodicea ad Mare",
+      "el": "Λαοδίκεια επί θαλάττη"
+    },
+    "type": "city_secondary",
+    "lat": 35.5167,
+    "lng": 35.7833,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-apamea-syria",
+    "name": {
+      "en": "Apamea (Syria)",
+      "el": "Απάμεια Συρίας"
+    },
+    "type": "city_secondary",
+    "lat": 35.42,
+    "lng": 36.4,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-aradus",
+    "name": {
+      "en": "Aradus",
+      "el": "Άραδος"
+    },
+    "type": "city_secondary",
+    "lat": 34.86,
+    "lng": 35.8583,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-tripolis-syr",
+    "name": {
+      "en": "Tripolis (Phoenicia)",
+      "el": "Τρίπολις Φοινίκης"
+    },
+    "type": "city_secondary",
+    "lat": 34.4333,
+    "lng": 35.85,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-gerasa",
+    "name": {
+      "en": "Gerasa (Antioch on the Golden River)",
+      "el": "Γέρασα"
+    },
+    "type": "city_secondary",
+    "lat": 32.2797,
+    "lng": 35.8917,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-gadara",
+    "name": {
+      "en": "Gadara",
+      "el": "Γάδαρα"
+    },
+    "type": "city_secondary",
+    "lat": 32.655,
+    "lng": 35.6792,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-philadelphia-jor",
+    "name": {
+      "en": "Philadelphia (Amman)",
+      "el": "Φιλαδέλφεια"
+    },
+    "type": "city_secondary",
+    "lat": 31.9539,
+    "lng": 35.9356,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-scythopolis",
+    "name": {
+      "en": "Scythopolis",
+      "el": "Σκυθόπολις"
+    },
+    "type": "city_secondary",
+    "lat": 32.5022,
+    "lng": 35.5019,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-hierosolyma",
+    "name": {
+      "en": "Hierosolyma (Jerusalem)",
+      "el": "Ιεροσόλυμα"
+    },
+    "type": "city_major",
+    "lat": 31.7767,
+    "lng": 35.2342,
+    "minZoom": 6,
+    "priority": 1
+  },
+  {
+    "id": "city-ascalon",
+    "name": {
+      "en": "Ascalon",
+      "el": "Ασκάλων"
+    },
+    "type": "city_secondary",
+    "lat": 31.6667,
+    "lng": 34.55,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-gaza",
+    "name": {
+      "en": "Gaza",
+      "el": "Γάζα"
+    },
+    "type": "city_secondary",
+    "lat": 31.5,
+    "lng": 34.4667,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-susa",
+    "name": {
+      "en": "Susa",
+      "el": "Σούσα"
+    },
+    "type": "city_major",
+    "lat": 32.1894,
+    "lng": 48.2436,
+    "minZoom": 5.5,
+    "priority": 1
+  },
+  {
+    "id": "city-ecbatana",
+    "name": {
+      "en": "Ecbatana",
+      "el": "Εκβάτανα"
+    },
+    "type": "city_major",
+    "lat": 34.8,
+    "lng": 48.5167,
+    "minZoom": 5.5,
+    "priority": 1
+  },
+  {
+    "id": "city-persepolis",
+    "name": {
+      "en": "Persepolis",
+      "el": "Περσέπολις"
+    },
+    "type": "city_major",
+    "lat": 30.2,
+    "lng": 49.9,
+    "minZoom": 6,
+    "priority": 1
+  },
+  {
+    "id": "city-pasargadae",
+    "name": {
+      "en": "Pasargadae",
+      "el": "Πασαργάδαι"
+    },
+    "type": "city_secondary",
+    "lat": 30.5,
+    "lng": 49.95,
+    "minZoom": 6.5,
+    "priority": 2
+  },
+  {
+    "id": "city-seleucia-tigrim",
+    "name": {
+      "en": "Seleucia ad Tigrim",
+      "el": "Σελεύκεια επί τω Τίγρητι"
+    },
+    "type": "city_major",
+    "lat": 33.09,
+    "lng": 44.52,
+    "minZoom": 6,
+    "priority": 1
+  },
+  {
+    "id": "city-ctesiphon",
+    "name": {
+      "en": "Ctesiphon",
+      "el": "Κτησιφών"
+    },
+    "type": "city_secondary",
+    "lat": 33.0936,
+    "lng": 44.5808,
+    "minZoom": 6.5,
+    "priority": 2
+  },
+  {
+    "id": "city-nisibis",
+    "name": {
+      "en": "Nisibis",
+      "el": "Νίσιβις"
+    },
+    "type": "city_secondary",
+    "lat": 37.07,
+    "lng": 41.2167,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-carrhae",
+    "name": {
+      "en": "Carrhae (Haran)",
+      "el": "Κάρραι"
+    },
+    "type": "city_secondary",
+    "lat": 36.8667,
+    "lng": 39.0333,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-edessa-meso",
+    "name": {
+      "en": "Edessa (Osroene)",
+      "el": "Έδεσσα Μεσοποταμίας"
+    },
+    "type": "city_secondary",
+    "lat": 37.1583,
+    "lng": 38.7917,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "reg-delta-nili",
+    "name": {
+      "en": "DELTA NILI",
+      "el": "ΔΕΛΤΑ ΝΕΙΛΟΥ"
+    },
+    "type": "region",
+    "lat": 30.8,
+    "lng": 31.2,
+    "minZoom": 5.5,
+    "maxZoom": 9,
+    "priority": 2
+  },
+  {
+    "id": "reg-thebais",
+    "name": {
+      "en": "THEBAIS",
+      "el": "ΘΗΒΑΪΣ"
+    },
+    "type": "region",
+    "lat": 25.7,
+    "lng": 32.6,
+    "minZoom": 5,
+    "maxZoom": 9,
+    "priority": 2
+  },
+  {
+    "id": "reg-heptanomis",
+    "name": {
+      "en": "HEPTANOMIS",
+      "el": "ΕΠΤΑΝΟΜΙΑ"
+    },
+    "type": "region",
+    "lat": 28.5,
+    "lng": 30.8,
+    "minZoom": 5.5,
+    "maxZoom": 9,
+    "priority": 2
+  },
+  {
+    "id": "reg-arsinoite",
+    "name": {
+      "en": "ARSINOITE (FAYUM)",
+      "el": "ΑΡΣΙΝΟΪΤΗΣ"
+    },
+    "type": "subregion",
+    "lat": 29.35,
+    "lng": 30.8,
+    "minZoom": 6.5,
+    "maxZoom": 10,
+    "priority": 3
+  },
+  {
+    "id": "reg-pentapolis",
+    "name": {
+      "en": "PENTAPOLIS",
+      "el": "ΠΕΝΤΑΠΟΛΙΣ"
+    },
+    "type": "subregion",
+    "lat": 32.5,
+    "lng": 21.4,
+    "minZoom": 6,
+    "maxZoom": 10,
+    "priority": 2
+  },
+  {
+    "id": "reg-marmarica",
+    "name": {
+      "en": "MARMARICA",
+      "el": "ΜΑΡΜΑΡΙΚΗ"
+    },
+    "type": "region",
+    "lat": 31.5,
+    "lng": 25,
+    "minZoom": 5,
+    "maxZoom": 9,
+    "priority": 2
+  },
+  {
+    "id": "city-memphis",
+    "name": {
+      "en": "Memphis",
+      "el": "Μέμφις"
+    },
+    "type": "city_major",
+    "lat": 29.8497,
+    "lng": 31.2544,
+    "minZoom": 5.5,
+    "priority": 1
+  },
+  {
+    "id": "city-thebae-aegypti",
+    "name": {
+      "en": "Thebae Aegypti (Luxor)",
+      "el": "Θήβαι Αιγύπτου"
+    },
+    "type": "city_major",
+    "lat": 25.6997,
+    "lng": 32.6392,
+    "minZoom": 5.5,
+    "priority": 1
+  },
+  {
+    "id": "city-heliopolis-aeg",
+    "name": {
+      "en": "Heliopolis (Aegyptus)",
+      "el": "Ηλιούπολις Αιγύπτου"
+    },
+    "type": "city_secondary",
+    "lat": 30.13,
+    "lng": 31.31,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-canopus",
+    "name": {
+      "en": "Canopus",
+      "el": "Κάνωπος"
+    },
+    "type": "city_secondary",
+    "lat": 31.3167,
+    "lng": 30.0833,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-syene",
+    "name": {
+      "en": "Syene (Elephantine)",
+      "el": "Συήνη (Ελεφαντίνη)"
+    },
+    "type": "city_secondary",
+    "lat": 25.1,
+    "lng": 32.8872,
+    "minZoom": 6,
+    "priority": 2
+  },
+  {
+    "id": "city-hermopolis",
+    "name": {
+      "en": "Hermopolis Magna",
+      "el": "Ερμούπολις Μεγάλη"
+    },
+    "type": "city_secondary",
+    "lat": 27.78,
+    "lng": 30.8,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-oxyrhynchus",
+    "name": {
+      "en": "Oxyrhynchus",
+      "el": "Οξύρυγχος"
+    },
+    "type": "city_secondary",
+    "lat": 28.5333,
+    "lng": 30.65,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-ptolemais-herm",
+    "name": {
+      "en": "Ptolemais Hermiou",
+      "el": "Πτολεμαΐς Ερμείου"
+    },
+    "type": "city_secondary",
+    "lat": 26.4667,
+    "lng": 31.8,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-siwa-ammon",
+    "name": {
+      "en": "Ammonium (Siwa Oasis)",
+      "el": "Αμμώνιον (Σίβα)"
+    },
+    "type": "city_secondary",
+    "lat": 29.2044,
+    "lng": 25.5186,
+    "minZoom": 6,
+    "priority": 2
+  },
+  {
+    "id": "city-apollonia-cyr",
+    "name": {
+      "en": "Apollonia (Cyrenaica)",
+      "el": "Απολλωνία Κυρηναϊκής"
+    },
+    "type": "city_secondary",
+    "lat": 32.9,
+    "lng": 21.9667,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-ptolemais-cyr",
+    "name": {
+      "en": "Ptolemais (Cyrenaica)",
+      "el": "Πτολεμαΐς Κυρηναϊκής"
+    },
+    "type": "city_secondary",
+    "lat": 32.7,
+    "lng": 20.95,
+    "minZoom": 7,
+    "priority": 2
+  },
+  {
+    "id": "city-barce",
+    "name": {
+      "en": "Barce",
+      "el": "Βάρκη"
+    },
+    "type": "city_secondary",
+    "lat": 32.5,
+    "lng": 20.9,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-tauchira",
+    "name": {
+      "en": "Tauchira (Arsinoe)",
+      "el": "Ταύχειρα (Αρσινόη)"
+    },
+    "type": "city_secondary",
+    "lat": 32.5333,
+    "lng": 20.5833,
+    "minZoom": 7.5,
+    "priority": 2
+  },
+  {
+    "id": "city-berenice-cyr",
+    "name": {
+      "en": "Berenice (Euesperides)",
+      "el": "Βερενίκη (Ευσπερίδες)"
+    },
+    "type": "city_secondary",
+    "lat": 32.1167,
+    "lng": 20.0667,
+    "minZoom": 7,
+    "priority": 2
   }
 ];
