@@ -28,7 +28,7 @@ test('ancient toponyms dataset contains zero transient empires or political king
   }
 });
 
-test('ancient toponyms have complete bilingual names and valid Mediterranean coordinates', () => {
+test('ancient toponyms have complete bilingual names and valid ecumene coordinates', () => {
   assert.ok(ANCIENT_TOPONYMS.length >= 150, `Expected at least 150 toponyms, found ${ANCIENT_TOPONYMS.length}`);
 
   const ids = new Set();
@@ -40,9 +40,9 @@ test('ancient toponyms have complete bilingual names and valid Mediterranean coo
     assert.ok(item.name?.en && typeof item.name.en === 'string', `Missing English name for ${item.id}`);
     assert.ok(item.name?.el && typeof item.name.el === 'string', `Missing Greek name for ${item.id}`);
 
-    // Geographic bounds: Mediterranean, Aegean, Black Sea, Near East, Egypt
-    assert.ok(item.lat >= 25 && item.lat <= 50, `Latitude ${item.lat} out of range for ${item.id}`);
-    assert.ok(item.lng >= 10 && item.lng <= 50, `Longitude ${item.lng} out of range for ${item.id}`);
+    // Geographic bounds: Full ancient ecumene from Atlantic/British Isles to Central Asia/India/China
+    assert.ok(item.lat >= -5.0 && item.lat <= 68.0, `Latitude ${item.lat} out of range for ${item.id}`);
+    assert.ok(item.lng >= -15.0 && item.lng <= 105.0, `Longitude ${item.lng} out of range for ${item.id}`);
     assert.ok(Number.isFinite(item.minZoom) && item.minZoom >= 3 && item.minZoom <= 10, `Invalid minZoom for ${item.id}`);
   }
 });
@@ -55,7 +55,7 @@ test('toponym filtering exhibits progressive disclosure across zoom levels', () 
   const atZoom10 = filterToponymsByZoom(ANCIENT_TOPONYMS, 10);
 
   // Active labels scale up dramatically as the map zooms in
-  assert.ok(atZoom3.length > 0 && atZoom3.length <= 25, `Zoom 3 should show modest count, got ${atZoom3.length}`);
+  assert.ok(atZoom3.length > 0 && atZoom3.length <= 35, `Zoom 3 should show modest count, got ${atZoom3.length}`);
   assert.ok(atZoom5.length > atZoom3.length, 'Zoom 5 should show more than Zoom 3');
   assert.ok(atZoom7.length > atZoom5.length, 'Zoom 7 should show more than Zoom 5');
   assert.ok(atZoom9.length > atZoom7.length, 'Zoom 9 should show more than Zoom 7');

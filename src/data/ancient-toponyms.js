@@ -7557,5 +7557,1028 @@ export const ANCIENT_TOPONYMS = [
     "lng": 20.0667,
     "minZoom": 7,
     "priority": 2
-  }
+  },
+
+  // --- Complete Ancient Greek Ecumene (Pytheas & Alexander to China/India) ---
+  {
+    id: 'reg-prettanike',
+    type: 'region',
+    name: { en: 'Prettanike', el: 'Πρεττανική' },
+    lat: 54.00,
+    lng: -2.50,
+    minZoom: 4,
+    maxZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'reg-albion',
+    type: 'region',
+    name: { en: 'Albion', el: 'Αλβιών' },
+    lat: 52.50,
+    lng: -1.20,
+    minZoom: 5,
+    maxZoom: 8,
+    priority: 3
+  },
+  {
+    id: 'reg-ierne',
+    type: 'region',
+    name: { en: 'Ierne', el: 'Ιέρνη' },
+    lat: 53.40,
+    lng: -7.80,
+    minZoom: 5,
+    maxZoom: 8,
+    priority: 3
+  },
+  {
+    id: 'reg-belerion',
+    type: 'subregion',
+    name: { en: 'Belerion', el: 'Βελέριον' },
+    lat: 50.15,
+    lng: -5.50,
+    minZoom: 7,
+    priority: 4
+  },
+  {
+    id: 'reg-cantium',
+    type: 'subregion',
+    name: { en: 'Cantium', el: 'Κάντιον' },
+    lat: 51.25,
+    lng: 0.80,
+    minZoom: 7,
+    priority: 4
+  },
+  {
+    id: 'water-orcades',
+    type: 'water',
+    name: { en: 'Orcades Insulae', el: 'Ορκάδες Νήσοι' },
+    lat: 59.00,
+    lng: -3.00,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'water-hebudes',
+    type: 'water',
+    name: { en: 'Hebudes Insulae', el: 'Εβοῦδαι Νήσοι' },
+    lat: 57.50,
+    lng: -6.80,
+    minZoom: 6,
+    priority: 4
+  },
+  {
+    id: 'water-cassiterides',
+    type: 'water',
+    name: { en: 'Cassiterides Insulae', el: 'Κασσιτερίδες Νήσοι' },
+    lat: 49.90,
+    lng: -6.30,
+    minZoom: 6,
+    priority: 4
+  },
+  {
+    id: 'city-thule',
+    type: 'city_major',
+    name: { en: 'Ultima Thule', el: 'Θούλη' },
+    lat: 64.50,
+    lng: -1.00,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'water-oceanus-britannicus',
+    type: 'water',
+    name: { en: 'Oceanus Britannicus', el: 'Βρεττανικός Ωκεανός' },
+    lat: 50.20,
+    lng: -1.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'water-oceanus-atlanticus',
+    type: 'macro',
+    name: { en: 'Oceanus Atlanticus', el: 'Ατλαντικός Ωκεανός' },
+    lat: 42.00,
+    lng: -13.00,
+    minZoom: 3,
+    priority: 1
+  },
+  {
+    id: 'water-mare-suebicum',
+    type: 'water',
+    name: { en: 'Mare Suebicum', el: 'Σουηβική Θάλασσα' },
+    lat: 56.00,
+    lng: 18.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'reg-celtica',
+    type: 'macro',
+    name: { en: 'Celtica', el: 'Κελτική' },
+    lat: 47.00,
+    lng: 2.50,
+    minZoom: 4,
+    maxZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'reg-armorica',
+    type: 'region',
+    name: { en: 'Armorica', el: 'Αρμορική' },
+    lat: 48.20,
+    lng: -2.80,
+    minZoom: 5,
+    priority: 4
+  },
+  {
+    id: 'reg-belgica',
+    type: 'region',
+    name: { en: 'Belgica', el: 'Βελγική' },
+    lat: 50.50,
+    lng: 4.50,
+    minZoom: 5,
+    priority: 4
+  },
+  {
+    id: 'reg-aquitania',
+    type: 'region',
+    name: { en: 'Aquitania', el: 'Ακυϊτανία' },
+    lat: 44.50,
+    lng: -0.50,
+    minZoom: 5,
+    priority: 4
+  },
+  {
+    id: 'city-massalia',
+    type: 'city_major',
+    name: { en: 'Massalia', el: 'Μασσαλία' },
+    lat: 43.30,
+    lng: 5.37,
+    minZoom: 5,
+    priority: 1
+  },
+  {
+    id: 'city-nikaia-gaul',
+    type: 'city_secondary',
+    name: { en: 'Nikaia', el: 'Νίκαια' },
+    lat: 43.70,
+    lng: 7.26,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'city-antipolis',
+    type: 'city_secondary',
+    name: { en: 'Antipolis', el: 'Αντίπολις' },
+    lat: 43.58,
+    lng: 7.12,
+    minZoom: 7,
+    priority: 3
+  },
+  {
+    id: 'city-agathe',
+    type: 'city_secondary',
+    name: { en: 'Agathe Tyche', el: 'Αγαθή Τύχη' },
+    lat: 43.31,
+    lng: 3.47,
+    minZoom: 7,
+    priority: 3
+  },
+  {
+    id: 'city-olbia-gaul',
+    type: 'city_secondary',
+    name: { en: 'Olbia Ligustica', el: 'Ολβία Λιγυστική' },
+    lat: 43.10,
+    lng: 6.13,
+    minZoom: 8,
+    priority: 4
+  },
+  {
+    id: 'river-rhodanus',
+    type: 'river',
+    name: { en: 'Rhodanus Flumen', el: 'Ροδανός' },
+    lat: 44.20,
+    lng: 4.70,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'river-liger',
+    type: 'river',
+    name: { en: 'Liger Flumen', el: 'Λείγηρ' },
+    lat: 47.20,
+    lng: -1.50,
+    minZoom: 6,
+    priority: 4
+  },
+  {
+    id: 'river-sequana',
+    type: 'river',
+    name: { en: 'Sequana Flumen', el: 'Σηκουάνας' },
+    lat: 49.00,
+    lng: 1.50,
+    minZoom: 6,
+    priority: 4
+  },
+  {
+    id: 'river-garumna',
+    type: 'river',
+    name: { en: 'Garumna Flumen', el: 'Γαρούμνας' },
+    lat: 44.80,
+    lng: -0.60,
+    minZoom: 6,
+    priority: 4
+  },
+  {
+    id: 'river-rhenus',
+    type: 'river',
+    name: { en: 'Rhenus Flumen', el: 'Ρῆνος' },
+    lat: 50.80,
+    lng: 7.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'reg-germania',
+    type: 'macro',
+    name: { en: 'Germania', el: 'Γερμανία' },
+    lat: 52.00,
+    lng: 10.50,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'reg-scandia',
+    type: 'macro',
+    name: { en: 'Scandia', el: 'Σκανδία' },
+    lat: 59.50,
+    lng: 14.50,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'water-heracleae-columnae',
+    type: 'water',
+    name: { en: 'Heracleae Columnae', el: 'Ηράκλειοι Στῆλαι' },
+    lat: 35.98,
+    lng: -5.35,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'mountain-calpe',
+    type: 'mountain',
+    name: { en: 'Calpe Mons', el: 'Κάλπη' },
+    lat: 36.14,
+    lng: -5.35,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'mountain-abila',
+    type: 'mountain',
+    name: { en: 'Abila Mons', el: 'Αβύλη' },
+    lat: 35.90,
+    lng: -5.31,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'cape-sacrum',
+    type: 'mountain',
+    name: { en: 'Sacrum Promontorium', el: 'Ιερόν Ακρωτήριον' },
+    lat: 37.02,
+    lng: -8.99,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'reg-tartessos',
+    type: 'region',
+    name: { en: 'Tartessos', el: 'Ταρτησσός' },
+    lat: 37.20,
+    lng: -6.50,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'reg-turdetania',
+    type: 'region',
+    name: { en: 'Turdetania', el: 'Τουρδητανία' },
+    lat: 37.50,
+    lng: -5.50,
+    minZoom: 6,
+    priority: 4
+  },
+  {
+    id: 'reg-lusitania',
+    type: 'region',
+    name: { en: 'Lusitania', el: 'Λουσιτανία' },
+    lat: 39.50,
+    lng: -8.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'reg-celtiberia',
+    type: 'region',
+    name: { en: 'Celtiberia', el: 'Κελτιβηρία' },
+    lat: 41.00,
+    lng: -2.50,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'reg-gallaecia',
+    type: 'region',
+    name: { en: 'Gallaecia', el: 'Γαλλαικία' },
+    lat: 42.50,
+    lng: -7.50,
+    minZoom: 6,
+    priority: 4
+  },
+  {
+    id: 'city-emporion',
+    type: 'city_major',
+    name: { en: 'Emporion', el: 'Εμπόριον' },
+    lat: 42.13,
+    lng: 3.12,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'city-rhode',
+    type: 'city_secondary',
+    name: { en: 'Rhode', el: 'Ρόδη' },
+    lat: 42.26,
+    lng: 3.17,
+    minZoom: 7,
+    priority: 3
+  },
+  {
+    id: 'city-hemeroskopeion',
+    type: 'city_secondary',
+    name: { en: 'Hemeroskopeion', el: 'Ημεροσκοπείον' },
+    lat: 38.84,
+    lng: 0.11,
+    minZoom: 7,
+    priority: 3
+  },
+  {
+    id: 'city-akra-leuke',
+    type: 'city_secondary',
+    name: { en: 'Akra Leuke', el: 'Άκρα Λευκή' },
+    lat: 38.35,
+    lng: -0.48,
+    minZoom: 7,
+    priority: 3
+  },
+  {
+    id: 'city-mainake',
+    type: 'city_secondary',
+    name: { en: 'Mainake', el: 'Μαινάκη' },
+    lat: 36.75,
+    lng: -4.10,
+    minZoom: 7,
+    priority: 3
+  },
+  {
+    id: 'city-gadeira',
+    type: 'city_major',
+    name: { en: 'Gadeira', el: 'Γάδειρα' },
+    lat: 36.53,
+    lng: -6.29,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'river-baetis',
+    type: 'river',
+    name: { en: 'Baetis Flumen', el: 'Βαῖτις' },
+    lat: 37.40,
+    lng: -6.00,
+    minZoom: 6,
+    priority: 4
+  },
+  {
+    id: 'river-tagus',
+    type: 'river',
+    name: { en: 'Tagus Flumen', el: 'Τάγος' },
+    lat: 39.50,
+    lng: -4.50,
+    minZoom: 6,
+    priority: 4
+  },
+  {
+    id: 'river-durius',
+    type: 'river',
+    name: { en: 'Durius Flumen', el: 'Δούριος' },
+    lat: 41.20,
+    lng: -5.50,
+    minZoom: 6,
+    priority: 4
+  },
+  {
+    id: 'river-iberus',
+    type: 'river',
+    name: { en: 'Iberus Flumen', el: 'Ίβηρ' },
+    lat: 41.00,
+    lng: 0.50,
+    minZoom: 6,
+    priority: 4
+  },
+  {
+    id: 'reg-bactriana',
+    type: 'region',
+    name: { en: 'Bactriana', el: 'Βακτριανή' },
+    lat: 36.80,
+    lng: 66.80,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'reg-sogdiana',
+    type: 'region',
+    name: { en: 'Sogdiana', el: 'Σογδιανή' },
+    lat: 39.80,
+    lng: 66.50,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'reg-fergana',
+    type: 'region',
+    name: { en: 'Fergana (Dayuan)', el: 'Φεργάνα (Δαϋάν)' },
+    lat: 40.50,
+    lng: 71.50,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'reg-margiana',
+    type: 'region',
+    name: { en: 'Margiana', el: 'Μαργιανή' },
+    lat: 37.60,
+    lng: 62.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'reg-chorasmia',
+    type: 'region',
+    name: { en: 'Chorasmia', el: 'Χορασμία' },
+    lat: 41.50,
+    lng: 60.50,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'reg-serica',
+    type: 'macro',
+    name: { en: 'Serica', el: 'Σηρική' },
+    lat: 38.00,
+    lng: 95.00,
+    minZoom: 3,
+    priority: 1
+  },
+  {
+    id: 'reg-sinae',
+    type: 'macro',
+    name: { en: 'Sinae', el: 'Θῖναι' },
+    lat: 26.00,
+    lng: 104.00,
+    minZoom: 3,
+    priority: 1
+  },
+  {
+    id: 'city-alexandria-eschate',
+    type: 'city_major',
+    name: { en: 'Alexandria Eschate', el: 'Αλεξάνδρεια η Εσχάτη' },
+    lat: 40.28,
+    lng: 69.63,
+    minZoom: 5,
+    priority: 1
+  },
+  {
+    id: 'city-bactra',
+    type: 'city_major',
+    name: { en: 'Bactra (Zariaspa)', el: 'Βάκτρα (Ζαριάσπα)' },
+    lat: 36.76,
+    lng: 66.90,
+    minZoom: 5,
+    priority: 1
+  },
+  {
+    id: 'city-ai-khanoum',
+    type: 'city_major',
+    name: { en: 'Ai-Khanoum (Alexandria on Oxus)', el: 'Άι-Χανούμ (Αλεξάνδρεια επί τω Ώξω)' },
+    lat: 37.17,
+    lng: 69.41,
+    minZoom: 6,
+    priority: 1
+  },
+  {
+    id: 'city-maracanda',
+    type: 'city_major',
+    name: { en: 'Maracanda', el: 'Μαράκανδα' },
+    lat: 39.65,
+    lng: 66.96,
+    minZoom: 5,
+    priority: 1
+  },
+  {
+    id: 'city-cyropolis',
+    type: 'city_secondary',
+    name: { en: 'Cyropolis', el: 'Κυρούπολις' },
+    lat: 39.95,
+    lng: 69.00,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'city-nautaca',
+    type: 'city_secondary',
+    name: { en: 'Nautaca', el: 'Ναύτακα' },
+    lat: 39.05,
+    lng: 66.83,
+    minZoom: 7,
+    priority: 3
+  },
+  {
+    id: 'city-antiochia-margiana',
+    type: 'city_major',
+    name: { en: 'Antiochia Margiana', el: 'Αντιόχεια η Μαργιανή' },
+    lat: 37.60,
+    lng: 62.19,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'river-oxus',
+    type: 'river',
+    name: { en: 'Oxus Flumen', el: 'Ώξος' },
+    lat: 37.50,
+    lng: 67.50,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'river-iaxartes',
+    type: 'river',
+    name: { en: 'Iaxartes Flumen', el: 'Ιαξάρτης' },
+    lat: 41.00,
+    lng: 68.50,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'river-polytimetus',
+    type: 'river',
+    name: { en: 'Polytimetus Flumen', el: 'Πολυτίμητος' },
+    lat: 39.70,
+    lng: 66.50,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'mountain-imaus',
+    type: 'mountain',
+    name: { en: 'Imaus Mons', el: 'Ίμαος Όρος' },
+    lat: 36.50,
+    lng: 75.00,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'mountain-caucasus-indicus',
+    type: 'mountain',
+    name: { en: 'Caucasus Indicus (Paropamisus)', el: 'Ινδικός Καύκασος (Παροπάμισος)' },
+    lat: 35.00,
+    lng: 68.50,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'city-lithinos-pyrgos',
+    type: 'city_secondary',
+    name: { en: 'Lithinos Pyrgos (Stone Tower)', el: 'Λίθινος Πύργος' },
+    lat: 37.77,
+    lng: 75.23,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'city-sera-metropolis',
+    type: 'city_major',
+    name: { en: 'Sera Metropolis', el: 'Σήρα Μητρόπολις' },
+    lat: 34.26,
+    lng: 104.94,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'reg-aria',
+    type: 'region',
+    name: { en: 'Aria', el: 'Αρία' },
+    lat: 34.30,
+    lng: 62.20,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'city-alexandria-ariana',
+    type: 'city_major',
+    name: { en: 'Alexandria Ariana', el: 'Αλεξάνδρεια η εν Αρίοις' },
+    lat: 34.35,
+    lng: 62.20,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'reg-drangiana',
+    type: 'region',
+    name: { en: 'Drangiana', el: 'Δραγγιανή' },
+    lat: 31.50,
+    lng: 61.50,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'city-prophthasia',
+    type: 'city_secondary',
+    name: { en: 'Prophthasia', el: 'Προφθασία' },
+    lat: 32.37,
+    lng: 62.11,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'reg-arachosia',
+    type: 'region',
+    name: { en: 'Arachosia', el: 'Αραχωσία' },
+    lat: 31.60,
+    lng: 65.70,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'city-alexandria-arachosia',
+    type: 'city_major',
+    name: { en: 'Alexandria Arachosia', el: 'Αλεξάνδρεια Αραχωσίας' },
+    lat: 31.61,
+    lng: 65.71,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'reg-paropamisadae',
+    type: 'region',
+    name: { en: 'Paropamisadae', el: 'Παροπαμισάδαι' },
+    lat: 34.80,
+    lng: 69.20,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'city-alexandria-caucasum',
+    type: 'city_major',
+    name: { en: 'Alexandria ad Caucasum', el: 'Αλεξάνδρεια υπό τω Καυκάσω' },
+    lat: 34.98,
+    lng: 69.18,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'reg-gedrosia',
+    type: 'region',
+    name: { en: 'Gedrosia', el: 'Γεδρωσία' },
+    lat: 27.00,
+    lng: 63.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'city-pura',
+    type: 'city_secondary',
+    name: { en: 'Pura', el: 'Πούρα' },
+    lat: 27.20,
+    lng: 60.68,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'reg-carmania',
+    type: 'region',
+    name: { en: 'Carmania', el: 'Καρμανία' },
+    lat: 30.00,
+    lng: 57.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'city-alexandria-carmania',
+    type: 'city_secondary',
+    name: { en: 'Alexandria Carmania', el: 'Αλεξάνδρεια Καρμανίας' },
+    lat: 29.50,
+    lng: 56.50,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'reg-india',
+    type: 'macro',
+    name: { en: 'India', el: 'Ινδία' },
+    lat: 24.00,
+    lng: 78.00,
+    minZoom: 3,
+    priority: 1
+  },
+  {
+    id: 'reg-gandhara',
+    type: 'region',
+    name: { en: 'Gandhara', el: 'Γανδάρα' },
+    lat: 34.00,
+    lng: 71.50,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'city-taxila',
+    type: 'city_major',
+    name: { en: 'Taxila', el: 'Τάξιλα' },
+    lat: 33.74,
+    lng: 72.83,
+    minZoom: 5,
+    priority: 1
+  },
+  {
+    id: 'city-pushkalavati',
+    type: 'city_secondary',
+    name: { en: 'Pushkalavati (Peucelaotis)', el: 'Πευκελαώτις' },
+    lat: 34.15,
+    lng: 71.74,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'city-bucephala',
+    type: 'city_major',
+    name: { en: 'Alexandria Bucephala', el: 'Αλεξάνδρεια Βουκεφάλα' },
+    lat: 32.93,
+    lng: 73.73,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'city-nicaea-hydaspes',
+    type: 'city_secondary',
+    name: { en: 'Nicaea ad Hydaspem', el: 'Νίκαια επί τω Υδάσπη' },
+    lat: 32.90,
+    lng: 73.70,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'city-sagala',
+    type: 'city_major',
+    name: { en: 'Sagala (Euthydemia)', el: 'Σάγαλα (Ευθυδημία)' },
+    lat: 32.50,
+    lng: 74.53,
+    minZoom: 6,
+    priority: 1
+  },
+  {
+    id: 'river-indus',
+    type: 'river',
+    name: { en: 'Indus Flumen', el: 'Ινδός' },
+    lat: 29.00,
+    lng: 70.50,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'river-hydaspes',
+    type: 'river',
+    name: { en: 'Hydaspes Flumen', el: 'Υδάσπης' },
+    lat: 32.00,
+    lng: 72.50,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'river-acesines',
+    type: 'river',
+    name: { en: 'Acesines Flumen', el: 'Ακεσίνης' },
+    lat: 31.50,
+    lng: 72.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'river-hydraotes',
+    type: 'river',
+    name: { en: 'Hydraotes Flumen', el: 'Υδραώτης' },
+    lat: 31.00,
+    lng: 72.50,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'river-hyphasis',
+    type: 'river',
+    name: { en: 'Hyphasis Flumen', el: 'Ύφασις' },
+    lat: 31.20,
+    lng: 75.00,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'city-pattala',
+    type: 'city_major',
+    name: { en: 'Pattala', el: 'Πάτταλα' },
+    lat: 24.80,
+    lng: 68.00,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'city-alexandria-indus',
+    type: 'city_secondary',
+    name: { en: 'Alexandria on the Indus', el: 'Αλεξάνδρεια επί τω Ινδώ' },
+    lat: 29.24,
+    lng: 71.06,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'city-barygaza',
+    type: 'city_major',
+    name: { en: 'Barygaza', el: 'Βαρύγαζα' },
+    lat: 21.70,
+    lng: 72.99,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'city-muziris',
+    type: 'city_major',
+    name: { en: 'Muziris', el: 'Μουζιρίς' },
+    lat: 10.21,
+    lng: 76.20,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'city-poduke',
+    type: 'city_secondary',
+    name: { en: 'Poduke', el: 'Ποδούκη' },
+    lat: 11.90,
+    lng: 79.82,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'city-palibothra',
+    type: 'city_major',
+    name: { en: 'Palibothra', el: 'Παλίβοθρα' },
+    lat: 25.61,
+    lng: 85.14,
+    minZoom: 5,
+    priority: 1
+  },
+  {
+    id: 'river-ganges',
+    type: 'river',
+    name: { en: 'Ganges Flumen', el: 'Γάγγης' },
+    lat: 25.30,
+    lng: 83.00,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'reg-taprobane',
+    type: 'region',
+    name: { en: 'Taprobane', el: 'Ταπροβάνη' },
+    lat: 7.80,
+    lng: 80.70,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'water-mare-erythraeum',
+    type: 'macro',
+    name: { en: 'Mare Erythraeum', el: 'Ερυθρά Θάλασσα' },
+    lat: 16.00,
+    lng: 64.00,
+    minZoom: 3,
+    priority: 1
+  },
+  {
+    id: 'water-sinus-gangeticus',
+    type: 'water',
+    name: { en: 'Sinus Gangeticus', el: 'Γαγγητικός Κόλπος' },
+    lat: 15.00,
+    lng: 88.00,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'reg-aurea-chersonesus',
+    type: 'region',
+    name: { en: 'Aurea Chersonesus', el: 'Χρυσή Χερσόνησος' },
+    lat: 4.20,
+    lng: 101.90,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'reg-arabia-felix',
+    type: 'region',
+    name: { en: 'Arabia Felix', el: 'Ευδαίμων Αραβία' },
+    lat: 15.50,
+    lng: 47.50,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'reg-arabia-deserta',
+    type: 'region',
+    name: { en: 'Arabia Deserta', el: 'Έρημος Αραβία' },
+    lat: 28.50,
+    lng: 41.50,
+    minZoom: 4,
+    priority: 3
+  },
+  {
+    id: 'reg-aethiopia',
+    type: 'macro',
+    name: { en: 'Aethiopia', el: 'Αιθιοπία' },
+    lat: 16.00,
+    lng: 33.00,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'city-meroe',
+    type: 'city_major',
+    name: { en: 'Meroë', el: 'Μερόη' },
+    lat: 16.94,
+    lng: 33.75,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'city-myos-hormos',
+    type: 'city_secondary',
+    name: { en: 'Myos Hormos', el: 'Μυός Όρμος' },
+    lat: 27.20,
+    lng: 33.76,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'city-berenice-troglodytica',
+    type: 'city_secondary',
+    name: { en: 'Berenice Troglodytica', el: 'Βερενίκη' },
+    lat: 23.90,
+    lng: 35.48,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'city-ptolemais-theron',
+    type: 'city_secondary',
+    name: { en: 'Ptolemais Theron', el: 'Πτολεμαΐς Θηρών' },
+    lat: 18.25,
+    lng: 38.30,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'city-adulis',
+    type: 'city_major',
+    name: { en: 'Adulis', el: 'Άδουλις' },
+    lat: 15.26,
+    lng: 39.66,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'water-sinus-arabicus',
+    type: 'water',
+    name: { en: 'Sinus Arabicus', el: 'Αράβιος Κόλπος' },
+    lat: 21.00,
+    lng: 38.00,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'water-sinus-persicus',
+    type: 'water',
+    name: { en: 'Sinus Persicus', el: 'Περσικός Κόλπος' },
+    lat: 26.50,
+    lng: 52.00,
+    minZoom: 4,
+    priority: 2
+  },
 ];
