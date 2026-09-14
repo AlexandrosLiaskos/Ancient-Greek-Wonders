@@ -4,6 +4,7 @@ import { parseUrlState, serializeUrlState } from './core/url-state.js';
 import { CATEGORY_LABELS, COUNTRY_LABELS, STATUS_LABELS, formatResultCount, localizeRecord, t } from './i18n.js';
 import { createDetailMarkup, createResultMarkup, escapeHtml } from './ui/render.js';
 import { initializeGallery } from './ui/gallery.js';
+import { ImageLightbox } from './ui/lightbox.js';
 import { createWondersMap, WONDER_MAP_CATEGORIES, getWonderMapCategory } from './map/map.js';
 
 class AncientGreekWondersApp {
@@ -16,6 +17,7 @@ class AncientGreekWondersApp {
     this.mapController = null;
     this.atlasInterface = null;
     this.detailGallery = null;
+    this.lightbox = null;
     this.activeFilterField = 'status';
 
     this.elements = {
@@ -51,6 +53,23 @@ class AncientGreekWondersApp {
       wonderTitleblock: document.getElementById('wonder-modal-titleblock'),
       wonderDetails: document.getElementById('wonder-details'),
       closeWonderModal: document.getElementById('close-wonder-modal'),
+      
+      // Image Lightbox modal
+      lightboxModal: document.getElementById('image-lightbox-modal'),
+      lightboxTitle: document.getElementById('lightbox-title'),
+      lightboxCounter: document.getElementById('lightbox-counter'),
+      lightboxImage: document.getElementById('lightbox-image'),
+      lightboxDesc: document.getElementById('lightbox-desc'),
+      lightboxCredit: document.getElementById('lightbox-credit'),
+      lightboxClose: document.getElementById('lightbox-close'),
+      lightboxPrev: document.getElementById('lightbox-prev'),
+      lightboxNext: document.getElementById('lightbox-next'),
+      lightboxZoomIn: document.getElementById('lightbox-zoom-in'),
+      lightboxZoomOut: document.getElementById('lightbox-zoom-out'),
+      lightboxZoomReset: document.getElementById('lightbox-zoom-reset'),
+      lightboxZoomLevel: document.getElementById('lightbox-zoom-level'),
+      lightboxDownload: document.getElementById('lightbox-download'),
+      lightboxViewport: document.getElementById('lightbox-viewport'),
       
       // Stats glossary modal
       statsGlossaryModal: document.getElementById('stats-glossary-modal'),
@@ -215,6 +234,27 @@ class AncientGreekWondersApp {
       if (e.target === this.elements.statsGlossaryModal) closeGlossary();
     });
 
+    // Image lightbox initialization
+    if (this.elements.lightboxModal) {
+      this.lightbox = new ImageLightbox({
+        modal: this.elements.lightboxModal,
+        title: this.elements.lightboxTitle,
+        counter: this.elements.lightboxCounter,
+        image: this.elements.lightboxImage,
+        desc: this.elements.lightboxDesc,
+        credit: this.elements.lightboxCredit,
+        closeBtn: this.elements.lightboxClose,
+        prevBtn: this.elements.lightboxPrev,
+        nextBtn: this.elements.lightboxNext,
+        zoomInBtn: this.elements.lightboxZoomIn,
+        zoomOutBtn: this.elements.lightboxZoomOut,
+        zoomResetBtn: this.elements.lightboxZoomReset,
+        zoomLevel: this.elements.lightboxZoomLevel,
+        downloadBtn: this.elements.lightboxDownload,
+        viewport: this.elements.lightboxViewport
+      }, { language: this.state.language });
+    }
+
     // Language switcher
     this.elements.languageToggle?.addEventListener('click', () => {
       const nextLang = this.state.language === 'en' ? 'el' : 'en';
@@ -229,6 +269,10 @@ class AncientGreekWondersApp {
     // Global keyboard listener for Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
+        if (this.lightbox?.isOpen()) {
+          this.lightbox.close();
+          return;
+        }
         const activeModal = document.querySelector('.modal.active');
         if (activeModal) {
           activeModal.classList.remove('active');
@@ -672,6 +716,21 @@ class AncientGreekWondersApp {
     this.elements.wonderDetails.innerHTML = createDetailMarkup(record, this.state.language);
     this.detailGallery = initializeGallery(this.elements.wonderDetails);
 
+    // Lightbox triggers on gallery figures
+    this.elements.wonderDetails.querySelectorAll('[data-lightbox-slide]').forEach((img) => {
+      img.addEventListener('click', () => {
+        const slideIndex = parseInt(img.dataset.lightboxSlide, 10) || 0;
+        this.lightbox?.open(record, slideIndex, this.state.language);
+      });
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const slideIndex = parseInt(img.dataset.lightboxSlide, 10) || 0;
+          this.lightbox?.open(record, slideIndex, this.state.language);
+        }
+      });
+    });
+
     this.elements.wonderModal.classList.add('active');
     document.body.classList.add('modal-open');
   }
@@ -679,6 +738,12 @@ class AncientGreekWondersApp {
   applyLanguage(language, triggerUpdate = true) {
     this.state.language = language;
     document.documentElement.lang = language;
+    if (this.lightbox) {
+      this.lightbox.language = language;
+    }
+    if (this.mapController?.setToponymLanguage) {
+      this.mapController.setToponymLanguage(language);
+    }
     const isEl = language === 'el';
 
     // Update Language Toggle text

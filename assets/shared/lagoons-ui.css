@@ -4003,8 +4003,8 @@ body.sidebar-collapsed .rail-btn:hover {
     transform: translate(-50%, -50%);
 }
 
-.badge-high   { background: #dc2626; right: -8px; bottom: 0px; }
-.badge-medium { background: #f97316; left: 50%; bottom: -7px; transform: translateX(-50%); }
+.badge-high   { background: #b91c1c; right: -8px; bottom: 0px; }
+.badge-medium { background: #ea580c; left: 50%; bottom: -7px; transform: translateX(-50%); }
 .badge-low    { background: #0d9488; left: -8px; bottom: 0px; }
 
 /* Marker Cluster Customization */
@@ -8887,8 +8887,8 @@ body[data-active-tab="filters"] .sidebar-content {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
 }
 .wm-legend-low  { background: #0d9488; }
-.wm-legend-mid  { background: #f97316; }
-.wm-legend-high { background: #dc2626; }
+.wm-legend-mid  { background: #ea580c; }
+.wm-legend-high { background: #b91c1c; }
 
 /* ===========================================================
    Real-UI specimens — each tile renders a fragment of the
@@ -8954,8 +8954,8 @@ body[data-active-tab="filters"] .sidebar-content {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 .wm-legend-low  { background: #0d9488; }
-.wm-legend-mid  { background: #f97316; }
-.wm-legend-high { background: #dc2626; }
+.wm-legend-mid  { background: #ea580c; }
+.wm-legend-high { background: #b91c1c; }
 
 /* Real cluster markers (matches the app's .cluster-icon vocabulary) */
 .wm-prev-marker {
@@ -8998,8 +8998,8 @@ body[data-active-tab="filters"] .sidebar-content {
     border: 1.5px solid #fff;
 }
 .wm-prev-sub-low  { background: #0d9488; left: -4px;  bottom: 1px; }
-.wm-prev-sub-mid  { background: #f97316; left: 50%;   bottom: -5px; transform: translateX(-50%); }
-.wm-prev-sub-high { background: #dc2626; right: -4px; bottom: 1px; }
+.wm-prev-sub-mid  { background: #ea580c; left: 50%;   bottom: -5px; transform: translateX(-50%); }
+.wm-prev-sub-high { background: #b91c1c; right: -4px; bottom: 1px; }
 
 /* ----- II. Attribute table specimen ----- */
 .wm-spec {

@@ -1,11 +1,88 @@
 import { formatClusterCount, localizeRecord, t } from '../i18n.js';
 import { createMapPreviewMarkup, createWonderHoverCardHTML, escapeHtml } from '../ui/render.js';
 import { MeasurementTool } from './measurement-tool.js';
+import { AncientToponymsLayer } from './ancient-toponyms-layer.js';
+
+export function suppressMaplibreModernLabels(layer) {
+  if (!layer || typeof layer.getMaplibreMap !== 'function') return;
+  const mlMap = layer.getMaplibreMap();
+  if (!mlMap) return;
+
+  const hide = () => {
+    try {
+      const style = mlMap.getStyle();
+      if (!style || !style.layers) return;
+      const modernLabelLayers = [
+        'waterway_line_label', 'water_name_point_label', 'water_name_line_label',
+        'highway-name-path', 'highway-name-minor', 'highway-name-major',
+        'highway-shield-non-us', 'highway-shield-us-interstate', 'road_shield_us',
+        'airport', 'label_other', 'label_village', 'label_town', 'label_state',
+        'label_city', 'label_city_capital', 'label_country_3', 'label_country_2', 'label_country_1'
+      ];
+      for (const l of style.layers) {
+        if (l.type === 'symbol' || modernLabelLayers.includes(l.id)) {
+          mlMap.setLayoutProperty(l.id, 'visibility', 'none');
+        }
+      }
+    } catch (_e) {}
+  };
+
+  if (mlMap.isStyleLoaded()) hide();
+  else {
+    mlMap.once('styledata', hide);
+    mlMap.once('load', hide);
+  }
+}
+
+export function addAncientToponymsControl(map, toponymsLayer, language = 'en') {
+  const L = globalThis.L;
+  if (!L || !map || !toponymsLayer) return null;
+
+  const ToponymControl = L.Control.extend({
+    options: { position: 'topleft' },
+    onAdd: function () {
+      const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control ancient-toponyms-control');
+      const button = L.DomUtil.create('button', 'ancient-toponyms-btn active', container);
+      button.type = 'button';
+      button.setAttribute('aria-label', t(language, 'toggleToponyms'));
+      button.title = t(language, 'ancientToponyms');
+      button.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+          <line x1="7" y1="7" x2="7.01" y2="7"></line>
+        </svg>
+      `;
+
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.disableScrollPropagation(container);
+
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isVisible = toponymsLayer.toggleVisible();
+        button.classList.toggle('active', isVisible);
+      });
+
+      this._button = button;
+      return container;
+    },
+    updateLanguage: function (lang) {
+      if (this._button) {
+        this._button.setAttribute('aria-label', t(lang, 'toggleToponyms'));
+        this._button.title = t(lang, 'ancientToponyms');
+      }
+    }
+  });
+
+  const control = new ToponymControl();
+  control.addTo(map);
+  return control;
+}
 
 export const WONDER_MAP_CATEGORIES = [
-  { key: 'lost', label: 'Lost / submerged', color: '#dc2626', border: '#f87171' },
-  { key: 'ruins', label: 'Ruins / excavated', color: '#d97706', border: '#fbbf24' },
-  { key: 'extant', label: 'Standing / restored', color: '#059669', border: '#34d399' }
+  { key: 'lost', label: 'Lost / submerged', color: '#b91c1c', border: '#f87171' },
+  { key: 'ruins', label: 'Ruins / excavated', color: '#ea580c', border: '#fdba74' },
+  { key: 'extant', label: 'Standing / restored', color: '#0d9488', border: '#5eead4' }
 ];
 
 export const SURVIVAL_GROUP_BY_STATUS = {
@@ -28,9 +105,9 @@ export function getWonderMapCategory(wonder) {
 export function getLocalizedWonderCategories(language) {
   if (language === 'el') {
     return [
-      { key: 'lost', label: 'Χαμένο / βυθισμένο', color: '#dc2626', border: '#f87171' },
-      { key: 'ruins', label: 'Ερείπια / ανεσκαμμένο', color: '#d97706', border: '#fbbf24' },
-      { key: 'extant', label: 'Όρθιο / αναστηλωμένο', color: '#059669', border: '#34d399' }
+      { key: 'lost', label: 'Χαμένο / βυθισμένο', color: '#b91c1c', border: '#f87171' },
+      { key: 'ruins', label: 'Ερείπια / ανεσκαμμένο', color: '#ea580c', border: '#fdba74' },
+      { key: 'extant', label: 'Όρθιο / αναστηλωμένο', color: '#0d9488', border: '#5eead4' }
     ];
   }
   return WONDER_MAP_CATEGORIES;
@@ -96,6 +173,22 @@ export function pinTooltipInsideMap(tooltip, map, opts = {}) {
   if (elRect.top < mapRect.top + margin) dy = (mapRect.top + margin) - elRect.top;
   if (elRect.bottom > mapRect.bottom - margin) dy = (mapRect.bottom - margin) - elRect.bottom;
 
+  // Prevent vertical translation from shifting the card across the pin
+  if (typeof map.latLngToContainerPoint === 'function' && tooltip._latlng) {
+    const anchor = map.latLngToContainerPoint(tooltip._latlng);
+    const pinTop = mapRect.top + anchor.y - 9;
+    const pinBottom = mapRect.top + anchor.y + 9;
+    const currentDir = tooltip.options.direction;
+
+    if (currentDir === 'bottom' && dy < 0) {
+      const maxUpward = (pinBottom + 4) - elRect.top;
+      if (dy < maxUpward) dy = maxUpward;
+    } else if (currentDir === 'top' && dy > 0) {
+      const maxDownward = (pinTop - 4) - elRect.bottom;
+      if (dy > maxDownward) dy = maxDownward;
+    }
+  }
+
   el.style.translate = (dx || dy) ? `${dx}px ${dy}px` : '';
 }
 
@@ -127,7 +220,7 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
   }).setView([37.2, 23.6], 5);
 
   const baseMaps = globalThis.NkuaWebGISMap?.createBasemaps ? globalThis.NkuaWebGISMap.createBasemaps() : {
-    'Carto Positron': L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    'Carto Positron': L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OpenStreetMap contributors &copy; CARTO', maxZoom: 20
     }),
     'OpenStreetMap': L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -142,6 +235,18 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     baseMaps['Carto Positron']?.addTo(map);
   }
 
+  // Suppress modern OSM country/city labels on vector Positron so ancient names take their place
+  map.on('layeradd', (e) => {
+    if (e.layer && typeof e.layer.getMaplibreMap === 'function') {
+      suppressMaplibreModernLabels(e.layer);
+    }
+  });
+  map.eachLayer((layer) => {
+    if (layer && typeof layer.getMaplibreMap === 'function') {
+      suppressMaplibreModernLabels(layer);
+    }
+  });
+
   if (globalThis.NkuaWebGISMap?.addBasemapPicker) {
     globalThis.NkuaWebGISMap.addBasemapPicker(map, baseMaps, { defaultName: defaultBasemap });
   }
@@ -151,6 +256,9 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
   }
 
   const measurementTool = new MeasurementTool(map, { language });
+  const ancientToponymsLayer = new AncientToponymsLayer({ language });
+  ancientToponymsLayer.addTo(map);
+  const toponymControl = addAncientToponymsControl(map, ancientToponymsLayer, language);
 
   const categories = getLocalizedWonderCategories(language);
 
@@ -264,6 +372,23 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
             other.closeTooltip();
           }
         });
+
+        // Pre-calculate optimal direction before opening so Leaflet renders it right the first time
+        if (typeof map.latLngToContainerPoint === 'function' && typeof map.getSize === 'function') {
+          const point = map.latLngToContainerPoint(item.coordinates);
+          const mapSize = map.getSize();
+          const availableAbove = point.y;
+          const availableBelow = mapSize.y - point.y;
+          const approxHeight = 220;
+
+          const preferBottom = availableAbove < (approxHeight + 20) || (availableAbove < 260 && availableBelow > availableAbove);
+          const tooltip = marker.getTooltip();
+          if (tooltip && tooltip.options) {
+            tooltip.options.direction = preferBottom ? 'bottom' : 'top';
+            tooltip.options.offset = preferBottom ? [0, 14] : [0, -14];
+          }
+        }
+
         marker.openTooltip();
       }
     });
@@ -333,6 +458,12 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     update,
     focus,
     measurementTool,
+    ancientToponymsLayer,
+    toponymControl,
+    setToponymLanguage: (lang) => {
+      ancientToponymsLayer.setLanguage(lang);
+      toponymControl?.updateLanguage?.(lang);
+    },
     closePreview: () => {
       closeAllTooltips();
       if (typeof map.closePopup === 'function') map.closePopup();

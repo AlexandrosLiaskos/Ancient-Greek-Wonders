@@ -37,7 +37,7 @@ export function createWonderHoverCardHTML(record, language) {
   const item = localizeRecord(record, language);
   const hero = record.media?.hero;
   const image = hero
-    ? `<img class="lagoon-hover-image" src="${escapeHtml(hero.src)}" srcset="${escapeHtml(hero.srcset)}" sizes="320px" width="${hero.width}" height="${hero.height}" alt="" loading="lazy" decoding="async" style="object-position:${escapeHtml(hero.focalPoint)}">`
+    ? `<img class="lagoon-hover-image" src="${escapeHtml(hero.src)}" srcset="${escapeHtml(hero.srcset)}" sizes="265px" width="${hero.width}" height="${hero.height}" alt="" loading="lazy" decoding="async" style="object-position:${escapeHtml(hero.focalPoint)}">`
     : '';
 
   const nameEn = record.name?.en || item.name;
@@ -52,10 +52,13 @@ export function createWonderHoverCardHTML(record, language) {
       <span class="lagoon-hover-order" aria-hidden="true">${String(record.order).padStart(2, '0')}</span>
     </div>
     <div class="lagoon-hover-body">
-      <span class="lagoon-hover-eyebrow">${escapeHtml(item.categoryLabel)}</span>
+      <div class="lagoon-hover-eyebrow-row">
+        <span class="lagoon-hover-eyebrow">${escapeHtml(item.categoryLabel)}</span>
+        ${record.sevenWonder ? '<span class="lagoon-hover-canonical-tag">★ Seven Wonders</span>' : ''}
+      </div>
       <div class="lagoon-hover-name">
         <strong class="lagoon-hover-name-en">${escapeHtml(primaryName)}</strong>
-        ${secondaryName ? `<span class="lagoon-hover-name-gr">${escapeHtml(secondaryName)}</span>` : ''}
+        ${secondaryName ? `<span class="lagoon-hover-name-sep" aria-hidden="true">/</span><span class="lagoon-hover-name-gr">${escapeHtml(secondaryName)}</span>` : ''}
       </div>
       <div class="lagoon-hover-locality">
         <svg class="lagoon-hover-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -73,11 +76,6 @@ export function createWonderHoverCardHTML(record, language) {
           <span class="lagoon-hover-stat-label">${escapeHtml(t(language, 'period'))}</span>
           <span class="lagoon-hover-stat-value">${escapeHtml(item.period)}</span>
         </div>
-        ${record.sevenWonder ? `
-        <div class="lagoon-hover-stat">
-          <span class="lagoon-hover-stat-label">${escapeHtml(t(language, 'canonical'))}</span>
-          <span class="lagoon-hover-stat-value" style="color: #dc2626; font-weight: 700;">★ Seven Wonders</span>
-        </div>` : ''}
       </div>
     </div>
   </div>`;
@@ -86,8 +84,9 @@ export function createWonderHoverCardHTML(record, language) {
 function createMediaFigure(asset, language, index, eager) {
   const badge = asset.type === 'photo' ? '' : `<span class="media-type-badge">${escapeHtml(t(language, `mediaType_${asset.type}`))}</span>`;
   const alt = asset.alt[language] ?? asset.alt.en;
+  const zoomHint = t(language, 'viewFullImage');
   return `<figure class="detail-figure" data-gallery-slide="${index}">
-    <picture><source type="image/webp" srcset="${escapeHtml(asset.srcset)}" sizes="(max-width: 760px) 100vw, 50vw"><img class="detail-image" src="${escapeHtml(asset.src)}" srcset="${escapeHtml(asset.srcset)}" sizes="(max-width: 760px) 100vw, 50vw" width="${asset.width}" height="${asset.height}" alt="${escapeHtml(alt)}" ${eager ? 'decoding="async" fetchpriority="high"' : 'loading="lazy" decoding="async"'} style="object-position:${escapeHtml(asset.focalPoint)}"></picture>
+    <picture><source type="image/webp" srcset="${escapeHtml(asset.srcset)}" sizes="(max-width: 760px) 100vw, 50vw"><img class="detail-image" data-lightbox-slide="${index}" src="${escapeHtml(asset.src)}" srcset="${escapeHtml(asset.srcset)}" sizes="(max-width: 760px) 100vw, 50vw" width="${asset.width}" height="${asset.height}" alt="${escapeHtml(alt)}" title="${escapeHtml(zoomHint)}" ${eager ? 'decoding="async" fetchpriority="high"' : 'loading="lazy" decoding="async"'} style="object-position:${escapeHtml(asset.focalPoint)}"></picture>
     ${badge}
     <figcaption class="media-credit"><a href="${escapeHtml(asset.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(asset.creator)}</a><span aria-hidden="true">·</span><a href="${escapeHtml(asset.licenseUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(asset.license)}</a></figcaption>
   </figure>`;
@@ -110,7 +109,8 @@ export function createDetailMarkup(record, language) {
   const sources = record.sources.map((source) => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.title)}</a></li>`).join('');
   const media = createMediaMarkup(record, language);
 
-  return `<div class="detail-media">${media}</div>
+  return `<div class="detail-layout">
+    <div class="detail-media">${media}</div>
     <div class="detail-copy">
       <p class="detail-kind">${escapeHtml(item.categoryLabel)}</p>
       <h2 id="detail-title">${escapeHtml(item.name)}</h2>
@@ -126,5 +126,6 @@ export function createDetailMarkup(record, language) {
         <p><span>${escapeHtml(t(language, 'representative'))}</span><strong>${record.coordinates.lat.toFixed(4)}° N · ${record.coordinates.lng.toFixed(4)}° E</strong></p>
       </div>
       <section class="detail-sources"><h3>${escapeHtml(t(language, 'sources'))}</h3><ul>${sources}</ul></section>
-    </div>`;
+    </div>
+  </div>`;
 }

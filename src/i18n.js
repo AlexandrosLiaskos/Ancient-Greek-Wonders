@@ -23,7 +23,8 @@ const UI = {
     skipToMap: 'Skip to map', legendLabel: 'Map legend',
     metaDescription: 'A bilingual interactive atlas of 77 wonders of the ancient Greek world.',
     zoomIn: 'Zoom in', zoomOut: 'Zoom out', mapLayers: 'Map layers', imageGallery: 'Monument image gallery',
-    previousImage: 'Previous image', nextImage: 'Next image'
+    previousImage: 'Previous image', nextImage: 'Next image', viewFullImage: 'Click to view full image',
+    ancientToponyms: 'Ancient Place Names', toggleToponyms: 'Toggle ancient place names'
   },
   el: {
     explore: 'Εξερεύνηση', browse: 'Κατάλογος', searchTab: 'Αναζήτηση', about: 'Σχετικά', search: 'Αναζήτηση μνημείων',
@@ -49,7 +50,8 @@ const UI = {
     skipToMap: 'Μετάβαση στον χάρτη', legendLabel: 'Υπόμνημα χάρτη',
     metaDescription: 'Δίγλωσσος διαδραστικός άτλας 77 θαυμάτων του αρχαίου ελληνικού κόσμου.',
     zoomIn: 'Μεγέθυνση', zoomOut: 'Σμίκρυνση', mapLayers: 'Επίπεδα χάρτη', imageGallery: 'Συλλογή εικόνων μνημείου',
-    previousImage: 'Προηγούμενη εικόνα', nextImage: 'Επόμενη εικόνα'
+    previousImage: 'Προηγούμενη εικόνα', nextImage: 'Επόμενη εικόνα', viewFullImage: 'Κάντε κλικ για προβολή πλήρους εικόνας',
+    ancientToponyms: 'Αρχαία Τοπωνύμια', toggleToponyms: 'Εναλλαγή αρχαίων τοπωνυμίων'
   }
 };
 
