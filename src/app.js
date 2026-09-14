@@ -25,6 +25,7 @@ class AncientGreekWondersApp {
       sidebar: document.getElementById('sidebar'),
       map: document.getElementById('map'),
       languageToggle: document.getElementById('language-toggle'),
+      footerLanguageToggle: document.getElementById('footer-language-toggle'),
       mobileFilters: document.getElementById('mobile-filters-toggle'),
       mobileSearch: document.getElementById('mobile-search-toggle'),
       mobileStats: document.getElementById('mobile-stats-toggle'),
@@ -255,11 +256,13 @@ class AncientGreekWondersApp {
       }, { language: this.state.language });
     }
 
-    // Language switcher
-    this.elements.languageToggle?.addEventListener('click', () => {
+    // Language switcher (header pill and footer link)
+    const toggleLanguage = () => {
       const nextLang = this.state.language === 'en' ? 'el' : 'en';
       this.applyLanguage(nextLang, true);
-    });
+    };
+    this.elements.languageToggle?.addEventListener('click', toggleLanguage);
+    this.elements.footerLanguageToggle?.addEventListener('click', toggleLanguage);
 
     // Filter reset wiring
     document.getElementById('clear-filters')?.addEventListener('click', () => {
@@ -746,10 +749,16 @@ class AncientGreekWondersApp {
     }
     const isEl = language === 'el';
 
-    // Update Language Toggle text
+    // Update Language Toggle text (header pill & footer link)
+    const toggleText = isEl ? 'English' : 'Ελληνικά';
+    const toggleAria = isEl ? 'Switch to English' : 'Μετάβαση στα Ελληνικά';
     if (this.elements.languageToggle) {
-      this.elements.languageToggle.textContent = isEl ? 'English' : 'Ελληνικά';
-      this.elements.languageToggle.setAttribute('aria-label', isEl ? 'Switch to English' : 'Μετάβαση στα Ελληνικά');
+      this.elements.languageToggle.textContent = toggleText;
+      this.elements.languageToggle.setAttribute('aria-label', toggleAria);
+    }
+    if (this.elements.footerLanguageToggle) {
+      this.elements.footerLanguageToggle.textContent = toggleText;
+      this.elements.footerLanguageToggle.setAttribute('aria-label', toggleAria);
     }
 
     // Update document title & metadata

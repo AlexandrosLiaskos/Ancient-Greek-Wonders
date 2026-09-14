@@ -139,6 +139,7 @@
                     <span class="header-rule" aria-hidden="true"></span>
                 </div>
                 <div class="header-actions">
+                    <button id="language-toggle" class="language-toggle-btn" type="button" aria-label="Switch to Greek">Ελληνικά</button>
                     <span class="last-updated" lang="en">Last updated: <time datetime="2026-09-12">12 September 2026</time></span>
                 </div>
             </div>
@@ -327,6 +328,43 @@
             </main>
         </div>
 
+        <!-- Footer -->
+        <footer class="footer" aria-label="Site footer">
+            <div class="footer-content">
+                <div class="footer-authorship">
+                    <div class="footer-project-team">
+                        <span class="footer-authorship-label" id="footer-authorship-label">Research &amp; project lead</span>
+                        <div class="footer-team-list">
+                            <figure class="footer-team-member">
+                                <a class="team-photo-link" href="mailto:alexliaskos@geol.uoa.gr" aria-label="Email Alexandros Liaskos" title="alexliaskos@geol.uoa.gr">
+                                    <img src="./assets/shared/alexandros-liaskos.webp" alt="Alexandros Liaskos">
+                                </a>
+                                <figcaption class="sr-only">Alexandros Liaskos</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-credit">
+                    <span class="footer-collection-name">Wonders <em>of the Ancient Greek World</em></span>
+                    <span class="footer-credit-meta">
+                        <span>© 2026</span><span class="footer-credit-dot" aria-hidden="true">·</span>
+                        <span>Content under <a class="footer-license-link" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer">CC BY 4.0</a></span>
+                    </span>
+                </div>
+                <nav class="footer-nav" aria-label="Site links">
+                    <button id="feature-guide-btn" class="footer-link" type="button" aria-haspopup="dialog" aria-controls="feature-guide-modal">Ancient Wonders</button>
+                    <span class="footer-dot" aria-hidden="true">&middot;</span>
+                    <button id="about-btn" class="footer-link" type="button">About</button>
+                    <span class="footer-dot" aria-hidden="true">·</span>
+                    <button id="references-btn" class="footer-link" type="button">Sources</button>
+                    <span class="footer-dot" aria-hidden="true">·</span>
+                    <button id="submit-data-btn" class="footer-link" type="button">Submit data</button>
+                    <span class="footer-dot" aria-hidden="true">·</span>
+                    <button id="footer-language-toggle" class="footer-link" type="button" aria-label="Switch language">Ελληνικά</button>
+                </nav>
+            </div>
+        </footer>
+
         <!-- Monument Detail Modal -->
         <div id="wonder-modal" class="modal">
             <div class="modal-content lagoon-modal-content">
@@ -414,43 +452,6 @@
                 </footer>
             </div>
         </div>
-
-        <!-- Footer -->
-        <footer class="footer" aria-label="Site footer">
-            <div class="footer-content">
-                <div class="footer-authorship">
-                    <div class="footer-project-team">
-                        <span class="footer-authorship-label" id="footer-authorship-label">Research &amp; project lead</span>
-                        <div class="footer-team-list">
-                            <figure class="footer-team-member">
-                                <a class="team-photo-link" href="mailto:alexliaskos@geol.uoa.gr" aria-label="Email Alexandros Liaskos" title="alexliaskos@geol.uoa.gr">
-                                    <img src="./assets/shared/alexandros-liaskos.webp" alt="Alexandros Liaskos">
-                                </a>
-                                <figcaption class="sr-only">Alexandros Liaskos</figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-credit">
-                    <span class="footer-collection-name">Wonders <em>of the Ancient Greek World</em></span>
-                    <span class="footer-credit-meta">
-                        <span>© 2026</span><span class="footer-credit-dot" aria-hidden="true">·</span>
-                        <span>Content under <a class="footer-license-link" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer">CC BY 4.0</a></span>
-                    </span>
-                </div>
-                <nav class="footer-nav" aria-label="Site links">
-                    <button id="feature-guide-btn" class="footer-link" type="button" aria-haspopup="dialog" aria-controls="feature-guide-modal">Ancient Wonders</button>
-                    <span class="footer-dot" aria-hidden="true">&middot;</span>
-                    <button id="about-btn" class="footer-link" type="button">About</button>
-                    <span class="footer-dot" aria-hidden="true">·</span>
-                    <button id="references-btn" class="footer-link" type="button">Sources</button>
-                    <span class="footer-dot" aria-hidden="true">·</span>
-                    <button id="submit-data-btn" class="footer-link" type="button">Submit data</button>
-                    <span class="footer-dot" aria-hidden="true">·</span>
-                    <button id="language-toggle" class="footer-link" type="button" aria-label="Switch language">Ελληνικά</button>
-                </nav>
-            </div>
-        </footer>
 
         <!-- References Modal -->
         <div id="references-modal" class="modal">
