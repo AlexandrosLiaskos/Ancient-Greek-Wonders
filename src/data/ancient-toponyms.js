@@ -7799,13 +7799,49 @@ export const ANCIENT_TOPONYMS = [
     priority: 3
   },
   {
-    id: 'reg-germania',
+    id: 'reg-hercynia-silva',
     type: 'macro',
-    name: { en: 'Germania', el: 'Γερμανία' },
-    lat: 52.00,
+    name: { en: 'Hercynia Silva', el: 'Ἑρκύνιος Δρυμός' },
+    lat: 51.50,
     lng: 10.50,
     minZoom: 4,
     priority: 2
+  },
+  {
+    id: 'reg-suebia',
+    type: 'region',
+    name: { en: 'Suebia', el: 'Σουηβία' },
+    lat: 52.50,
+    lng: 13.50,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'reg-cimbrica',
+    type: 'region',
+    name: { en: 'Chersonesus Cimbrica', el: 'Κιμβρική Χερσόνησος' },
+    lat: 55.50,
+    lng: 9.20,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'water-sinus-codanus',
+    type: 'water',
+    name: { en: 'Sinus Codanus', el: 'Κοδανός Κόλπος' },
+    lat: 56.50,
+    lng: 11.50,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'river-vistula',
+    type: 'river',
+    name: { en: 'Vistula Flumen', el: 'Οὐιστούλας' },
+    lat: 53.00,
+    lng: 18.50,
+    minZoom: 5,
+    priority: 3
   },
   {
     id: 'reg-scandia',
@@ -8581,4 +8617,184 @@ export const ANCIENT_TOPONYMS = [
     minZoom: 4,
     priority: 2
   },
+
+  // --- OUTER EXPANSIONS OF THE HELLENIC ECUMENE ---
+  // West Africa & Fortunate Isles (Euthymenes of Massalia, Hanno, Ptolemy)
+  {
+    id: 'island-fortunatae',
+    type: 'macro',
+    name: { en: 'Fortunatae Insulae', el: 'Μακάρων Νῆσοι' },
+    lat: 28.30,
+    lng: -15.50,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'city-cerne',
+    type: 'city_major',
+    name: { en: 'Cerne', el: 'Κέρνη' },
+    lat: 23.80,
+    lng: -15.90,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'river-chremetes',
+    type: 'river',
+    name: { en: 'Chremetes Flumen', el: 'Χρεμέτης' },
+    lat: 16.20,
+    lng: -16.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'subreg-soloeis',
+    type: 'subregion',
+    name: { en: 'Promontorium Soloeis', el: 'Σόλοεις' },
+    lat: 32.50,
+    lng: -9.30,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'subreg-hesperu-ceras',
+    type: 'subregion',
+    name: { en: 'Hesperu Ceras', el: 'Ἑσπέρου Κέρας' },
+    lat: 14.70,
+    lng: -17.40,
+    minZoom: 5,
+    priority: 3
+  },
+
+  // Scythian Hinterland & Urals (Herodotus IV)
+  {
+    id: 'city-gelonus',
+    type: 'city_major',
+    name: { en: 'Gelonus', el: 'Γελωνός' },
+    lat: 50.10,
+    lng: 34.60,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'river-rha',
+    type: 'river',
+    name: { en: 'Rha Flumen', el: 'Ῥᾶ' },
+    lat: 48.70,
+    lng: 44.50,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'mountain-rhipaei',
+    type: 'mountain',
+    name: { en: 'Rhipaei Montes', el: 'Ῥιπαῖα Ὄρη' },
+    lat: 56.00,
+    lng: 59.00,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'reg-issedones',
+    type: 'region',
+    name: { en: 'Issedonia', el: 'Ἰσσηδόνες' },
+    lat: 48.50,
+    lng: 66.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'reg-arimaspi',
+    type: 'region',
+    name: { en: 'Arimaspi', el: 'Ἀριμασποί' },
+    lat: 50.50,
+    lng: 85.00,
+    minZoom: 5,
+    priority: 3
+  },
+
+  // East Africa & Indian Ocean (Periplus of the Erythraean Sea, Ptolemy)
+  {
+    id: 'island-dioscoridis',
+    type: 'macro',
+    name: { en: 'Dioscoridis Insula', el: 'Διοσκορίδου Νῆσος' },
+    lat: 12.50,
+    lng: 53.90,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'reg-aromatophoros',
+    type: 'region',
+    name: { en: 'Regio Aromatica', el: 'Ἀρωματοφόρος Χώρα' },
+    lat: 11.80,
+    lng: 50.50,
+    minZoom: 4,
+    priority: 2
+  },
+  {
+    id: 'city-opone',
+    type: 'city_major',
+    name: { en: 'Opone', el: 'Ὀπώνη' },
+    lat: 10.40,
+    lng: 51.30,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'city-rhapta',
+    type: 'city_major',
+    name: { en: 'Rhapta', el: 'Ῥαπτά' },
+    lat: -6.50,
+    lng: 39.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'island-menouthias',
+    type: 'subregion',
+    name: { en: 'Menouthias', el: 'Μενουθιάς' },
+    lat: -6.10,
+    lng: 39.30,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'city-mosylon',
+    type: 'city_major',
+    name: { en: 'Mosylon', el: 'Μόσυλον' },
+    lat: 10.95,
+    lng: 47.10,
+    minZoom: 6,
+    priority: 3
+  },
+
+  // Punjab, Silk Road & Southeast Asia
+  {
+    id: 'monument-arae-alexandri',
+    type: 'subregion',
+    name: { en: 'Arae Alexandri', el: 'Βωμοί Ἀλεξάνδρου' },
+    lat: 31.60,
+    lng: 75.30,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'city-cattigara',
+    type: 'city_major',
+    name: { en: 'Cattigara', el: 'Κάττιγαρα' },
+    lat: 10.20,
+    lng: 105.10,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'water-magnus-sinus',
+    type: 'water',
+    name: { en: 'Magnus Sinus', el: 'Μέγας Κόλπος' },
+    lat: 9.00,
+    lng: 103.00,
+    minZoom: 5,
+    priority: 3
+  }
 ];

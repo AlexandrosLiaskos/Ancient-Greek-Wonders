@@ -40,9 +40,9 @@ test('ancient toponyms have complete bilingual names and valid ecumene coordinat
     assert.ok(item.name?.en && typeof item.name.en === 'string', `Missing English name for ${item.id}`);
     assert.ok(item.name?.el && typeof item.name.el === 'string', `Missing Greek name for ${item.id}`);
 
-    // Geographic bounds: Full ancient ecumene from Atlantic/British Isles to Central Asia/India/China
-    assert.ok(item.lat >= -5.0 && item.lat <= 68.0, `Latitude ${item.lat} out of range for ${item.id}`);
-    assert.ok(item.lng >= -15.0 && item.lng <= 105.0, `Longitude ${item.lng} out of range for ${item.id}`);
+    // Geographic bounds: Full ancient ecumene from Atlantic/West Africa/British Isles to Central Asia/India/Southeast Asia
+    assert.ok(item.lat >= -10.0 && item.lat <= 68.0, `Latitude ${item.lat} out of range for ${item.id}`);
+    assert.ok(item.lng >= -20.0 && item.lng <= 108.0, `Longitude ${item.lng} out of range for ${item.id}`);
     assert.ok(Number.isFinite(item.minZoom) && item.minZoom >= 3 && item.minZoom <= 10, `Invalid minZoom for ${item.id}`);
   }
 });
