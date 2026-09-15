@@ -309,6 +309,15 @@ html[lang="el"] .masthead h1 {
     user-select: none;
     line-height: 1;
 }
+.cluster-stack-wrapper.is-triad {
+    flex-direction: column;
+}
+.cluster-stack-row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
 .cluster-stack-wrapper:hover {
     transform: scale(1.14);
     filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.42));

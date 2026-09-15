@@ -356,6 +356,44 @@
         }
 
         var overlap = 5;
+
+        if (activeCategories.length === 3) {
+            var cat0 = activeCategories[0];
+            var cat1 = activeCategories[1];
+            var cat2 = activeCategories[2];
+
+            var count0 = counts[cat0.key] || 0;
+            var count1 = counts[cat1.key] || 0;
+            var count2 = counts[cat2.key] || 0;
+
+            var size0 = getClusterBadgeSize(count0);
+            var size1 = getClusterBadgeSize(count1);
+            var size2 = getClusterBadgeSize(count2);
+
+            var fontSize0 = getClusterFontSize(count0);
+            var fontSize1 = getClusterFontSize(count1);
+            var fontSize2 = getClusterFontSize(count2);
+
+            var title0 = String(cat0.label || cat0.key).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+            var title1 = String(cat1.label || cat1.key).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+            var title2 = String(cat2.label || cat2.key).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+
+            var bottomWidth = size0 + size1 - overlap;
+            var totalWidth = Math.max(bottomWidth, size2);
+            var bottomHeight = Math.max(size0, size1);
+            var totalHeight = size2 + bottomHeight - overlap;
+
+            var topHtml = '<div class="cluster-stack-row is-top"><span class="cluster-stack-badge" aria-label="' + title2 + ': ' + count2.toLocaleString('en-US') + '" style="background:' + cat2.color + ';width:' + size2 + 'px;height:' + size2 + 'px;font-size:' + fontSize2 + 'px;z-index:3;">' + formatCount(count2) + '</span></div>';
+            var bottomHtml = '<div class="cluster-stack-row is-bottom" style="margin-top:-' + overlap + 'px;"><span class="cluster-stack-badge" aria-label="' + title0 + ': ' + count0.toLocaleString('en-US') + '" style="background:' + cat0.color + ';width:' + size0 + 'px;height:' + size0 + 'px;font-size:' + fontSize0 + 'px;z-index:2;">' + formatCount(count0) + '</span><span class="cluster-stack-badge" aria-label="' + title1 + ': ' + count1.toLocaleString('en-US') + '" style="background:' + cat1.color + ';width:' + size1 + 'px;height:' + size1 + 'px;font-size:' + fontSize1 + 'px;z-index:1;margin-left:-' + overlap + 'px;">' + formatCount(count1) + '</span></div>';
+
+            return L.divIcon({
+                html: '<div class="cluster-stack-wrapper is-triad" style="width:' + totalWidth + 'px;height:' + totalHeight + 'px">' + topHtml + bottomHtml + '</div>',
+                className: 'minimal-cluster',
+                iconSize: L.point(totalWidth, totalHeight),
+                iconAnchor: L.point(totalWidth / 2, totalHeight / 2)
+            });
+        }
+
         var totalWidth = 0;
         var maxHeight = 0;
         var badgesHtml = '';

@@ -84,8 +84,20 @@ test('createStackedClusterMarkup produces purely colored category badges without
   assert.match(single.html, />3<\/span>/);
   assert.equal(single.width, 20);
 
-  // Multi-category stacked cluster
+  // 2 categories cluster: clean horizontal pair
+  const pair = createStackedClusterMarkup({ ruins: 4, extant: 2 }, categories);
+  assert.match(pair.html, /class="cluster-stack-wrapper"/);
+  assert.doesNotMatch(pair.html, /is-triad/);
+  assert.match(pair.html, /background:#ea580c/);
+  assert.match(pair.html, /background:#0d9488/);
+  assert.equal(pair.width, 37); // 22 + (20 - 5)
+  assert.equal(pair.height, 22);
+
+  // 3 categories cluster: compact triad with third badge above
   const multi = createStackedClusterMarkup({ lost: 1, ruins: 4, extant: 2 }, categories);
+  assert.match(multi.html, /class="cluster-stack-wrapper is-triad"/);
+  assert.match(multi.html, /class="cluster-stack-row is-top"/);
+  assert.match(multi.html, /class="cluster-stack-row is-bottom"/);
   assert.match(multi.html, /background:#b91c1c/);
   assert.match(multi.html, /background:#ea580c/);
   assert.match(multi.html, /background:#0d9488/);
@@ -93,9 +105,10 @@ test('createStackedClusterMarkup produces purely colored category badges without
   assert.match(multi.html, />4<\/span>/);
   assert.match(multi.html, />2<\/span>/);
   assert.doesNotMatch(multi.html, /#000/);
-  // Total width with 5px overlap: lost(20) + ruins(22 - 5) + extant(20 - 5) = 52px
-  assert.equal(multi.width, 52);
-  assert.equal(multi.height, 22);
+  // Bottom row: lost(20) + ruins(22 - 5) = 37px; Top: extant(20) centered above.
+  // Height: top(20) + bottom(22) - overlap(5) = 37px.
+  assert.equal(multi.width, 37);
+  assert.equal(multi.height, 37);
 });
 
 test('getClusterBadgeSize scales progressively with count while remaining compact', () => {

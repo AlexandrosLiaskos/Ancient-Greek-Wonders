@@ -139,6 +139,44 @@ export function createStackedClusterMarkup(counts, categories = WONDER_MAP_CATEG
   }
 
   const overlap = 5;
+
+  // When exactly 3 categories are present, stack the third badge above the bottom two
+  if (activeCategories.length === 3) {
+    const cat0 = activeCategories[0];
+    const cat1 = activeCategories[1];
+    const cat2 = activeCategories[2];
+
+    const count0 = counts[cat0.key] || 0;
+    const count1 = counts[cat1.key] || 0;
+    const count2 = counts[cat2.key] || 0;
+
+    const size0 = getClusterBadgeSize(count0);
+    const size1 = getClusterBadgeSize(count1);
+    const size2 = getClusterBadgeSize(count2);
+
+    const fontSize0 = getClusterFontSize(count0);
+    const fontSize1 = getClusterFontSize(count1);
+    const fontSize2 = getClusterFontSize(count2);
+
+    const title0 = escapeHtml(String(cat0.label || cat0.key));
+    const title1 = escapeHtml(String(cat1.label || cat1.key));
+    const title2 = escapeHtml(String(cat2.label || cat2.key));
+
+    const bottomWidth = size0 + size1 - overlap;
+    const totalWidth = Math.max(bottomWidth, size2);
+    const bottomHeight = Math.max(size0, size1);
+    const totalHeight = size2 + bottomHeight - overlap;
+
+    const topHtml = `<div class="cluster-stack-row is-top"><span class="cluster-stack-badge" aria-label="${title2}: ${count2}" style="background:${cat2.color};width:${size2}px;height:${size2}px;font-size:${fontSize2}px;z-index:3;">${count2}</span></div>`;
+    const bottomHtml = `<div class="cluster-stack-row is-bottom" style="margin-top:-${overlap}px;"><span class="cluster-stack-badge" aria-label="${title0}: ${count0}" style="background:${cat0.color};width:${size0}px;height:${size0}px;font-size:${fontSize0}px;z-index:2;">${count0}</span><span class="cluster-stack-badge" aria-label="${title1}: ${count1}" style="background:${cat1.color};width:${size1}px;height:${size1}px;font-size:${fontSize1}px;z-index:1;margin-left:-${overlap}px;">${count1}</span></div>`;
+
+    return {
+      html: `<div class="cluster-stack-wrapper is-triad" style="width:${totalWidth}px;height:${totalHeight}px">${topHtml}${bottomHtml}</div>`,
+      width: totalWidth,
+      height: totalHeight
+    };
+  }
+
   let totalWidth = 0;
   let maxHeight = 0;
   let badgesHtml = '';
