@@ -8796,5 +8796,231 @@ export const ANCIENT_TOPONYMS = [
     lng: 103.00,
     minZoom: 5,
     priority: 3
+  },
+
+  // --- XENOPHON'S ANABASIS & THE RETREAT OF THE TEN THOUSAND (401-399 BC) ---
+  // Upcountry March (Anabasis)
+  {
+    id: 'city-celaenae',
+    type: 'city_major',
+    name: { en: 'Celaenae', el: 'Κελαιναί' },
+    lat: 38.07,
+    lng: 30.16,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'subreg-pylae-ciliciae',
+    type: 'mountain',
+    name: { en: 'Pylae Ciliciae (Cilician Gates)', el: 'Κιλίκιαι Πύλαι' },
+    lat: 37.29,
+    lng: 34.79,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'subreg-pylae-syriae',
+    type: 'subregion',
+    name: { en: 'Pylae Syriae (Syrian Gates)', el: 'Συρίαι Πύλαι' },
+    lat: 36.50,
+    lng: 36.20,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'city-myriandus',
+    type: 'city_secondary',
+    name: { en: 'Myriandus', el: 'Μυρίανδος' },
+    lat: 36.58,
+    lng: 36.17,
+    minZoom: 7,
+    priority: 3
+  },
+  {
+    id: 'city-thapsacus',
+    type: 'city_major',
+    name: { en: 'Thapsacus', el: 'Θάψακος' },
+    lat: 35.95,
+    lng: 38.55,
+    minZoom: 6,
+    priority: 2
+  },
+  {
+    id: 'site-cunaxa',
+    type: 'subregion',
+    name: { en: 'Cunaxa', el: 'Κούναξα' },
+    lat: 33.32,
+    lng: 44.05,
+    minZoom: 6,
+    priority: 2
+  },
+
+  // Mesopotamia & Median March
+  {
+    id: 'monument-murus-medicus',
+    type: 'subregion',
+    name: { en: 'Murus Medicus (Median Wall)', el: 'Μηδικόν Τεῖχος' },
+    lat: 33.85,
+    lng: 44.15,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'city-sittace',
+    type: 'city_secondary',
+    name: { en: 'Sittace', el: 'Σιττάκη' },
+    lat: 33.25,
+    lng: 44.55,
+    minZoom: 7,
+    priority: 3
+  },
+  {
+    id: 'city-opis',
+    type: 'city_major',
+    name: { en: 'Opis', el: 'Ὦπις' },
+    lat: 33.56,
+    lng: 44.60,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'city-larisa-assyria',
+    type: 'city_major',
+    name: { en: 'Larisa (Kalhu / Nimrud)', el: 'Λάρισα (Νιμρούντ)' },
+    lat: 36.10,
+    lng: 43.33,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'city-mespila-nineveh',
+    type: 'city_major',
+    name: { en: 'Mespila (Nineveh)', el: 'Μέσπιλα (Νινευή)' },
+    lat: 36.36,
+    lng: 43.15,
+    minZoom: 6,
+    priority: 3
+  },
+
+  // The Retreat through Carduchia, Armenia & Caucasian Highlands
+  {
+    id: 'reg-carduchi',
+    type: 'region',
+    name: { en: 'Carduchia', el: 'Καρδοῦχοι' },
+    lat: 37.50,
+    lng: 43.00,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'river-centrites',
+    type: 'river',
+    name: { en: 'Centrites Flumen', el: 'Κεντρίτης' },
+    lat: 37.75,
+    lng: 42.15,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'river-teleboas',
+    type: 'river',
+    name: { en: 'Teleboas Flumen', el: 'Τηλεβόας' },
+    lat: 38.80,
+    lng: 41.50,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'reg-taochi',
+    type: 'region',
+    name: { en: 'Taochia', el: 'Τάοχοι' },
+    lat: 40.50,
+    lng: 41.90,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'reg-chalybes',
+    type: 'region',
+    name: { en: 'Chalybes', el: 'Χάλυβες' },
+    lat: 40.40,
+    lng: 39.80,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'reg-scythini',
+    type: 'region',
+    name: { en: 'Scythini', el: 'Σκυθινοί' },
+    lat: 40.25,
+    lng: 40.80,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'city-gymnias',
+    type: 'city_major',
+    name: { en: 'Gymnias', el: 'Γυμνιάς' },
+    lat: 40.26,
+    lng: 40.22,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'mountain-theches',
+    type: 'mountain',
+    name: { en: 'Mons Theches ("Thalatta! Thalatta!")', el: 'Θήχης Ὄρος ("Θάλαττα! Θάλαττα!")' },
+    lat: 40.60,
+    lng: 40.15,
+    minZoom: 5,
+    priority: 2
+  },
+  {
+    id: 'reg-macrones',
+    type: 'region',
+    name: { en: 'Macrones', el: 'Μάκρωνες' },
+    lat: 40.75,
+    lng: 39.90,
+    minZoom: 6,
+    priority: 3
+  },
+
+  // Pontic Coast & Bosporus
+  {
+    id: 'reg-mossynoeci',
+    type: 'region',
+    name: { en: 'Mossynoeci', el: 'Μοσσύνοικοι' },
+    lat: 40.90,
+    lng: 38.30,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'reg-tibareni',
+    type: 'region',
+    name: { en: 'Tibareni', el: 'Τιβαρηνοί' },
+    lat: 41.00,
+    lng: 37.80,
+    minZoom: 5,
+    priority: 3
+  },
+  {
+    id: 'subreg-port-calpe',
+    type: 'subregion',
+    name: { en: 'Portus Calpe', el: 'Κάλπης Λιμήν' },
+    lat: 41.14,
+    lng: 30.20,
+    minZoom: 6,
+    priority: 3
+  },
+  {
+    id: 'city-chrysopolis',
+    type: 'city_major',
+    name: { en: 'Chrysopolis', el: 'Χρυσόπολις' },
+    lat: 41.02,
+    lng: 29.02,
+    minZoom: 6,
+    priority: 2
   }
+
 ];
