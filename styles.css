@@ -294,6 +294,11 @@ html[lang="el"] .masthead h1 {
     z-index: 1000;
 }
 
+/* Suppress basemap picker — restrained ancient cartography with ancient toponyms */
+.basemap-picker {
+    display: none !important;
+}
+
 /* Stacked Category Cluster (Pure colored badges without black circle) */
 .minimal-cluster {
     background: transparent !important;

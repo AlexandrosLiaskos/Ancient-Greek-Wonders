@@ -363,10 +363,6 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     }
   });
 
-  if (globalThis.NkuaWebGISMap?.addBasemapPicker) {
-    globalThis.NkuaWebGISMap.addBasemapPicker(map, baseMaps, { defaultName: defaultBasemap });
-  }
-
   if (globalThis.NkuaWebGISMap?.addNorthArrow) {
     globalThis.NkuaWebGISMap.addNorthArrow(map);
   }
