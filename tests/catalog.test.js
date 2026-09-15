@@ -66,3 +66,22 @@ test('survival summary assigns every filtered record to one map legend group', (
   assert.equal(Object.values(summary).reduce((total, count) => total + count, 0), filtered.length);
   assert.equal(summary.lost, filtered.filter(({ status }) => status === 'lost').length);
 });
+
+test('mapCategory correctly partitions wonders into 3 map classes', () => {
+  const extant = filterWonders(WONDERS, { mapCategory: 'extant' });
+  const ruins = filterWonders(WONDERS, { mapCategory: 'ruins' });
+  const lost = filterWonders(WONDERS, { mapCategory: 'lost' });
+
+  assert.equal(extant.length, 27);
+  assert.equal(ruins.length, 45);
+  assert.equal(lost.length, 5);
+  assert.equal(extant.length + ruins.length + lost.length, EXPECTED_CATALOG_SIZE);
+
+  const facets = facetCounts(WONDERS, {}, 'mapCategory');
+  assert.deepEqual(facets, [
+    { value: 'extant', count: 27 },
+    { value: 'ruins', count: 45 },
+    { value: 'lost', count: 5 }
+  ]);
+});
+

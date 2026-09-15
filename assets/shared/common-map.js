@@ -564,9 +564,27 @@
         }
 
         var countElements = Object.create(null);
+        var rowElements = Object.create(null);
         categories.forEach(function (category) {
             var row = document.createElement('div');
             row.className = 'legend-row';
+            row.dataset.categoryKey = category.key;
+
+            if (typeof options.onCategoryClick === 'function') {
+                row.classList.add('is-clickable');
+                row.setAttribute('role', 'button');
+                row.setAttribute('tabindex', '0');
+                row.setAttribute('aria-pressed', 'false');
+                row.addEventListener('click', function () {
+                    options.onCategoryClick(category.key, category);
+                });
+                row.addEventListener('keydown', function (event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        options.onCategoryClick(category.key, category);
+                    }
+                });
+            }
 
             var dot = document.createElement('span');
             dot.className = 'legend-dot';
@@ -582,6 +600,7 @@
             count.className = 'legend-count';
             count.textContent = '0';
             countElements[category.key] = count;
+            rowElements[category.key] = row;
 
             row.append(dot, label, count);
             legend.appendChild(row);
@@ -595,6 +614,15 @@
         return {
             element: status,
             readout: readout,
+            setActiveCategory: function (activeKey) {
+                categories.forEach(function (category) {
+                    var el = rowElements[category.key];
+                    if (!el) return;
+                    var isActive = Boolean(activeKey && category.key === activeKey);
+                    el.classList.toggle('is-active', isActive);
+                    el.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+            },
             update: function (records) {
                 var counts = Object.create(null);
                 categories.forEach(function (category) { counts[category.key] = 0; });

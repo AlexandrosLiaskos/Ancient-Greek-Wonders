@@ -545,6 +545,11 @@
                 x: 0, y: y, width: barWidth, height: rowHeight,
                 class: 'stats-bar stats-bar-cat' + (point.isOther ? ' is-other' : '') + (overflowed ? ' is-overflow' : '')
             });
+            var barColor = (fieldConfig && typeof fieldConfig.getColor === 'function' ? fieldConfig.getColor(point.key, point) : null)
+                || (config && typeof config.getColor === 'function' ? config.getColor(point.key, point) : null);
+            if (barColor) {
+                bar.style.fill = barColor;
+            }
             var percentage = new Intl.NumberFormat(config.locale || undefined, {
                 style: 'percent', maximumFractionDigits: 1
             }).format(point.ratio || 0);
@@ -579,11 +584,11 @@
             return !isMissingValue(item.value, fieldConfig);
         });
         var sample = panel.querySelector('.stats-sample');
-        var title = panel.querySelector('.stats-figure-title');
-        var axis = panel.querySelector('.stats-axis-label');
+        var title = panel.querySelector('.stats-figure-title') || panel.querySelector('#stats-figure-title');
+        var axis = panel.querySelector('.stats-axis-label') || panel.querySelector('#stats-axis-label');
         if (sample) sample.textContent = recordCount(records, config).toLocaleString(config.locale || undefined) + ' visible records';
         if (title && config.figureTitle) title.textContent = config.figureTitle;
-        var chart = panel.querySelector('.stats-chart-wrap');
+        var chart = panel.querySelector('.stats-chart-wrap') || panel.querySelector('#stats-chart-wrap');
         if (config.type === 'numeric') {
             var numericItems = items.map(function (item) {
                 return { record: item.record, value: Number(item.value), weight: item.weight };
@@ -1649,7 +1654,16 @@
                 row.type = 'button';
                 row.setAttribute('aria-label', self.formatFieldValue(field, value));
                 var label = makeElement('span', 'fbc-list-label');
-                label.textContent = self.formatFieldValue(field, value);
+                var color = typeof field.getColor === 'function' ? field.getColor(value) : null;
+                if (color) {
+                    var dot = makeElement('span', 'facet-option-dot');
+                    dot.style.backgroundColor = color;
+                    dot.setAttribute('aria-hidden', 'true');
+                    label.appendChild(dot);
+                }
+                var textSpan = document.createElement('span');
+                textSpan.textContent = self.formatFieldValue(field, value);
+                label.appendChild(textSpan);
                 var count = makeElement('span', 'fbc-list-count');
                 count.textContent = counts[value].toLocaleString(self.config.locale || undefined);
                 var tick = makeElement('span', 'fbc-list-tick');
@@ -1731,7 +1745,7 @@
 
     CommonStatisticsPanel.prototype.init = function () {
         var tab = document.getElementById(this.config.containerId || 'stats-tab') || document.getElementById('statistics-tab');
-        if (!tab || !this.fields.length || tab.querySelector('#stats-field-btn')) return;
+        if (!tab || !this.fields.length || tab.dataset.commonStatistics === 'true') return;
         this.buildShell(tab);
         this.bindEvents();
         this.populatePicker();
@@ -1739,6 +1753,37 @@
     };
 
     CommonStatisticsPanel.prototype.buildShell = function (tab) {
+        var existingPanel = tab.querySelector('.statistics-panel');
+        if (existingPanel && tab.querySelector('#stats-field-btn')) {
+            var pickerModal = document.getElementById('stats-variable-modal');
+            var glossaryModal = document.getElementById('stats-glossary-modal');
+            var binModal = document.getElementById('stats-bin-modal');
+            this.elements = {
+                tab: tab,
+                fieldButton: tab.querySelector('#stats-field-btn'),
+                fieldValue: tab.querySelector('#stats-field-btn-value'),
+                typeBadge: tab.querySelector('#stats-type-badge'),
+                description: tab.querySelector('.stats-variable-description') || tab.querySelector('#stats-hint'),
+                coverage: tab.querySelector('#stats-coverage-note') || tab.querySelector('#stats-hint'),
+                variableHeading: tab.querySelector('.stats-glossary-section'),
+                figureTitle: tab.querySelector('.stats-figure-title') || tab.querySelector('#stats-figure-title'),
+                pickerModal: pickerModal,
+                pickerClose: pickerModal ? (pickerModal.querySelector('.modal-close') || pickerModal.querySelector('#close-stats-variable')) : null,
+                pickerSearch: pickerModal ? pickerModal.querySelector('#stats-variable-search-input') : null,
+                pickerList: pickerModal ? pickerModal.querySelector('#stats-variable-list') : null,
+                glossaryButton: tab.querySelector('#stats-glossary-btn'),
+                glossaryModal: glossaryModal,
+                glossaryClose: glossaryModal ? (glossaryModal.querySelector('.modal-close') || glossaryModal.querySelector('#close-stats-glossary')) : null,
+                binModal: binModal,
+                binClose: binModal ? (binModal.querySelector('.modal-close') || binModal.querySelector('#close-stats-bin')) : null,
+                binTitle: binModal ? (binModal.querySelector('#stats-bin-title') || binModal.querySelector('h3')) : null,
+                binSummary: binModal ? binModal.querySelector('#stats-bin-summary') : null,
+                binList: binModal ? binModal.querySelector('#stats-bin-list') : null
+            };
+            tab.dataset.commonStatistics = 'true';
+            return;
+        }
+
         this.classicLayout = tab.dataset.statisticsLayout === 'classic';
         var legacy = makeElement('div', 'nkua-legacy-statistics');
         legacy.hidden = true;
@@ -2030,26 +2075,44 @@
 
     CommonStatisticsPanel.prototype.bindEvents = function () {
         var self = this;
-        this.elements.fieldButton.addEventListener('click', function () { self.openPicker(); });
-        this.elements.pickerClose.addEventListener('click', function () { self.closeModal(self.elements.pickerModal); });
-        this.elements.pickerSearch.addEventListener('input', function () { self.populatePicker(); });
-        this.elements.pickerModal.addEventListener('click', function (event) {
-            if (event.target === self.elements.pickerModal) self.closeModal(self.elements.pickerModal);
-        });
-        this.elements.glossaryButton.addEventListener('click', function () { self.openModal(self.elements.glossaryModal); });
-        this.elements.glossaryClose.addEventListener('click', function () { self.closeModal(self.elements.glossaryModal); });
-        this.elements.glossaryModal.addEventListener('click', function (event) {
-            if (event.target === self.elements.glossaryModal) self.closeModal(self.elements.glossaryModal);
-        });
-        this.elements.binClose.addEventListener('click', function () { self.closeModal(self.elements.binModal); });
-        this.elements.binModal.addEventListener('click', function (event) {
-            if (event.target === self.elements.binModal) self.closeModal(self.elements.binModal);
-        });
+        if (this.elements.fieldButton) {
+            this.elements.fieldButton.addEventListener('click', function () { self.openPicker(); });
+        }
+        if (this.elements.pickerClose) {
+            this.elements.pickerClose.addEventListener('click', function () { self.closeModal(self.elements.pickerModal); });
+        }
+        if (this.elements.pickerSearch) {
+            this.elements.pickerSearch.addEventListener('input', function () { self.populatePicker(); });
+        }
+        if (this.elements.pickerModal) {
+            this.elements.pickerModal.addEventListener('click', function (event) {
+                if (event.target === self.elements.pickerModal) self.closeModal(self.elements.pickerModal);
+            });
+        }
+        if (this.elements.glossaryButton) {
+            this.elements.glossaryButton.addEventListener('click', function () { self.openModal(self.elements.glossaryModal); });
+        }
+        if (this.elements.glossaryClose) {
+            this.elements.glossaryClose.addEventListener('click', function () { self.closeModal(self.elements.glossaryModal); });
+        }
+        if (this.elements.glossaryModal) {
+            this.elements.glossaryModal.addEventListener('click', function (event) {
+                if (event.target === self.elements.glossaryModal) self.closeModal(self.elements.glossaryModal);
+            });
+        }
+        if (this.elements.binClose) {
+            this.elements.binClose.addEventListener('click', function () { self.closeModal(self.elements.binModal); });
+        }
+        if (this.elements.binModal) {
+            this.elements.binModal.addEventListener('click', function (event) {
+                if (event.target === self.elements.binModal) self.closeModal(self.elements.binModal);
+            });
+        }
         document.addEventListener('keydown', function (event) {
             if (event.key !== 'Escape') return;
-            self.closeModal(self.elements.pickerModal);
-            self.closeModal(self.elements.glossaryModal);
-            self.closeModal(self.elements.binModal);
+            if (self.elements.pickerModal) self.closeModal(self.elements.pickerModal);
+            if (self.elements.glossaryModal) self.closeModal(self.elements.glossaryModal);
+            if (self.elements.binModal) self.closeModal(self.elements.binModal);
         });
     };
 
@@ -2340,7 +2403,7 @@
             histogramOf: localeText(this.config, 'histogramOf', 'Histogram of'),
             frequencyOf: localeText(this.config, 'frequencyOf', 'Frequency of'),
             emptyLabel: localeText(this.config, 'emptyStatistics', 'No records in the current selection.'),
-            summaryRows: this.summaryRows(field, values),
+            summaryRows: typeof this.config.getSummaryRows === 'function' ? this.config.getSummaryRows(field, values, this.records, this.summaryRows(field, values)) : this.summaryRows(field, values),
             onGroupSelect: function (selection) { self.openBinModal(field, selection); }
         });
     };
@@ -2382,6 +2445,7 @@
             onRecordSelect: this.config.onStatisticsRecordSelect,
             getRecordsForField: this.config.getStatisticsRecords,
             getRecordWeight: this.config.getRecordWeight,
+            getSummaryRows: this.config.getSummaryRows,
             onGroupSelect: this.config.onStatisticsGroupSelect
         });
     }
@@ -2407,6 +2471,25 @@
     CommonAtlasInterface.prototype.setRecords = function (records) {
         this.filterPanel.setRecords(records);
         this.statisticsPanel.setRecords(records);
+    };
+
+    CommonAtlasInterface.prototype.setLanguage = function (locale, text, fields) {
+        this.config.locale = locale;
+        if (text) this.config.text = text;
+        if (this.filterPanel) {
+            this.filterPanel.config.locale = locale;
+            if (text) this.filterPanel.config.text = text;
+            if (fields && fields.filterFields) this.filterPanel.fields = fields.filterFields;
+            this.filterPanel.populatePicker();
+            this.filterPanel.render();
+        }
+        if (this.statisticsPanel) {
+            this.statisticsPanel.config.locale = locale;
+            if (text) this.statisticsPanel.config.text = text;
+            if (fields && fields.statisticsFields) this.statisticsPanel.fields = fields.statisticsFields;
+            this.statisticsPanel.populatePicker();
+            this.statisticsPanel.render();
+        }
     };
 
     function initialiseActiveTabState() {

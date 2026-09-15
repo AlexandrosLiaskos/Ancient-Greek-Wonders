@@ -1,11 +1,216 @@
 import { WONDERS } from './data/wonders.js';
-import { filterWonders, normalizeSearchText, summarizeSurvival } from './core/catalog.js';
+import { filterWonders, normalizeSearchText, summarizeSurvival, MAP_CATEGORY_KEYS, MAP_CATEGORY_LABELS, getWonderMapCategoryKey } from './core/catalog.js';
 import { parseUrlState, serializeUrlState } from './core/url-state.js';
 import { CATEGORY_LABELS, COUNTRY_LABELS, STATUS_LABELS, formatResultCount, localizeRecord, t } from './i18n.js';
 import { createDetailMarkup, createResultMarkup, escapeHtml } from './ui/render.js';
 import { initializeGallery } from './ui/gallery.js';
 import { ImageLightbox } from './ui/lightbox.js';
 import { createWondersMap, WONDER_MAP_CATEGORIES, getWonderMapCategory } from './map/map.js';
+
+const MAP_CATEGORY_COLORS = {
+  extant: '#0d9488',
+  ruins: '#ea580c',
+  lost: '#b91c1c'
+};
+
+const ATLAS_TEXT = {
+  el: {
+    variable: 'Μεταβλητή:',
+    figure: 'Σχ.',
+    summaryStatistics: 'Συνοπτικά στατιστικά',
+    statisticsGuide: 'Τι σημαίνουν αυτά τα στατιστικά;',
+    whatTheseMean: 'Τι σημαίνουν αυτά;',
+    uniqueValues: 'Μοναδικές τιμές',
+    mode: 'Επικρατούσα τιμή',
+    numericType: 'αριθμητικό',
+    categoricalType: 'κατηγορικό',
+    chooseStatistic: 'Επιλέξτε μεταβλητή στατιστικών',
+    close: 'Κλείσιμο',
+    selectionCount: '{count} μνημεία',
+    loadingStatistics: 'Φόρτωση παρατηρήσεων για τη μεταβλητή…',
+    statisticsCoverage: '{valid} από {total} ορατά μνημεία διαθέτουν τιμή ({percent}).',
+    statisticsMissingNote: 'Μνημεία χωρίς έγκυρη τιμή εξαιρούνται από το διάγραμμα.',
+    distributionOf: 'Κατανομή',
+    frequencyOf: 'Συχνότητα',
+    emptyStatistics: 'Δεν υπάρχουν μνημεία στην τρέχουσα επιλογή.',
+    otherCategory: 'Άλλα',
+    count: 'Πλήθος',
+    logScale: 'λογαριθμική κλίμακα',
+    histogramOf: 'Ιστόγραμμα',
+    mean: 'Μέση τιμή',
+    median: 'Διάμεσος',
+    standardDeviation: 'Τυπική απόκλιση',
+    minimum: 'Ελάχιστο',
+    maximum: 'Μέγιστο',
+    range: 'Εύρος',
+    skewness: 'Ασυμμετρία',
+    searchVariables: 'Αναζήτηση μεταβλητών…',
+    variables: 'Μεταβλητές',
+    loadingData: 'Φόρτωση δεδομένων…',
+    searchValues: 'Αναζήτηση',
+    noMatches: 'Δεν βρέθηκαν αποτελέσματα.',
+    queryBuilder: 'Σύνθετο ερώτημα',
+    addCondition: 'Προσθήκη συνθήκης',
+    where: 'Όπου',
+    and: 'ΚΑΙ',
+    or: 'Ή'
+  },
+  en: {
+    variable: 'Variable:',
+    figure: 'Fig.',
+    summaryStatistics: 'Summary statistics',
+    statisticsGuide: 'What do these statistics mean?',
+    whatTheseMean: 'What do these mean?',
+    uniqueValues: 'Unique values',
+    mode: 'Mode',
+    numericType: 'numeric',
+    categoricalType: 'categorical',
+    chooseStatistic: 'Choose a statistics variable',
+    close: 'Close',
+    selectionCount: '{count} records',
+    loadingStatistics: 'Loading observations for this variable…',
+    statisticsCoverage: '{valid} of {total} visible records have a value ({percent}).',
+    statisticsMissingNote: 'Records without a usable value are excluded from the chart.',
+    distributionOf: 'Distribution of',
+    frequencyOf: 'Frequency of',
+    emptyStatistics: 'No records in the current selection.',
+    otherCategory: 'Other',
+    count: 'Count',
+    logScale: 'log scale',
+    histogramOf: 'Histogram of',
+    mean: 'Mean',
+    median: 'Median',
+    standardDeviation: 'Std. dev.',
+    minimum: 'Minimum',
+    maximum: 'Maximum',
+    range: 'Range',
+    skewness: 'Skewness',
+    searchVariables: 'Search variables…',
+    variables: 'Variables',
+    loadingData: 'Loading data…',
+    searchValues: 'Search',
+    noMatches: 'No matching records.',
+    queryBuilder: 'Query builder',
+    addCondition: 'Add condition',
+    where: 'Where',
+    and: 'AND',
+    or: 'OR'
+  }
+};
+
+function getFilterFields(lang) {
+  const isEl = lang === 'el';
+  return [
+    {
+      key: 'mapCategory',
+      dataField: 'mapCategory',
+      label: isEl ? 'Σημερινή κατάσταση' : 'Survival condition',
+      group: isEl ? 'Αρχαιολογία' : 'Archaeology',
+      getColor: (val) => MAP_CATEGORY_COLORS[val] || null,
+      formatValue: (val) => MAP_CATEGORY_LABELS[val]?.[lang] || val
+    },
+    {
+      key: 'status',
+      dataField: 'status',
+      label: isEl ? 'Λεπτομερής κατάσταση' : 'Detailed preservation state',
+      group: isEl ? 'Αρχαιολογία' : 'Archaeology',
+      formatValue: (val) => STATUS_LABELS[val]?.[lang] || val
+    },
+    {
+      key: 'category',
+      dataField: 'category',
+      label: isEl ? 'Τύπος μνημείου' : 'Monument typology',
+      group: isEl ? 'Αρχιτεκτονική' : 'Architecture',
+      formatValue: (val) => CATEGORY_LABELS[val]?.[lang] || val
+    },
+    {
+      key: 'country',
+      dataField: 'country',
+      label: isEl ? 'Σύγχρονη χώρα' : 'Modern country',
+      group: isEl ? 'Γεωγραφία' : 'Geography',
+      formatValue: (val) => COUNTRY_LABELS[val]?.[lang] || val
+    },
+    {
+      key: 'sevenWonder',
+      dataField: 'sevenWonder',
+      inputId: 'seven-filter',
+      label: isEl ? 'Επτά Θαύματα' : 'Seven Wonders',
+      group: isEl ? 'Κλασικά' : 'Canonical',
+      formatValue: (val) => (val === true || val === 'true' || val === '1')
+        ? (isEl ? 'Κανονικά Επτά Θαύματα' : 'Canonical Seven Wonders')
+        : (isEl ? 'Όλα τα μνημεία' : 'All monuments')
+    }
+  ];
+}
+
+function getStatisticsFields(lang) {
+  const isEl = lang === 'el';
+  return [
+    {
+      key: 'mapCategory',
+      dataField: 'mapCategory',
+      label: isEl ? 'Σημερινή κατάσταση' : 'Survival condition',
+      type: 'categorical',
+      group: isEl ? 'Αρχαιολογία' : 'Archaeology',
+      maxItems: 5,
+      getColor: (key) => MAP_CATEGORY_COLORS[key] || null,
+      formatValue: (val) => MAP_CATEGORY_LABELS[val]?.[lang] || val,
+      description: isEl
+        ? 'Κατηγοριοποίηση κατάστασης επιβίωσης στον χάρτη (Όρθιο / αναστηλωμένο, Ερείπια / ανασκαμμένο, Χαμένο / βυθισμένο).'
+        : 'Standardized survival categories matching map markers (Standing / restored, Ruins / excavated, Lost / submerged).'
+    },
+    {
+      key: 'status',
+      dataField: 'status',
+      label: isEl ? 'Λεπτομερής κατάσταση' : 'Detailed preservation state',
+      type: 'categorical',
+      group: isEl ? 'Αρχαιολογία' : 'Archaeology',
+      maxItems: 12,
+      formatValue: (val) => STATUS_LABELS[val]?.[lang] || val,
+      description: isEl
+        ? 'Αναλυτική αρχαιολογική κατάσταση διατήρησης σύμφωνα με σύγχρονες αναφορές ανασκαφών.'
+        : 'Detailed preservation state of the ancient wonder according to contemporary archaeological documentation.'
+    },
+    {
+      key: 'category',
+      dataField: 'category',
+      label: isEl ? 'Τυπολογία μνημείου' : 'Monument typology',
+      type: 'categorical',
+      group: isEl ? 'Αρχιτεκτονική' : 'Architecture',
+      maxItems: 12,
+      formatValue: (val) => CATEGORY_LABELS[val]?.[lang] || val,
+      description: isEl
+        ? 'Αρχιτεκτονικός και λειτουργικός τύπος του μνημείου ή του χώρου.'
+        : 'Architectural and functional typology of the monument or complex.'
+    },
+    {
+      key: 'country',
+      dataField: 'country',
+      label: isEl ? 'Σύγχρονη χώρα' : 'Modern country',
+      type: 'categorical',
+      group: isEl ? 'Γεωγραφία' : 'Geography',
+      maxItems: 12,
+      formatValue: (val) => COUNTRY_LABELS[val]?.[lang] || val,
+      description: isEl
+        ? 'Σύγχρονο κράτος στο οποίο βρίσκεται σήμερα ο αρχαιολογικός χώρος.'
+        : 'Modern nation-state encompassing the ancient archaeological site.'
+    },
+    {
+      key: 'sevenWonder',
+      dataField: 'sevenWonder',
+      label: isEl ? 'Κλασικά Επτά Θαύματα' : 'Canonical Seven Wonders',
+      type: 'categorical',
+      group: isEl ? 'Κλασικά' : 'Canonical',
+      maxItems: 3,
+      formatValue: (val) => (val === true || val === 'true' || val === 1)
+        ? (isEl ? 'Επτά Θαύματα' : 'Seven Wonders')
+        : (isEl ? 'Λοιπά αρχαία θαύματα' : 'Other ancient wonders'),
+      description: isEl
+        ? 'Συμπερίληψη στον κλασικό κανόνα των Επτά Θαυμάτων του Αρχαίου Κόσμου.'
+        : 'Inclusion in the canonical Hellenistic lists of the Seven Wonders of the Ancient World.'
+    }
+  ];
+}
 
 class AncientGreekWondersApp {
   constructor() {
@@ -18,7 +223,7 @@ class AncientGreekWondersApp {
     this.atlasInterface = null;
     this.detailGallery = null;
     this.lightbox = null;
-    this.activeFilterField = 'status';
+    this.activeFilterField = 'mapCategory';
 
     this.elements = {
       app: document.getElementById('app'),
@@ -109,8 +314,19 @@ class AncientGreekWondersApp {
   initMap() {
     this.mapController = createWondersMap(this.elements.map, this.currentRecords, {
       language: this.state.language,
-      onSelect: (wonderId) => this.showWonderDetails(wonderId)
+      onSelect: (wonderId) => this.showWonderDetails(wonderId),
+      onCategorySelect: (categoryKey) => this.toggleMapCategory(categoryKey)
     });
+  }
+
+  toggleMapCategory(categoryKey) {
+    if (this.state.mapCategory === categoryKey) {
+      this.state.mapCategory = '';
+    } else {
+      this.state.mapCategory = categoryKey;
+    }
+    this.syncUrl();
+    this.applyFilters();
   }
 
   initSidebarTabs() {
@@ -560,6 +776,7 @@ class AncientGreekWondersApp {
   }
 
   clearAllFilters() {
+    this.state.mapCategory = '';
     this.state.status = '';
     this.state.category = '';
     this.state.country = '';
@@ -570,7 +787,7 @@ class AncientGreekWondersApp {
       this.elements.globalSearchResults.classList.add('hidden');
       this.elements.globalSearchResults.innerHTML = '';
     }
-    ['status', 'category', 'country', 'sevenWonder', 'seven', 'period'].forEach((k) => {
+    ['mapCategory', 'status', 'category', 'country', 'sevenWonder', 'seven', 'period'].forEach((k) => {
       const input = document.getElementById(`${k}-filter`);
       if (input) input.value = '';
     });
@@ -582,6 +799,8 @@ class AncientGreekWondersApp {
     if (!window.NkuaWebGISUI?.createAtlasInterface) return;
 
     this.atlasInterface = window.NkuaWebGISUI.createAtlasInterface({
+      locale: this.state.language === 'el' ? 'el-GR' : 'en-US',
+      text: ATLAS_TEXT[this.state.language] || ATLAS_TEXT.en,
       getRecords: () => this.currentRecords,
       getValue: (field) => {
         const key = field.key;
@@ -591,6 +810,9 @@ class AncientGreekWondersApp {
         return this.state[key] ? String(this.state[key]) : '';
       },
       getOptions: (field) => {
+        if (field.key === 'mapCategory') {
+          return MAP_CATEGORY_KEYS.slice();
+        }
         if (field.key === 'sevenWonder') {
           return ['true'];
         }
@@ -633,74 +855,17 @@ class AncientGreekWondersApp {
         this.mapController.focus(record);
         this.showWonderDetails(record.id);
       },
-      filterFields: [
-        {
-          key: 'status',
-          dataField: 'status',
-          label: this.state.language === 'el' ? 'Κατάσταση' : 'Survival condition',
-          group: this.state.language === 'el' ? 'Αρχαιολογία' : 'Archaeology',
-          formatValue: (val) => STATUS_LABELS[val]?.[this.state.language] || val
-        },
-        {
-          key: 'category',
-          dataField: 'category',
-          label: this.state.language === 'el' ? 'Τύπος μνημείου' : 'Monument typology',
-          group: this.state.language === 'el' ? 'Αρχιτεκτονική' : 'Architecture',
-          formatValue: (val) => CATEGORY_LABELS[val]?.[this.state.language] || val
-        },
-        {
-          key: 'country',
-          dataField: 'country',
-          label: this.state.language === 'el' ? 'Σύγχρονη χώρα' : 'Modern country',
-          group: this.state.language === 'el' ? 'Γεωγραφία' : 'Geography',
-          formatValue: (val) => COUNTRY_LABELS[val]?.[this.state.language] || val
-        },
-        {
-          key: 'sevenWonder',
-          dataField: 'sevenWonder',
-          inputId: 'seven-filter',
-          label: this.state.language === 'el' ? 'Επτά Θαύματα' : 'Seven Wonders',
-          group: this.state.language === 'el' ? 'Κλασικά' : 'Canonical',
-          formatValue: (val) => (val === true || val === 'true' || val === '1')
-            ? (this.state.language === 'el' ? 'Κανονικά Επτά Θαύματα' : 'Canonical Seven Wonders')
-            : (this.state.language === 'el' ? 'Όλα τα μνημεία' : 'All monuments')
-        }
-      ],
-      statisticsFields: [
-        {
-          key: 'status',
-          dataField: 'status',
-          label: this.state.language === 'el' ? 'Σημερινή κατάσταση' : 'Survival condition',
-          type: 'categorical',
-          group: 'Archaeology',
-          maxItems: 10,
-          description: this.state.language === 'el'
-            ? 'Κατάσταση διατήρησης του μνημείου (όρθιο, ερείπια, ανασκαμμένο, ανοικοδομημένο, χαμένο).'
-            : 'Preservation state of the ancient wonder according to contemporary archaeological documentation.'
-        },
-        {
-          key: 'category',
-          dataField: 'category',
-          label: this.state.language === 'el' ? 'Τυπολογία' : 'Typology',
-          type: 'categorical',
-          group: 'Architecture',
-          maxItems: 12,
-          description: this.state.language === 'el'
-            ? 'Αρχιτεκτονικός και λειτουργικός τύπος του μνημείου ή του χώρου.'
-            : 'Architectural and functional typology of the monument or complex.'
-        },
-        {
-          key: 'country',
-          dataField: 'country',
-          label: this.state.language === 'el' ? 'Σύγχρονη χώρα' : 'Country',
-          type: 'categorical',
-          group: 'Geography',
-          maxItems: 11,
-          description: this.state.language === 'el'
-            ? 'Σύγχρονο κράτος στο οποίο βρίσκεται σήμερα ο αρχαιολογικός χώρος.'
-            : 'Modern nation-state encompassing the ancient archaeological site.'
-        }
-      ]
+      getSummaryRows: (field, values, records, defaultRows) => {
+        const isEl = this.state.language === 'el';
+        const totalCount = this.wonders.length;
+        const visibleCount = records.length;
+        return [
+          { label: isEl ? 'Σύνολο καταλόγου' : 'Catalogue total', value: totalCount },
+          { label: isEl ? 'Ορατά μνημεία' : 'Visible records', value: visibleCount }
+        ].concat(defaultRows);
+      },
+      filterFields: getFilterFields(this.state.language),
+      statisticsFields: getStatisticsFields(this.state.language)
     });
   }
 
@@ -711,6 +876,7 @@ class AncientGreekWondersApp {
 
   updateView() {
     this.mapController?.update(this.currentRecords, this.state.language);
+    this.mapController?.setActiveCategory?.(this.state.mapCategory || '');
     this.updateSearchResults();
     this.updateSummaryStats();
     if (this.atlasInterface) {
@@ -1000,53 +1166,22 @@ class AncientGreekWondersApp {
     if (statsTypeBadge) statsTypeBadge.textContent = isEl ? 'κατηγορική' : 'categorical';
 
     // Atlas Interface Panels
-    if (this.atlasInterface?.filterPanel) {
-      const fp = this.atlasInterface.filterPanel;
-      if (fp.fields) {
-        fp.fields.forEach((f) => {
-          if (f.key === 'status') {
-            f.label = isEl ? 'Κατάσταση' : 'Survival condition';
-            f.group = isEl ? 'Αρχαιολογία' : 'Archaeology';
-          } else if (f.key === 'category') {
-            f.label = isEl ? 'Τύπος μνημείου' : 'Monument typology';
-            f.group = isEl ? 'Αρχιτεκτονική' : 'Architecture';
-          } else if (f.key === 'country') {
-            f.label = isEl ? 'Σύγχρονη χώρα' : 'Modern country';
-            f.group = isEl ? 'Γεωγραφία' : 'Geography';
-          } else if (f.key === 'sevenWonder') {
-            f.label = isEl ? 'Επτά Θαύματα' : 'Seven Wonders';
-            f.group = isEl ? 'Κλασικά' : 'Canonical';
-          }
-        });
+    if (this.atlasInterface?.setLanguage) {
+      this.atlasInterface.setLanguage(isEl ? 'el-GR' : 'en-US', ATLAS_TEXT[language], {
+        filterFields: getFilterFields(language),
+        statisticsFields: getStatisticsFields(language)
+      });
+    } else {
+      if (this.atlasInterface?.filterPanel) {
+        this.atlasInterface.filterPanel.fields = getFilterFields(language);
+        this.atlasInterface.filterPanel.populatePicker?.();
+        this.atlasInterface.filterPanel.render?.();
       }
-      const pickerVal = document.getElementById('fbc-picker-value');
-      if (pickerVal && fp.activeField) {
-        pickerVal.textContent = fp.activeField.label;
+      if (this.atlasInterface?.statisticsPanel) {
+        this.atlasInterface.statisticsPanel.fields = getStatisticsFields(language);
+        this.atlasInterface.statisticsPanel.populatePicker?.();
+        this.atlasInterface.statisticsPanel.render?.();
       }
-      fp.populatePicker?.();
-    }
-
-    if (this.atlasInterface?.statisticsPanel) {
-      const sp = this.atlasInterface.statisticsPanel;
-      if (sp.fields) {
-        sp.fields.forEach((f) => {
-          if (f.key === 'status') {
-            f.label = isEl ? 'Σημερινή κατάσταση' : 'Survival condition';
-            f.description = isEl ? 'Κατάσταση διατήρησης του μνημείου (όρθιο, ερείπια, ανασκαμμένο, ανοικοδομημένο, χαμένο).' : 'Preservation state of the ancient wonder according to contemporary archaeological documentation.';
-          } else if (f.key === 'category') {
-            f.label = isEl ? 'Τυπολογία' : 'Typology';
-            f.description = isEl ? 'Αρχιτεκτονικός και λειτουργικός τύπος του μνημείου ή του χώρου.' : 'Architectural and functional typology of the monument or complex.';
-          } else if (f.key === 'country') {
-            f.label = isEl ? 'Σύγχρονη χώρα' : 'Country';
-            f.description = isEl ? 'Σύγχρονο κράτος στο οποίο βρίσκεται σήμερα ο αρχαιολογικός χώρος.' : 'Modern nation-state encompassing the ancient archaeological site.';
-          }
-        });
-      }
-      const statsPickerVal = document.getElementById('stats-field-btn-value');
-      if (statsPickerVal && sp.activeField) {
-        statsPickerVal.textContent = sp.activeField.label;
-      }
-      sp.populatePicker?.();
     }
 
     // References modal

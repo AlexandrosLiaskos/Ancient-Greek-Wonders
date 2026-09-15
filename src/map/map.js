@@ -321,7 +321,7 @@ export function revealMarkerPreview(cluster, marker) {
   }
 }
 
-export function createWondersMap(element, records, { language = 'en', onSelect = () => {} } = {}) {
+export function createWondersMap(element, records, { language = 'en', onSelect = () => {}, onCategorySelect = null } = {}) {
   const L = globalThis.L;
   if (!L) throw new Error('Leaflet is unavailable');
 
@@ -405,7 +405,10 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     title: language === 'el' ? 'Σημερινή κατάσταση' : 'Survival condition',
     ariaLabel: language === 'el' ? 'Υπόμνημα κατάστασης μνημείων' : 'Wonder survival condition legend',
     categories: getLocalizedWonderCategories(language),
-    classify: (record) => getWonderMapCategory(record).key
+    classify: (record) => getWonderMapCategory(record).key,
+    onCategoryClick: typeof onCategorySelect === 'function' ? (categoryKey) => {
+      onCategorySelect(categoryKey);
+    } : null
   }) : null;
 
   const clearCloseTimer = (marker) => {
@@ -581,6 +584,9 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
     closePreview: () => {
       closeAllTooltips();
       if (typeof map.closePopup === 'function') map.closePopup();
+    },
+    setActiveCategory: (categoryKey) => {
+      mapLegend?.setActiveCategory?.(categoryKey);
     },
     invalidateSize: () => map.invalidateSize()
   };

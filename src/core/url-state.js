@@ -1,3 +1,5 @@
+import { MAP_CATEGORY_KEYS } from './catalog.js';
+
 const TABS = new Set(['browse', 'filters', 'search', 'about']);
 
 export function parseUrlState(search = '', records = []) {
@@ -6,8 +8,10 @@ export function parseUrlState(search = '', records = []) {
   const selectedId = params.get('wonder');
   const requestedTab = params.get('tab');
   const activeTab = requestedTab === 'explore' ? 'browse' : requestedTab;
+  const rawMapCat = params.get('mapCategory') || params.get('condition') || '';
+  const mapCategory = MAP_CATEGORY_KEYS.includes(rawMapCat) ? rawMapCat : '';
 
-  return {
+  const state = {
     language: params.get('lang') === 'el' ? 'el' : 'en',
     activeTab: TABS.has(activeTab) ? activeTab : 'browse',
     query: params.get('q') ?? '',
@@ -17,6 +21,10 @@ export function parseUrlState(search = '', records = []) {
     sevenWonder: params.get('seven') === '1',
     selectedId: records.some((record) => record.id === selectedId) ? selectedId : null
   };
+  if (mapCategory) {
+    state.mapCategory = mapCategory;
+  }
+  return state;
 }
 
 export function serializeUrlState(state = {}) {
@@ -27,6 +35,7 @@ export function serializeUrlState(state = {}) {
   if (state.category) params.set('category', state.category);
   if (state.country) params.set('country', state.country);
   if (state.status) params.set('status', state.status);
+  if (state.mapCategory) params.set('mapCategory', state.mapCategory);
   if (state.sevenWonder) params.set('seven', '1');
   if (state.selectedId) params.set('wonder', state.selectedId);
   return params;

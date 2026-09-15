@@ -49,3 +49,14 @@ test('URL state supports the new filters view and upgrades legacy explore links'
   assert.equal(parseUrlState('?tab=explore', WONDERS).activeTab, 'browse');
   assert.equal(serializeUrlState({ activeTab: 'browse' }).toString(), '');
 });
+
+test('URL state supports mapCategory filter parsing and serialization', () => {
+  const state = parseUrlState('?mapCategory=extant', WONDERS);
+  assert.equal(state.mapCategory, 'extant');
+
+  const aliasState = parseUrlState('?condition=ruins', WONDERS);
+  assert.equal(aliasState.mapCategory, 'ruins');
+
+  assert.equal(serializeUrlState({ mapCategory: 'lost' }).toString(), 'mapCategory=lost');
+});
+

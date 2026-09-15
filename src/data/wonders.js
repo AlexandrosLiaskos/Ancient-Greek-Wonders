@@ -704,4 +704,22 @@ const RAW_WONDERS = [
   }
 ];
 
+const SURVIVAL_MAP_GROUP = {
+  standing: 'extant',
+  restored: 'extant',
+  'partly-standing': 'extant',
+  'partly-restored': 'extant',
+  ruins: 'ruins',
+  excavated: 'ruins',
+  're-erected': 'ruins',
+  unfinished: 'ruins',
+  lost: 'lost',
+  destroyed: 'lost',
+  submerged: 'lost'
+};
+
+RAW_WONDERS.forEach((w) => {
+  w.mapCategory = SURVIVAL_MAP_GROUP[w.status] || 'ruins';
+});
+
 export const WONDERS = attachMedia(RAW_WONDERS, MEDIA_BY_ID);

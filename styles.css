@@ -1916,6 +1916,53 @@ body.lightbox-open {
     }
 }
 
+/* Interactive map legend rows */
+.legend-row.is-clickable {
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0.15rem 0.35rem;
+    margin: 0 -0.35rem;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    user-select: none;
+}
+
+.legend-row.is-clickable:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.legend-row.is-clickable:focus-visible {
+    outline: 2px solid var(--accent-primary, #0d9488);
+    outline-offset: 1px;
+}
+
+.legend-row.is-clickable.is-active {
+    background: rgba(13, 148, 136, 0.14);
+    box-shadow: inset 0 0 0 1px rgba(13, 148, 136, 0.6);
+    font-weight: 600;
+}
+
+/* Filter facet option colored dots for survival condition */
+.facet-option-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+    margin-right: 6px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+.fbc-list-label {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.fbc-list-label .facet-option-dot {
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+}
+
 
 
 
