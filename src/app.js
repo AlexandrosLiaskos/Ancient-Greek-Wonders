@@ -114,27 +114,70 @@ class AncientGreekWondersApp {
   }
 
   initSidebarTabs() {
+    const mobileButtons = [
+      { btn: this.elements.mobileFilters, tab: 'filters' },
+      { btn: this.elements.mobileSearch, tab: 'search' },
+      { btn: this.elements.mobileStats, tab: 'stats' }
+    ];
+
+    const updateMobileButtonStates = (activeTab) => {
+      const isOpen = this.elements.sidebar?.classList.contains('active') ||
+                     this.elements.sidebar?.classList.contains('mobile-open');
+      mobileButtons.forEach(({ btn, tab }) => {
+        if (btn) {
+          btn.classList.toggle('active', Boolean(isOpen && tab === activeTab));
+        }
+      });
+    };
+
+    const closeSidebar = () => {
+      if (this.elements.sidebar) {
+        this.elements.sidebar.classList.remove('active', 'mobile-open');
+      }
+      document.body.classList.remove('sidebar-open', 'mobile-sidebar-active');
+      updateMobileButtonStates(null);
+      this.mapController?.invalidateSize?.();
+    };
+
+    const openSidebarTab = (tab) => {
+      const isSidebarOpen = this.elements.sidebar?.classList.contains('active') ||
+                            this.elements.sidebar?.classList.contains('mobile-open');
+      const currentTab = document.body.dataset.activeTab;
+
+      if (isSidebarOpen && currentTab === tab) {
+        closeSidebar();
+        return;
+      }
+
+      this.switchTab(tab);
+      if (this.elements.sidebar) {
+        this.elements.sidebar.classList.add('active', 'mobile-open');
+      }
+      document.body.classList.add('sidebar-open', 'mobile-sidebar-active');
+      updateMobileButtonStates(tab);
+
+      if (tab === 'search') {
+        setTimeout(() => {
+          this.elements.globalSearchInput?.focus();
+        }, 120);
+      }
+    };
+
+    this.closeMobileSidebar = closeSidebar;
+
     this.elements.tabButtons.forEach((button) => {
       button.addEventListener('click', () => {
         const tab = button.dataset.tab;
         this.switchTab(tab);
+        updateMobileButtonStates(tab);
       });
     });
-
-    const openSidebarTab = (tab) => {
-      this.switchTab(tab);
-      this.elements.sidebar.classList.add('mobile-open');
-      document.body.classList.add('mobile-sidebar-active');
-    };
 
     this.elements.mobileFilters?.addEventListener('click', () => openSidebarTab('filters'));
     this.elements.mobileSearch?.addEventListener('click', () => openSidebarTab('search'));
     this.elements.mobileStats?.addEventListener('click', () => openSidebarTab('stats'));
 
-    this.elements.mobileSidebarClose?.addEventListener('click', () => {
-      this.elements.sidebar.classList.remove('mobile-open');
-      document.body.classList.remove('mobile-sidebar-active');
-    });
+    this.elements.mobileSidebarClose?.addEventListener('click', closeSidebar);
   }
 
   switchTab(tabName) {
@@ -488,8 +531,7 @@ class AncientGreekWondersApp {
           this.showWonderDetails(id);
           container.classList.add('hidden');
           if (window.innerWidth <= 768) {
-            this.elements.sidebar.classList.remove('mobile-open');
-            document.body.classList.remove('mobile-sidebar-active');
+            this.closeMobileSidebar?.();
           }
         }
       });
@@ -510,6 +552,9 @@ class AncientGreekWondersApp {
         this.syncUrl();
         this.applyFilters();
         container.classList.add('hidden');
+        if (window.innerWidth <= 768) {
+          this.closeMobileSidebar?.();
+        }
       });
     });
   }
@@ -582,6 +627,9 @@ class AncientGreekWondersApp {
         return [item.location, item.period, item.statusLabel].filter(Boolean).join(' · ');
       },
       onStatisticsRecordSelect: (record) => {
+        if (window.innerWidth <= 768) {
+          this.closeMobileSidebar?.();
+        }
         this.mapController.focus(record);
         this.showWonderDetails(record.id);
       },
@@ -699,6 +747,9 @@ class AncientGreekWondersApp {
   }
 
   showWonderDetails(wonderId) {
+    if (window.innerWidth <= 768) {
+      this.closeMobileSidebar?.();
+    }
     const record = this.wonders.find((w) => w.id === wonderId);
     if (!record) return;
 
