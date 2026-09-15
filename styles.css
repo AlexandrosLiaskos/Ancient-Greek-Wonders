@@ -1320,18 +1320,55 @@ body.lightbox-open {
     height: 17px;
 }
 
-/* Header Language Switcher Pill */
+/* Header Layout: 3-column with zero rule overlap */
+.header > .header-content {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: clamp(0.5rem, 1.5vw, 1.25rem) !important;
+    padding-inline: clamp(0.75rem, 2vw, 1.5rem) !important;
+    max-width: 100% !important;
+}
+
+.header > .header-content > .header-title {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(0.4rem, 1.2vw, 1rem) !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+}
+
+.header-rule {
+    flex: 0 1 70px !important;
+    min-width: 0 !important;
+    max-width: 70px !important;
+    height: 1px !important;
+    background: var(--text-primary, #1e293b) !important;
+    opacity: 0.3 !important;
+}
+
 .header > .header-content > .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    position: relative !important;
+    z-index: 2 !important;
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
 }
 
 .language-toggle-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 3px 10px;
+    gap: 3px;
+    padding: 3px 9px;
     border: 1px solid #c5d7da;
     border-radius: 999px;
     background: #ffffff;
@@ -1345,12 +1382,32 @@ body.lightbox-open {
     letter-spacing: 0.02em;
     white-space: nowrap;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
     transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.language-toggle-btn .lang-opt {
+    transition: color 0.15s ease;
+    opacity: 0.55;
+    font-weight: 500;
+}
+
+.language-toggle-btn .lang-opt.is-active {
+    opacity: 1;
+    font-weight: 700;
+    color: #0d9488;
+}
+
+.language-toggle-btn .lang-sep {
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 400;
+    user-select: none;
 }
 
 .language-toggle-btn:hover {
     background: #f0fdfa;
-    color: #0d9488;
     border-color: #0d9488;
     box-shadow: 0 2px 6px rgb(13 148 136 / 15%);
 }
@@ -1362,6 +1419,28 @@ body.lightbox-open {
 .language-toggle-btn:focus-visible {
     outline: 2px solid #0d9488;
     outline-offset: 2px;
+}
+
+.footer-lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.footer-lang-toggle .lang-opt {
+    opacity: 0.6;
+    font-weight: 500;
+}
+
+.footer-lang-toggle .lang-opt.is-active {
+    opacity: 1;
+    font-weight: 700;
+    color: var(--primary-color, #0d9488);
+}
+
+.footer-lang-toggle .lang-sep {
+    color: #94a3b8;
+    font-size: 9px;
 }
 
 @media (max-width: 840px) {

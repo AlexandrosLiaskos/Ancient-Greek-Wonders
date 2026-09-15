@@ -800,16 +800,30 @@ class AncientGreekWondersApp {
     }
     const isEl = language === 'el';
 
-    // Update Language Toggle text (header pill & footer link)
-    const toggleText = isEl ? 'English' : 'Ελληνικά';
+    // Update Language Toggle (header pill & footer link) with segmented bilingual badge: ΕΛ | EN
     const toggleAria = isEl ? 'Switch to English' : 'Μετάβαση στα Ελληνικά';
+    const toggleMarkup = `<span class="lang-opt lang-opt-el${isEl ? ' is-active' : ''}">ΕΛ</span><span class="lang-sep" aria-hidden="true">|</span><span class="lang-opt lang-opt-en${!isEl ? ' is-active' : ''}">EN</span>`;
     if (this.elements.languageToggle) {
-      this.elements.languageToggle.textContent = toggleText;
+      this.elements.languageToggle.innerHTML = toggleMarkup;
       this.elements.languageToggle.setAttribute('aria-label', toggleAria);
     }
     if (this.elements.footerLanguageToggle) {
-      this.elements.footerLanguageToggle.textContent = toggleText;
+      this.elements.footerLanguageToggle.innerHTML = toggleMarkup;
       this.elements.footerLanguageToggle.setAttribute('aria-label', toggleAria);
+    }
+
+    // Update footer collection title & license metadata
+    const footerCollection = document.querySelector('.footer-collection-name');
+    if (footerCollection) {
+      footerCollection.innerHTML = isEl
+        ? 'Θαύματα <em>του Αρχαίου Ελληνικού Κόσμου</em>'
+        : 'Wonders <em>of the Ancient Greek World</em>';
+    }
+    const footerCreditMeta = document.querySelector('.footer-credit-meta');
+    if (footerCreditMeta) {
+      footerCreditMeta.innerHTML = isEl
+        ? '<span>© 2026</span><span class="footer-credit-dot" aria-hidden="true">·</span><span>Περιεχόμενο υπό άδεια <a class="footer-license-link" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer">CC BY 4.0</a></span>'
+        : '<span>© 2026</span><span class="footer-credit-dot" aria-hidden="true">·</span><span>Content under <a class="footer-license-link" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer">CC BY 4.0</a></span>';
     }
 
     // Update document title & metadata
