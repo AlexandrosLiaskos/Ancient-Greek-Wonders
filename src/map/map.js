@@ -403,7 +403,6 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
 
   const mapLegend = globalThis.NkuaWebGISMap?.addCategoryLegend ? globalThis.NkuaWebGISMap.addCategoryLegend(map, {
     title: language === 'el' ? 'Σημερινή κατάσταση' : 'Survival condition',
-    subtitle: language === 'el' ? 'σύγχρονη εποχή' : 'by modern era',
     ariaLabel: language === 'el' ? 'Υπόμνημα κατάστασης μνημείων' : 'Wonder survival condition legend',
     categories: getLocalizedWonderCategories(language),
     classify: (record) => getWonderMapCategory(record).key
@@ -528,6 +527,18 @@ export function createWondersMap(element, records, { language = 'en', onSelect =
       markers.set(record.id, marker);
       cluster.addLayer(marker);
     });
+
+    if (mapLegend?.element) {
+      const titleEl = mapLegend.element.querySelector('.legend-title-main');
+      if (titleEl) {
+        titleEl.textContent = lang === 'el' ? 'Σημερινή κατάσταση' : 'Survival condition';
+      }
+      const labelEls = mapLegend.element.querySelectorAll('.legend-text');
+      const cats = getLocalizedWonderCategories(lang);
+      labelEls.forEach((el, idx) => {
+        if (cats[idx]) el.textContent = cats[idx].label;
+      });
+    }
 
     if (mapLegend?.update) {
       mapLegend.update(nextRecords);

@@ -54,7 +54,7 @@ export function createWonderHoverCardHTML(record, language) {
     <div class="lagoon-hover-body">
       <div class="lagoon-hover-eyebrow-row">
         <span class="lagoon-hover-eyebrow">${escapeHtml(item.categoryLabel)}</span>
-        ${record.sevenWonder ? '<span class="lagoon-hover-canonical-tag">★ Seven Wonders</span>' : ''}
+        ${record.sevenWonder ? `<span class="lagoon-hover-canonical-tag">★ ${isGreek ? 'Επτά Θαύματα' : 'Seven Wonders'}</span>` : ''}
       </div>
       <div class="lagoon-hover-name">
         <strong class="lagoon-hover-name-en">${escapeHtml(primaryName)}</strong>

@@ -327,6 +327,36 @@ export class AncientToponymsLayer {
           collisionMargin: 4
         };
       }
+      case 'cape': {
+        const fontSize = Math.min(11, Math.max(9, 6 + zoom * 0.65));
+        return {
+          font: `italic 500 ${fontSize}px "EB Garamond", Georgia, serif`,
+          fontSize,
+          fillColor: 'rgba(90, 80, 70, 0.88)',
+          haloColor: 'rgba(255, 255, 255, 0.9)',
+          haloWidth: 2,
+          centered: false,
+          hasDot: true,
+          dotRadius: 1.5,
+          dotColor: 'rgba(110, 100, 88, 0.85)',
+          collisionMargin: 3
+        };
+      }
+      case 'sanctuary': {
+        const fontSize = Math.min(11.5, Math.max(9.5, 6.2 + zoom * 0.7));
+        return {
+          font: `italic 500 ${fontSize}px "Cormorant Garamond", Georgia, serif`,
+          fontSize,
+          fillColor: 'rgba(138, 58, 38, 0.88)',
+          haloColor: 'rgba(255, 255, 255, 0.95)',
+          haloWidth: 2,
+          centered: false,
+          hasDot: true,
+          dotRadius: 2,
+          dotColor: 'rgba(156, 64, 42, 0.9)',
+          collisionMargin: 4
+        };
+      }
       case 'city_major': {
         const fontSize = Math.min(13, Math.max(10.5, 7 + zoom * 0.75));
         return {

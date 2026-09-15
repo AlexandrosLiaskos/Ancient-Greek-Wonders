@@ -932,6 +932,217 @@ class AncientGreekWondersApp {
     if (refBtn) refBtn.textContent = isEl ? 'Πηγές' : 'Sources';
     if (submitBtn) submitBtn.textContent = isEl ? 'Υποβολή δεδομένων' : 'Submit data';
 
+    // Mobile controls
+    const mobFilters = document.getElementById('mobile-filters-toggle');
+    const mobSearch = document.getElementById('mobile-search-toggle');
+    const mobStats = document.getElementById('mobile-stats-toggle');
+    if (mobFilters) mobFilters.textContent = isEl ? 'Φίλτρα' : 'Filters';
+    if (mobSearch) mobSearch.textContent = isEl ? 'Αναζήτηση' : 'Search';
+    if (mobStats) mobStats.textContent = isEl ? 'Στατιστικά' : 'Statistics';
+
+    // Header & Welcome modal metadata
+    const lastUpdated = document.querySelector('.last-updated');
+    if (lastUpdated) {
+      lastUpdated.innerHTML = isEl
+        ? 'Τελευταία ενημέρωση: <time datetime="2026-09-12">12 Σεπτεμβρίου 2026</time>'
+        : 'Last updated: <time datetime="2026-09-12">12 September 2026</time>';
+    }
+    const covVal2 = document.getElementById('wm-cov-val-2');
+    const covVal3 = document.getElementById('wm-cov-val-3');
+    if (covVal2) covVal2.textContent = isEl ? '11 χώρες' : '11 countries';
+    if (covVal3) covVal3.textContent = isEl ? 'περ. 1600 π.Χ. – 300 μ.Χ.' : 'c. 1600 BC – 300 AD';
+
+    // Summary statistics labels in sidebar
+    const summaryLabelsEl = [
+      'Σύνολο καταλόγου',
+      'Ορατά μνημεία',
+      'Χώρες',
+      'Όρθια / αναστηλωμένα',
+      'Ερείπια / ανασκαμμένα',
+      'Επαναστημένα / ημιτελή',
+      'Χαμένα / βυθισμένα',
+      'Κανονικά Επτά Θαύματα'
+    ];
+    const summaryLabelsEn = [
+      'Catalogue total',
+      'Visible records',
+      'Countries represented',
+      'Standing / restored',
+      'Ruins / excavated',
+      'Re-erected / unfinished',
+      'Lost / submerged',
+      'Canonical Seven Wonders'
+    ];
+    document.querySelectorAll('#stats-summary .stats-row-label').forEach((row, i) => {
+      row.textContent = isEl ? summaryLabelsEl[i] : summaryLabelsEn[i];
+    });
+
+    // Statistics chart labels
+    const statsFigTitle = document.getElementById('stats-figure-title');
+    const statsAxisLabel = document.getElementById('stats-axis-label');
+    const statsTypeBadge = document.getElementById('stats-type-badge');
+    if (statsFigTitle) statsFigTitle.textContent = isEl ? 'Μνημεία κατά κατάσταση' : 'Wonders by condition';
+    if (statsAxisLabel) statsAxisLabel.textContent = isEl ? 'Κατάσταση' : 'Condition';
+    if (statsTypeBadge) statsTypeBadge.textContent = isEl ? 'κατηγορική' : 'categorical';
+
+    // Atlas Interface Panels
+    if (this.atlasInterface?.filterPanel) {
+      const fp = this.atlasInterface.filterPanel;
+      if (fp.fields) {
+        fp.fields.forEach((f) => {
+          if (f.key === 'status') {
+            f.label = isEl ? 'Κατάσταση' : 'Survival condition';
+            f.group = isEl ? 'Αρχαιολογία' : 'Archaeology';
+          } else if (f.key === 'category') {
+            f.label = isEl ? 'Τύπος μνημείου' : 'Monument typology';
+            f.group = isEl ? 'Αρχιτεκτονική' : 'Architecture';
+          } else if (f.key === 'country') {
+            f.label = isEl ? 'Σύγχρονη χώρα' : 'Modern country';
+            f.group = isEl ? 'Γεωγραφία' : 'Geography';
+          } else if (f.key === 'sevenWonder') {
+            f.label = isEl ? 'Επτά Θαύματα' : 'Seven Wonders';
+            f.group = isEl ? 'Κλασικά' : 'Canonical';
+          }
+        });
+      }
+      const pickerVal = document.getElementById('fbc-picker-value');
+      if (pickerVal && fp.activeField) {
+        pickerVal.textContent = fp.activeField.label;
+      }
+      fp.populatePicker?.();
+    }
+
+    if (this.atlasInterface?.statisticsPanel) {
+      const sp = this.atlasInterface.statisticsPanel;
+      if (sp.fields) {
+        sp.fields.forEach((f) => {
+          if (f.key === 'status') {
+            f.label = isEl ? 'Σημερινή κατάσταση' : 'Survival condition';
+            f.description = isEl ? 'Κατάσταση διατήρησης του μνημείου (όρθιο, ερείπια, ανασκαμμένο, ανοικοδομημένο, χαμένο).' : 'Preservation state of the ancient wonder according to contemporary archaeological documentation.';
+          } else if (f.key === 'category') {
+            f.label = isEl ? 'Τυπολογία' : 'Typology';
+            f.description = isEl ? 'Αρχιτεκτονικός και λειτουργικός τύπος του μνημείου ή του χώρου.' : 'Architectural and functional typology of the monument or complex.';
+          } else if (f.key === 'country') {
+            f.label = isEl ? 'Σύγχρονη χώρα' : 'Country';
+            f.description = isEl ? 'Σύγχρονο κράτος στο οποίο βρίσκεται σήμερα ο αρχαιολογικός χώρος.' : 'Modern nation-state encompassing the ancient archaeological site.';
+          }
+        });
+      }
+      const statsPickerVal = document.getElementById('stats-field-btn-value');
+      if (statsPickerVal && sp.activeField) {
+        statsPickerVal.textContent = sp.activeField.label;
+      }
+      sp.populatePicker?.();
+    }
+
+    // References modal
+    const refModalTitle = document.getElementById('ref-modal-title');
+    const refModalDesc = document.getElementById('ref-modal-desc');
+    const wondersPlatformTitle = document.getElementById('wonders-platform-title');
+    const refPlatformDesc = document.getElementById('ref-platform-desc');
+    const wondersDatasetTitle = document.getElementById('wonders-dataset-title');
+    const refDatasetDesc = document.getElementById('ref-dataset-desc');
+    const refDatasetCopy = document.getElementById('ref-dataset-copy');
+    const wondersLicenceTitle = document.getElementById('wonders-licence-title');
+    const refLicenceDesc = document.getElementById('ref-licence-desc');
+
+    if (refModalTitle) refModalTitle.textContent = isEl ? 'Πηγές & αναφορές' : 'Sources & citations';
+    if (refModalDesc) refModalDesc.textContent = isEl ? 'Χρησιμοποιήστε την αναφορά που αντιστοιχεί σε αυτό που παραθέτετε.' : 'Use the reference that matches what you are citing.';
+    if (wondersPlatformTitle) wondersPlatformTitle.textContent = isEl ? 'Διαδικτυακή πλατφόρμα' : 'Web platform';
+    if (refPlatformDesc) refPlatformDesc.textContent = isEl ? 'Παραθέστε τον διαδραστικό ιστότοπο και τη διεπαφή WebGIS.' : 'Cite the interactive website and interface.';
+    if (wondersDatasetTitle) wondersDatasetTitle.textContent = isEl ? 'Πρωτογενείς & αρχαιολογικές πηγές' : 'Primary & archaeological sources';
+    if (refDatasetDesc) refDatasetDesc.textContent = isEl ? 'Κλασικά κείμενα, αρχαιολογικά ινστιτούτα και κατάλογοι κληρονομιάς.' : 'Classical texts, archaeological institutes, and heritage registries.';
+    if (refDatasetCopy) {
+      refDatasetCopy.innerHTML = isEl
+        ? 'Οι κλασικές πηγές περιλαμβάνουν την «Ελλάδος Περιήγησιν» του Παυσανία, τις «Ιστορίες» του Ηροδότου, τα «Γεωγραφικά» του Στράβωνα και τη «Φυσική Ιστορία» (<em>Naturalis Historia</em>) του Πλινίου του Πρεσβύτερου. Η αρχαιολογική τεκμηρίωση, οι ανασκαφικές εκθέσεις και τα δελτία συντήρησης προέρχονται από το Υπουργείο Πολιτισμού, το Γερμανικό Αρχαιολογικό Ινστιτούτο (DAI), τη Βρετανική Σχολή Αθηνών (BSA), την Αμερικανική Σχολή Κλασικών Σπουδών στην Αθήνα (ASCSA) και το Κέντρο Παγκόσμιας Κληρονομιάς της UNESCO.'
+        : 'Classical sources include Pausanias’s <em>Description of Greece</em> (Ἑλλάδος Περιήγησις), Herodotus’s <em>Histories</em>, Strabo’s <em>Geographica</em>, and Pliny the Elder’s <em>Naturalis Historia</em>. Archaeological documentation, excavation reports, and conservation records are curated from the Hellenic Ministry of Culture, the German Archaeological Institute (DAI), the British School at Athens (BSA), the American School of Classical Studies at Athens (ASCSA), and the UNESCO World Heritage Centre.';
+    }
+    if (wondersLicenceTitle) wondersLicenceTitle.textContent = isEl ? 'Άδεια χρήσης & επανάχρηση' : 'Licence & reuse';
+    if (refLicenceDesc) refLicenceDesc.textContent = isEl ? 'Όροι για το πρωτότυπο περιεχόμενο της πλατφόρμας.' : 'Terms for original platform content.';
+
+    // Submit data modal
+    const submitDataTitle = document.getElementById('submit-data-title');
+    const submitDataIntroText = document.getElementById('submit-data-intro-text');
+    const submitPrepTitle = document.getElementById('submit-prep-title');
+    const submitPrepDesc = document.getElementById('submit-prep-desc');
+    const submitEmailBtn = document.getElementById('submit-email-btn');
+    const submitDataNoteText = document.getElementById('submit-data-note-text');
+
+    if (submitDataTitle) submitDataTitle.textContent = isEl ? 'Υποβολή δεδομένων Αρχαίων Θαυμάτων' : 'Submit Ancient Wonders data';
+    if (submitDataIntroText) submitDataIntroText.textContent = isEl
+      ? 'Υποβάλετε ένα αρχαίο ελληνικό μνημείο, αρχαιολογικό χώρο ή διόρθωση βασισμένη σε δημοσιευμένη επιστημονική ή αρχαιολογική βιβλιογραφία. Περιγράψτε συντεταγμένες, ιστορική εποχή, τυπολογία και σημερινή κατάσταση.'
+      : 'Submit an ancient Greek monument, archaeological site, or a correction supported by published scientific or archaeological literature. Describe coordinates, historical epoch, typology, and present condition.';
+    if (submitPrepTitle) submitPrepTitle.textContent = isEl ? 'Προετοιμάστε την υποβολή σας' : 'Prepare your submission';
+    if (submitPrepDesc) submitPrepDesc.textContent = isEl
+      ? 'Συμπεριλάβετε όνομα μνημείου (δίγλωσσο αν είναι δυνατόν), συντεταγμένες σε WGS84, αρχαία περιοχή, σύγχρονη χώρα, ιστορική εποχή και επιστημονικές παραπομπές (DOI / επίσημη βιβλιογραφία).'
+      : 'Include monument name (bilingual if possible), coordinates in WGS84, ancient region, modern country, historical epoch, and peer-reviewed or institutional citations.';
+    if (submitEmailBtn) submitEmailBtn.textContent = isEl ? 'Αποστολή υποβολής μέσω email' : 'Send submission by email';
+    if (submitDataNoteText) submitDataNoteText.textContent = isEl
+      ? 'Οι υποβολές εξετάζονται και επαληθεύονται πριν ενταχθούν στον άτλαντα.'
+      : 'Submissions are reviewed and verified before inclusion in the atlas.';
+
+    // Statistics Glossary modal
+    const statsGlossaryTitle = document.getElementById('stats-glossary-modal-title');
+    const statsGlossaryContent = document.getElementById('stats-glossary-content');
+    if (statsGlossaryTitle) statsGlossaryTitle.textContent = isEl ? 'Στατιστικοί Ορισμοί' : 'Statistical Definitions';
+    if (statsGlossaryContent) {
+      statsGlossaryContent.innerHTML = isEl ? `
+        <dl class="stats-glossary-list">
+          <dt>Μέγεθος δείγματος (n)</dt>
+          <dd>Ο αριθμός των έγκυρων, τεκμηριωμένων μνημείων που εμφανίζονται ή έχουν επιλεγεί στον άτλαντα.</dd>
+          <dt>Κατανομή / Συχνότητα</dt>
+          <dd>Το σχετικό πλήθος και η αναλογία των μνημείων που ταξινομούνται σε κάθε τυπολογική κατηγορία ή γεωγραφική επικράτεια.</dd>
+          <dt>Σημερινή Κατάσταση</dt>
+          <dd>Ταξινόμηση σε τέσσερις βασικές καταστάσεις διατήρησης: Όρθιο/αναστηλωμένο (διατηρημένη ανωδομή), Ερείπια/ανασκαμμένο (θεμέλια, στυλοβάτες ή ανασκαφικά κατάλοιπα), Επαναστημένο/ημιτελές (αναστήλωση ή αρχαία ημιτελή έργα) και Χαμένο/βυθισμένο (καταστραμμένο, λιθολογημένο ή υποθαλάσσιο).</dd>
+          <dt>Κανονικά Επτά Θαύματα</dt>
+          <dd>Τα μνημεία που περιλαμβάνονται στους κλασικούς ελληνιστικούς καταλόγους των Επτά Θαυμάτων του Αρχαίου Κόσμου (Φίλων ο Βυζάντιος, Αντίπατρος ο Σιδώνιος).</dd>
+        </dl>
+      ` : `
+        <dl class="stats-glossary-list">
+          <dt>Sample size (n)</dt>
+          <dd>The number of valid, documented monuments currently visible or selected.</dd>
+          <dt>Distribution / Frequency</dt>
+          <dd>The relative count and proportion of monuments classified within each category or geographical region.</dd>
+          <dt>Survival Condition</dt>
+          <dd>Classification into four primary survival states: Standing/restored (preserved structural elevation), Ruins/excavated (substructure, foundational elements, or column stumps), Re-erected/unfinished (anastylosis or ancient abandoned projects), and Lost/submerged (destroyed, quarried away, or submerged).</dd>
+          <dt>Canonical Seven Wonders</dt>
+          <dd>The monuments included in classical Hellenistic lists of the Seven Wonders of the Ancient World (Phaedo of Byzantium, Antipater of Sidon).</dd>
+        </dl>
+      `;
+    }
+
+    // Feature guide modal details
+    const fgCaption = document.getElementById('feature-guide-caption');
+    const fgSource = document.getElementById('feature-guide-source');
+    if (fgCaption) {
+      fgCaption.innerHTML = isEl
+        ? '<span>Ο Παρθενώνας (447–432 π.Χ.) στην Ακρόπολη των Αθηνών.</span><span>Σχεδιασμένος από τον Ικτίνο και τον Καλλικράτη υπό την καλλιτεχνική εποπτεία του Φειδία.</span>'
+        : '<span>The Parthenon (447–432 BC) on the Acropolis of Athens, Greece.</span><span>Designed by Ictinus and Callicrates under the artistic direction of Phidias.</span>';
+    }
+    if (fgSource) {
+      fgSource.innerHTML = isEl
+        ? 'Επιστημονικές αναφορές: Παυσανίας (<em>Ελλάδος Περιήγησις</em>), Ηρόδοτος (<em>Ιστορίαι</em>), Στράβων (<em>Γεωγραφικά</em>) και Κέντρο Παγκόσμιας Κληρονομιάς UNESCO.'
+        : 'Academic references: Pausanias (<em>Description of Greece</em>), Herodotus (<em>Histories</em>), Strabo (<em>Geographica</em>), and UNESCO World Heritage Centre.';
+    }
+
+    // SQL filter modal
+    const sqlModalTitle = document.querySelector('#sql-filter-modal .modal-header h3');
+    const addCondBtn = document.getElementById('add-condition');
+    const addGrpBtn = document.getElementById('add-group');
+    const queryPrevLabel = document.querySelector('#sql-filter-modal .query-preview label');
+    const applySqlBtn = document.getElementById('apply-sql-filter');
+    const clearSqlBtn = document.getElementById('clear-sql-filter');
+    if (sqlModalTitle) sqlModalTitle.textContent = isEl ? 'Δομητής Ερωτημάτων' : 'Query Builder';
+    if (addCondBtn) {
+      addCondBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>${isEl ? 'Προσθήκη συνθήκης' : 'Add Condition'}`;
+    }
+    if (addGrpBtn) {
+      addGrpBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>${isEl ? 'Προσθήκη ομάδας' : 'Add Group'}`;
+    }
+    if (queryPrevLabel) queryPrevLabel.textContent = isEl ? 'Παραγόμενο ερώτημα:' : 'Generated Query:';
+    if (applySqlBtn) applySqlBtn.textContent = isEl ? 'Εφαρμογή φίλτρου' : 'Apply Filter';
+    if (clearSqlBtn) clearSqlBtn.textContent = isEl ? 'Καθαρισμός όλων' : 'Clear All';
+
     this.syncUrl();
     if (triggerUpdate) {
       if (this.atlasInterface) {
