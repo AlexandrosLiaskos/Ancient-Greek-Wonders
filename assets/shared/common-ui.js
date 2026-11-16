@@ -545,6 +545,7 @@
                 x: 0, y: y, width: barWidth, height: rowHeight,
                 class: 'stats-bar stats-bar-cat' + (point.isOther ? ' is-other' : '') + (overflowed ? ' is-overflow' : '')
             });
+            var fieldConfig = config && config.fieldConfig;
             var barColor = (fieldConfig && typeof fieldConfig.getColor === 'function' ? fieldConfig.getColor(point.key, point) : null)
                 || (config && typeof config.getColor === 'function' ? config.getColor(point.key, point) : null);
             if (barColor) {
@@ -633,6 +634,8 @@
             if (!points.length) renderEmptyChart(chart, config.emptyLabel);
             else renderCategoricalChart(chart, points, {
                 locale: config.locale,
+                fieldConfig: fieldConfig,
+                getColor: config.getColor,
                 fieldLabel: fieldConfig.label || config.axisLabel || String(config.field),
                 frequencyOf: config.frequencyOf,
                 onGroupSelect: config.onGroupSelect
@@ -1776,7 +1779,7 @@
                 glossaryClose: glossaryModal ? (glossaryModal.querySelector('.modal-close') || glossaryModal.querySelector('#close-stats-glossary')) : null,
                 binModal: binModal,
                 binClose: binModal ? (binModal.querySelector('.modal-close') || binModal.querySelector('#close-stats-bin')) : null,
-                binTitle: binModal ? (binModal.querySelector('#stats-bin-title') || binModal.querySelector('h3')) : null,
+                binTitle: binModal ? (binModal.querySelector('#stats-bin-title') || binModal.querySelector('#stats-bin-modal-title') || binModal.querySelector('h3')) : null,
                 binSummary: binModal ? binModal.querySelector('#stats-bin-summary') : null,
                 binList: binModal ? binModal.querySelector('#stats-bin-list') : null
             };
@@ -2427,6 +2430,7 @@
             advancedFields: advancedFields,
             locale: this.config.locale,
             text: this.config.text,
+            getValue: this.config.getValue,
             getOptions: this.config.getOptions,
             onApply: this.config.onApply,
             onAdvancedApply: this.config.onAdvancedApply,

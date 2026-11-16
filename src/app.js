@@ -407,6 +407,11 @@ class AncientGreekWondersApp {
     if (document.body) {
       document.body.dataset.activeTab = tabName;
     }
+    if (tabName === 'stats') {
+      this.atlasInterface?.statisticsPanel?.render?.();
+    } else if (tabName === 'filters') {
+      this.atlasInterface?.filterPanel?.render?.();
+    }
   }
 
   initModals() {
@@ -875,6 +880,8 @@ class AncientGreekWondersApp {
   }
 
   updateView() {
+    const mapCategoryInput = document.getElementById('mapCategory-filter');
+    if (mapCategoryInput) mapCategoryInput.value = this.state.mapCategory || '';
     this.mapController?.update(this.currentRecords, this.state.language);
     this.mapController?.setActiveCategory?.(this.state.mapCategory || '');
     this.updateSearchResults();
