@@ -1963,6 +1963,12 @@ body.lightbox-open {
     margin-right: 6px;
 }
 
-
-
-
+/* Map credits on desktop: above 720 px the status bar lies over the bottom edge
+   of the map, and its right box (coordinates and scale) covered the map credits
+   button in the bottom-right corner. Keep the right end of the status bar clear
+   of the button (34 px wide, 10 px from the edge). */
+@media (min-width: 721px) {
+    .map-status-bar {
+        padding-right: calc(0.75rem + 44px);
+    }
+}
