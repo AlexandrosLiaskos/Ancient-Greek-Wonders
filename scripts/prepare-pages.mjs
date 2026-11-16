@@ -2,8 +2,8 @@ import { cp, mkdir, rm, stat } from 'node:fs/promises';
 import { basename, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const REQUIRED = ['index.html', '404.html', 'styles.css', 'src'];
-const OPTIONAL = ['assets', 'ATTRIBUTIONS.md', 'LICENSE'];
+export const REQUIRED = ['index.html', '404.html', 'styles.css', 'src'];
+export const OPTIONAL = ['assets', 'ATTRIBUTIONS.md', 'LICENSE'];
 
 async function exists(path) {
   try {
