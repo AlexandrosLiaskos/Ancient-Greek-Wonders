@@ -2517,6 +2517,10 @@
         var counters = document.querySelectorAll('[data-visit-count]');
         counters.forEach(function (counter) {
             var endpoint = counter.getAttribute('data-endpoint');
+            // GitHub Pages has no counter service next to the page. There the visit is
+            // recorded by the visit counter of the NKUA server, which adds it to the same total.
+            var pagesEndpoint = counter.getAttribute('data-endpoint-github-pages');
+            if (pagesEndpoint && /\.github\.io$/.test(window.location.hostname)) endpoint = pagesEndpoint;
             var storageKey = counter.getAttribute('data-storage-key');
             var locale = counter.getAttribute('data-locale') || 'en';
             var unavailableText = counter.getAttribute('data-unavailable') || 'Unavailable';
